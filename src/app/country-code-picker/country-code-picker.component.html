@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-searchbar
+    (ionChange)="searchFromArray($event.detail)"
+     animated="true"
+     autocomplete="on"
+     autocorrect="on"
+
+     ></ion-searchbar>
+  </ion-toolbar>
+  <div class="country-code-list">
+    <div class="country-code-inner-container" *ngIf="!searching">
+      <div class="item" *ngFor="let item of countryCodeList" >
+        <div class="item-inner" (click)="selectItem(item)">
+          <div class="left">{{item.dial_code}}</div>
+          <span class="emoji">{{item.flag}}</span>
+          <div class="right">{{item.name}}</div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="country-code-inner-container" *ngIf="searching">
+      <div class="item" *ngFor="let item of searchedList" >
+        <div class="item-inner" (click)="selectItem(item)">
+          <div class="left">{{item.dial_code}}</div>
+          <span class="emoji">{{item.flag}}</span>
+          <div class="right">{{item.name}}</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

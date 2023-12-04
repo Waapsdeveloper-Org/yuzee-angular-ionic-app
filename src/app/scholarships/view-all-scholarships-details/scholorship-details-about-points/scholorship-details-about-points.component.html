@@ -1,0 +1,22 @@
+<div class="header-border more-about-this-institution-wrap">
+  <h2 class="section-title ion-no-margin">{{ 'More about Scholorship' | translate }}</h2>
+  <ion-slides [options]="slideOptsScholarships">
+    <ion-slide *ngFor="let validity of validityArray">
+      <ion-card class="child-card">
+        <ion-card-content>
+          <div class="display-flx ion-align-items-center">
+            <img class="child-card-img" [src]="validity.icon" />
+            <div>
+              <h3 class="fs-13 font-medium color-black ion-no-margin ion-text-left webkit-clamp-one">
+                {{ validity.value }} 
+              </h3>
+              <h4 class="fs-12 font-light color-black ion-no-margin ion-text-left webkit-clamp-one">
+                {{ validity.keyTitle }}
+              </h4>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>

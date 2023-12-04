@@ -1,0 +1,35 @@
+<div class="edit-popup-container">
+  <div (click)="dismiss(selectedData)" class="edit-popup-top-section-container">
+    <div class="edit-popup-top-inner">
+      <div  class="edit-pop-up-horizontal-line"></div>
+    </div>
+  </div>
+
+  <div  class="edit-popup-list-section">
+
+    <div   class="list-inner-container" >
+<ion-list>
+  <ion-radio-group  (ionChange)="ionFocus($event)">
+
+    <ion-item lines="none" *ngFor="let item of data">
+      <div class="item-container">
+      <div class="left-logo-section">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        <ion-label class="name-item">{{item}}</ion-label>
+      </div>
+      <div class="right-label-seciton">
+        <ion-radio slot="end" value="{{item}}"></ion-radio>
+      </div>
+    </div>
+    </ion-item>
+
+  </ion-radio-group>
+</ion-list>
+
+
+
+    </div>
+
+
+  </div>
+</div>

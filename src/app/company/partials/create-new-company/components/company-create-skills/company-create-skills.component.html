@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="wid-ht-header-btns" slot="start">
+      <ion-button class="header-back-btn" (click)="dismiss([])">
+        <ion-icon src="assets/back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <app-generic-ion-searchbar
+      class="customSearchBox-width-88"
+      [class]="'customSearchBox-without-close-btn search-box-custom-icon'"
+      [placeholder]="'Type to start search...'"
+      [value]="search"
+      (ionChange)="ionSearch($event)"
+    ></app-generic-ion-searchbar>
+    <ion-buttons
+      slot="end"
+      class="wid-ht-header-btns"
+      [hidden]="getSelectedLength()"
+    >
+      <ion-button
+        class="margin-right"
+        (click)="save()"
+        [disabled]="getSelectedLength()"
+      >
+        {{ "Done" | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding no-top-padding">
+    <div *ngIf="speciality.length > 0">
+      <ion-item
+        style="border-bottom: 1px solid #dedede !important"
+        lines="none"
+        class="ccsk-item"
+        [ngClass]="!last ? 'item-css' : ''"
+        *ngFor="let item of speciality; let i = index; let last = last"
+        (click)="pushSelectedSpeciality(item)"
+      >
+        <ion-label>
+          <h2
+            [ngClass]="isItemSelected(item) ? 'color-blue' : 'color-black'"
+            class="font-regular wid-90 csk-unset-top-margin"
+          >
+            {{ item.speciality_name }}
+          </h2>
+        </ion-label>
+        <ion-checkbox slot="end" (onChange)="isItemSelected(item)"></ion-checkbox>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

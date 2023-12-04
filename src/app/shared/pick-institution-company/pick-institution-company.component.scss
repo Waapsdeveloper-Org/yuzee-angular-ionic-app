@@ -1,0 +1,104 @@
+@import "../../../theme/custom-header.css";
+
+.add-icon-div {
+    border-radius: 50%;
+    background: #D4D6DB30;
+    height: 31px;
+    width: 31px;
+    margin-right: 13px;
+}
+
+.create-btn {
+    margin: auto;
+}
+
+.name-item {
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+    margin-bottom: 20px !important;
+}
+
+.user-profile-picture {
+    height: 42px;
+    width: 42px;
+    min-width: 42px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.user-name {
+    text-transform: capitalize;
+}
+
+.institution-company-card {
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 0px;
+    margin: 14px 0px;
+}
+
+.institution-company-item {
+    --padding-start: 10px;
+    --inner-padding-end: 16px;
+}
+
+.institution-company-pic-div {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    .institution-company-picture {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.background-blue {
+    background: #61ABD6;
+}
+
+.background-green {
+    background: #82B378;
+}
+
+.background-brown {
+    background: #8B7C81;
+}
+
+.background-yellow {
+    background: #F9DDBF;
+}
+
+.create-wrap-div {
+    padding: 18px 0px;
+}
+
+.SkCss {
+    .skImg {
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+    }
+    .pad-left-form {
+        width: 100%;
+    }
+    .skTitle {
+        height: 14px;
+        width: 60%;
+    }
+    .skSub {
+        height: 11px;
+        width: 45%;
+    }
+    .skBlue {
+        border-radius: 50%;
+        height: 18px;
+        width: 18px;
+    }
+}

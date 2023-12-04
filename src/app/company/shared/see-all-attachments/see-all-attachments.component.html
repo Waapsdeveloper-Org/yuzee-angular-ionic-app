@@ -1,0 +1,19 @@
+
+<ion-header>
+  <ion-toolbar class="header-border">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ title | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-inr-section">
+    <ng-container *ngFor="let doc of [1,1]">
+      <app-documents documentImage="assets/imgs/docx-icon/doc.svg" documentName="proof-of-Australiankeypass.jpg"></app-documents><!-- This data will be dynamic -->
+    </ng-container>
+  </div>
+</ion-content>

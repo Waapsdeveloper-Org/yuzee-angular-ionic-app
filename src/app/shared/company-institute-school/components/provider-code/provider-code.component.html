@@ -1,0 +1,86 @@
+<div class="sect-port">
+  <ion-item class="ion-no-padding" lines="none">
+    <ion-label class="ion-text-start no-margin fs-16">
+      {{ "Provider Code" | translate }}
+    </ion-label>
+    <ion-icon
+      (click)="close.emit()"
+      *ngIf="showClose"
+      slot="end"
+      name="close-outline"
+    ></ion-icon>
+  </ion-item>
+
+  <form class="form-control" #childFormGroup="ngForm" (ionChange)="ngChange()">
+    <ion-row class="ion-justify-content-between ion-no-margin ion-no-padding">
+      <ion-col size="5.5" class="ion-no-margin ion-no-padding">
+        <ion-item class="col-pad-top col-pad-bottom ion-text-start fs-14" >
+          <ion-label position="floating" class="fs-14 text-blackf3">
+            {{"Type" | translate}}</ion-label>
+          <ion-input
+            (click)="presentPopUp('days')"
+            [value]="item.name"
+            (ionChange)="selectedProviderType($event.detail.value)"
+            name="name"
+            readonly="true"
+            required
+            [(ngModel)]="item.name"
+          >
+          </ion-input>
+          <ion-icon
+            slot="end"
+            name="chevron-down-outline"
+            class="color-blue arrow-down-icon-size"
+          >
+          </ion-icon>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="5.9" class="ion-no-margin ion-no-padding">
+        <ion-item class="col-pad-top col-pad-bottom ion-text-start fs-14">
+          <ion-label position="floating" class="fs-14 text-blackf3">
+            {{"Code" | translate}}
+          </ion-label>
+          <ion-input
+            type="text"
+            minLength="2"
+            [maxlength]="maxLength"
+            [value]="item.value"
+            (ionChange)="selectedCode($event.detail.value)"
+            [(ngModel)]="item.value"
+            name="value"
+            (ionChange)="checkValidation(item.name, item.value)"
+            required
+            #code="ngModel"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <ion-row>
+    <ion-col size="6" class="ion-no-padding ion-no-margin">
+    </ion-col>
+    <ion-col size="6" class="ion-no-padding ion-no-margin">
+      <h4
+      *ngIf="validateObj?.duplicateCode"
+        class="font-regular color-red validation-msg ion-text-start ion-no-padding ion-no-margin">
+        {{ "Code already exists" | translate }}
+      </h4>
+      <h4
+      *ngIf="validateObj?.isNumber && !validateObj?.isValid"
+        class="font-regular color-red validation-msg ion-text-start ion-no-padding ion-no-margin">
+        {{ "Only Alphanumeric input allowed" | translate }}
+      </h4>
+      <h4
+      *ngIf="validateObj?.isAlphaNumeric && !validateObj?.isValid"
+        class="font-regular color-red validation-msg ion-text-start ion-no-padding ion-no-margin">
+        {{ "Only number value allowed" | translate }}
+      </h4>
+    </ion-col>
+  </ion-row>
+
+<ion-row>
+<app-add-attachments-section (newItemEvent)="uploadDocs($event)"></app-add-attachments-section>
+</ion-row>
+</div>

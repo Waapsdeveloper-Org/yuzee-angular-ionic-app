@@ -1,0 +1,105 @@
+<!-- <div> 
+    <p class="result-txt" *ngIf="recommendationInstitutionList">{{recommendationInstitutionList.length}} Result</p> 
+    <h4 class="title-explore">Recommended institution in your location</h4>
+    <ion-row *ngFor="let institution of recommendationInstitutionList" class="institut-lst-pad">
+        <ion-col size="2" class="text-center">
+            <img class="course-image" src="assets/imgs/image1.png"/>
+        </ion-col>
+        <ion-col size="10" class="text-align bor-grr">
+            <div>
+                <p class="mar-auto fs-14 fs-w6 ins-tit">{{institution.institute_name}}</p>
+                <p class="fs-14 mar-loc ins-course" >{{institution.country_name}}, {{institution.city_name}}</p>
+                <p class="bor-thin-mid"></p>
+                <p class="inst-ran">
+                    <img  src="assets/imgs/globalicon/worldranking.png" class="img-lft-inst" />
+                    World ranking  &#8226; {{institution.world_ranking}}
+                    <span *ngIf="!institution.world_ranking">0</span>
+
+                </p>
+                <p class="inst-ran">
+                    <img  src="assets/imgs/globalicon/courses-grey.png" class="img-lft-inst" />
+                    Total course &#8226; {{institution.course_count}}
+                    <span *ngIf="!institution.course_count">0</span>
+                </p>
+                <p class="inst-ran">
+                    <img  src="assets/imgs/globalicon/ranking.png" class="img-lft-inst" />
+                    Rating &#8226; 0
+                    {{institution.worldRanking}} ->
+                </p>
+            </div>
+        </ion-col>
+    </ion-row>
+</div> -->
+
+<div>
+    <p class="result-txt">1234 {{ "Result" | translate }} </p>
+
+    <p class="top10">{{ "Top 10 courses" | translate }} </p>
+    <ion-row class="bor-btm">
+        <ion-col size="3">
+            <div class="flex-center">
+                <img class="uni-img" src="./../../../../assets/New/uni1.png" />
+            </div>
+            <bar-rating [(rate)]="ratingNumber" [max]="5" class="active-Pointer"></bar-rating>
+        </ion-col>
+        <ion-col size="8">
+            <p class="uni-title">Humboldt University of Berlin</p>
+            <p class="uni-add">Berlin, Germany</p>
+            <p class="to-conf"><span>1321</span> Total Courses</p>
+        </ion-col>
+        <ion-col size="1" class="txt-rgt">
+            <img class="dot-img" src="./../../../../assets/New/dot.png" />
+        </ion-col>
+    </ion-row>
+    
+    <ion-row class="bor-btm">
+        <ion-col size="3">
+            <div class="flex-center">
+                <img class="uni-img" src="./../../../../assets/New/uni3.png" />
+            </div>
+            <bar-rating [(rate)]="ratingNumber" [max]="5" class="active-Pointer"></bar-rating>
+        </ion-col>
+        <ion-col size="8">
+            <p class="uni-title">Humboldt University of Berlin</p>
+            <p class="uni-add">Berlin, Germany</p>
+            <p class="to-conf"><span>1321</span> Total Courses</p>
+        </ion-col>
+        <ion-col size="1" class="txt-rgt">
+            <img class="dot-img" src="./../../../../assets/New/dot.png" />
+        </ion-col>
+    </ion-row>
+    
+    <ion-row class="bor-btm">
+        <ion-col size="3">
+            <div class="flex-center">
+                <img class="uni-img" src="./../../../../assets/New/uni4.png" />
+            </div>
+            <bar-rating [(rate)]="ratingNumber" [max]="5" class="active-Pointer"></bar-rating>
+        </ion-col>
+        <ion-col size="8">
+            <p class="uni-title">Humboldt University of Berlin</p>
+            <p class="uni-add">Berlin, Germany</p>
+            <p class="to-conf"><span>1321</span> Total Courses</p>
+        </ion-col>
+        <ion-col size="1" class="txt-rgt">
+            <img class="dot-img" src="./../../../../assets/New/dot.png" />
+        </ion-col>
+    </ion-row>
+    
+    <ion-row class="bor-btm">
+        <ion-col size="3">
+            <div class="flex-center">
+                <img class="uni-img" src="./../../../../assets/New/uni5.png" />
+            </div>
+            <bar-rating [(rate)]="ratingNumber" [max]="5" class="active-Pointer"></bar-rating>
+        </ion-col>
+        <ion-col size="8">
+            <p class="uni-title">Humboldt University of Berlin</p>
+            <p class="uni-add">Berlin, Germany</p>
+            <p class="to-conf"><span>1321</span> Total Courses</p>
+        </ion-col>
+        <ion-col size="1" class="txt-rgt">
+            <img class="dot-img" src="./../../../../assets/New/dot.png" />
+        </ion-col>
+    </ion-row>
+</div>

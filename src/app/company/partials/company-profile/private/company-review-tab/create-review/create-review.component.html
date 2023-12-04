@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar class="header-border">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="goBack()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ "Write a review" | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-review-slider [reviewObject]="reviewObject" ></app-review-slider>
+</ion-content>

@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar class="header-border">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ "Achievements" | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="sect-port ion-padding-bottom pad-top-form">
+    <div
+      *ngFor="
+        let item of achievements;
+        let last = last;
+        let first = first;
+        let index = index
+      "
+      [ngClass]="!first ? 'margin-top-xl' : ''" >
+      <div class="display-flx ion-align-items-start wid-100">
+        <img
+          class="circle-pro"
+          slot="start"
+          src="assets/company-profile/achievments.svg"
+        />
+        <div class="display-flx ion-align-items-start wid-100 ion-justify-content-between">
+          <div class="achievements-txt-div-wrap">
+            <h2 class="fs-16 font-medium color-black first-letter-cap ion-word-break-all ion-no-margin lh-20">{{ item?.achievement_name }}</h2>
+            <h3 class="font-regular education-year fs-14 color-grey first-letter-cap ion-no-margin">{{ item?.achievement_start_date }}</h3>
+          </div>
+          <div>
+            <button
+            ion-button
+            class="user-education-edit-btn ion-no-background ion-no-padding"
+            (click)="editAchievements(item)"
+          >
+            <img src="assets/svgs/edit-blue-icon.svg" />
+          </button>
+          </div>
+        </div>
+      </div>
+
+      <app-accordions expandHeight="1000px" [expanded]="item?.itemExpanded">
+        <ng-container>
+          <div>
+            <p class="ion-no-margin margin-bottom-xl fs-14 margin-top-18 fw-300 first-letter-cap">{{ item?.achievement_description }}</p>
+          </div>
+          <div>
+            <div class="left">
+              <div class="itemImg">
+                <img
+                  class="user-icon"
+                  [src]="
+                    item.user_info[0].image_path
+                      ? item.user_info[0].image_path
+                      : 'assets/company-profile/avatar-default.svg'
+                  "
+                />
+              </div>
+              <div *ngIf="item?.user_info[1]" class="itemImg margined">
+                <img
+                  class="user-icon"
+                  src="{{
+                    item.user_info[1].image_path
+                      ? item.user_info[1].image_path
+                      : 'assets/company-profile/avatar-default.svg'
+                  }}"
+                />
+              </div>
+              <div *ngIf="item?.user_info[2]" class="itemImg margined">
+                <img
+                  class="user-icon"
+                  src="{{
+                    item.user_info[2].image_path
+                      ? item.user_info[2].image_path
+                      : 'assets/company-profile/avatar-default.svg'
+                  }}"
+                />
+              </div>
+              <div class="right margin-left-10">
+                <div class="threeNames">
+                  <div
+                    class="nameItem"
+                    *ngFor="let user of item.user_info; let i = index"
+                  >
+                    <ion-label *ngIf="i < 3"
+                      >{{
+                        user.first_name +
+                          " " +
+                          user.last_name +
+                          (i == item.user_info.length - 1 ? "" : ",")
+                      }}
+                    </ion-label>
+                  </div>
+                </div>
+                <div *ngIf="item.user_info.length > 3" class="nameItem more">
+                  {{ item.user_info.length - 3 + " more" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item.user_info.length > 0" class="pad-bottom-form">
+            <div>
+              <h2 class="associated-with-txt color-black font-medium fs-15">{{ 'Tagged People' | translate }}</h2>
+            </div>
+            <!-- Tagged People -->
+            <div *ngIf="item.user_info.length > 0">
+              <div class="tagged-with-info-div display-flx ion-align-items-center">
+                <ng-container *ngFor="let tagged of item.user_info | slice:0:3; let i = index">
+                  <div class="tagged-with-logo-imgs-wrap posi-rel" [class.tagged-with-logo-other-imgs]="i > 0">
+                      <img class="tagged-with-logo-imgs" [src]="tagged.image_path"/>
+                      <div *ngIf="i == 2" class="tagged-with-logo-imgs-layer"></div>
+                      <span *ngIf="i == 2" class="font-medium color-white imgs-layer-text fs-12">+2</span>
+                  </div>
+                </ng-container>
+                <div class="tagged-with-info-names">
+                  <h4 class="color-black font-regular fs-14 ion-no-margin"><span *ngFor="let tagged of item.user_info | slice:0:2; let i = index">{{ tagged.first_name + ' ' + tagged.last_name }}<span *ngIf="i < 2">, </span></span><!--Data will be dynamic-->
+                  <span *ngIf="item.user_info.length > 2" class="color-blue plus-more-btn" (click)="openMoreResults()"> + {{ item.user_info.length - 2 }} {{ 'more' | translate}}</span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+          class="attachments margin-top-20"
+          [hidden]="visibleAttachmentHeading(item)"
+        >
+          <div class="attachmentLabel ion-margin-bottom">
+            <ion-label>{{ 'Attachments' | translate }}</ion-label>
+          </div>
+          <div *ngFor="let attachment of item?.storage" class="vac-array">
+            <div class="attach-file-box text-align mb-2">
+              <img
+                class="attach-icon"
+                [src]="getImageFromExtension(attachment.file_type)"
+              />
+              <div class="attach-file text-align">
+                <label>
+                  {{
+                    attachment.original_file_name + "." + attachment.file_type
+                  }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- Documents -->
+          <div class="accomplishment-attachments-section">
+            <h2 class="documents-title-txt color-black font-medium fs-15">{{ 'Attachment' | translate }}</h2>
+            <div class="documents-component-div">
+                <app-documents *ngFor="let doc of [1,1,1]" documentImage="assets/imgs/docx-icon/doc.svg" documentName="proof-of-Australiankeypass.jpg"></app-documents>
+            </div>
+          </div>
+
+        </ng-container>
+      </app-accordions>
+
+      <div [ngClass]="!last ? 'bottom-border' : ''">
+        <ion-row
+          [ngClass]="last ? 'bottom-zero' : ''"
+          class="ion-text-center">
+          <ion-col class="ion-no-padding display-flx ion-justify-content-center" size="12">
+            <ion-button mode="md" class="see-more fs-14 font-regular color-blue"
+            (click)="expandView(index)">{{ item?.itemExpanded ? 'See less' : 'See more' | translate }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

@@ -1,0 +1,92 @@
+<div>
+  <p class="result-txt">{{scholarshipObj.totalCount}} {{ "Result" | translate }}</p>
+
+        <div>
+            <div *ngFor="let scholarship of scholarshipList" class="scholar-card">
+                <ion-row>
+                    <ion-col class="col-p pad-botm-zero">
+                        <img src="assets/imgs/Search/logo.png" class="schl-icon"/>
+                    </ion-col>
+                    <ion-col size="9" class="pad-botm-zero">
+                            <div>
+                                <p class="sch-name">{{scholarship.name}}</p>
+                                <p class="provided">Provided by {{scholarship.institute.name}}</p>
+                            </div>
+                    </ion-col>
+                    <ion-col size="1" class="pad-botm-zero ion-text-end" >
+                        <img src="assets/imgs/globalicon/new-icons/dots.png" class="dots-icon"/>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col class="col-p">
+                    </ion-col>
+                    <ion-col size="4">
+                            <div>
+                                <p class="sch-btm">
+                                    <img src="assets/imgs/globalicon/new-icons/icon-open-timer.png" class="schl-btm-icon"/>
+                                    {{scholarship.intakes[0].intake_date}}
+                                </p>
+                                <p class="sch-amount">
+                                    <img src="assets/imgs/globalicon/new-icons/amount.png" class="schl-btm-icon"/>
+                                    {{scholarship.amount}} / year
+                                </p>
+                            </div>
+                    </ion-col>
+                    <ion-col size="5">
+                            <div>
+                                <p class="sch-btm">
+                                    <img src="assets/imgs/globalicon/new-icons/level.png" class="schl-btm-icon"/>
+                                    Degree | Postgraduate
+                                </p>
+                            </div>
+                    </ion-col>
+                    <ion-col size="1">
+                    </ion-col>
+                </ion-row>
+            </div>
+                
+
+        </div>
+       
+
+          <div class="no-cover flex-center ion-padding-top text-center" *ngIf="scholarshipList.length == 0">
+              <div class="wid-100">
+                      <img src="assets/imgs/not-found.png" class="not-img-wdth"/>
+                      <p class="text-black fs-w6 fs-18">{{"Nothing yet" | translate}}</p>
+                  </div>
+          </div>
+          <!-- <ion-infinite-scroll  (ionInfinite)="doInfinite($event)" *ngIf="GSRObject.hasNextPage">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll> -->
+</div>
+
+
+<!-- <div class="ion-padding-top">
+    <ion-row *ngFor="let scholarship of scholarshipList" class="scholar-pad">
+        <ion-col size="2" class="text-center">
+            <div class="sch-deg">
+                UG
+            </div>
+        </ion-col>
+        <ion-col size="5" class="home-thin-border pad-lft-sch" >
+            <div>
+                <p class="sch-title no-margin">{{scholarship.name}}</p>
+                <p class="sch-title no-margin">{{scholarship.instituteName}}</p>
+                <p class="sch-powered text-black no-margin fs-w2 fs-12">Provided by: {{scholarship.offeredBy}}</p>
+                <p class="sch-intake text-grey5 no-margin">Intake {{scholarship.applicationDeadline}}</p>
+            </div>
+        </ion-col>
+        <ion-col size="4" class="home-thin-border flex-center">
+                <div class="schlr-amount-padd"  *ngIf="scholarship.scholarshipAmount">
+                    <p class="no-margin schl-seemore">Tution Coverage</p>
+                    <p class="text-blue-li fs-15 mar-auto">{{scholarship.scholarshipAmount}}</p>
+                </div>
+                <div class="schlr-amount-padd"  *ngIf="!scholarship.scholarshipAmount">
+                    <p class="no-margin schl-seemore">See more info</p>
+                </div>
+            </ion-col>
+        <ion-col size="1" class="home-thin-border flex-center">
+                <img class="arrow-img-wdth" src="assets/imgs/arrows/arrow.png"/>
+        </ion-col>
+    </ion-row>
+</div> -->

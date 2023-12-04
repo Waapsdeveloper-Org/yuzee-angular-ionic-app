@@ -1,0 +1,66 @@
+<ion-header class="bg-white">
+  <ion-toolbar class="header-border">
+    <div class="display-flx ion-align-items-center ion-justify-content-between">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple back-btn">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <app-generic-ion-searchbar [class]="'customSearchBox-without-close-btn search-box-custom-icon wid-100 mar-auto'"
+      [placeholder]="'Search'" (ionChange)="onSearchType($event)" (ionClear)="clearSearch($event)" ></app-generic-ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="sect-port">
+    <ion-row *ngIf="faqs.length == 0">
+      <ion-col size="12">
+        <p class="ion-text-center fs-14 fw-300 text-center color-grey pad-top-form">
+          {{ "No Search Results Found!" | translate }}
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <div class="work-availability-section-details-div"
+      *ngFor="let item of faqs; let i = index; let last = last">
+      <ion-card class="work-availability-section-card">
+        <div class="work-availability-section-header-box"
+          [class.work-availability-section-header-box-active]="item.isOpened" (click)="toggleOpen(i)">
+          <h3 class="fs-15 font-bold color-black ion-word-break-all first-letter-cap">{{ item.title }}</h3>
+          <button ion-button class="drop-down-arrow-btn">
+            <img class="icon-size-xsm" [class.transform-dropdown-icon]="item.isOpened"
+              src="assets/imgs/student-profile/downarrow.svg" /></button>
+        </div>
+        <app-accordions expandHeight="1000px" [expanded]="item.isOpened">
+          <div class="wa-section-header-box-details expand-wrapper" #expandWrapper [class.collapsed]="!item.isOpened">
+            <ion-row>
+              <ion-col size="11" class="ion-no-padding">
+                <h3 class="faq-description-txt ion-no-margin color-black">
+                  <see-more-para [trimLength]="200" [description]="item.description"
+                    [classes]="'no-margin fs-14 fw-300 first-letter-cap'"></see-more-para>
+                </h3>
+              </ion-col>
+              <ion-col size="1" class="ion-no-padding ion-text-right">
+                <button ion-button class="edit-blue-icon-btn" (click)="editFAQ(item)">
+                  <img src="assets/svgs/edit-blue-icon.svg" />
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </app-accordions>
+      </ion-card>
+    </div>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="openFAQAdd()" class="fab-btn fab-custom-btn">
+      <img src="assets/svgs/add-btn-white.svg">
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

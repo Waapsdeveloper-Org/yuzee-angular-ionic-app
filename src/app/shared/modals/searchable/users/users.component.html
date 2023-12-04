@@ -1,0 +1,49 @@
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar class="ion-toolbar-full-screen">
+    <div class="modal-header-center">
+
+      <ion-buttons
+        [ngClass]="isback ? 'on-click-affect' : 'wid-ht-header-btns'" slot="start">
+        <ion-button (click)="goBack()" class="back-btn-ripple">
+          <img src="assets/svgs/blue-back-btn.svg" />
+        </ion-button>
+      </ion-buttons>
+
+      <ion-list class="ion-padding-top ion-margin-end ion-margin-start search-bar-list ion-padding-bottom-none search-bar-list-full-screen"
+      [class.search-bar-list-show-done]="showDoneBtn">
+        <ion-row >
+            <ion-col size="12" class="padding-top-bottom-0">
+              <app-generic-ion-searchbar
+              [class]="'customSearchBox-without-close-btn search-box-custom-icon'"
+              [placeholder]="'Search'"
+              (ionChange)="onSearchType($event)"
+              ></app-generic-ion-searchbar>
+            </ion-col>
+        </ion-row>
+      </ion-list>
+
+      <ion-buttons slot="end" *ngIf="showDoneBtn">
+        <ion-button class="btn-colored-clear rightcss fs-14 font-medium color-blue button-active-effect" (click)="save()">{{ "Done" | translate }}</ion-button>
+    </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <div class="item" *ngFor="let user of data;  let i = index; let last = last;">
+      <ion-item lines="none" class="item-css item-display" (click)="selectUsers(user,i)" detail="false" button mode="md">
+        <img slot="start" class="profile-picture-img" src="https://pixlr.com/images/index/remove-bg.webp" onError="this.src='assets/imgs/profile-icons/default-profile.svg';" />
+        <div class="flex-center user-info-div" [class.item-divider]="!last">
+          <ion-label class="country-info fs-14 font-regular color-black" [class.color-blue]="user.isActive">{{ user.first_name }} {{ user.last_name }}</ion-label>
+          <ion-checkbox slot="end" [checked]="user.isActive" [class.ion-checkbox-active-width]="user.isActive"></ion-checkbox>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div *ngIf="data?.length == 0" class="no-data-div background-white">
+    <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No data found." | translate }}</h1>
+  </div>
+</ion-content>

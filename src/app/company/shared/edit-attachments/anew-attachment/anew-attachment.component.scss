@@ -1,0 +1,153 @@
+ion-header{
+    .saveButton{
+        color: #2B68A0;
+        /* font-size: 16px; */
+        text-transform: capitalize;
+    }
+   .mainButton{
+       margin-left: 10px;
+   }
+    ion-icon{
+        font-size: 1.5em;
+        color: #2B68A0;
+    }
+    ion-title{
+        text-align: center;
+        font-size: 18px;
+    }
+
+}
+
+
+ion-content{
+    --background:#EEEE;
+}
+
+.company-contact-add-new-contact{
+    height: 25%;
+    margin-top: 10px;
+    background: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .company-contact-add-new-contact-inner{
+        flex: 1;
+        //background: pink;
+        width: 90%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        .left{
+            flex-direction: column;
+            flex: 2;
+            //background: yellow;
+            height: 100%;
+            display: flex;
+            .type{
+                flex: 1;
+    //background: orange;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+    border-color: #c7c8ca80;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+                .type-label{
+                    color: #77787B;
+                    font-size: 12px;
+                    font-weight: lighter;
+                }
+                .type-list{
+                    display: flex;
+                    align-items: center;
+                    padding-top: 5px;
+                    flex: 1;
+                    width: 100%;
+                    justify-content: space-between;
+                    .logo-type{
+                        display: flex;
+                    }
+                    .label-type{
+                        flex: 1;
+                        /* background: green; */
+                        padding-left: 10px;
+                    }
+                    .drop-down-logo-type{
+                        flex: .5;
+                        //background: yellow;
+                        justify-content: flex-end;
+                        align-items: flex-end;
+                        width: 100%;
+                        display: flex;
+                        padding-right: 10px;
+                    }
+                }
+            }
+            .contact{
+                flex: 1;
+                //background: pink;
+                /* padding-bottom: 10px; */
+                padding-top: 10px;
+                .label-type{
+                    padding-left: 0 !important;
+                }
+            }
+        }
+        .right{
+            flex: 1;
+    display: flex;
+    /* background: purple; */
+    height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    .cross-button{
+        font-size: 2em;
+        color: #707070;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+        }
+    }
+}
+
+ion-input{
+    --padding-top:0 !important;
+    --padding-left: 0 !important;
+    --padding-bottom: 0 !important;
+    --padding-start: 0 !important;
+}
+
+.add-contact-container{
+    margin-top: 10px;
+    background: white;
+    .add-contact-inner-container{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo{
+            height: 20px;
+            width: 20px;
+            border-radius: 100px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background: #1CCDF9;
+            color: white;
+        }
+        .add-contact-label{
+            padding-left: 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+}
+
+ion-input{
+
+}

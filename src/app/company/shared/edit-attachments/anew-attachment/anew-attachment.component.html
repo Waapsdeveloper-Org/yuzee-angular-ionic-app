@@ -1,0 +1,28 @@
+<div class="company-contact-edit-container">
+  <app-public (click)="presentModal()" [showTo]="showTo"></app-public>
+  <div class="company-contact-add-new-contact" *ngFor="let item of totalItem;let i=index">
+    <div class="company-contact-add-new-contact-inner" >
+      <div class="left">
+      </div>
+      <div class="right" (click)="deleteTemplate(item.id)">
+        <div class="cross-button">
+          <ion-icon name="close"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- add contact-->
+  <div class="add-contact-container" (click)="addTemplate()" >
+    <div class="add-contact-inner-container">
+      <div class="logo">
+        <ion-icon name="add"></ion-icon>
+      </div>
+      <div class="add-contact-label">
+        <ion-label>{{"Choose file"|translate}}</ion-label>
+      </div>
+    </div>
+  </div>
+
+  <!-- add contact-->
+</div>

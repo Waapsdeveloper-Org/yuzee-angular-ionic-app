@@ -1,0 +1,34 @@
+
+@import "../../../../generic-css/text.scss";
+@import "../../../../theme/skeleton-loader.scss";
+@import "../../../../generic-common.scss";
+
+.mt-5
+{
+    margin-top: 5px;
+}
+.mb-32
+{
+   margin-bottom: 28px;
+}
+
+.bg-white{
+    background-color: #fff;
+  }
+.bg-gray{
+  background-color: #F4F4F4;
+  border-radius: 6px;
+  }
+
+  .sect-port {
+    border-top: 10px solid #eeeeee;
+  }
+
+  .header-title {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }

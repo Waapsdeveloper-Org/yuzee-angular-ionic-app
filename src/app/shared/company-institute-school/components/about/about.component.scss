@@ -1,0 +1,75 @@
+@import "../../../../company/partials/company-profile/company-profile.page.scss";
+@import "../../../../../theme/skeleton-loader.scss";
+
+.contentGrid {
+  padding: 5px 16px 10px 10px;
+}
+
+.ban-tit {
+  font-size: 16px;
+  margin: 0px !important;
+  color: #454545 !important;
+  font-weight: 400;
+  line-height: unset;
+  letter-spacing: 0.2px;
+}
+
+.ban-tit-institute {
+  font-size: 16px;
+  margin: 0px !important;
+  color: #000000 !important;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  span {
+    color: #000000;
+    font-weight: 400;
+  }
+}
+
+.ban-qualification {
+  font-size: 14px;
+  margin: 3px 0px !important;
+  color: #454545 !important;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  a {
+    margin-right: 5px;
+  }
+  span {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+.partition {
+  margin-right: 5px;
+  margin-left: 5px;
+  color: black;
+}
+
+.yuzee-blue {
+  font-weight: bold !important;
+  color: #2b68a0 !important;
+}
+
+.responsive-truncate {
+  width: calc(100% - 44px);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ion-text-lowercase::first-letter{
+  text-transform: capitalize !important;
+}
+.views-info::first-letter{
+  text-transform: capitalize !important;
+}
+.main-skeleton-container{
+  ion-skeleton-text{
+    margin-bottom: 6px;
+  }
+}

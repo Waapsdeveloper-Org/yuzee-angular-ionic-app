@@ -1,0 +1,116 @@
+.margin {
+    margin-top: 10px;
+}
+
+.heading {
+    height: 34px;
+}
+
+.bg {
+    background: white;
+}
+
+.text-grey {
+    color: #77787B !important;
+    font-size: 14px;
+}
+
+.timeline {
+    height: 50px;
+    position: relative;
+}
+
+.profileImg {
+    position: absolute;
+    height: 65px;
+    width: 65px;
+    margin-top: 14px;
+    left: 52px;
+}
+
+.userDiv {
+    text-align: center;
+    justify-content: center;
+}
+
+.username {
+    font-weight: bold;
+    color: black;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.mg12 {
+    margin-top: 12px;
+}
+
+.mgL {
+    margin-left: -10px;
+}
+
+.verifiedImg {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+}
+
+.userfrom {
+    font-size: 10px;
+    color: #77787B !important;
+    margin: 0%;
+    margin-top: -5px;
+}
+
+.atar {
+    font-size: 10px;
+    color: #2B68A0;
+    text-align: right;
+    padding-left: 40px;
+}
+
+.usermutuals {
+    font-size: 14px;
+    color: #2B68A0;
+}
+
+.year {
+    font-size: 10px;
+    color: #2B68A0;
+    text-align: left;
+    width: 100%;
+}
+
+.followbtn {
+    --background: transparent;
+    color: #2B68A0;
+    font-size: 12px;
+    text-transform: capitalize;
+    border-radius: 6px;
+    --box-shadow: none;
+    margin-top: -3px;
+    --text-align: left;
+    --padding-start: 0% !important;
+    --padding-end: 0% !important;
+}
+
+.addpersonimg {
+    margin-left: 10px;
+}
+
+.courcedata {
+    padding-left: 12px;
+}
+
+.alignright {
+    text-align: right;
+}
+
+.button-native {
+    padding-inline-start: 0%;
+    padding-inline-end: 0%;
+}
+
+img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}

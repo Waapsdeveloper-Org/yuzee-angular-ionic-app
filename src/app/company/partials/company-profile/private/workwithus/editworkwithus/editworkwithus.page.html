@@ -1,0 +1,104 @@
+<app-header-multi [isTitle]="true" [title]="'Why Work With Us'" [isSaveOrDone]="true" (action)="save()" [isSaveOrDoneDisabled]="isSaveDisabled()" (back)="dismiss()" ></app-header-multi>
+<ion-content>
+  <div class="content-inr-section header-border">
+    <h2 class="section-title">{{ 'Life at your company' | translate }}</h2>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item
+          (click)="openDescriptionModal('Life at your company', 'LIFE')"
+          class="text-field"
+          lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Add a description" | translate }}</ion-label>
+          <ion-input
+          readonly
+          mode="md"
+          type="text"
+          genericTextField
+          [(ngModel)]="lifeText"
+          (keydown)="edited($event)"
+        ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">{{ 'Enter description' | translate }}</div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="content-inr-section header-border">
+    <h2 class="section-title">{{ 'Innovative Work' | translate }}</h2>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item
+          (click)="openDescriptionModal('Innovative Work', 'INNOVATIVE_WORK')"
+          class="text-field"
+          lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Add a description" | translate }}</ion-label>
+          <ion-input
+          readonly
+          mode="md"
+          type="text"
+          genericTextField
+          [(ngModel)]="innovativeText"
+          (keydown)="edited($event)"
+        ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">{{ 'Enter description' | translate }}</div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="content-inr-section header-border">
+    <h2 class="section-title">{{ 'Students' | translate }}</h2>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item
+          (click)="openDescriptionModal('Students', 'STUDENTS')"
+          class="text-field"
+          lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Add a description" | translate }}</ion-label>
+          <ion-input
+            readonly
+            mode="md"
+            type="text"
+            genericTextField
+            [(ngModel)]="studentText"
+            (keydown)="edited($event)">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">{{ 'Enter description' | translate }}</div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="content-inr-section header-border">
+    <h2 class="section-title">{{ 'Internship' | translate }}</h2>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item
+          (click)="openDescriptionModal('Internship', 'INTERNSHIP')"
+          class="text-field"
+          lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Add a description" | translate }}</ion-label>
+          <ion-input
+            mode="md"
+            readonly
+            type="text"
+            genericTextField
+            [(ngModel)]="internshipText"
+            (keydown)="edited($event)">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">{{ 'Enter description' | translate }}</div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="delete()" class="btn-colored-outline fs-16 font-medium">{{ "Delete" | translate }}</ion-button>
+</ion-footer>

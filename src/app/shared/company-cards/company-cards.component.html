@@ -1,0 +1,44 @@
+<!-- YACC065 -->
+<ion-row (click)="openCompany(item)"
+    class="ion-align-items-start company-partner-item-row"
+    *ngFor="let item of list; let i = index; let last = last">
+        <div class="wid-100">
+            <div class="display-flx wid-100">
+                <div class="partner-profile-image-div">
+                    <img class="partner-profile-image" [src]="setImage(item)" onError="this.src='assets/svgs/default-company-icon.svg'"/>
+                    <div class="company-rating-div">
+                        <app-rating-stars [ratingvalue]="3"></app-rating-stars>
+                    </div>
+                </div>
+                <div class="wid-100 partner-company-info-wrap text-dot-css">
+                    <!-- This data will be dynamic -->
+                    <div class="display-flx ion-align-items-center ion-justify-content-between margin-bottom-8">
+
+                        <h3  class="fs-15 color-black font-medium ion-no-margin ion-word-break-all webkit-clamp-two">{{item?.company_name}}</h3>
+                        <!-- <h3 *ngIf="i == 1" class="fs-15 color-black font-medium ion-no-margin ion-word-break-all webkit-clamp-two">{{item?.description}}</h3> -->
+
+                        <div class="display-flx ion-align-items-center company-end-div">
+                            <ion-button class="more-option-btn" mode="md" (click)="openMoreOptions()">
+                              <img src="assets/imgs/application/svg/more-option.svg">
+                          </ion-button>
+                        </div>
+                    </div>
+                    <div class="more-info-div-section">
+                        <!-- This data will be dynamic -->
+                        <h3 class="fs-12 font-light color-darkgrey ion-no-margin ion-word-break-all webkit-clamp-two margin-bottom-14">{{item?.about_us}}</h3>
+                        <h4 class="fs-12 font-light color-black ion-no-margin ion-word-break-all text-dot-css margin-bottom-14">{{ returnLocationString(item) }}</h4>
+
+                        <ul class="list-ul">
+                        <li *ngFor="let val of partnerCompanySlider" class="display-flx ion-align-items-center">
+                            <div class="validity-icon-div display-flx ion-align-items-center">
+                            <img class="child-card-img" [src]="val.icon" />
+                            </div>
+                            <h3 class="fs-12 font-regular color-black ion-no-margin ion-text-left text-dot-css">{{ val.industry }}</h3>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </ion-row>

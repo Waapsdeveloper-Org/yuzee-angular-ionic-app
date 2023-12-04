@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" mode="ios">
+            <ion-button class="backBtn" (click)="goBack()">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-searchbar #search [(ngModel)]="searcLocation" (ionInput)="getItems(searcLocation)" autocorrect="off" class="top-search no-padding" placeholder="Search"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngIf="showList">
+        <!-- for filter   | filter:searcLocation -->
+        <div *ngFor="let location of searcheList">
+            <ion-item lines="none" (click)="select(location)">
+                <ion-label>
+                    <h4 class="heading">{{location.shortAddress}}</h4>
+                    <p class="subheading">{{location.fullAdress}}</p>
+                </ion-label>
+            </ion-item>
+            <hr class="divider">
+        </div>
+    </ion-list>
+</ion-content>

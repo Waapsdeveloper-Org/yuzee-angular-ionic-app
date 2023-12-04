@@ -1,0 +1,32 @@
+<ion-card class="scholarship-parent-card">
+  <div>
+    <div class="display-flx ion-align-items-baseline ion-justify-content-between">
+      <h2 class="font-medium ion-no-margin color-black card-title fs-15">
+        {{ item?.title }}
+      </h2>
+      <img *ngIf="i == 0" clss="hide-eye-icon" src="assets/svgs/hide-eye-icon.svg" />
+    </div>
+  </div>
+  <h3 class="fs-15 color-grey font-light ion-no-margin card-desc webkit-clamp-two">
+    {{ item?.description }}
+  </h3>
+  <ion-slides [options]="slideOptsScholarships">
+    <ion-slide *ngFor="let validity of validityArray">
+      <ion-card class="child-card">
+        <ion-card-content>
+          <div class="display-flx ion-align-items-center">
+            <img class="child-card-img" [src]="validity.icon" />
+            <div>
+              <h3 class="fs-13 font-medium color-black ion-no-margin ion-text-left webkit-clamp-one">
+                {{ validity.value }}
+              </h3>
+              <h4 class="fs-12 font-light color-black ion-no-margin ion-text-left webkit-clamp-one">
+                {{ validity.keyTitle }}
+              </h4>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-card>

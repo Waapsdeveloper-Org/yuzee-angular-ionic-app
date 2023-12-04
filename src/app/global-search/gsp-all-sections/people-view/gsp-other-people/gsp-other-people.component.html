@@ -1,0 +1,26 @@
+<div>
+  <p class="fs-16 disc-text-align search-title">
+    {{ "Other people" | translate }}
+  </p>
+  <div class="ion-padding-start">
+      <div class="scroll-section ion-scrol scroll-x-direction display-flx">
+          <ion-row nowrap="" class="display-con">
+              <ion-col size="5" *ngFor="let disccountry of [1,1,1,1,1,1,1]" class="discntry-pad">
+                  <div class="bor-bx">
+                      <div class="bg-agent-cover flex-center">
+                          <div class="agent-bg-image">
+                              <img class="event-img" src="assets/imgs/profile-icons/profile.png" />
+                              <p class="agnt-name">Rick Novak</p>
+                              <p class="agnt-grey">French School of Kuala…</p>
+                              <p class="agnt-loc">8 {{ "mutual friends" | translate }} </p>
+                              <button ion-button full clear class="btn-agent-follow">
+                                   {{ "Follow" | translate }}
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </ion-col>
+          </ion-row>
+      </div>
+  </div>
+</div>

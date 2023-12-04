@@ -1,0 +1,97 @@
+<p class="result-txt">
+  <span>{{videosObj.totalcount}}</span>
+</p>
+<div class="sec-vid" *ngFor="let YoutubeData of YoutubeUrlDataList" (click)="openVideo(YoutubeData.id)">
+  <ion-row>
+    <ion-col size="2" class="ion-text-center">
+        <img class="uni-img" src="assets/imgs/globalicon/new-icons/burger.jpg"/>
+    </ion-col>
+    <ion-col size="8">
+        <div>
+            <p class="vid-tit">Burger King shared a video</p>
+            <p class="vid-time">Yesterday at 1:08 AM</p>
+        </div>
+    </ion-col>
+    <ion-col size="2" class="ion-text-end">
+      <img src="assets/imgs/globalicon/new-icons/dots.png" class="dots-icon"/>
+    </ion-col>
+  </ion-row>
+  <img class="imgss" [src]="YoutubeData.snippet.thumbnails.medium.url" *ngIf="YoutubeData.snippet.thumbnails.medium.url" src="assets/imgs/profile/vid_03.png" />
+  
+  <ion-row class="res-sec">
+    <ion-col class="text-align no-padding">
+        <button class="bg-none flex-center wid-100 no-padding">
+            <span class="heart-likes">
+              <svg width="16" height="16" viewBox="0 0 17 15">
+                <path id="heart"
+                  d="M11.75,30a3.81,3.81,0,0,0-2.366.811A5.352,5.352,0,0,0,8,32.46a5.352,5.352,0,0,0-1.384-1.65A3.81,3.81,0,0,0,4.25,30,4.321,4.321,0,0,0,0,34.569c0,2.814,2.279,4.739,5.73,7.654.586.495,1.25,1.056,1.941,1.654a.5.5,0,0,0,.658,0c.69-.6,1.355-1.16,1.941-1.655,3.45-2.914,5.73-4.84,5.73-7.654A4.321,4.321,0,0,0,11.75,30Z"
+                  transform="translate(0.5 -29.5)" fill="none" stroke="#454545" stroke-width="1"></path>
+              </svg>
+            </span>
+            <span> {{ "like" | translate }}</span>
+        </button>
+        <button class="bg-none flex-center wid-100 no-padding">
+            <img src="assets/imgs/student-profile/comment.PNG" class="icon-home">
+            <div class="black-2626 fs-12 text-init">
+               {{ "Comment" | translate }}
+            </div>
+        </button>
+    </ion-col>
+    <ion-col class="align-end no-padding" size="3">
+        
+    </ion-col>
+    <ion-col class="align-end no-padding">
+        <button class="bg-none flex-center wid-100 no-padding share-btn">
+            <img src="assets/imgs/student-profile/share.PNG" class="icon-home">
+            <div class="black-2626 fs-12 text-init" > {{ "Share" | translate }}</div>
+        </button>
+        <div class="text-align">
+          <img class="com-ar-icon" *ngIf="userData.profile_image != null" [src]="userData.profile_image.file_url"
+          onError="this.src='assets/images/avatar-default.png'" />
+          <select class="no-border bg-none">
+              <option></option>
+              <option></option>
+          </select>
+      </div>
+    </ion-col>
+</ion-row>
+
+  <!-- <div class="cont-pad-1">
+    <p class="vid-title" *ngIf="YoutubeData.snippet">{{YoutubeData.snippet.channelTitle}}</p>
+    <p class="css-lik">{{YoutubeData.statistics.likeCount}} Likes &#8226; {{YoutubeData.statistics.commentCount}} Comments &#8226; 0 Shares</p>
+  </div> -->
+  <!-- <ion-row class="res-sec">
+    <ion-col class="text-align no-padding">
+        <button class="vid-btn">
+            <img src="assets/imgs/globalicon/like-gray.png" class="like-icons">
+            <div class="black-2626 fs-12 text-init">Like</div>
+        </button>
+    </ion-col>
+    <ion-col class="flex-center" >
+        <button  class="vid-btn">
+            <img src="assets/imgs/globalicon/comment.png" class="like-icons">
+            <div class="black-2626 fs-12 text-init">Comment</div>
+        </button>
+    </ion-col>
+    <ion-col class="align-end no-padding">
+        <button class="vid-btn">
+            <img src="assets/imgs/globalicon/share-gray.png" class="like-icons">
+            <div class="black-2626 fs-12 text-init" >Share</div>
+        </button>
+    </ion-col>
+  </ion-row> -->
+</div>
+<ion-infinite-scroll  (ionInfinite)="doInfiniteYoutube($event)" *ngIf="videosObj.hasNextPage">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+<div class="no-cover flex-center ion-padding-top text-center" *ngIf="YoutubeUrlDataList.length == 0">
+  <div class="wid-100">
+        <!-- <img src="assets/imgs/not-found.png" class="not-img-wdth"/> -->
+        <p class="text-black fs-w6 fs-18">{{"Nothing yet" | translate}}</p>
+  </div>
+</div>
+<!-- <div *ngIf="GSRYoutubeObject">
+  <ion-infinite-scroll  (ionInfinite)="doInfiniteYoutube($event)" *ngIf="GSRYoutubeObject.has_next_page">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>  -->

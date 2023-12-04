@@ -1,0 +1,34 @@
+
+  <div>
+    <p class="result-txt">{{articleList.length}} {{ "Result" | translate }}</p> 
+        <div>
+          <div class="home-thin-border bor-2-mid pad-8" *ngFor="let article of articleList">
+              <ion-row nowrap>
+                  <ion-col size="9">
+                      <div class="no-padding text-align"> 
+                          <img src="{{article.article_img}}" slot="start" class="lf-icon"/>
+                          <b class="fs-14 li-title">{{article.category}}</b>
+                      </div> 
+                      <p class="que-text">
+                          {{article.heading}}
+                      </p>
+                      <p class="fs-10 mar-auto color22 artcle-dates">2 Feb 2019 | {{article.url}}</p>
+                  </ion-col>
+                  <ion-col size="3" class="text-align">
+                      <div class="ion-text-right">
+                          <button ion-button class="dot-btn-css bg-none">
+                              <img src="assets/imgs/home/contentoption.png" slot="end" class="dot-icon content-img"/>
+                          </button>
+                          <img src="assets/imgs/home/homepage.png" class="int-stu" />
+                      </div>
+                  </ion-col>
+              </ion-row>
+          </div>
+          <!-- <div class="no-cover flex-center ion-padding-top text-center" *ngIf="articleList.length == 0">
+              <div class="wid-100">
+                  <img src="assets/imgs/not-found.png" class="not-img-wdth"/>
+                  <p class="text-black fs-w6 fs-18">{{"Nothing yet" | translate}}</p>
+              </div>
+          </div> -->
+        </div>
+</div>

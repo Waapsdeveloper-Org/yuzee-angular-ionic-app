@@ -1,0 +1,33 @@
+@import "../create-new-company-form/create-new-company-form.page.scss";
+
+ion-footer {
+  background: #ffffff;
+}
+
+.heading {
+  margin: 0px;
+  padding-bottom: 16px;
+  white-space: normal;
+  font-weight: normal;
+  letter-spacing: 0.4px;
+}
+
+.activeBox {
+  box-shadow: 0 0 6px rgb(43 104 160 / 70%);
+}
+
+.p-0 {
+    padding: 0;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: inherit;
+    align-items: inherit;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: inherit;
+    box-sizing: border-box;
+
+}
+app-clickable-card-item {
+  width: 100%;
+}

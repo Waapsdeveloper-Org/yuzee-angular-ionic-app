@@ -1,0 +1,64 @@
+@import '../../../theme/custom-header.css';
+.section-title{
+    margin-top: 0px !important;
+}
+.header-ios ion-toolbar:last-of-type{
+    --border-width: 0;
+}
+ion-header {
+    ion-toolbar{
+        border-bottom: 10px solid #ffffff;
+        .header-div{
+            margin: 0px 7px;
+        }
+    }
+}
+.back-btn{
+    margin-right: 8px;
+}
+.more-option-btn{
+    margin-left: 8px;
+}
+.more-option-btn, .back-btn{
+    img{
+        width: 19px !important;
+        height: 19px !important;
+    }
+}
+.filter-btns-wrap{
+    overflow: scroll;
+    padding: 0px 15px 10px 15px;
+    .btn-colored-filled, .btn-colored-clear{
+        border-radius: 30px;
+        --border-radius: 30px;
+        height: 36px !important;
+        margin: 0px 10px 0px 0px !important;
+        --padding-start: 20px;
+        --padding-end: 20px;
+        img{
+            margin-left: 10px;
+            margin-right: 0px !important;
+        }
+    }
+    .btn-separator{
+        border-left: 0.5px solid #CCCFD3;
+        height: 40px;
+        margin: 0px 22px 0px 10px;
+    }
+}
+
+.active-filter-btn{
+    --background: #EFF2F9;
+}
+.language-badge{
+    border-radius: 50%;
+    background: #2B68A0;
+    width: 18px;
+    min-width: 18px;
+    height: auto;
+    margin: 0px 0px 0px 8px;
+    min-height: 18px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}

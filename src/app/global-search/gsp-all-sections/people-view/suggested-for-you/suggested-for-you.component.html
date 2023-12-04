@@ -1,0 +1,23 @@
+<div class="section-divider-8">
+  <p class="fs-16 disc-text-align search-title">
+      {{ "Suggested for you" | translate }}
+  </p>
+  <div>
+    <ion-row *ngFor="let item of [1,1,1,1]" class="crd-people">
+      <ion-col size="2" class="text-align">
+          <img class="ach-imagess" src="assets/imgs/student-profile/portfolio/people.PNG" />
+      </ion-col>
+      <ion-col size="8" class="text-align bor-bot1 cl-pad">
+          <div>
+              <p class="no-margin a-tit">Sean Mahone</p>
+              <p class="no-margin a-desc">H.R. Supervisor</p>
+              <p class="no-margin a-app">Adobe Inc</p>
+              <p class="no-margin a-desc1">22 {{ "mutual friends" | translate }}</p>
+          </div>
+      </ion-col> 
+      <ion-col size="2" class="flex-center bor-bot1">
+            <img class="add-people" src="assets/imgs/student-profile/portfolio/add-people.PNG" />
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

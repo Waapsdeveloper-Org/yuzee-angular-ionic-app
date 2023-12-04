@@ -1,0 +1,100 @@
+@import '../../../theme/custom-header.css';
+
+img.header-icon {
+    width: 10px;
+}
+
+.pro-icon {
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.home-srch {
+    color: #3b3b3b !important;
+    font-weight: 200 !important;
+    margin-right: 8px;
+}
+
+.search-view {
+    background: #f7f7f7 !important;
+    border-radius: 6px !important;
+    color: #2b2b2b !important;
+    font-size: 14px !important;
+    letter-spacing: 0.6px;
+    padding: 0px 10px !important;
+    text-transform: initial;
+    font-weight: normal;
+    align-items: center;
+    display: flex;
+    height: 38px;
+}
+
+
+.seperate {
+    border-bottom: 1px solid #d6d6d6;
+    padding: 14px 0px;
+    margin: 0px 0px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.skills-list-box {
+    padding: 14px;
+}
+
+.active-skills {
+    color: #2b68a0;
+}
+
+.searchbar-search-icon {
+    display: none;
+}
+
+.cross-img {
+    position: absolute;
+    right: 18px;
+}
+
+.wid-90 {
+    width: 90% !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.wid-95 {
+    width: 92% !important;
+}
+
+.wid-100 {
+    width: 100% !important;
+}
+
+.nodataDiv {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25vh 0%;
+    background: white;
+}
+
+.item-css {
+    border: none !important;
+    border-bottom: 1px solid #dedede !important;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+    --padding-end: 0px;
+}
+
+.save-btn {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    height: 28px !important;
+    padding: 0px 10px 0px 20px !important;
+    position: absolute;
+    right: 2px !important;
+    text-transform: initial !important;
+    background: none;
+    color: #2b68a0 !important;
+    box-shadow: none !important;
+}

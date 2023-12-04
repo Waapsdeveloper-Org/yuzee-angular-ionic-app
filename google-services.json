@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "261013496345",
+    "firebase_url": "https://yuzeetest.firebaseio.com",
+    "project_id": "yuzeetest",
+    "storage_bucket": "yuzeetest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261013496345:android:7adadbd8fbbadc87448088",
+        "android_client_info": {
+          "package_name": "com.yuzee.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261013496345-6ramp0i6nij17nu8cpdma6vm1ikdb03k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUTVabupJzkzwT7VOMND4i89jq6xrVBRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261013496345-6ramp0i6nij17nu8cpdma6vm1ikdb03k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

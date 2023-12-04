@@ -1,0 +1,30 @@
+<ion-content class="mainbg" [scrollEvents]="true" [class.overflow-hidden]="step != 1">
+    <ion-header class="header-sticky">
+        <ion-toolbar class="header-border">
+            <app-global-search-filters selectedFilter="Institution" [filtersArray]="filterArray" (openFilter)="openFilter($event)" (clearAll)="clearAll()" ></app-global-search-filters>
+        </ion-toolbar>
+    </ion-header>
+    <div class="result-div">
+        <h3 class="fs-14 font-regular color-grey ion-no-margin">{{'We found' | translate}} {{gsHelper.searchObject.total_count}} {{'results' | translate}}</h3>
+    </div>
+
+    <!-- Institution list -->
+    <div class="item-display">
+        <app-intitution [hidden]="step != 1"></app-intitution>
+    </div>
+    <app-open-map-institutions class="map-institution-comp" [hidden]="step != 2" #openMapInstitute></app-open-map-institutions>
+
+    <!-- When no data found -->
+    <div *ngIf="gsHelper.searchObject.total_count==0" class="no-data-div background-white ion-align-items-center ion-justify-content-center ion-text-center">
+      <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No result found." | translate }}</h1>
+    </div>
+
+    <ion-infinite-scroll *ngIf="step == 1" (ionInfinite)="onIonInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+</ion-content>
+<ion-footer class="footer-section ion-text-center">
+    
+    <ion-button (click)="openMap()" class="fs-11 font-regular ion-text-uppercase btn-colored-filled map-footer-btn"><img src="assets/imgs/Course/map.svg"> {{ 'Map' | translate }}</ion-button>
+</ion-footer>

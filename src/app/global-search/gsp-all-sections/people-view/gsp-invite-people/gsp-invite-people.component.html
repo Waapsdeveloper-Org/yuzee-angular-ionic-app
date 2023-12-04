@@ -1,0 +1,11 @@
+<div class="popup-div">
+    <div class="bor-bot" (click)="close()"></div>
+    <h4 class="head">{{ "Invite People" | translate }}</h4>
+    <p class="info"> {{ "We will send them an invitation link with further instructions to sign up for Yuzee." | translate }} </p>
+    <ion-item class="ion-margin-bottom">
+      <ion-input class="label-input" [(ngModel)]="form.phone_email" placeholder="Add phone or email"></ion-input>
+    </ion-item>
+    <button class="save-btn" (click)="submitCollection()">
+      {{ "Invite" | translate }}
+    </button>
+</div>

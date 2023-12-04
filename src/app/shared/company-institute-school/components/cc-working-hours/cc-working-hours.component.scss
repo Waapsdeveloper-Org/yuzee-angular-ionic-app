@@ -1,0 +1,55 @@
+@import '../cc-form-final-slide/cc-form-final-slide.component.scss';
+
+.bottom-sheet-drop-down {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding-top: 2px;
+}
+
+.clock {
+  width: 12px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+ion-label#ion-input-11-lbl
+{
+  margin-bottom: 14px;
+}
+.no-border {
+  border-bottom: none !important;
+}
+
+.arrow-down-wh {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-60%);
+}
+
+.pt-14 {
+  padding-top: 14px;
+}
+.time-input-clock-icon{
+  position: absolute;
+  left: 0;
+}
+.time-input{
+  --padding-start: 25px;
+}
+.cross-icon-div{
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  right: 4px;
+  button{
+      background: none;
+  }
+}
+.time-validation-msg{
+  margin-top: 5px !important;
+}

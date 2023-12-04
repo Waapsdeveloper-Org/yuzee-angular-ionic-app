@@ -1,0 +1,19 @@
+<div class="home-section-border" *ngIf="recentSearchList.length != 0">
+    <ion-list class="ser-List">
+        <ion-item class="no-border heading" lines="none">
+            <h4 class="rcn-srch text-grey" slot="start">{{ "Recent search" | translate }}</h4>
+            <button slot="end" ion-button item-end button-small class="box-shadow-none bg-none no-border text-blue-li text-capitalize no-margin fs-w4 fs-12">
+                {{ "Clear" | translate }}
+            </button>
+        </ion-item>
+        <ion-item class="no-border" *ngFor="let elSearchString of recentSearchList | slice:0:5;" lines="none" (click)="recentSearch(elSearchString)">
+            <div slot="start" class="divStart">
+                <img class="ser-image" [src]="elSearchString.image" />
+            </div>
+            <ion-label class="ion-no-margin">
+                <p class="ser-title">{{elSearchString.searchString}}</p>
+                <p class="ser-val" *ngIf="elSearchString.category">{{elSearchString.category}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</div>

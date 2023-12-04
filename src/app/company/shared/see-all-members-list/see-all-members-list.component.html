@@ -1,0 +1,17 @@
+
+<ion-header>
+  <ion-toolbar class="header-border">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ title | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-inr-section pad-top-zero">
+    <app-internship-program-members title="" [membersArray]="arrayData" [seeAll]="true"></app-internship-program-members>
+  </div>
+</ion-content>

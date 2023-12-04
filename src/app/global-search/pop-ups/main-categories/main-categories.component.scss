@@ -1,0 +1,19 @@
+.divider {
+    color: #2B68A0;
+    height: 6px;
+    width: 63px;
+    background-color: #2B68A0;
+    border-radius: 10px;
+}
+
+.compLabel {
+    font-size: 14px;
+}
+
+ion-item {
+    .item-inner {
+        .item-detail-icon {
+            display: none !important;
+        }
+    }
+}

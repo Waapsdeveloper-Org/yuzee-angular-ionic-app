@@ -1,0 +1,20 @@
+<div>
+  <ion-slides class="slides-posi" [options]="slideOptsOne" #slides (ionSlideWillChange)="slideChanged($event)">
+    <ng-container *ngFor="let media of videoArray">
+      <ion-slide class="slides-section">
+        <ion-card class="media-card">
+            <img src="{{ media.file_url }}" class="create-video" *ngIf="media.mime_type == 'image'" />
+            <video class="wid-100 create-video"
+            disablepictureinpicture
+            controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar"
+            *ngIf="media.mime_type == 'video'">
+              <source [src]="media.file_url" type="video/mp4">
+            </video>
+            <div class="overlay-div wid-100"></div>
+            <h3 *ngIf="media.mime_type == 'video'" class="time-txt fs-8 font-light color-white ion-no-margin">03:20</h3>
+        </ion-card>
+
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+</div>

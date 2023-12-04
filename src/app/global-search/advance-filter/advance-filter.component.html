@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="wid-ht-header-btns">
+            <button ion-button icon-only (click)="goBack()" class="bg-none">
+              <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" />
+          </button>
+        </ion-buttons>
+        <ion-title class="text-black">{{ "Filters" | translate }}</ion-title>
+        <ion-buttons slot="end" class="wid-ht-header-btns">
+            <!-- <button ion-button class="rightcss" (click)="resetFilterObj()">
+            {{"Reset" | translate}}
+        </button> -->
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding-top">
+    <div class="bor-div-mar">
+        <div class="ht-img-scroll">
+            <div class="text-align ion-padding-start">
+                <button ion-button icon-end class="button-top" (click)="ShowDiv('content')" [ngClass]="(FiltersViewShow=='content')?'activebg':'notactivebg'" *ngIf="whichPageView == 'GSP'">
+                     {{ "Content" | translate }}
+                </button>
+                <button ion-button icon-end class="button-top" (click)="ShowDiv('course')" [ngClass]="(FiltersViewShow=='course')?'activebg':'notactivebg'">
+                     {{ "Courses" | translate }}
+                </button>
+                <button ion-button icon-end class="button-top" (click)="ShowDiv('institute')" [ngClass]="(FiltersViewShow=='institute')?'activebg':'notactivebg'">
+                     {{ "Institutions" | translate }} 
+                </button>
+                <button ion-button icon-end class="button-top" (click)="ShowDiv('scholarship')" [ngClass]="(FiltersViewShow=='scholarship')?'activebg':'notactivebg'" *ngIf="whichPageView == 'GSP'">
+                     {{ "Scholarships" | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="FiltersViewShow == 'content'">
+        <app-content-adf [searchData]="searchFilterObj" (categoryData)="readOutputValueEmitted($event)"></app-content-adf>
+    </div>
+    <div *ngIf="FiltersViewShow == 'course'">
+        <app-course-adf [searchData]="searchFilterObj" (categoryData)="readOutputValueEmitted($event)"></app-course-adf>
+    </div>
+    <div *ngIf="FiltersViewShow == 'institute'">
+        <app-institute-adf [searchData]="searchFilterObj" (categoryData)="readOutputValueEmitted($event)"></app-institute-adf>
+    </div>
+    <div *ngIf="FiltersViewShow == 'scholarship'">
+        <app-scholarship-adf [searchData]="searchFilterObj" (categoryData)="readOutputValueEmitted($event)"></app-scholarship-adf>
+    </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<app-header-multi [isTitle]="true" [title]="'Create'" [isSaveOrDone]="false" (back)="back()" > </app-header-multi>
+<ion-content>
+
+  <div class="sect-port">
+    <ion-row>
+      <ion-col size="12">
+        <ion-img
+          class="top-img"
+          src="assets/create-company/company-illustration.svg"
+        ></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-slide class="w-100-scroll">
+      <div class="pad-top-zero sect-port w-100">
+        <p class="ion-text-start section-title">
+          {{"Select a type from the options below" | translate}}
+        </p>
+        <ion-row>
+          <ion-col size="12" class="p-0" *ngFor="let item of listItems; let i = index" (click)="select(i)">
+            <app-clickable-card-item [image]="'assets/create-company/' + item.icon + '.svg'" [title]="item.title" [subtitle]="item.description"></app-clickable-card-item>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+  </div>
+</ion-content>

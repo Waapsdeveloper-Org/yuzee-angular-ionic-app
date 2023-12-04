@@ -1,0 +1,37 @@
+@import '../../../company-profile.page.scss';
+@import '../../../../../../../theme/custom-header.css';
+.margin-bottom-xl{
+    margin-bottom: 10px !important;
+}
+.back-btn-ripple{
+    img{
+        width: 17px !important;
+        height: 17px !important;
+    }
+}
+.right-css {
+    text-transform: initial;
+    letter-spacing: 0.6px;
+    margin-right: 24px;
+    background: none;
+    --ripple-color: transparent;
+    --color: #2b68a0;
+}
+
+.inactive-tab{
+    --background: transparent;
+    border-radius: 30px;
+    --border-radius: 30px;
+    text-transform: capitalize;
+    --padding-start: 18px;
+    --padding-end: 18px;
+    margin-top: 0px !important;
+    --box-shadow: none !important;
+    transition: 0.03s ease-in-out;
+}
+.active-tab{
+    --background: #2b68a0 !important;
+}
+.section-title{
+    margin: 10px 0px 15px 0px !important;
+}

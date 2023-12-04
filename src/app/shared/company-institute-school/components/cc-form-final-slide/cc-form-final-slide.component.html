@@ -1,0 +1,170 @@
+<ion-list>
+  <div class="sect-port">
+    <div>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none" (click)="!selectedIndustryId ? '' : openLocation()">
+            <ion-label mode="md" position="stacked" class="pad-bottom-form">
+              <h1 class="fs-20 ion-no-margin font-light">{{ "Location" | translate }}</h1>
+            </ion-label>
+            <app-generic-ion-searchbar style="width: 100%" [placeholder]="'Enter the address'"
+              [disabled]="!selectedIndustryId" (click)="openLocation()"
+              [class]="'custom-search-box-without-close-btn search-box-custom-icon'">
+            </app-generic-ion-searchbar>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+  </div>
+
+  <div class="sect-port">
+    <ion-row class="">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none">
+          <ion-label position="floating">{{
+            "Enter the City" | translate
+            }}</ion-label>
+          <ion-input type="text" genericTextField #company_name="ngModel" [minLength]="'textMin'"
+            [maxLength]="'nameMax'" [(ngModel)]="companyName" (ionChange)="masterCheck($event, 'company_name')"
+            name="company_name" required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{
+          isCompanyNameInUse && companyName
+          ? "Company Name Already Exist"
+          : handleStringError(company_name.errors)
+          }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+
+          {{!serviceShared.createCompany.location.city_name && submitted ? "Please Enter City" : '' }}
+
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none">
+          <ion-label position="floating">{{
+            "Enter the State" | translate
+            }}</ion-label>
+          <ion-input type="text" genericTextField #company_tagline="ngModel" [minLength]="'textMin'"
+            [maxLength]="'nameMax'" [(ngModel)]="companyTagLine" (ionChange)="masterCheck($event, 'company_tagline')"
+            name="company_tag_line" required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{ handleStringError(company_tagline.errors) }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+
+          {{!serviceShared.createCompany.location.state_name && submitted ? "Please Enter State" : '' }}
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-feild" lines="none">
+          <ion-label position="floating">{{
+            form.country !== ""
+            ? ("Country" | translate)
+            : ("Enter the country" | translate)
+            }}</ion-label>
+          <ion-input type="text" (ionChange)="masterCheck()" [(ngModel)]="form.country" name="country"
+            [readonly]="isReadOnly" required whiteSpaceRestriction>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+
+          {{!serviceShared.createCompany.location.country_name && submitted? "Please Enter Country" : '' }}
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-feild" lines="none">
+          <ion-label position="floating">{{
+            form.postal_code !== ""
+            ? ("Postal Code" | translate)
+            : ("Enter the Postal Code" | translate)
+            }}</ion-label>
+          <ion-input type="text" name="code" (ionChange)="masterCheck()" maxlength="9" [(ngModel)]="form.postal_code"
+            required whiteSpaceRestriction>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-list>
+
+<div *ngIf="!isInstitute">
+  <div class="sect-port" *ngFor="let item of timeTemplate; let i = index">
+    <app-cc-working-hours (toEvent)="to($event, i)" (fromEvent)="from($event, i)"
+      (dayOfWeek)="selectedDayOfWeek($event, i)" (presentPopUpEvent)="presentPopUp($event, i)"
+      (close)="removeTimeTemplate(i)" [showClose]="getShowClose(i)" [item]="item"
+      [submitted]="submitted"></app-cc-working-hours>
+  </div>
+</div>
+
+<div *ngIf="isInstitute">
+  <div class="sect-port" *ngFor="let item of instituteTiming; let i = index">
+    <app-cc-working-hours
+      (toEvent)="to($event, i)"
+      (fromEvent)="from($event, i)"
+      (dayOfWeek)="selectedDayOfWeek($event, i)"
+      (presentPopUpEvent)="presentPopUp($event, i)"
+      (close)="removeTimeTemplate(i)"
+      [showClose]="getShowClose(i)"
+      [item]="item"
+      [submitted]="submitted">
+    </app-cc-working-hours>
+  </div>
+</div>
+
+<div class="addDayTime">
+  <ion-button expand="block" [disabled]="isAddDateTimeDisabledTrue()" class="btn-colored-clear no-margin custom-btn-style" [hidden]="instituteTiming.length == 7"
+    (click)="incrementTimeTemplate()">
+    <div slot="start" class="icon-start">
+      <img src="../../../../../assets/plus.svg" />
+    </div>
+    <span class="color-blue letter-space fs-14">
+      {{ "Add Day and Time123" | translate }}
+    </span>
+  </ion-button>
+</div>
+
+<div [ngClass]="{ disabled: checked == -1, 'bottom-zero': !keyboardOpened }"
+  class="bottom-button cc-slide-bottom-button">
+  <ion-button *ngIf="!isInstitute" class="btn-colored-outline" expand="block" (click)="postData()"
+    [class.btn-colored-outline-disabled]="checked == -1" [disabled]="checked !== 1">{{ "Create" | translate }}
+  </ion-button>
+
+  <ion-button *ngIf="isInstitute" class="btn-colored-outline" expand="block" (click)="saveInstitute()"
+    [class.btn-colored-outline-disabled]="checked == -1" [disabled]="checked !== 1">{{ "Create" | translate }}
+  </ion-button>
+</div>

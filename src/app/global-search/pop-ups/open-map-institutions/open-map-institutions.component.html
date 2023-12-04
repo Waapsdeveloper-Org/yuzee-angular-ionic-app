@@ -1,0 +1,51 @@
+<ion-content>
+  <div #map id="map"></div>
+    <!-- Courses Cards -->
+    <ion-slides
+    *ngIf="institutionDataArray && institutionDataArray?.length > 0"
+      #slides
+      id="slides"
+      class="slides-at-bottom-4r3243"
+      pager="false"
+      [options]="slideOpts"
+      (ionSlideTransitionEnd)="ionSlideTransitionEnd($event)"
+      (ionSlideReachEnd)="slideEnds($event)"
+    >
+      <ion-slide *ngFor="let item of institutionDataArray; let i = index"  mode="ios" >
+
+        <ion-card class="institution-card" >
+          <ion-card-content class="ion-text-left">
+              <div class="display-flx ion-align-items-start ion-justify-content-between">
+                <div class="display-flx text-dot-css">
+                    <div class="institution-img-div display-grid ion-justify-content-center">
+                      <img class="institution-card-img" src="assets/svgs/global-search/institution.svg"/>
+                      <app-rating-stars ratingStars="2"></app-rating-stars>
+                    </div>
+                    <div class="institution-text-info-div text-dot-css">
+                        <h1 class="fs-14 font-medium color-black ion-no-margin ion-word-break-all margin-bottom-text
+                        institute-name text-dot-css">{{item?.name | firstLetterCap}}</h1>
+                        <h3 class="fs-12 font-light color-black margin-bottom-text ion-word-break-all text-dot-css">
+                          <span>{{ 'Total Courses' | translate }}
+                              <span class="font-regular">#{{item?.total_courses != null ? item?.total_courses : '0'}}<span class="separator-dot posi-rel"><img src="assets/imgs/student-profile/posts/like-comment-separator.svg"></span>
+                              </span>
+                          </span>
+                          <span>{{ 'World Ranking' | translate }}
+                              <span class="font-regular">#{{item?.world_ranking != null ? item?.world_ranking : '0'}}<span class="separator-dot posi-rel"><img src="assets/imgs/student-profile/posts/like-comment-separator.svg"></span>
+                              </span>
+                          </span>
+                          <span>{{ 'Domestic Ranking' | translate }}
+                              <span class="font-regular">#{{item?.domestic_ranking != null ? item?.domestic_ranking : '0'}}</span>
+                          </span>
+                      </h3>
+                      <h3 class="fs-12 font-light color-black ion-no-margin ion-word-break-all text-dot-css">{{item?.address | firstLetterCap }}</h3>
+                    </div>
+                </div>
+              </div>
+          </ion-card-content>
+        </ion-card>
+
+
+      </ion-slide>
+    </ion-slides>
+
+</ion-content>

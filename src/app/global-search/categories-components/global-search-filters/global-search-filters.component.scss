@@ -1,0 +1,44 @@
+.filter-btns-wrap{
+    overflow: scroll;
+    padding: 13px 15px 10px 15px;
+    box-shadow: 0px 2px 3px #e9e9e9;
+    .btn-colored-filled, .btn-colored-clear{
+        border-radius: 30px;
+        --border-radius: 30px;
+        height: 36px !important;
+        margin: 0px 10px 0px 0px !important;
+        --padding-start: 20px;
+        --padding-end: 20px;
+        --color: var(--ion-yuzee-color-black);
+        img{
+            margin-left: 10px;
+            margin-right: 0px !important;
+        }
+    }
+    .btn-separator{
+        border-left: 0.5px solid #CCCFD3;
+        height: 40px;
+        margin: 0px 22px 0px 10px;
+    }
+}
+
+.active-filter-btn{
+    --background: #EFF2F9;
+}
+
+.count-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    background: #2b68a0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    min-width: 18px;
+    span {
+      color: #ffffff;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+    }
+  }

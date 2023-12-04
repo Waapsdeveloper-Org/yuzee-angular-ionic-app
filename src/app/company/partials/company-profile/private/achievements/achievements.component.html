@@ -1,0 +1,59 @@
+  <div
+  *ngIf="!hide"
+  class="content-out-section posi-rel user-profile-education-div"
+>
+  <div class="contentGrid pad-botm-zero user-education-wrapper">
+    <div class="section-header-div">
+      <h4 class="section-title no-margin">{{ "Our Achievements" | translate }}</h4>
+      <button ion-button class="add-blue-icon-btn" (click)="addAchievements()">
+        <img src="assets/svgs/add-btn.svg" />
+      </button>
+    </div>
+
+    <ng-container
+      *ngFor="let list of achievements | slice:0:1; let last = last; let i = index"
+    >
+      <div class="user-education-wrap-div">
+        <div class="user-education-info-div ion-justify-space-between">
+          <div class="display-flx ion-align-items-start wid-100">
+            <img
+              class="circle-pro"
+              slot="start"
+              src="assets/company-profile/achievments.svg"
+            />
+            <div class="display-flx ion-align-items-start wid-100 ion-justify-content-between">
+              <div class="achievements-txt-div-wrap">
+                <h2 class="fs-16 font-medium color-black first-letter-cap ion-word-break-all ion-no-margin lh-20">{{ list?.achievement_name }}</h2>
+                <h3 class="font-regular education-year fs-14 color-grey first-letter-cap">{{ list ? list.achievement_start_date : "" }}</h3>
+              </div>
+              <div>
+      
+        <ng-container *ngFor="let certificate of newDocumentList">
+            <app-documents [documentImage]="certificate.extention" [documentName]="certificate.fileName" isEdit="true"
+                [fileUrl]="file" (remove)="remove(certificate,'old')"></app-documents>
+        </ng-container>
+
+
+                <button
+                ion-button
+                class="user-education-edit-btn"
+                (click)="editAchievements(list)"
+              >
+                <img src="assets/svgs/edit-blue-icon.svg" />
+              </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr
+        *ngIf="achievements.length > 1 ? (i < 1 ? false : true) : false"
+        class="separator"
+      />
+    </ng-container>
+
+    <ion-button (click)="seeMore()" class="see-more-btn">{{
+      "View all" | translate
+    }}</ion-button>
+  </div>
+</div>

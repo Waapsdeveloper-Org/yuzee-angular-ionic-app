@@ -1,0 +1,15 @@
+<div class="pad-top-form" *ngIf="videosArray && videosArray?.length > 0">
+  <div id="style-7">
+    <ion-slides pager="false" [options]="addVideos" class="add-videos-sliders">
+      <ion-slide *ngFor="let video of videosArray">
+        <ion-card class="add-video-card">
+          <video [src]="returnVideoAb(video)"></video>
+          <ion-button class="video-player-btn">
+            <img src="assets/svgs/yt-player-btn.svg" />
+          </ion-button>
+          <h4 class="video-timer">{{ returnVideoLength(video) }}</h4>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+ <!--about us-->
+ <div class="aboutUsContainer contactContainer">
+  <div class="aboutUsinnerContainer contactInner">
+    <ion-item lines="none">
+    <div class="aboutUslabelIcon">
+
+      <div class="aboutUs">
+        <ion-label>{{ 'Preferred Courses' | translate }}</ion-label>
+      </div>
+      
+    </div>
+  </ion-item>
+
+  <ion-item lines="none" *ngFor="let item of items">
+    <div class="iteminner">
+      <div class="logo">
+        <ion-icon src="../../../../../assets/internshipProgram/{{item.icon}}"></ion-icon>
+      </div>
+      <div class="label">
+          <ion-label>{{item.label}}</ion-label>
+      </div>
+    </div>
+
+  </ion-item>
+  </div>
+</div>
+<!--about us-->

@@ -1,0 +1,59 @@
+<ion-header class="modal-blue-bar-header">
+    <ion-toolbar>
+        <div class="blue-bar" (click)="goBack()"></div>
+        <h1 class="section-modal-title text-black ion-no-margin font-medium ion-text-center">{{ modalTitle | translate }}</h1>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="section-side-padding">
+        <ion-row>
+            <ion-col class="ion-text-center ion-no-padding">
+                <ion-range [pin]="true" [pinFormatter]="pinFormatter" [dualKnobs]="true" [value]="{ lower: selected_min_value, upper: selected_max_value }" [min]="minValue" [max]="maxValue" (ionChange)="onIonChange($event)"></ion-range>
+            </ion-col>
+        </ion-row>
+        <h1 class="section-title">{{ modalTitle == 'World Ranking' ? 'Ranking ' : 'In Years' | translate }}</h1>
+        <ion-row>
+            <ion-col class="pad-left-zero pad-right-form">
+                <ion-item class="text-field category-label item-zero-pad-mar-bg margin-top-zero"
+                lines="none" mode="md">
+                <ion-label position="stacked" class="fs-12 font-medium color-grey input-label">{{ 'Min Value' | translate }}</ion-label>
+                <ion-input
+                    mode="md"
+                    type="number"
+                    required
+                    [(ngModel)]="selected_min_value">
+                </ion-input>
+                </ion-item>
+                <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+                    <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+                        {{ 'Select min value' | translate }}
+                    </div>
+                </ion-col>
+            </ion-col>
+            <ion-col class="pad-ryt-zero pad-left-form">
+                <ion-item class="text-field category-label item-zero-pad-mar-bg margin-top-zero"
+                lines="none" mode="md">
+                <ion-label position="stacked" class="fs-12 font-medium color-grey input-label">{{ 'Max Value' | translate }}</ion-label>
+                <ion-input
+                    mode="md"
+                    type="number"
+                    required
+                    [(ngModel)]="selected_max_value">
+                </ion-input>
+                </ion-item>
+                <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+                    <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+                        {{ 'Select max value' | translate }}
+                    </div>
+                </ion-col>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-row class="flex-center">
+      <ion-button expand="block" class="btn-colored-clear fs-16 font-regular color-black" (click)="cancel()" mode="md">{{ 'Reset' | translate }}</ion-button>
+      <ion-button expand="block" class="btn-colored-filled fs-14 font-medium color-white" (click)="confirmation()" mode="md">{{ 'Apply' | translate }}</ion-button>
+    </ion-row>
+  </ion-footer>

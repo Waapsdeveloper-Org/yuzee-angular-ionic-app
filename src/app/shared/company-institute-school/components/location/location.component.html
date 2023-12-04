@@ -1,0 +1,39 @@
+<div class="background-white">
+  <div class="map-wrapper">
+    <div id="map" #map></div>
+    <div class="location-info-div display-flx ion-align-items-start ion-justify-content-between">
+      <div class="display-flx ion-align-items-center">
+        <div class="blue-location-icon-div">
+          <img src="assets/svgs/blue-location-icon.svg">
+        </div>
+        <div>
+          <!-- Data will be dynamic-->
+          <h3 class="location-name fs-14 color-black font-regular ion-word-break-all">{{ locationObj?.address }}</h3>
+        </div>
+
+      </div>
+      <button (click)="editLocation()" class="edit-blue-icon-btn edit-location-icon posi-rel" [hidden]="!hasAccessUpdate && isInstitute">
+        <img src="assets/svgs/edit-blue-icon.svg">
+      </button>
+  </div>
+  <div class="contact-info-timings-div">
+    <ion-row class="working-time-header">
+      <ion-col>
+        <h3 class="color-black font-medium ion-no-margin">{{ 'Working days' | translate }}</h3>
+      </ion-col>
+      <ion-col>
+        <h3 class="color-black font-medium ion-no-margin">{{ 'Working Hours' | translate }}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let a of instituteWorkingHours">
+      <ion-col>
+        <h3 class="color-black font-light ion-no-margin">{{ a.day_of_week | titlecase}}</h3>
+      </ion-col>
+      <ion-col>
+        <h3 class="color-black font-light ion-no-margin">{{a.open_at}} - {{a.close_at}}</h3>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,199 @@
+<div class="bor-bot1 cont-pad-1">
+    <h4 class="main-head-title"> {{ "Search Keyword" | translate }} </h4>
+  
+    <ion-row>
+        <ion-col size="12" class="no-padding">
+            <input type="text" class="btn-box-se" [(ngModel)]="searchData.searchString"/>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Levels" | translate }} </h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openLevels()" />        
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let level of LevelSendSelected">
+                <span>{{level.code}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeLevelsFilter(level)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+  
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Country" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openCountryModal()" />        
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let country of CountryArray">
+                <span>{{country.name}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeCountryFilter(country)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+  
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "City" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openCityModal()" />        
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let city of CityArray">
+                <span>{{city.name}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeCityFilter(city)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Course" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openCoursesFilter()" />        
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let course of CoursesArray">
+                <span>{{course.name}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeCourseFilter(course)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Faculty" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openFaculties()" />        
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let faculty of FacultyArray">
+                <span>{{faculty.name}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeFacultysFilter(faculty)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Mode" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openModeModal()" />        
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let mode of ModeArray">
+                <span>{{mode.name}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeModeFilter(mode)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Delivery" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+            <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openDeliveryModal()" />        
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="pad-left-zero">
+            <button class="interest" *ngFor="let del of DeliveryArray">
+                <span>{{del.name}}</span>
+                    &nbsp;&nbsp;
+                    <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeDelFilter(del)"></ion-icon>
+                </button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Price" | translate }} </h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+        </ion-col>
+    </ion-row>
+
+    <div class="bg-white lowst-margn">
+        <ion-row class="rw-margn">
+            <ion-col size="5">
+                <p class="mar-auto price-til"> {{ "Lowest Price" | translate }}</p>
+                <p class="price-text bor-price">{{userData.currencyCode}}&nbsp;
+                    <span class="text-5E5E">{{Cost.lower}}</span></p>
+            </ion-col>
+            <ion-col size="2">
+            </ion-col>
+            <ion-col size="5" class="align-end">
+                <div class="wid-100">
+                    <p class="mar-auto price-til"> {{ "Highest Price" | translate }}</p>
+                    <p class="price-text bor-price">{{userData.currencyCode}}&nbsp;
+                    <span class="text-5E5E">{{Cost.upper}}</span></p>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-range dualKnobs="true" pin="true" min="0" max="100000" step="1000" (ionChange)="changePrice()" [(ngModel)]="Cost" color="dark" class="no-padding rang-padd">
+        </ion-range>
+    </div>
+
+    <ion-row class="heading-t">
+        <ion-col size="10" class="no-padding text-align">
+            <h4 class="main-head-title"> {{ "Duration" | translate }}</h4>
+        </ion-col>
+        <ion-col size="2" class="no-padding align-end">
+        </ion-col>
+    </ion-row>
+
+    <div class="bg-white lowst-margn">
+        <ion-row class="rw-margn">
+            <ion-col size="5">
+              <p class="mar-auto price-til"> {{ "Longest Duration" | translate }}</p>
+                <p class="price-text bor-price"><span class="text-5E5E">{{Duration.lower}}</span></p>
+            </ion-col>
+            <ion-col size="2">
+            </ion-col>
+            <ion-col size="5" class="align-end">
+                <div class="wid-100">
+                    <p class="mar-auto price-til"> {{ "Shortest Duration" | translate }}</p>
+                    <p class="price-text bor-price"><span class="text-5E5E">{{Duration.upper}}</span></p>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-range dualKnobs="true" pin="true" min="0" max="10" step="1" (ionChange)="changeDur()" [(ngModel)]="Duration" color="dark" class="rang-padd">
+        </ion-range>
+    </div>
+
+  
+  <div class="cont-pad-1"> 
+      <button ion-button full class="button-apply" (click)="submitApply()"> {{ "Apply Filters" | translate }} </button>
+  </div>
+  
+  </div>

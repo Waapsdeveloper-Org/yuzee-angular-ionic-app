@@ -1,0 +1,96 @@
+<ion-item class="ion-no-padding" lines="none">
+  <h2 class="ion-text-start no-margin fs-16 font-medium">{{ "Working days and hours" | translate }}</h2>
+  <div (click)="close.emit()" *ngIf="showClose" class="cross-icon-div">
+    <button class="button-active-effect pad-ryt-zero"><img src="assets/svgs/cross-dark-icon.svg"></button>
+  </div>
+</ion-item>
+
+<ion-row>
+  <ion-col size="6" class="ion-no-padding">
+      <ion-item class="text-field category-label item-zero-pad-mar-bg margin-top-zero"
+      lines="none"
+      (click)="presentPopUp('days')">
+      <ion-label class="fixed-label" position="floating">{{ "Day of the week" | translate }}</ion-label>
+      <ion-input
+        type="text"
+        [readonly]="true"
+        required
+        [value]="item?.day_of_week | titlecase"
+        (input)="selectedDayOfWeek($event.detail.value)"
+        (ionChange)="selectedDayOfWeek($event.detail.value)">
+      </ion-input>
+      <ion-icon slot="end" class="arrow-drop-down" name="chevron-down-outline"
+      ></ion-icon>
+      </ion-item>
+  </ion-col>
+  <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+      <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+        {{(item?.day_of_week == '' || !item?.day_of_week) && submitted ? "Please Select Day of Week" : ''    }}
+      </div>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col size="6" class="ion-no-padding pad-right-form">
+    <ion-item class="datetime-item-field item-zero-pad-mar-bg margin-bottom-zero" mode="md" (click)="showTimesModal('from')">
+        <ion-label mode="md" position="stacked">{{ "Start Time" | translate }}</ion-label>
+        <ion-row class="flex-center date-time-row">
+            <div class="time-input-clock-icon">
+                <img class="datetime-icon" src="assets/companycreate/clock.svg" />
+            </div>
+            <div class="flex-center">
+                <ion-input
+                class="flex-center time-input fs-14"
+                mode="ios"
+                [readonly]="true"
+                type="text"
+                [value]="item?.open_at ? item?.open_at : '--:--'"
+                (ionChange)="from($event.detail.value)"
+                ></ion-input>
+                <ion-icon
+                slot="end"
+                class="date-time-arrow color-blue"
+                name="chevron-down-outline"
+                ></ion-icon>
+            </div>
+        </ion-row>
+    </ion-item>
+    <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div time-validation-msg">
+          {{(item?.open_at == '' || !item?.open_at) && submitted ? "Please Enter Start Time" : ''    }}
+        </div>
+    </ion-col>
+  </ion-col>
+
+  <ion-col size="6" class="ion-no-padding pad-left-form">
+    <ion-item class="datetime-item-field item-zero-pad-mar-bg margin-bottom-zero" mode="md" (click)="showTimesModal('to')">
+        <ion-label position="stacked" mode="md"> {{'End Time' | translate}} </ion-label>
+        <ion-row class="flex-center date-time-row">
+            <div class="time-input-clock-icon">
+                <img class="datetime-icon" src="assets/companycreate/clock.svg" />
+            </div>
+            <div class="flex-center">
+                <ion-input
+                class="flex-center time-input fs-14"
+                mode="ios"
+                [readonly]="true"
+                type="text"
+                [value]="item?.close_at ? item?.close_at : '--:--'"
+                (ionChange)="to($event.detail.value)"
+                ></ion-input>
+                <ion-icon
+                slot="end"
+                class="date-time-arrow color-blue"
+                name="chevron-down-outline"
+                ></ion-icon>
+            </div>
+        </ion-row>
+    </ion-item>
+    <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div time-validation-msg">
+          {{(item?.close_at== '' || !item?.close_at) && submitted ? "Please Enter close Time" : ''    }}
+        </div>
+    </ion-col>
+  </ion-col>
+</ion-row>
+

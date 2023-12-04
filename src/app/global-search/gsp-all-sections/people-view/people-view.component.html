@@ -1,0 +1,105 @@
+<div class="section-divider-8">
+    <p class="result-txt">
+        <span *ngIf="getGlobalSearchData.length != 0">{{getGlobalSearchData.length}} {{ "Result" | translate }}</span>
+        <span *ngIf="getGlobalSearchData.length == 0"> {{ "No results" | translate }} </span>
+    </p>
+
+    <div class="no-res-box">
+        <ion-row>
+            <ion-col size="3" class="flex-center">
+                <img class="no-fo" src="assets/imgs/globalicon/new-icons/no-search-people.png" />
+            </ion-col>
+            <ion-col size="9" class="">
+                <p>{{ "We could not find" | translate }} <span class="fs-w6">'Sarah Barzak'</span></p>
+                <p class="tx">{{ "Try something else" | translate }} </p>
+            </ion-col>
+        </ion-row>
+        <button class="invite-peop" (click)="openInvitePopup()">
+            {{ "Invite People" | translate }}
+        </button>
+    </div>
+
+    <app-suggested-for-you></app-suggested-for-you>
+    
+    <div class="container-course-info"  [ngClass]="{courseInfo: courseInfo}">
+    <ion-row *ngFor="let people of getGlobalSearchData" class="crd-people">
+        <ion-col size="2" class="" >
+            <img class="ach-imagess" src="assets/imgs/profile-icons/pers.png" />
+        </ion-col>
+        <ion-col size="8" class="text-align bor-1 row-padi-s">
+            <div>
+                <p class="no-margin a-tit">{{people.firstName}} {{people.lastName}}</p>
+                <p class="no-margin a-desc">{{people.instituteName}}</p>
+                <!-- <p class="no-margin a-loca text-align">
+                    <img class="loc-img" src="assets/imgs/locat.png">
+                    {{people.city}}, {{people.country}}
+                </p> -->
+                <p class="no-margin shared-connection">12 {{ "mutual friends" | translate }} </p>
+            </div>
+        </ion-col> 
+        <ion-col size="2" class="flex-center bor-bot1">
+                <img class="add-people" src="assets/imgs/student-profile/portfolio/add-people.PNG" />
+            <!-- <button ion-button full clear class="btn-infollow" [ngClass]="people.isConnectionExist?'':'active-people'">
+                <span *ngIf="!people.isConnectionExist" (click)="followConnection(people)">Follow</span>
+                <span *ngIf="people.isConnectionExist" (click)="UnfollowConnection(people)">Following</span>
+            </button> -->
+        </ion-col>
+    </ion-row>
+    </div>
+    <button ion-button class="bg-none no-border text-blue-col no-margin btn-viewmore bg-white" [ngClass]="(courseInfo)?'slideIn':'slideUp'"  (click)="openSeeAllCourses()">
+        <span *ngIf="!courseInfo" class="text-align">
+            <img class="ar-down" src="assets/imgs/globalicon/new-icons/dropdown.png" /> 
+        </span>
+        <span *ngIf="courseInfo" class="text-align">
+            <img class="ar-down" src="assets/imgs/globalicon/new-icons/dropdown.png" /> 
+        </span>
+    </button>
+</div>
+
+
+<app-gsp-people-you-may-know></app-gsp-people-you-may-know>
+<app-gsp-other-people></app-gsp-other-people>
+
+
+
+<!-- <div *ngIf="!GSRObject.totalCount">
+      <ion-row>
+          <ion-col size="4" class="flex-center">
+              <img class="no-people" src="assets/imgs/home/no-people.png" />
+          </ion-col>
+          <ion-col size="8" class="flex-center">
+              <div class="search-string">
+                  We couldnt find <span class="blt-str">{{SendGlobalData.searchString}}</span> 
+                  <p class="no-margin">Try something else</p>
+              </div>
+          </ion-col>
+      </ion-row>
+      <p class="recom-people">Recommended people</p>
+      <ion-row *ngFor="let people of [1,1,1,1,1,1]">
+          <ion-col size="2" class="">
+              <img class="ach-imagess" src="assets/imgs/profile-icons/pers.png" />
+          </ion-col>
+          <ion-col size="7" class="text-align bor-1 row-padi2">
+              <div>
+                  <p class="no-margin a-tit">Honda Takumi</p>
+                  <p class="no-margin a-desc">French school of kaula lumpur</p>
+                  <p class="no-margin a-loca text-align">
+                      <img class="loc-img" src="assets/imgs/locat.png">
+                      Kaula Lumpur, Malasiya
+                  </p>
+                  <p class="no-margin shared-connection">72 shared connection</p>
+              </div>
+          </ion-col> 
+          <ion-col size="3" class="flex-center bor-bot1">
+              <button ion-button full clear class="btn-infollow active-people">
+                  <span>Follow</span>
+              </button>
+          </ion-col>
+      </ion-row>
+      <div class="posi-stiky-people">
+          <p class="cnt-fn">Can't find the people you're looking? Try Email or SMS them</p>
+          <button ion-button full clear class="btn-invite" (click)="goInvite()">
+              <span>Invite people</span>
+          </button>
+      </div>
+  </div> -->

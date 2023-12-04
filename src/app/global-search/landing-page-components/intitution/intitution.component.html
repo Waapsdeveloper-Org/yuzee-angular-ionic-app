@@ -1,0 +1,16 @@
+<div class="content-inr-section"
+[class.header-border]="seeAll">
+    <div class="display-flx ion-align-items-center ion-justify-content-between pad-bottom-form" *ngIf="seeAll">
+        <h4 class="section-title no-margin">{{"Institution" | translate}}</h4>
+        <button class="fs-13 font-medium color-blue ion-no-background button-active-effect pad-ryt-zero">
+            {{ 'See all' | translate }}
+        </button>
+    </div>
+
+    <ng-container *ngIf="!institutionDataArray || institutionDataArray?.length == 0">
+        <h3 *ngFor="let skelton of [].constructor(10); let i = index" class="cards-skelton">
+            <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+        </h3>
+    </ng-container>
+    <app-cards-intitution *ngFor="let item of institutionDataArray; let i = index" [item]="item"></app-cards-intitution>
+</div>

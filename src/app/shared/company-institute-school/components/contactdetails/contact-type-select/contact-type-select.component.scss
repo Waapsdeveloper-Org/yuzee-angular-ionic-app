@@ -1,0 +1,58 @@
+@import "../../../../../../theme/custom-header.css";
+ion-checkbox {
+  margin: 0px 15px 0 5px;
+}
+
+.rightcss {
+  color: #2b68a0 !important;
+  font-size: 16px !important;
+  text-transform: initial;
+  letter-spacing: 0.6px;
+  font-weight: 400;
+  margin-right: 26px;
+  background: none;
+}
+
+.customeLabel {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.customeLabelSelected {
+  font-size: 14px;
+  font-weight: 400;
+  color: #2b68a0;
+}
+
+.checkbox {
+  --background-checked: #2b68a0;
+  --border-color-checked: #2b68a0;
+}
+
+.bor-bot {
+  border-bottom: 8px solid #2b68a0;
+  margin: 0px auto;
+  width: 85px;
+  border-radius: 30px;
+  margin-top: 14px !important;
+  margin-bottom: 14px !important;
+}
+
+ion-footer {
+  background: white !important;
+  text-align: center !important;
+  height: 80px !important;
+  box-shadow: 0 -5px 14px -5px #e5e6e6 !important;
+}
+
+ion-list {
+  padding-top: 0% !important;
+}
+
+.height-unset {
+  height: unset !important;
+}
+
+.padding-right-10 {
+    padding-right: 10px !important;
+}

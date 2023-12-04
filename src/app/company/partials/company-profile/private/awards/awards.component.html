@@ -1,0 +1,31 @@
+<div *ngIf="!hide" class="content-out-section posi-rel bg-white">
+  <app-profile-shared-list-view [title]="'Awards and Certifications'" (add)="openAdd()" (seeMore)="seeMore()">
+    <ng-template>
+      <ng-container *ngFor="
+          let item of awards | slice:0:1
+          let last = last;
+          let first = first;
+          let i = index
+        ">
+        <div class="user-education-wrap-div display-flx ion-align-items-start ion-justify-content-between">
+          <div class="user-education-info-div display-flx">
+            <div>
+              <img class="circle-pro" slot="start" [src]="getImageUrlToShow(item)" />
+            </div>
+            <div class="awards-info-div">
+              <h2 class="font-medium color-black education-institution-name first-letter-cap">{{ item.title }}</h2>
+              <h3 class="font-regular education-year">
+                <see-more-para [trimLength]="150" [description]="item.description"
+                  [classes]="'font-light no-margin fs-12 first-letter-cap ion-word-break-all'"></see-more-para>
+              </h3>
+            </div>
+          </div>
+          <button ion-button class="user-education-edit-btn" (click)="editAward(item)">
+            <img src="assets/svgs/edit-blue-icon.svg" />
+          </button>
+        </div>
+        <hr *ngIf="i < 0" class="separator" />
+      </ng-container>
+    </ng-template>
+  </app-profile-shared-list-view>
+</div>

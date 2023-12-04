@@ -1,0 +1,125 @@
+@import "../../../../../theme/custom-header.css";
+
+.month-date {
+  margin: 5px 0 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f14141;
+  text-align: center;
+}
+
+.day {
+  margin-top: 0;
+  font-size: 19px;
+  color: #454545;
+  text-align: center;
+}
+
+.no-cover {
+  margin-top: 10px;
+}
+
+.text-black {
+  text-align: center;
+}
+
+.university-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.university-desc {
+  margin: 5px 0;
+  font-size: 13px;
+
+  span {
+    color: #2b68a0;
+  }
+}
+
+.event-type {
+  color: #2b68a0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.event-joined {
+  font-size: 10px;
+  color: gray;
+  margin: 0;
+}
+
+.gsp-section-bottom {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.bor-btm {
+  border-bottom: 10px solid #eeeeee;
+}
+
+img.evn-ic {
+  margin: 6px;
+}
+
+.tx {
+  font-weight: normal;
+  font-size: 13px;
+  color: #77787b;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 7px 0;
+  img {
+    width: 20px;
+    height: 16px;
+    object-fit: contain;
+    margin-right: 8px;
+  }
+}
+
+.about-event {
+  .schl-txt {
+    font-size: 14px;
+    margin: 10px 0px !important;
+    color: #000000;
+    font-weight: lighter !important;
+  }
+
+  .lef-icon-info {
+    margin: 10px 10px 10px 0px;
+    object-fit: cover;
+    width: 16px;
+  }
+
+  .align-flx-start {
+    align-items: flex-start;
+    display: flex;
+  }
+
+  .lorem-desc {
+    font-size: 15px;
+    color: #454545;
+    line-height: 22px;
+    font-weight: 500;
+
+    span {
+      color: #2b68a0;
+    }
+  }
+
+  .evnt-hding {
+    color: #000000;
+    font-size: 16px;
+    margin: 6px 0px 5px 0px;
+  }
+}
+
+.sec-bo {
+  padding: 14px;
+  border-bottom: 10px solid #eeeeee !important;
+}

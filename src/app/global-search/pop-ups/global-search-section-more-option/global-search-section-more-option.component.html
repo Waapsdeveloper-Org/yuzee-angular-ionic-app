@@ -1,0 +1,24 @@
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar>
+      <div class="blue-bar" (click)="goBack()"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="popup-div">
+  <!-- Will require later -->
+  <ion-item button lines="none" detail="false">
+    <!-- Use the below icon if the post is saved and change the item text to 'saved' -->
+    <img class="icon-sm" src="assets/imgs/student-profile/posts/bookmark.svg">
+    <img src="assets/imgs/student-profile/posts/saved.svg">
+    <h3 class="fs-14 font-regular">{{"Save" | translate}}</h3>
+  </ion-item>
+  <ion-item button detail="false"  (click)="copy()" lines="none">
+    <img class="post-opt-icon" src="assets/imgs/student-profile/posts/copy-link.svg">
+    <h3 class="fs-14 font-regular" >{{ "Copy link" | translate }}</h3>
+  </ion-item>
+  <ion-item button detail="false" lines="none">
+    <img class="post-opt-icon" src="assets/svgs/global-search/report-icon.svg">
+    <h3 class="fs-14 font-regular">{{ "Report" | translate }}</h3>
+  </ion-item>
+
+</ion-content>

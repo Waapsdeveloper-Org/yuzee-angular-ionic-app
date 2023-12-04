@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="wid-ht-header-btns" slot="start">
+      <ion-icon (click)="dismiss()" name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+    <app-generic-ion-searchbar
+      class="customSearchBox-width-88"
+      [class]="'customSearchBox-without-close-btn search-box-custom-icon'"
+      [placeholder]="'Type to start search...'"
+      [value]="search"
+      (ionChange)="ionSearch($event)"
+    ></app-generic-ion-searchbar>
+    <ion-buttons
+      slot="end"
+      class="wid-ht-header-btns"
+      [hidden]="getSelectedLength()"
+    >
+      <ion-button
+        class="margin-right"
+        (click)="save()"
+        [disabled]="getSelectedLength() || !isChanged"
+      >
+        {{ "Done" | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding no-top-padding">
+    <div *ngIf="keyword.length > 0">
+      <ion-item
+        style="border-bottom: 1px solid #dedede !important"
+        lines="none"
+        class="ccsk-item"
+        [ngClass]="!last ? 'item-css' : ''"
+        *ngFor="let item of keyword; let i = index; let last = last"
+        (click)="pushSelectedkeyword(item)"
+      >
+        <ion-label>
+          <h2
+            [ngClass]="isItemSelected(item) ? 'color-blue' : 'color-black'"
+            class="font-regular wid-90 csk-unset-top-margin"
+          >
+            {{ item.keyword }}
+          </h2>
+        </ion-label>
+        <img
+          slot="end"
+          *ngIf="!isItemSelected(item)"
+          class="cross-img"
+          src="assets/create-company/add.svg"
+        />
+        <img
+          slot="end"
+          *ngIf="isItemSelected(item)"
+          class="cross-img"
+          src="assets/create-company/remove.svg"
+        />
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

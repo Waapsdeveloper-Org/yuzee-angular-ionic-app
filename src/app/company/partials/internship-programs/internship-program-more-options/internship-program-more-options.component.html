@@ -1,0 +1,20 @@
+<!--YACC0-->
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar class="header-toolbar">
+    <div class="blue-bar" (click)="goBack()"></div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item mode="md" button lines="none">
+    <img src="assets/svgs/share-icon.svg">
+    <h3 class="fs-14 font-regular color-black">{{ 'Share to post' | translate }}</h3>
+  </ion-item>
+  <ion-item mode="md" button lines="none">
+    <img src="assets/svgs/share-icon.svg">
+    <h3 class="fs-14 font-regular color-black">{{ 'Share in messages' | translate }}</h3>
+  </ion-item>
+  <ion-item mode="md" button lines="none" [hidden]="!hasAccessScholarshipDelete && isInstitute">
+    <img src="assets/svgs/delete-icon.svg">
+    <h3 class="fs-14 font-regular color-black">{{ 'Delete' | translate }} {{ itemType }}</h3>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,7 @@
+<div class="header-border about-scholarship-details-wrap">
+  <h2 class="section-title">{{ title | translate }}</h2>
+  <ul class="about-list" *ngIf="list.length > 0">
+    <!-- This data will be dynamic -->
+    <li class="fs-20" *ngFor="let item of list"><span class="fs-14 color-black font-light" >{{ item }}</span></li>    
+  </ul>
+</div>  

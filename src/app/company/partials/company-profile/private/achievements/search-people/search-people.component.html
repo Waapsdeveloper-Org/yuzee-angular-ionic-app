@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="display-flx ion-align-items-center">
+      <ion-buttons slot="start" class="wid-ht-header-btns">
+        <ion-button (click)="dismiss([])" class="back-btn-ripple">
+          <img src="assets/svgs/blue-back-btn.svg" />
+        </ion-button>
+      </ion-buttons>
+
+      <ion-list class="ion-padding-top ion-margin-end ion-margin-start search-bar-list ion-padding-bottom-none"
+      [class.search-bar-list-show-done]="getSelectedLength()">
+        <ion-row >
+          <ion-col size="12" class="padding-top-bottom-0">
+            <ion-searchbar
+              #input
+              [showCancelButton]="'never'"
+              class="customSearchBox-without-close-btn search-box-custom-icon"
+              placeholder="Search"
+              (ionInput)="ionSearch($event)"
+            ><img src="assets/svgs/location-search-icon.svg" /></ion-searchbar>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      <ion-buttons
+        slot="end"
+        class="wid-ht-header-btns done-btn"
+        [hidden]="getSelectedLength()"
+      >
+      <button class="rightcss fs-14 font-medium color-blue button-active-effect ion-no-background pad-ryt-zero" (click)="save()"
+      [disabled]="getSelectedLength() || !changed">{{ "Done" | translate }}</button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="users?.length > 0" class="users-list">
+    <div class="item" *ngFor="let item of users;  let i = index; let last = last;">
+      <ion-item lines="none" class="item-display" (click)="pushSelectedUser(item)" detail="false" button mode="md">
+        <img slot="start" class="profile-picture-img" [src]="
+        item.imageURL
+          ? item.imageURL
+          : 'assets/images/avatar-default.svg'
+      " onError="this.src='assets/imgs/profile-icons/default-profile.svg';" />
+        <div class="flex-center user-info-div" [class.item-divider]="!last">
+          <ion-label class="country-info fs-14 font-regular color-black" [class.color-blue]="isItemSelected(item)">{{ item?.first_name + item?.last_name }}</ion-label>
+          <ion-checkbox slot="end" [checked]="isItemSelected(item)" [class.ion-checkbox-active-width]="isItemSelected(item)"></ion-checkbox>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div *ngIf="users?.length == 0 && search !== ''" class="no-data-div background-white">
+    <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No data found." | translate }}</h1>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

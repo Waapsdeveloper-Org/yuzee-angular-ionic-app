@@ -1,0 +1,96 @@
+<ion-content class="bg">
+    <div class="scrollmenu" id="style-7">
+        <div class="clearbtn">
+            <p class="catCategoryheading ion-no-margin noMargin"><span class="textColor">{{ 'Clear all' | translate }}</span></p>
+        </div>
+        <div class="divider">
+            <div class="catCategoryselected" (click)="gsHelper.gsMainOpenModel()">
+                <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Articles' | translate }}</span>
+                    <span>
+                        <img class="dropdown" src="assets/imgs/Course/bluedropdown.svg">
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="categoryFilter" (click)="openFilterPage('Date')">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Date' | translate }}</span>
+                <span>
+                    <img class="dropdown" src="assets/imgs/Course/greydropdown.svg">
+                </span>
+            </p>
+        </div>
+        <div class="categoryFilter" (click)="openFilterPage('Posted')">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Posted By' | translate }}</span>
+                <span>
+                    <img class="dropdown" src="assets/imgs/Course/greydropdown.svg">
+                </span>
+            </p>
+        </div>
+        <div class="categoryFilter" (click)="openFilterPage('Author')">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Author Industries' | translate }}</span>
+                <span>
+                    <img class="dropdown" src="assets/imgs/Course/greydropdown.svg">
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="resultdiv">
+        <h3 class="font-regular ion-padding-start">{{'We found ' | translate}} 304 {{' results' | translate}}</h3>
+    </div>
+    <div class="articles">
+        <ion-item lines="none">
+            <img class="image" slot="start" src="assets/imgs/Course/articleicon2.png" />
+            <p class="articletype">{{'News' | translate}}</p>
+            <img slot="end" class="slotandbtn" src="assets/New/dot.png" />
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label class="nomargin">
+                <h3 class="articleHeading">{{"How much Do International Students Bring To The Economy?" | translate}}</h3>
+                <p class="articleSub">{{"14 Feb 2019 | written by" | translate}} <span class="highlight">{{'Yuzee' | translate}}</span></p>
+            </ion-label>
+            <img slot="end" class="slotendImage" src="assets/imgs/Course/article4.png" />
+        </ion-item>
+    </div>
+    <div class="articles">
+        <ion-item lines="none">
+            <img class="image" slot="start" src="assets/imgs/Course/articleicon4.png" />
+            <p class="articletype">{{'Campus Life' | translate}}</p>
+            <img slot="end" class="slotandbtn" src="assets/New/dot.png" />
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label class="nomargin">
+                <h3 class="articleHeading">{{"How To Not Overspend Your Money As A Student And Not Overspend Your Money..." | translate}}</h3>
+                <p class="articleSub">{{"3 Mar 2019 | written by" | translate}} <span class="highlight">{{"Amazon" | translate}}</span></p>
+            </ion-label>
+            <img slot="end" class="slotendImage" src="assets/imgs/Course/article5.png" />
+        </ion-item>
+    </div>
+    <div class="articles">
+        <ion-item lines="none">
+            <img class="image" slot="start" src="assets/imgs/Course/articleicon1.png" />
+            <p class="articletype">{{"Internships and Jobs" | translate}}</p>
+            <img slot="end" class="slotandbtn" src="assets/New/dot.png" />
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label class="nomargin">
+                <h3 class="articleHeading">{{"Why The Freelance Life May Get Easier" | translate}}</h3>
+                <p class="articleSub">{{"3 Mar 2019 | written by" | translate}} <span class="highlight">{{'BestUniEver' | translate}}</span></p>
+            </ion-label>
+            <img slot="end" class="slotendImage" src="assets/imgs/Course/article6.png" />
+        </ion-item>
+    </div>
+    <div class="articles">
+        <ion-item lines="none">
+            <img class="image" slot="start" src="assets/imgs/Course/articleicon3.png" />
+            <p class="articletype">{{'News' | translate}}</p>
+            <img slot="end" class="slotandbtn" src="assets/New/dot.png" />
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label class="nomargin">
+                <h3 class="articleHeading">{{'Why The Freelance Life May Get Easier' | translate}}</h3>
+                <p class="articleSub">{{"3 Mar 2019 | written by" | translate}} <span class="highlight">{{'BestUniEver' | translate}}</span></p>
+            </ion-label>
+            <img slot="end" class="slotendImage" src="assets/imgs/Course/article7.png" />
+        </ion-item>
+    </div>
+</ion-content>

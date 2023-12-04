@@ -1,0 +1,99 @@
+@import '../../../../../company/partials/company-profile/company-profile.page.scss';
+.no-border-bottom {
+  border-bottom: none !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.no-padding-vertical {
+  padding-top: 0% !important;
+  padding-bottom: 0% !important;
+}
+
+.bottom-button {
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 16px;
+  display: unset;
+}
+
+.input-icon {
+  position: absolute;
+  bottom: 0px;
+  height: 14px;
+  width: 14px;
+  margin-bottom: 16px;
+}
+
+.input-left-padding {
+  padding-left: 24px !important;
+}
+
+.end-icon {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-25%);
+}
+
+.selec-box {
+  background: #ffffff;
+  padding: 3px 18px 2px 0px;
+  color: #5e5e5e;
+  font-size: 14px;
+  border: none !important;
+  margin-bottom: 0px;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+  border-color: none !important;
+  outline-color: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  outline: none !important;
+}
+
+.border-bottom-100 {
+  border-bottom: #c7c8ca solid 1px !important;
+  width: 100%;
+}
+
+
+.wid-100 {
+  width: 100%;
+}
+
+.select-icon-arrow {
+  //background-image: url("../../../../../../assets/imgs/arrows/downarrow.svg") !important;
+  background-size: 13px !important;
+  border: none !important;
+  background-repeat: no-repeat !important;
+  background-position-x: right !important;
+  background-position-y: center !important;
+  appearance: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-color: none !important;
+  outline-color: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  padding: 0px 10px 0px 0px !important;
+  height: 39px;
+  margin-right: 0px;
+  width: 100%;
+  outline: none !important;
+  text-align: center;
+}
+
+.text-align-end {
+  display: flex !important;
+  align-items: end !important;
+  text-align: center;
+}
+
+.margin-left-6 {
+  margin-left: 6px !important;
+}

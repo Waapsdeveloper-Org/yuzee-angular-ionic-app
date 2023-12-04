@@ -1,0 +1,40 @@
+@import "../create-new-company-form/create-new-company-form.page.scss";
+@import "../introduction//introduction.page.scss";
+
+.top-img {
+  width: 230px;
+  height: 135px;
+  margin: 30px auto;
+}
+
+.type-card {
+  height: 7em !important;
+  padding: 10px 16px;
+  img {
+    top: 50%;
+  }
+
+  .title {
+    line-height: 17px;
+    padding-bottom: 4px;
+  }
+
+  .desc {
+    line-height: 20px;
+  }
+}
+
+ion-radio {
+  margin-left: 0px !important;
+}
+
+.radio-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+app-clickable-card-item {
+  width: 100%;
+}

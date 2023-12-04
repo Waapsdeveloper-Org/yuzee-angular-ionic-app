@@ -1,0 +1,53 @@
+<app-header-multi [isTitle]="true" [title]="'Certification'" [isSaveOrDone]="true" [isSaveOrDoneDisabled]="edit1()" (action)="save()"  (back)="dismiss()" ></app-header-multi>
+
+<ion-content>
+  <div class="sect-port">
+    <div class="logo-main">
+      <div class="logo-outer" (click)="selectPhoto()">
+        <div class="logo-img-outer">
+          <img [src]="award.logo" />
+        </div>
+        <div class="add-logo-outer">
+          <img src="assets/svgs/dark-camera-icon.svg">
+
+          <!--  use this icon when you have a real image <img src="assets/svgs/edit-pen.svg"> -->
+        </div>
+      </div>
+    </div>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Name of Certification" }}</ion-label>
+          <ion-input mode="md" type="text" genericTextField #certification_name="ngModel" [minLength]="'textMin'"
+            [maxLength]="'nameMax'" [(ngModel)]="award.title" (ionInput)="edit()" (ionChange)="validateQuestion()"
+            name="certification_name" required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{ handleStringError(certification_name.errors) }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none" (click)="openDescriptionModal($event)" mode="md">
+          <ion-label position="floating" mode="md">{{ "Details" }}</ion-label>
+          <ion-input mode="md" type="text" [readonly]="true" [(ngModel)]="award.description">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{ handleStringError(award.description.errors) }}
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="award.award_certification_id">
+  <ion-button class="btn-colored-outline fs-16 font-medium" expand="block" (click)="delete()">{{ "Delete" }}</ion-button>
+</ion-footer>

@@ -1,0 +1,237 @@
+.margin {
+    margin-top: 10px;
+}
+
+.heading {
+    height: 34px;
+}
+
+.bg {
+    background: white;
+}
+
+.text-grey {
+    color: #77787B !important;
+    font-size: 14px;
+}
+
+.timeline {
+    height: 50px;
+    position: relative;
+}
+
+.profileImg {
+    position: absolute;
+    height: 65px;
+    width: 65px;
+    margin-top: 14px;
+    left: 52px;
+}
+
+.userDiv {
+    text-align: center;
+    justify-content: center;
+}
+
+.username {
+    font-weight: bold;
+    color: black;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.mg12 {
+    margin-top: 12px;
+}
+
+.mgL {
+    margin-left: -10px;
+}
+
+.verifiedImg {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+}
+
+.userfrom {
+    font-size: 10px;
+    color: #77787B !important;
+    margin: 0%;
+    margin-top: -5px;
+}
+
+.atar {
+    font-size: 10px;
+    color: #2B68A0;
+    text-align: right;
+    padding-left: 40px;
+}
+
+.usermutuals {
+    font-size: 14px;
+    color: #2B68A0;
+}
+
+.year {
+    font-size: 10px;
+    color: #2B68A0;
+    text-align: left;
+    width: 100%;
+}
+
+.followbtn {
+    --background: transparent;
+    color: #2B68A0;
+    font-size: 12px;
+    text-transform: capitalize;
+    border-radius: 6px;
+    --box-shadow: none;
+    margin-top: -3px;
+    --text-align: left;
+    --padding-start: 0% !important;
+    --padding-end: 0% !important;
+}
+
+.addpersonimg {
+    margin-left: 10px;
+}
+
+.courcedata {
+    padding-left: 12px;
+}
+
+.alignright {
+    text-align: right;
+}
+
+.button-native {
+    padding-inline-start: 0%;
+    padding-inline-end: 0%;
+}
+
+.date {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.daypurple {
+    color: #7E2BA0;
+    font-size: 10px;
+    margin-left: 2px;
+    font-weight: 400;
+}
+
+.daygrey {
+    font-size: 10px;
+    color: #A7A9AC;
+    margin-left: 2px;
+    font-weight: 400;
+}
+
+img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.event {
+    height: 250px;
+    border: solid #DEDEDF 1px;
+    position: relative;
+    margin: 0px 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px #ccc;
+    margin-bottom: 16px;
+}
+
+.eventimage {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.imgOvelay {
+    width: 100%;
+    height: 100px;
+    top: 0;
+    position: absolute;
+    background: rgba(122, 122, 122, 0.719);
+    left: 0;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.Month {
+    color: #F41F40;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0%;
+    text-align: center;
+}
+
+.Day {
+    color: black;
+}
+
+.highlited {
+    color: #2B68A0;
+    font-size: 12px;
+}
+
+.uni-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    font-family: "Roboto-Medium", sans-serif;
+    color: #000000;
+    text-align: left;
+}
+
+.uni-add {
+    margin: 0;
+    padding: 8px 0;
+    color: #77787B;
+    font-size: 12px;
+    text-align: left;
+}
+
+.uni-sub {
+    color: #77787B;
+    font-size: 10px;
+    text-align: left;
+}
+
+.divider {
+    height: 1px;
+    border-width: 0;
+    color: #C7C8CA;
+    background-color: #C7C8CA;
+    margin: 10px 10px;
+    margin-bottom: 0%;
+}
+
+.tagsdiv {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.tags {
+    font-size: 12px;
+    color: #000000;
+    margin-left: 10px;
+}
+
+.selectedtags {
+    color: #2B68A0;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.compImage {
+    height: 40px;
+    width: 40px;
+}

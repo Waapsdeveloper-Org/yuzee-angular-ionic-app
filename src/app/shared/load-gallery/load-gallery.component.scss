@@ -1,0 +1,17 @@
+@import '../../../theme/custom-header.css';
+.arrow-end {
+    margin-left: -50px !important;
+    font-size: 16px !important;
+    color: #2B68A0 !important;
+}
+
+ion-thumbnail {
+    width: 60px !important;
+    height: 60px !important;
+    --border-radius: 6px;
+}
+
+ion-item {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}

@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" (click)="back()">
+                <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'Date' | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="applyBtn" fill="clear">
+                {{'Apply' | translate}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-item lines="none">
+            <ion-button class="resetBtn" slot="end" fill="clear">
+                {{'Reset' | translate}}
+            </ion-button>
+        </ion-item>
+        <ion-list lines="none" *ngIf="categoryname == 'articles'">
+            <ion-item *ngFor="let art of articleDateFilter">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="art.isselected"></ion-checkbox>
+                <ion-label [ngClass]="art.isselected?'customeLabelSelected':'customeLabel'">{{art.companyname}}</ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-list lines="none" *ngIf="categoryname == 'events'">
+            <ion-item *ngFor="let eve of eventsDateFilter">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="eve.isselected"></ion-checkbox>
+                <ion-label [ngClass]="eve.isselected?'customeLabelSelected':'customeLabel'">{{eve.companyname}}</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+</ion-content>

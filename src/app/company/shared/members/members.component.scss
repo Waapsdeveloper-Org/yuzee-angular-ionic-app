@@ -1,0 +1,128 @@
+.videoContainer{
+    margin-top: 10px;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+     .innerContainer{
+        height: 90%;
+        display: flex;
+        background: white;
+        flex-direction: column;
+        ion-item{
+            height: 40px;
+        }
+
+
+     }
+   }
+
+   .galleryContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+   }
+
+
+   .networkContainer{
+    width: 95%;
+    margin-right: 16px;
+       .innercontainer{
+        width: 100%;
+        //background: pink;
+        display: flex;
+        height: 90%;
+         .left{
+            width: 20%;
+            //background: yellow;
+            height: 55%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+         .mid{
+            width: 80%;
+            height: 100%;
+            border-bottom: 1px solid;
+            border-color: #C7C8CA;
+            padding-bottom: 15px;
+
+            //background: green;
+            .name{
+               // background: gainsboro;
+                display: flex;
+                align-items: center;
+                ion-label{
+                    color: #2B68A0;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .badge{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: 10px;
+                }
+            }
+            .type{
+                display: flex;
+                align-items: center;
+                ion-label{
+                    font-size: 12px;
+                }
+            }
+            .address{
+                display: flex;
+                align-items: center;
+                ion-label{
+                    color: #77787B;
+                    font-size: 10px;
+                }
+            }
+            .mutualFriends{
+                display: flex;
+                align-items: center;
+                ion-label{
+                    color: #2B68A0;
+                    font-size: 10px;
+                }
+
+
+            }
+         }
+         .right{
+             ion-label{
+                 font-size: 12px !important;
+             }
+            width: 20%;
+            //background: purple;
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            border-bottom: 1px solid;
+    border-color: #C7C8CA;
+         }
+       }
+   }
+
+   .paddingtb{
+       padding-top: 3px;
+       padding-bottom: 3px;
+   }
+
+     .seeMore{
+    .innerItem{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+    }
+    ion-label{
+     color: #2B68A0;
+     font-size: 14px;
+    }
+
+  }

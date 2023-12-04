@@ -1,0 +1,11 @@
+<ion-content>
+    <hr class="divider">
+    <ion-list>
+        <ion-radio-group allow-empty-selection="true" [(ngModel)]="Selectecategory">
+            <ion-item lines="none" *ngFor="let cat of categoriesList" (click)="radioGroupChange(cat.name)" [routerLink]="cat.link">
+                <ion-label class="compLabel">{{ cat.name | translate }}</ion-label>
+                <ion-radio slot="end" mode="md" [value]="cat.tabName" color="primary"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+</ion-content>

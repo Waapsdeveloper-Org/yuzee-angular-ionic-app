@@ -1,0 +1,23 @@
+<ion-list class="mar-auto">
+  <div class="bor-bot1 cont-pad-1">
+      <h4 class="main-head-title">{{ "Authors" | translate }} </h4>
+      <ion-list class="ionList">
+          <ion-item *ngFor="let author of authorList" class="inner-item-ht no-padding no-border" lines="none" >
+                  <ion-label class="inner-names">{{author.name}}</ion-label>
+                  <ion-checkbox slot="end" checked="true" (ionChange)="removeAuthorFilter(author)"></ion-checkbox>
+          </ion-item>
+      </ion-list>
+      <button ion-button clear class="text-blue-li fs-14 bg-none flex-center wid-100" (click)="openAuthorList()">
+        {{ "See all Authors" | translate }} 
+      </button>
+  </div>
+</ion-list>
+
+<!-- <ion-list radio-group class="mar-auto" [(ngModel)]="postedby">
+<div class="bor-bot1 cont-pad-1">
+  <h4 class="main-head-title">Date Posted</h4>
+  <ion-item *ngFor="let post of allPosted" class="no-border no-padding">
+      <ion-label class="txt-check-title text-capitalize">{{post.postedDay}}</ion-label>
+      <ion-radio value="{{post.postedDay}}" (click)="SelectPost(post)"></ion-radio>
+  </ion-item>
+</div> -->

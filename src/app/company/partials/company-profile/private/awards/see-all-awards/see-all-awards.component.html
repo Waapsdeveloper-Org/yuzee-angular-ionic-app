@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar class="header-border">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ "Awards and Certifications" | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="sect-port user-profile-education-div">
+    <div class="user-education-wrapper">
+      <ng-container
+        *ngFor="
+          let item of awards;
+          let last = last;
+          let first = first;
+          let i = index
+        "
+      >
+        <div class="user-education-wrap-div">
+          <div class="user-education-info-div">
+            <div>
+              <img
+                class="circle-pro"
+                slot="start"
+                [src]="getImageUrlToShow(item)"
+              />
+            </div>
+            <div class="awards-info-div">
+              <h2 class="font-medium color-black education-institution-name lh-20 first-letter-cap">{{ item.title }}</h2>
+              <h3 class="font-regular education-year">
+                <see-more-para
+                  [trimLength]="150"
+                  [description]="item.description"
+                  [classes]="'font-light no-margin fs-12 first-letter-cap ion-word-break-all'"
+                ></see-more-para>
+              </h3>
+            </div>
+          </div>
+          <button
+            ion-button
+            class="user-education-edit-btn"
+            (click)="editAward(item)"
+          >
+            <img src="assets/svgs/edit-blue-icon.svg" />
+          </button>
+        </div>
+        <hr *ngIf="!last" class="separator" />
+      </ng-container>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+@import '../../../../company/partials/company-profile/company-profile.page.scss';
+
+.paragrph {
+  width: 85%;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.addmore {
+  color: #2b68a0;
+}
+
+.faq-icon {
+  top: 0 !important;
+  padding-top: 18px;
+}
+.faq-description-txt{
+  margin-right: 5px;
+}
+.faq-details-main-div{
+  margin: 0px 8px 0px 0px;
+}
+.see-more-btn{
+  --background: none;
+  --box-shadow: none;
+  text-transform: inherit;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0px 0px 3px 0px;
+  height: 30px;
+  padding: 0;
+  width: 32%;
+  --background-activated: #2b68a030;
+  --border-radius: 4px;
+}
+.wa-section-header-box-details{
+  margin: 20px 14px 0px 14px !important;
+}
+.drop-down-arrow-btn{
+  margin: 0px 0px 0px 10px;
+}

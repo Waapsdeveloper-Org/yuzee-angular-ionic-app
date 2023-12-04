@@ -1,0 +1,30 @@
+<ion-row *ngIf="type == 'faculties'" class="details-info-row">
+  <ion-col size="6" *ngFor="let details of detailsArray[0].expandDetails">
+    <div class="display-flx ion-align-items-center">
+      <img class="flex-icon" [src]="details.icon">
+      <div>
+        <h3 class="fs-11 font-bold color-black faculties-title">{{ details.title }}</h3>
+        <h3 class="fs-11 font-regular color-grey">{{ details.desc }} {{ 'Courses' | translate}}</h3>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
+<ion-row *ngIf="type == 'facilities'" class="details-info-row">
+  <ion-col size="6" *ngFor="let details of detailsArray[1].expandDetails">
+    <div class="display-flx">
+      <div class="flex-icon-div display-flx ion-align-items-center">
+        <img [src]="details.icon">
+      </div>
+      <div>
+        <h3 class="fs-11 font-medium color-black">{{ details.title }}</h3>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
+<ion-row *ngIf="type == 'campus'" class="details-info-row">
+  <div *ngFor="let value of [].constructor(3)" class="pad-bottom-form">
+    <!-- This data will be dynamic -->
+    <h3 class="fs-13 font-medium color-black ion-no-margin">Campus Berlin</h3>
+    <h3 class="fs-12 font-regular color-grey ion-no-margin campus-details ion-align-items-center display-flx"><img src="assets/svgs/global-search/location.svg">Dessauer Str.3-5, 10963 Berlin, Germany</h3>
+  </div>
+</ion-row>

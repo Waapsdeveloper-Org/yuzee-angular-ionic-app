@@ -1,0 +1,20 @@
+<div *ngIf="isInstitute; else companyTemplate">
+    <app-profile-contact-details
+        [contacts]="contacts"
+        [private]='private'
+        [profileType]="'INSTITUTE'"
+        [userId]="this.sharedService.instituteId"
+        [lockItem]="'Website'"
+        [hasAccessUpdate]="hasAccessUpdate"
+        >
+    </app-profile-contact-details>
+</div>
+<ng-template #companyTemplate>
+    <app-profile-contact-details
+    [contacts]="contacts"
+    [private]='private'
+    [profileType]="'COMPANY'"
+    [userId]="this.sharedService.companyId"
+    [lockItem]="'Website'">
+    </app-profile-contact-details>
+</ng-template>

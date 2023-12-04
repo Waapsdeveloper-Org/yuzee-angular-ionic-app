@@ -1,0 +1,31 @@
+<ion-tabs #tabs (ionTabsDidChange)="tabChanged()" (ionTabsWillChange)="gets(tabs)">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon class="custom-home fs-20"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="all-apply-process">
+      <ion-icon class="custom-all-apply-process fs-20"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon class="custom-search fs-20"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notification">
+      <ion-icon class="custom-notification fs-20"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="menu">
+      <ion-icon class="custom-menu fs-20"></ion-icon>
+    </ion-tab-button>
+
+    <!-- Will require later -->
+    <!-- <ion-tab-button tab="job">
+      <ion-icon class="custom-job fs-20"></ion-icon>
+    </ion-tab-button> -->
+
+  </ion-tab-bar>
+
+</ion-tabs>

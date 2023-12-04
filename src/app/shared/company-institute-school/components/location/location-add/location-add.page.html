@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon (click)="goBack()" name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="save()">
+        <ion-label class="saveButton">{{'Save'|translate}}</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{"Location"|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="searchbar-div">
+    <!-- <ion-searchbar mode="md" (keyup)="searchLocation($event)" (ionClear)="clearInput()" [(ngModel)]="searchTxt" class="main-searchbar">
+    </ion-searchbar> -->
+    <div class="search-bar-ui" (click)="openMapAutoComplete()">
+        <ion-label>{{"Location"|translate}}</ion-label>
+        <ion-label>{{form.city}}, {{form.country}}</ion-label>
+    </div>
+
+    <ion-list [hidden]="autocompleteItems.length == 0">
+
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="getAddress(item)">
+        {{ item.description }}
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <div class="mapDiv">
+    <div #map id="map"></div>
+  </div>
+</ion-content>

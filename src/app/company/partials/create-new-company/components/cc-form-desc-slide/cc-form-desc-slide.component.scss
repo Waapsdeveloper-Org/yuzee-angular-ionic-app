@@ -1,0 +1,33 @@
+@import "../../pages/create-new-company-form/create-new-company-form.page.scss";
+
+.speciality-container {
+  width: 90%;
+  margin-bottom: 15vh !important;
+}
+
+.labelColor {
+  color: #77787b;
+}
+
+.years-founded-input {
+  width: 50%;
+  border-bottom: 1px solid lightgray;
+}
+
+.label-style {
+  --color: #77787b;
+  font-size: 14px;
+}
+
+.input-item {
+  --highlight-color-focused: #c7c8ca;
+  --color-activated: #c7c8ca !important;
+}
+
+.cc-tagsSelected {
+  background: #2b68a0 !important;
+}
+
+.customdiv {
+  display: flow-root !important;
+}

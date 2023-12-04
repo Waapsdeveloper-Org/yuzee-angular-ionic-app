@@ -1,0 +1,81 @@
+<ion-content class="bg" [scrollEvents]="true">
+
+  <ion-header class="header-sticky">
+    <ion-toolbar class="header-border">
+      <app-global-search-filters selectedFilter="Courses" [filtersArray]="filterArray" (openFilter)="openFilter($event)" (clearAll)="clearAll()" ></app-global-search-filters>
+    </ion-toolbar>
+  </ion-header>
+  <div class="result-div">
+    <h3 class="fs-14 font-regular color-grey ion-no-margin">
+      {{ "We found" | translate }} {{gsHelper.searchObject.total_count}} {{ "results" | translate }}
+    </h3>
+  </div>
+  <!-- Section will be used in future -->
+  <!-- <ion-item lines="none" mode="md" class="qualification-section-item">
+    <img
+      class="qualification-section-icon"
+      slot="start"
+      src="assets/svgs/global-search/course-mask.svg"
+    />
+    <h3 class="fs-13 font-regular color-black">
+      {{
+        "Fill up your qualifications to find your best match of courses."
+          | translate
+      }}
+    </h3>
+    <ion-button
+      class="btn-colored-outline fs-11 font-medium color-blue qualifications-btn"
+      slot="end"
+      >{{ "Qualifications" | translate }}</ion-button
+    >
+  </ion-item> -->
+  <!-- Courses List -->
+  <app-courses></app-courses>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!-- Section will be used in future -->
+  <!-- Recommends by other users -->
+  <!-- <div class="content-inr-section pad-top-zero">
+    <h1
+      class="fs-15 font-bold color-black ion-no-margin high-recommend-title pad-bottom-form display-flx ion-align-items-center ion-word-break-all"
+    >
+      <img src="assets/imgs/Course/recomended.svg" />{{
+        "Highly recommended courses by other users" | translate
+      }}
+    </h1>
+    <ion-row>
+      <ng-container
+        *ngFor="let recommendations of recommendedCourses; let i = index"
+      >
+        <ion-col
+          size="3"
+          class="pad-left-zero pad-ryt-zero ion-align-center recommendation-col-section"
+        >
+          <h3
+            class="fs-12 font-medium color-blue ion-no-margin webkit-clamp-one ion-word-break-all"
+          >
+            {{ recommendations.name }}
+          </h3>
+        </ion-col>
+        <hr class="recommendation-separator wid-100" *ngIf="i == 3 || i == 6" />
+      </ng-container>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding ion-text-center">
+        <ion-button
+          class="btn-colored-clear fs-12 font-regular color-blue refresh-btn ion-no-margin"
+        >
+          <img src="assets/svgs/global-search/circle-refresh.svg" />
+          {{ "Refresh" | translate }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </div> -->
+
+  <!-- When no data found -->
+  <div class="no-data-div background-white ion-align-items-center ion-justify-content-center ion-text-center"  *ngIf="list.length == 0">
+      <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No result found." | translate }}</h1>
+  </div>
+</ion-content>

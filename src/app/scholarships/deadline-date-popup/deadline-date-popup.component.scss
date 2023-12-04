@@ -1,0 +1,36 @@
+@import "../../../theme/custom-header.css";
+ion-header{
+    ion-toolbar{
+        height: auto !important;
+    }
+}
+.header-ios ion-toolbar:last-of-type{
+    --border-width: 0 !important;
+}
+.blue-bar{
+    margin: 10px auto 5px auto;
+}
+.section-modal-title{
+    margin: 17px 0px 8px 0px !important;
+}
+.btn-colored-filled{
+    text-transform: capitalize;
+    width: 32%;
+    height: 35px;
+    margin: 0;
+}
+.btn-colored-clear{
+    --color: var(--ion-yuzee-color-black) !important;
+    margin: 0;
+    height: 36px;
+    color: var(--ion-yuzee-color-black);
+    --background-activated: #cecece;
+    width: 32%;
+}
+.btn-colored-filled, .btn-colored-clear{
+    margin: 14px !important;
+}
+ion-datetime{
+    --placeholder-color: var(--ion-yuzee-color-black);
+    padding-left: 0px !important;
+}

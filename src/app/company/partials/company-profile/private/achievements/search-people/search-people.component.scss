@@ -1,0 +1,121 @@
+@import "../../../company-profile.page.scss";
+@import '../../../../../../../theme/custom-header.css';
+ion-header{
+  ion-toolbar{
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+.cross-img-end {
+  right: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+}
+
+.w-80 {
+  width: 80%;
+}
+ion-toolbar{
+  height: auto !important;
+}
+.rightcss{
+  --ripple-color: transparent;
+  --color: #2b68a0 !important;
+  margin: 0px !important;
+  --padding-end: 5px !important;
+  --padding-start: 0px !important;
+}
+.done-btn{
+  margin: 0px 10px 0px 5px;
+}
+.modal-header-center{
+  display: flex;
+  align-items: center;
+}
+ion-list-header{
+  margin-top: 0px !important;
+  margin-bottom: 10px !important;
+}
+.blue-bar{
+  margin: 10px auto 5px auto;
+}
+
+.search-bar-list{
+  width: 100%;
+  padding-bottom: 0;
+  margin-left: 5px;
+  padding-right: 0px !important;
+  margin-right: 5px;
+}
+.back-btn-ripple{
+  margin-left: 5px;
+}
+.header-ios ion-toolbar:last-of-type{
+  --border-width: unset;
+}
+
+.padding-top-bottom-0{
+  padding: 0px !important;
+}
+ion-content{
+  border: none !important;
+}
+.padding-top-bottom-0{
+  padding: 0px !important;
+}
+ion-item {
+  --inner-padding-end: 0%;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  margin: 0px !important;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  border-bottom: none !important;
+}
+.country-info{
+  text-transform: capitalize;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
+}
+.profile-picture-img{
+  height: 37px;
+  width: 37px;
+  min-width: 37px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+.user-info-div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-divider{
+  border-bottom: 1px solid #e0e0e0;
+}
+ion-checkbox {
+  --size: 16px;
+  --checkmark-width: 4px;
+}
+.ion-checkbox-active-width{
+  --border-width: 3px !important;
+}
+.no-data-div {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 3em;
+}
+.no-data-found-img{
+  width: 225px !important;
+}
+.users-list {
+  padding-top: 10px !important;
+}

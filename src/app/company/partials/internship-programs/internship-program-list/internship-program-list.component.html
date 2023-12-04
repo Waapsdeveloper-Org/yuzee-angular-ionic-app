@@ -1,0 +1,13 @@
+<div class="content-inr-section">
+  <h3 class="section-title">{{ title | translate }}</h3>
+  <ion-card  (click)="openDetails(program)" *ngFor="let program of internshipProgramListArray" class="internship-program-cards display-flx ion-align-items-center ripple-parent ion-activatable">
+    <div class="img-div">
+      <img [src]="returnImageToShowOnList(program)">
+    </div>
+    <ion-card-content class="ion-text-left">
+      <h3 class="fs-15 font-medium color-black webkit-clamp-two ion-word-break-all">{{ program.title }}</h3>
+      <h3 class="font-light no-margin fs-13 color-darkgrey first-letter-cap ion-word-break-all webkit-clamp-two">{{ program.description }}</h3>
+    </ion-card-content>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+</div>

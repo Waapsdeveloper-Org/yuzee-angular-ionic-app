@@ -1,0 +1,71 @@
+<!--YACC028-->
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar [class.ion-toolbar-full-screen]="modalType == 'fullscreen'">
+    <div [class.modal-header-center]="modalType == 'fullscreen'">
+      <div *ngIf="modalType != 'fullscreen'">
+        <div class="blue-bar" (click)="goBack()"></div>
+        <h1 class="section-modal-title text-black ion-no-margin font-medium ion-text-center" [class.section-modal-title-no-search]="!showSearch">{{ title | translate }}</h1>
+      </div>
+
+      <ion-buttons
+        *ngIf="modalType == 'fullscreen'"
+        [ngClass]="isback ? 'on-click-affect' : 'wid-ht-header-btns'" slot="start">
+        <ion-button (click)="goBack()" class="back-btn-ripple">
+          <img src="assets/svgs/blue-back-btn.svg" />
+        </ion-button>
+      </ion-buttons>
+
+      <ion-list class="ion-padding-top ion-margin-end ion-margin-start search-bar-list ion-padding-bottom-none" [hidden]="!showSearch"
+      [class.search-bar-list-full-screen]="modalType == 'fullscreen'" [class.search-bar-list-show-done]="modalType == 'fullscreen' && showDoneBtn">
+        <ion-row >
+            <ion-col size="12" class="padding-top-bottom-0">
+              <app-generic-ion-searchbar
+              [class]="'customSearchBox-without-close-btn search-box-custom-icon'"
+              [placeholder]="placeholder"
+              (ionChange)="onSearchType($event)"
+              [hidden]="!showSearch"
+              ></app-generic-ion-searchbar>
+            </ion-col>
+        </ion-row>
+      </ion-list>
+
+      <ion-buttons slot="end" class="wid-ht-header-btns done-btn" *ngIf="modalType == 'fullscreen' && showDoneBtn">
+        <button class="rightcss fs-14 font-medium color-blue button-active-effect ion-no-background" (click)="save()">{{ "Done" | translate }}</button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="data?.length > 0">
+    <ng-container *ngFor="let item of data; let i = index; let last = last">
+      <ion-item lines="none" mode="md" button class="item-display" (click)="setSelectedItem(item)">
+        <ion-label class="country-info fs-14 font-regular color-black" [class.color-blue]="item.isActive">{{ item['' + keyToShow + ''] }}</ion-label>
+        <ion-checkbox slot="end" [value]="item['' + keyToShow + '']" [checked]="item.isActive" [class.ion-checkbox-active-width]="item.isActive"></ion-checkbox>
+      </ion-item>
+      <hr *ngIf="modalType == 'fullscreen' && !last" class="item-divider">
+    </ng-container>
+  </ion-list>
+
+
+  <!--Needed in future-->
+  <ion-infinite-scroll *ngIf="data?.length > 0 && !loading" (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!--Need in future-->
+  <div *ngIf="data?.length == 0 && displayResult" class="no-data-div background-white">
+    <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No data found." | translate }}</h1>
+  </div>
+
+  <!--Skelton loader-->
+  <!--Needed in future-->
+  <app-popups-skelton-loaders *ngIf="!displayResult" loaderType="normal-popup"></app-popups-skelton-loaders>
+</ion-content>
+<ion-footer *ngIf="modalType != 'fullscreen'">
+  <ion-row class="flex-center">
+    <ion-button expand="block" class="btn-colored-clear reset-btn fs-16 font-regular color-black" (click)="reset()" mode="md">{{ 'Reset' | translate }}</ion-button>
+    <ion-button expand="block" class="btn-colored-filled apply-btn fs-14 font-medium color-white" (click)="apply()" mode="md">{{ 'Apply' | translate }}</ion-button>
+  </ion-row>
+</ion-footer>

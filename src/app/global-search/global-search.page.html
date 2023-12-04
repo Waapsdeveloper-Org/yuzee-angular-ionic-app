@@ -1,0 +1,18 @@
+<ion-header class="bg-white">
+    <ion-toolbar>
+      <div class="display-flx ion-align-items-center ion-justify-content-between">
+      <ion-buttons slot="start" class="wid-ht-header-btns">
+        <ion-button (click)="goBack()" class="back-btn-ripple back-btn">
+          <img src="assets/imgs/arrows/arrow-left.svg" />
+        </ion-button>
+      </ion-buttons>
+      <div class="search-bar-div wid-100">
+        <app-generic-ion-searchbar [value]="SendGlobalData.searchString" [class]="'customSearchBox-without-close-btn search-box-custom-icon wid-100 mar-auto'"
+        [placeholder]="'Search'" (ionChange)="getItems($event)" (ionClear)="clearSearch($event)" ></app-generic-ion-searchbar>
+      </div>
+      </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <router-outlet></router-outlet>
+</ion-content>

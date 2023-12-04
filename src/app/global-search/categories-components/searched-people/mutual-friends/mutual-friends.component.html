@@ -1,0 +1,14 @@
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar>
+    <div class="blue-bar" (click)="goBack()"></div>
+    <h1 class="header-title ion-text-center fs-17 font-medium color-black">{{ 'Mutual Friends' | translate }}</h1>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item mode="md" lines="none" class="user-item" *ngFor="let user of usersArray; let last = last" [class.label-no-border]="last">
+    <img class="user-img" slot="start" src="assets/images/avatar-default.svg">
+    <ion-label>
+      <h3 class="fs-15 font-regular color-black ion-no-margin">{{ user.name }}</h3>
+    </ion-label>
+  </ion-item>
+</ion-content>

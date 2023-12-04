@@ -1,0 +1,113 @@
+@import "../../../../company/partials/company-profile/company-profile.page.scss";
+@import "../../../../../theme/skeleton-loader.scss";
+
+.lef-address-icon {
+  width: 20px;
+  margin: 6px 16px 6px 0px;
+}
+
+.aus-clr {
+  color: #a7a9ac;
+}
+
+.addres-txt {
+  font-size: 14px;
+  margin: 6px 0px !important;
+  color: #222222;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.working-days {
+  justify-content: left;
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.working-timing {
+  justify-content: left;
+  display: flex;
+  font-size: 14px;
+}
+
+.work-day {
+  justify-content: left;
+  display: flex;
+  font-size: 14px;
+}
+
+.working-hours {
+  display: flex;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.address-name {
+  border-bottom: 1px solid #c7c8ca;
+  color: #77787b;
+  font-size: 14px;
+  padding-bottom: 16px;
+  margin: 0;
+}
+
+.country-name {
+  margin-bottom: 10px !important;
+  font-size: 16px;
+}
+#map {
+  width: 100%;
+  height: 210px;
+}
+.map-wrapper{
+  border-top: 10px solid #eeeeee;
+}
+.user-contact-main-div{
+  padding-top: 15px !important;
+}
+.section-header-div{
+  margin-bottom: 0px !important;
+}
+.website-url-txt{
+  margin-bottom: 7px !important;
+  margin-top: 12px !important;
+}
+.contact-details-site-icon{
+  margin-right: 10px;
+}
+.location-wrap-div{
+  border-top: 10px solid #eeeeee;
+}
+.blue-location-icon-div{
+    background: rgba(19, 184,235,0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 59%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    margin-right: 12px;
+}
+.location-info-div{
+    padding: 8px 10px 8px 5px;
+    box-shadow: 0px 0px 3px #a7a9acb8;
+    margin-bottom: 2px;
+    border-radius: 5px;
+}
+.contact-info-timings-div{
+  padding: 10px 15px;
+}
+.working-time-header{
+  margin-bottom: 5px !important;
+}
+.edit-location-icon{
+  margin-left: 10px;
+  top: 20px;
+  img{
+    min-width: 15px;
+  }
+}

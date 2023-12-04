@@ -1,0 +1,20 @@
+@import '../awards.component.scss';
+@import '../../../../../../../theme/custom-header.css';
+
+.user-profile-education-div {
+    border-top: unset !important;
+}
+.v{
+    padding-top: 10px !important;
+}
+.user-education-wrapper{
+    .user-education-wrap-div{
+        align-items: flex-start !important;
+        .user-education-info-div{
+            align-items: flex-start !important;
+        }
+        .user-education-edit-btn{
+            padding: 6px 6px 0px 0px !important;
+        }
+    }
+}

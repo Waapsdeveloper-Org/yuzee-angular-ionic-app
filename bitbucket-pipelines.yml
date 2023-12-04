@@ -1,0 +1,147 @@
+
+image: atlassian/pipelines-awscli
+options:
+  size: 2x
+pipelines: 
+ branches:
+   master:
+    - step:
+       name: Username
+       image: atlassian/default-image:3
+       script:
+          - COMMIT_MESSAGE=`git log --format=%B -n 1 $BITBUCKET_COMMIT`
+          - echo $COMMIT_MESSAGE
+          - export COMMIT_MESSAGE_N="${COMMIT_MESSAGE// /-}"
+          - echo ${COMMIT_MESSAGE_N}
+          - export BITBUCKET_COMMIT_SHORT="${BITBUCKET_COMMIT::8}"
+          - echo ${BITBUCKET_COMMIT_SHORT}
+          - export BITBUCKET_TRIGGERER_USERNAME=$(curl -X GET -g "https://api.bitbucket.org/2.0/users/${BITBUCKET_STEP_TRIGGERER_UUID}" | jq --raw-output '.display_name' | sed -e 's/ /_/g')
+          - echo $BITBUCKET_TRIGGERER_USERNAME
+          - echo "export BITBUCKET_TRIGGERER_USERNAME=$BITBUCKET_TRIGGERER_USERNAME" >> set_env.sh
+          #- touch apk-mobile-commit-${BITBUCKET_COMMIT_SHORT}-${COMMIT_MESSAGE}.p
+          
+          
+
+       artifacts:
+          - set_env.sh
+          
+         
+            
+    - step:
+        # size: 2x
+        name: Compiling and Building APK
+        image: beevelop/ionic:latest
+        script: 
+          - rm -rf package-lock.json npm-shrinkwrap.json node_modules
+          - npm cache clean --force
+          - npm cache verify
+          - npm i
+          - npm i @auth0/angular-jwt@5.0.2
+          - ionic cordova platform add android 
+          - ionic cordova build android
+          #- cp /opt/atlassian/pipelines/agent/build/platforms/android/app/build/outputs/apk/debug/app-debug.apk /opt/atlassian/pipelines/agent/build/
+        after-script:
+          - export BITBUCKET_COMMIT_SHORT="${BITBUCKET_COMMIT::8}"
+          - COMMIT_MESSAGE=`git log --format=%B -n 1 $BITBUCKET_COMMIT`
+          - cat set_env.sh 
+          - source set_env.sh
+          - echo $BITBUCKET_EXIT_CODE
+          - if [[ $BITBUCKET_EXIT_CODE -ne 1 ]]; then curl -H "Content-Type:application/json" -d "{'text':'APK Compiled sucessfully, by $BITBUCKET_TRIGGERER_USERNAME - $COMMIT_MESSAGE - with commit id ${BITBUCKET_COMMIT_SHORT} '}" https://yuzee927.webhook.office.com/webhookb2/f2f41926-9871-4812-8287-19732a9ebd27@ddd9a14b-694d-453a-a276-fa7dc441a791/IncomingWebhook/255f2449cc8d4085ab378708ac6cbcd1/33d92ea4-d6ce-41b5-b712-9e2ae895d907 ; fi
+          - if [[ $BITBUCKET_EXIT_CODE -ne 0 ]]; then curl -H "Content-Type:application/json" -d "{'text':'APK Pipeline failed, developer needs to check the code $BITBUCKET_TRIGGERER_USERNAME '}" https://yuzee927.webhook.office.com/webhookb2/f2f41926-9871-4812-8287-19732a9ebd27@ddd9a14b-694d-453a-a276-fa7dc441a791/IncomingWebhook/255f2449cc8d4085ab378708ac6cbcd1/33d92ea4-d6ce-41b5-b712-9e2ae895d907 ; fi
+        artifacts:
+          #- app-debug.apk
+          - platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          
+    - step:
+           name: Create Zip File
+           image: atlassian/default-image:3
+           script:
+             - COMMIT_MESSAGE=`git log --format=%B -n 1 $BITBUCKET_COMMIT`
+             - echo $COMMIT_MESSAGE
+             - export COMMIT_MESSAGE_N="${COMMIT_MESSAGE// /-}"
+             - echo ${COMMIT_MESSAGE_N}
+             - export BITBUCKET_COMMIT_SHORT="${BITBUCKET_COMMIT::8}"
+             - export BITBUCKET_TRIGGERER_USERNAME=$(curl -X GET -g "https://api.bitbucket.org/2.0/users/${BITBUCKET_STEP_TRIGGERER_UUID}" | jq --raw-output '.display_name' | sed -e 's/ /_/g')
+             - zip -r yuzee-apk-${BITBUCKET_COMMIT_SHORT}-${BITBUCKET_TRIGGERER_USERNAME}.zip platforms/android/app/build/outputs/apk/debug/app-debug.apk
+             - echo apk-mobile-commit-${BITBUCKET_COMMIT_SHORT}-${COMMIT_MESSAGE_N}-${BITBUCKET_TRIGGERER_USERNAME}.txt
+             - echo "build-BITBUCKET_COMMIT" > apk-mobile-commit-${BITBUCKET_COMMIT_SHORT}-${COMMIT_MESSAGE_N}-${BITBUCKET_TRIGGERER_USERNAME}.txt || true
+           artifacts:
+             - yuzee-apk-*-*.zip
+             - apk-mobile-commit-*-*-*.txt
+          
+    - step:
+           name: Sending file to Onedrive
+           image: atlassian/default-image:3
+           script:
+             - COMMIT_MESSAGE=`git log --format=%B -n 1 $BITBUCKET_COMMIT`
+             - echo $COMMIT_MESSAGE
+             - curl https://rclone.org/install.sh | bash
+             - rclone --config="/opt/atlassian/pipelines/agent/build/root/.config/rclone/rclone.conf" config file
+             - echo "$(ls -la)"
+             - pwd
+             - rclone --config="/opt/atlassian/pipelines/agent/build/root/.config/rclone/rclone.conf" copy ./yuzee-apk-*-*.zip onedrive:Android-APK
+             #- sleep 15
+             #- rclone --config="/opt/atlassian/pipelines/agent/build/root/.config/rclone/rclone.conf" copy ./apk-mobile-commit-*-*-*.txt onedrive:test
+           
+ pull-requests:
+   '**':
+    - step:
+          name: Username
+          image: atlassian/default-image:2
+          script:
+             - export BITBUCKET_TRIGGERER_USERNAME=$(curl -X GET -g "https://api.bitbucket.org/2.0/users/${BITBUCKET_STEP_TRIGGERER_UUID}" | jq --raw-output '.display_name'| sed -e 's/ /_/g')
+             - echo $BITBUCKET_TRIGGERER_USERNAME
+             - echo "export BITBUCKET_TRIGGERER_USERNAME=$BITBUCKET_TRIGGERER_USERNAME" >> set_env.sh
+
+          artifacts:
+             - set_env.sh
+           
+    - step:
+        #size: 2x
+        name: Compiling and Building APK
+        image: beevelop/ionic:latest
+        script: 
+          - rm -rf package-lock.json npm-shrinkwrap.json node_modules
+          - npm cache clean --force
+          - npm cache verify
+          - npm i
+          - npm i @auth0/angular-jwt@5.0.2
+          - export BITBUCKET_COMMIT_SHORT="${BITBUCKET_COMMIT::8}"
+          - npm install -g eslint
+          - eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx /opt/atlassian/pipelines/agent/build/src -f html -o eslint_report_mobile-${BITBUCKET_COMMIT_SHORT}.html || true
+          - ionic cordova platform add android 
+          - ionic cordova build android
+          ##- cp /opt/atlassian/pipelines/agent/build/platforms/android/app/build/outputs/apk/debug/app-debug.apk /opt/atlassian/pipelines/agent/build/
+
+        artifacts:
+           - eslint_report_mobile-*.html
+        after-script:
+          - export BITBUCKET_COMMIT_SHORT="${BITBUCKET_COMMIT::8}"
+          - export COMMIT_MESSAGE_N="${COMMIT_MESSAGE// /-}"
+          - cat set_env.sh 
+          - source set_env.sh
+          - echo $BITBUCKET_EXIT_CODE
+          - if [[ $BITBUCKET_EXIT_CODE -ne 1 ]]; then curl -H "Content-Type:application/json" -d "{'text':'APK PR Compiled sucessfully, by $BITBUCKET_TRIGGERER_USERNAME - $COMMIT_MESSAGE - with commit id ${BITBUCKET_COMMIT_SHORT} '}" https://yuzee927.webhook.office.com/webhookb2/f2f41926-9871-4812-8287-19732a9ebd27@ddd9a14b-694d-453a-a276-fa7dc441a791/IncomingWebhook/255f2449cc8d4085ab378708ac6cbcd1/33d92ea4-d6ce-41b5-b712-9e2ae895d907 ; fi
+          - if [[ $BITBUCKET_EXIT_CODE -ne 0 ]]; then curl -H "Content-Type:application/json" -d "{'text':'APK PR Pipeline failed with - $COMMIT_MESSAGE - commit id , developer needs to check the code $BITBUCKET_TRIGGERER_USERNAME '}" https://yuzee927.webhook.office.com/webhookb2/f2f41926-9871-4812-8287-19732a9ebd27@ddd9a14b-694d-453a-a276-fa7dc441a791/IncomingWebhook/255f2449cc8d4085ab378708ac6cbcd1/33d92ea4-d6ce-41b5-b712-9e2ae895d907 ; fi     
+
+    - step:
+           name: Sending file to Onedrive
+           image: atlassian/default-image:2
+           script:
+             - curl https://rclone.org/install.sh | bash
+             - rclone --config="/opt/atlassian/pipelines/agent/build/root/.config/rclone/rclone.conf" config file
+             - echo "$(ls -la)"
+             - pwd
+             - rclone --config="/opt/atlassian/pipelines/agent/build/root/.config/rclone/rclone.conf" copy ./eslint_report_mobile-*.html onedrive:Eslint-report-mobile      
+          
+ 
+definitions: 
+  services: 
+    docker: 
+      memory: 7128
+          
+
+        
+
+
+

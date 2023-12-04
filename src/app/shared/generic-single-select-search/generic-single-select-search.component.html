@@ -1,0 +1,40 @@
+<!--YACC013-->
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" class="wid-ht-header-btns">
+          <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" (click)="goBack()" />
+      </ion-buttons>
+      <ion-title>
+          <ion-searchbar #input [(ngModel)]="myInput" showCancelButton="never" ngDefaultControl class="customSearchPageBox ion-no-margin wid-100" placeholder="{{'Search' | translate}}"></ion-searchbar>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+      <div class="searchList">
+          <ion-item lines="none" (click)="chooseItem(country)" class="item-css"  *ngFor="let country of countryList | filter:myInput; let i = index">
+              <ion-label>
+                  <h2 *ngIf="country.name !== null" class="font-regular wid-90 color-black">{{country.name}}</h2>
+              </ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="chooseItem(language)" class="item-css"  *ngFor="let language of LanguaugeList | filter:myInput; let i = index">
+            <ion-label>
+                <h2 *ngIf="language.name !== null" class="font-regular wid-90 color-black">{{language.name}}</h2>
+            </ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="chooseItem(lef)" class="item-css"  *ngFor="let lef of languageEficiencyList | filter:myInput; let i = index">
+            <ion-label>
+                <h2 *ngIf="lef.name !== null" class="font-regular wid-90 color-black">{{lef.displayName}}</h2>
+            </ion-label>
+        </ion-item>
+      </div>
+  </ion-list>
+
+  <div *ngIf="isEmpty" class="nodataDiv">
+      <img src="../assets/imgs/noSearchdata.svg" />
+
+      <h4 class="title">{{"Just like unicorns, your search wasn't found." | translate}}</h4>
+      <p class="ser-val">{{"Try shortening or rephrasing your search." | translate}}</p>
+  </div>
+</ion-content>

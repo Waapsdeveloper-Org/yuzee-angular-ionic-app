@@ -1,0 +1,12 @@
+<h2 class="section-title">{{ title | translate }}</h2>
+<ion-item *ngFor="let member of seeAll ? membersArray : membersArray | slice:0:4; let last = last; let first = first" lines="none" mode="md" class="member-item"
+[class.member-item-first]="first">
+  <div class="display-flx ion-align-items-start wid-100 member-item-div">
+    <img class="member-img" [src]="returnImagePath(member)">
+    <div class="member-info-div wid-100" [class.member-info-div-last-item]="last">
+      <h2 class="fs-15 font-medium color-black ion-no-margin first-letter-cap ion-word-break-all text-overflow-ellipsis">{{ member.first_name + ' ' + member.last_name }}</h2>
+      <h3 class="fs-12 font-regular color-black ion-no-margin ion-word-break-all text-overflow-ellipsis">{{ member.designation }}</h3>
+      <h3 class="fs-12 font-regular color-grey ion-no-margin ion-word-break-all text-overflow-ellipsis">{{ returnLocationString(member) }}</h3>
+    </div>
+  </div>
+</ion-item>

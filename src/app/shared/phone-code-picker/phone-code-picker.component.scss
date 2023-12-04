@@ -1,0 +1,98 @@
+@import "../../../theme/custom-header.css";
+ion-toolbar{
+    height: auto !important;
+}
+ion-list-header{
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    ion-label{
+        font-size: 18px !important;
+        padding-top: 0px !important;
+        font-weight: 500 !important;
+    }
+}
+.header-ios ion-toolbar:last-of-type{
+    --border-width: unset;
+}
+ion-content{
+    border: none !important;
+}
+
+.bor-bot {
+    border-bottom: 5.5px solid #2b68a0;
+    margin: 0px auto;
+    width: 70px;
+    border-radius: 5px;
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+}
+.padding-top-bottom-0{
+    padding: 0px !important;
+}
+ion-item {
+    --inner-padding-end: 0%;
+    --padding-start: 18px;
+    --padding-end: 18px;
+    ion-label {
+        white-space: break-spaces;
+        margin: 10px 0px 10px 0px!important;
+        white-space: break-spaces;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        color: #000000;
+    }
+}
+.country-info{
+    display: contents;
+}
+.c-flag{
+    margin-right: 10px;
+    position: relative;
+    top: 4px;
+}
+.c-code{
+    margin-right: 6px;
+}
+.dial-code-name-div{
+    display: flex;
+}
+.country-info{
+    h3{
+        margin: 0px 0px 6px 0px;
+    }
+}
+.search-bar-list{
+    margin: 0px 12px;
+}
+.img img{
+    margin-left: 40px;
+    margin-top: 130px;
+}
+ion-checkbox {
+    --size: 16px;
+    --checkmark-width: 4px;
+}
+.ion-checkbox-active-width{
+    --border-width: 3px !important;
+}
+.item-divider{
+    border-top: 1px solid #e0e0e0;
+    margin: 0px 16px;
+}
+.btn-colored-filled{
+    text-transform: capitalize;
+    width: 32%;
+    height: 35px;
+    margin: 0;
+}
+.btn-colored-clear{
+    --color: var(--ion-yuzee-color-black) !important;
+    margin: 0;
+    height: 36px;
+    color: var(--ion-yuzee-color-black);
+    --background-activated: #cecece;
+    width: 32%;
+}
+.btn-colored-filled, .btn-colored-clear{
+    margin: 14px !important;
+}

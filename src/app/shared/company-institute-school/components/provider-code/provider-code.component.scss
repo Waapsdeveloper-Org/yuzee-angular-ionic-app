@@ -1,0 +1,72 @@
+@import "../../../../../theme/custom-header.css";
+@import "../../../../../generic-common.scss";
+@import "../../../../../generic-css/text.scss";
+
+.arrow-down-icon-size
+{
+    width: 18px;
+    margin-top: 13px;
+    margin-left: 8px
+}
+
+.form-control
+{
+  display: inline-block;
+  width: 100%;
+}
+
+.sect-port {
+  padding: 6px 14px;
+  border-top: 10px solid #eeeeee;
+}
+
+.col-pad-top {
+  padding-top: 10px !important;
+}
+
+.col-pad-bottom {
+  padding-bottom: 10px !important;
+}
+
+ion-item {
+  --inner-padding-end: 0px;
+  --padding-start: 0px;
+  --padding-bottom: 0px;
+  --border: 0px !important;
+  --min-height: 40px;
+  --background: transparent;
+  margin-top: 10px !important;
+  ion-col {
+    padding: 5px !important;
+  }
+}
+
+
+.section-title{
+  margin-top: 12px !important;
+}
+.tap-to-attachments-wrap{
+  padding-bottom: 20px;
+  .tap-to-attachments{
+      justify-content: unset !important;
+      width: 100%;
+      i{
+          margin-left: 10px;
+      }
+  }
+  .upload-icon-div{
+      border: 0.5px dotted #A7A9AC;
+      border-radius: 7px;
+      height: 36px;
+      width: 36px;
+      min-width: 36px;
+  }
+}
+.tap-to-add-attachment-txt{
+  margin: 0px 0px;
+}
+
+.hidden
+{
+  display: none;
+}

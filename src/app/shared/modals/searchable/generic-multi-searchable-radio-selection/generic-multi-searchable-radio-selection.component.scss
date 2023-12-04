@@ -1,0 +1,106 @@
+@import "../../../../../theme/custom-header.css";
+ion-toolbar{
+    height: auto !important;
+}
+.rightcss{
+    --ripple-color: transparent;
+    --color: #2b68a0 !important;
+    margin: 0px !important;
+    --padding-end: 5px !important;
+    --padding-start: 0px !important;
+}
+.done-btn{
+    margin: 0px 10px 0px 5px;
+}
+.modal-header-center{
+    display: flex;
+    align-items: center;
+}
+ion-list-header{
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+}
+.blue-bar{
+    margin: 10px auto 5px auto;
+}
+.selection-title{
+    font-size: 18px !important;
+}
+.search-bar-list-show-done{
+    padding-right: 8px !important;
+}
+//For Full Screen
+.search-bar-list-full-screen{
+    padding: 0px !important;
+    margin: 0px 10px 0px 5px !important;
+    width: 100%;
+}
+.back-btn-ripple{
+    margin-left: 5px;
+}
+.ion-toolbar-full-screen{
+    border-bottom: 1px solid #dbdbdb !important;
+    padding: 5px 3px 5px 2px !important;
+}
+.header-ios ion-toolbar:last-of-type{
+    --border-width: unset;
+}
+ion-content{
+    border: none !important;
+}
+.padding-top-bottom-0{
+    padding: 0px !important;
+}
+ion-item {
+    --inner-padding-end: 0%;
+    --padding-start: 16px;
+    --padding-end: 16px;
+}
+.country-info{
+    text-transform: capitalize;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    white-space: normal;
+    overflow: hidden;
+}
+ion-checkbox {
+    --size: 16px;
+    --checkmark-width: 4px;
+}
+.ion-checkbox-active-width{
+    --border-width: 3px !important;
+}
+.item-divider{
+    border-top: 1px solid #e0e0e0;
+    margin: 0px 16px;
+}
+.section-modal-title{
+    font-size: 18px !important;
+    margin: 17px 0px 8px 0px !important;
+}
+.section-modal-title-no-search{
+    margin-bottom: 5px !important;
+}
+.reset-btn, .apply-btn{
+    height: 34px !important;
+    width: 120px !important;
+    margin: 14px;
+}
+.add-minus-btn{
+    width: 17px;
+    height: 17px;
+    margin-left: 10px;
+}
+.no-data-div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 3em;
+}
+.no-data-found-img{
+    width: 225px !important;
+}

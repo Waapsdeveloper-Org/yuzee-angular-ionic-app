@@ -1,0 +1,113 @@
+<ion-list class="list-padding-bottom">
+
+  <div class="sect-port">
+
+    <!-- Description input -->
+    <ion-row class="">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none" (click)="openDescriptionModal($event)">
+          <ion-label position="floating">{{ "Description" | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="description" (ionChange)="masterCheck()" name="description" required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+
+          {{ description ? "" : '' }}
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-feild" lines="none" (click)="presentSearchableRadio('industry')">
+          <ion-label position="floating" *ngIf="industry !== ''">{{ "Industry" | translate }}
+          </ion-label>
+          <ion-label class="fixed-Label" position="fixed" *ngIf="industry === ''">
+            {{ "Industry" | translate }}</ion-label>
+          <ion-input type="text" readonly required [(ngModel)]="industry" (ionChange)="masterCheck()">
+          </ion-input>
+          <ion-icon slot="end" [ngClass]="
+              industry !== '' ? 'arrow-drop-down' : 'bottom-sheet-drop-down'
+            " class="color-blue" name="chevron-down-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{!shared.createCompany.industry_type && submitted ? "Please select Industry Type" : '' }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class=" text-feild" lines="none" (click)="presentSearchableRadio('type')">
+          <ion-label position="floating" *ngIf="type !== ''">{{ "Type" | translate }}
+          </ion-label>
+          <ion-label class="fixed-Label" position="fixed" *ngIf="type === ''">
+            {{ "Type" | translate }}</ion-label>
+          <ion-input type="text" readonly required [(ngModel)]="type" (ionChange)="masterCheck()">
+          </ion-input>
+          <ion-icon slot="end" [ngClass]="
+              type !== '' ? 'arrow-drop-down' : 'bottom-sheet-drop-down'
+            " class="color-blue" name="chevron-down-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-no-padding">
+
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{!shared.createCompany.company_type && submitted ? "Please select Company Type" : '' }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none">
+          <ion-label position="floating">{{
+            "Year Founded" | translate
+            }}</ion-label>
+          <ion-input type="text" maxlength="4" inputmode="numeric" (ionChange)="onYearChange($event)"
+            (ionChange)="masterCheck()" [(ngModel)]="yearFounded" name="year">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+
+          {{ isYearGreater ? "Year founded not greater than current year" : '' }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field i" lines="none"
+          (click)="!selectedIndustryId ? '' : presentSearchableRadio('specialities')">
+          <ion-label mode="md" position="stacked" class="pad-bottom-form">
+            <h1 class="fs-20 ion-no-margin font-light">{{ "Specialties" | translate }}</h1>
+          </ion-label>
+          <app-generic-ion-searchbar [placeholder]="'Enter Keyword'" [disabled]="true"
+            [class]="'custom-search-box-without-close-btn search-box-custom-icon'">
+          </app-generic-ion-searchbar>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+      {{!shared.createCompany.speciality ? "Please Select At least one speciality" : '' }}
+    </div>
+
+    <app-generic-all-tags-view [data]="speciality" [dataType]="'object'" [keyToShow]="'speciality_name'"
+      [showCrossIcon]="true" (change)="updateSpeciality($event)"></app-generic-all-tags-view>
+  </div>
+</ion-list>
+
+<div [ngClass]="{ disabled: checked == -1 }" class="bottom-button cc-slide-bottom-button">
+  <ion-button class="btn-colored-outline" [class.btn-colored-outline-disabled]="checked == -1" expand="block"
+    (click)="navigateToCreateComapnyPage3()" [disabled]="checked !== 1">{{ "Next" | translate }}</ion-button>
+</div>

@@ -1,0 +1,150 @@
+
+<app-header-multi [isTitle]="true" [title]="'Contact Details'" [isSaveOrDone]="true" (click)="saveContactDetails()"
+  (back)="dismiss()"> </app-header-multi>
+
+ 
+<ion-content>
+  <div class="sect-port" *ngFor="let item of totalItem; let i = index; let first = first"
+    [ngClass]="first ? 'no-border ' : ''">
+    <ion-row>
+      <ion-col size="6" class="ion-no-padding ion-padding-end">
+
+        <ion-item class="ion-no-margin text-feild" (click)="
+            item.contact_type == 'WEBSITE' || item.contact_type == 'Website'
+              ? ''
+              : openTypePopUp(i)
+          ">
+
+          <ion-label position="floating">{{ "Type" | translate }} </ion-label>
+
+          <img class="input-icon" [src]="'assets/company-profile/' + getIcon(item) + '.svg'" />
+          <ion-input class="input-left-padding" type="text" readonly required
+            [value]="getFormattedValue(item.contact_type)">
+          </ion-input>
+          <ion-icon [hidden]="
+              item.contact_type == 'WEBSITE' || item.contact_type == 'Website'
+            " slot="end" class="color-blue end-icon" name="chevron-down-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+        <ion-icon class="end-icon" (click)="remove(i)" *ngIf="getShowClose(i)" name="close-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <div class="invalid-feedback ion-text-start" *ngIf="
+        submitted && (item.contact_type == '' || item.contact_type == null)
+      ">
+      {{ "Please Select Contact Type" | translate }}
+    </div>
+
+    <ion-item [hidden]="
+        item.contact_type == 'EMAIL' ||
+        item.contact_type == 'Email' ||
+        item.contact_type == 'Phone' ||
+        item.contact_type == 'PHONE' ||
+        item.contact_type == 'Website' ||
+        item.contact_type == 'WEBSITE'
+      " class="text-feild" lines="none">
+      <ion-label position="floating">{{ "Contact" | translate }}</ion-label>
+      <ion-input type="text" maxlength="100" required whiteSpaceRestriction
+        (ionChange)="performValidations($event, item.contact_type)" (keydown)="keydown()" [(ngModel)]="item.value">
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="
+        item.contact_type == 'EMAIL' ||
+        item.contact_type == 'Email' ||
+        item.contact_type == 'Website' ||
+        item.contact_type == 'WEBSITE'
+      " class="text-feild" lines="none">
+      <ion-label position="floating">{{ "Contact" | translate }}</ion-label>
+      <ion-input type="text" maxlength="100" required (ionChange)="performValidations($event, item.contact_type)"
+        (keyup)="keydown()" (keydown)="stopWhiteSpace($event)" [(ngModel)]="item.value">
+      </ion-input>
+    </ion-item>
+
+    <ng-container *ngIf="item.contact_type == 'Phone' || item.contact_type == 'PHONE'">
+      <p class="text-blackf3 label-fix ion-margin-bottom">
+        {{ "Phone Number" | translate }}
+      </p>
+
+      <ion-row>
+        <ion-col style="display: flex" size="3">
+          <div class="item-css text-align wid-100">
+            <select class="selec-box select-icon-arrow" [(ngModel)]="selectedCode">
+              <option [ngValue]="country.dial_code" *ngFor="let country of countryCode">
+                {{ country.flag }} {{ country.dial_code }}
+              </option>
+            </select>
+          </div>
+        </ion-col>
+        <ion-col size="9">
+          <ion-input class="margin-start item-css" type="text" maxlength="10"
+            placeholder="{{ 'Enter contact' | translate }}" (ionChange)="performValidations($event, item.contact_type)"
+            (keyup)="keydown()" (keydown)="validatePhoneNumber($event)" [(ngModel)]="item.value" whiteSpaceRestriction>
+          </ion-input>
+        </ion-col>
+        <ion-col size="5"></ion-col>
+      </ion-row>
+    </ng-container>
+
+    <div class="invalid-feedback ion-text-start" *ngIf="
+        !emailValid &&
+        submitted &&
+        (item.contact_type == 'Email' || item.contact_type == 'EMAIL') &&
+        item.value !== ''
+      ">
+      {{ "Please Enter Valid Email in format xyz@abc.com" | translate }}
+    </div>
+
+    <div class="invalid-feedback ion-text-start" *ngIf="
+        !websiteValid &&
+        submitted &&
+        (item.contact_type == 'Website' || item.contact_type == 'WEBSITE')
+      ">
+      {{ "Please Enter Valid Website in format abc.com" | translate }}
+    </div>
+
+    <ng-container [hidden]="
+        item.contact_type == 'EMAIL' ||
+        item.contact_type == 'Email' ||
+        item.contact_type == 'Phone' ||
+        item.contact_type == 'PHONE' ||
+        item.contact_type == 'Website' ||
+        item.contact_type == 'WEBSITE'
+      ">
+      <div class="invalid-feedback ion-text-start" *ngIf="(item.value == '' || item.value == null) && submitted">
+        {{ "Please Fill In Contact Value" }}
+      </div>
+    </ng-container>
+  </div>
+
+  <ion-row>
+    <ion-col class="ion-no-padding" size="12">
+      <div class="addDayTime">
+        <ion-button (click)="addTemplate()" expand="block" class="btn-colored-clear no-margin custom-btn-style">
+          <div slot="start" class="icon-start">
+            <svg id="plus" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+              <path id="Path_41666" data-name="Path 41666" d="M9,0a9,9,0,1,0,9,9A9.01,9.01,0,0,0,9,0ZM9,0"
+                fill="#2B68A0" />
+              <path id="Path_41667" data-name="Path 41667"
+                d="M132.85,129.087h-3.763v3.763a.885.885,0,0,1-1.771,0v-3.763h-3.763a.885.885,0,0,1,0-1.771h3.763v-3.763a.885.885,0,0,1,1.771,0v3.763h3.763a.885.885,0,0,1,0,1.771Zm0,0"
+                transform="translate(-119.202 -119.202)" fill="#fff" />
+            </svg>
+          </div>
+          <span class="color-blue letter-space fs-14">
+            {{ "Add Contact" | translate }}
+          </span>
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>
+
+<div class="bottom-button">
+  <ion-button class="btn-colored-filled" expand="block" (click)="delete()">{{
+    "Delete" | translate
+    }}</ion-button>
+</div>

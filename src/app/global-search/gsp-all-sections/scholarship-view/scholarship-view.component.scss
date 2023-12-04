@@ -1,0 +1,121 @@
+.result-txt {
+    background: #eeeeee;
+    color: #222222 !important;
+    font-size: 14px;
+    margin: 0px;
+    padding: 8px;
+    padding-left: 20px;
+    font-weight: 400;
+}
+
+.scholar-pad {
+    padding: 4px 4px !important;
+}
+
+.schlr-amount-padd {
+    padding-left: 9px
+}
+
+.sch-deg {
+    background: #FF4860;
+    color: white;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 5px auto !important;
+    font-size: 18px;
+}
+
+.sch-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444444 !important;
+}
+
+.sch-intake {
+    font-size: 13px;
+    color: #777777 !important;
+    margin-bottom: 4px !important;
+}
+
+.sch-powered {
+    margin: 5px 0px !important;
+    font-weight: 500 !important;
+    color: #444444 !important;
+    font-size: 13px !important;
+}
+
+.schl-seemore {
+    color: #777777 !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+.arrow-img-wdth {
+    width: 8px
+}
+
+.not-img-wdth {
+    width: 60%
+}
+
+
+
+p.sch-name {
+    font-size: 15px;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Roboto-Medium", sans-serif;
+    letter-spacing: 0.4px;
+    margin: 0px;
+}
+
+p.provided {
+    font-size: 12px;
+    color: #000000;
+    font-family: "Roboto-Light", sans-serif;
+    margin: 2px 0px 4px 0px;
+    line-height: 16px;
+}
+
+p.sch-btm {
+    font-size: 11px;
+    color: #000000;
+    align-items: center;
+    display: flex;
+    margin: 0px 0px 10px 0px;
+}
+
+p.sch-amount {
+    font-size: 11px;
+    color: #2b68a0;
+    align-items: center;
+    display: flex;
+    margin: 0px 0px 10px 0px;
+}
+
+img.schl-btm-icon {
+    margin-right: 6px;
+}
+
+.col-p{
+    text-align: right;
+    padding: 5px 0px;
+    flex: 0 0 14%;
+    width: 14%;
+    max-width: 14%;
+}
+
+img.schl-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 3px;
+}
+
+.scholar-card {
+    border-bottom: 10px solid #eeeeee;
+    padding: 8px 0px;
+}

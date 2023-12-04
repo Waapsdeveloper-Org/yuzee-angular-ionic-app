@@ -1,0 +1,246 @@
+<div class="content-out-section" *ngIf="aboutUsData && !isInstitute">
+  <div class="content-inr-section">
+    <div class="cont-pad-1 posi-rel bg-white">
+      <ion-row class="heading-t">
+        <ion-col size="12" class="no-padding">
+          <h2 class="section-title section-title-about-us">{{ "About Us" | translate }}</h2>
+          <see-more-para *ngIf="!isInstitute" [trimLength]="200" [description]="aboutUsData?.description"
+            [classes]="'ion-no-margin fs-15 fw-300 color-grey lh-20'"></see-more-para>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+
+  <div class="header-border"></div>
+  <div class="content-inr-section">
+    <ion-row>
+      <ion-col size="12" class="no-padding">
+        <h2 *ngIf="!isInstitute" class="section-title">{{ "More about this Company" | translate }}</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-slides [options]="slideOpts" *ngIf="!isInstitute">
+      <ion-slide class="slide-class">
+        <ion-card class="ion-text-left wid-100 display-grid ion-align-items-center">
+          <div class="display-flx ion-align-items-center">
+            <img src="assets/company-profile/industry.svg" />
+          <div class="pad-left-form">
+            <h1 class="fs-17 font-bold color-black ion-word-break-all ion-no-margin">{{ aboutUsData?.industry_type | titlecase }}</h1>
+            <h5 class="fs-12 font-light color-black ion-word-break-all ion-no-margin">{{ "Industry" | translate }}</h5>
+          </div>
+          </div>
+        </ion-card>
+
+      </ion-slide>
+      <ion-slide class="slide-class">
+        <ion-card class="ion-text-left wid-100 display-grid ion-align-items-center">
+          <div class="display-flx ion-align-items-center">
+            <img src="assets/company-profile/network-wired.svg" />
+          <div class="pad-left-form">
+            <h1 class="fs-17 font-bold color-black ion-word-break-all ion-no-margin">{{ aboutUsData?.company_type | titlecase }}</h1>
+            <h5 class="fs-12 font-light color-black ion-word-break-all ion-no-margin">{{ "Type" | translate }}</h5>
+          </div>
+          </div>
+        </ion-card>
+
+      </ion-slide>
+      <ion-slide class="slide-class">
+        <ion-card class="ion-text-left wid-100 display-grid ion-align-items-center">
+          <div class="display-flx ion-align-items-center">
+            <img src="assets/company-profile/calendar.svg" />
+          <div class="pad-left-form">
+            <h1 class="fs-17 font-bold color-black ion-word-break-all ion-no-margin">{{ aboutUsData?.year_founded }}</h1>
+            <h5 class="fs-12 font-light color-black ion-word-break-all ion-no-margin">{{ "Year Founded" | translate }}</h5>
+          </div>
+          </div>
+        </ion-card>
+
+      </ion-slide>
+    </ion-slides>
+
+    <div *ngIf="!isInstitute">
+      <ion-row>
+        <ion-col size="12" class="no-padding">
+          <p class="fs-14 font-medium color-black margin-bottom-zero">{{ "Specialties" | translate }}</p>
+        </ion-col>
+      </ion-row>
+
+      <div class="tags-wrapper" *ngIf="aboutUsData?.speciality?.length > 0">
+        <div class="tags-div">
+          <ion-button class="tags tags-selected" *ngFor="let acc of aboutUsData.speciality; let i = index">
+            <p>{{ acc.speciality_name }}</p>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ***Institute data *** -->
+<div *ngIf="institute" class="content-out-section">
+  <div class="content-inr-section">
+    <div class="cont-pad-1 posi-rel bg-white">
+      <ion-row class="heading-t">
+        <ion-col size="12" class="no-padding">
+          <h2 class="section-title section-title-about-us">{{ "About Us" | translate }}</h2>
+          <see-more-para [trimLength]="200" [description]="institute"
+            [classes]="'ion-no-margin fw-300 color-grey lh-20 fs-15'">
+            {{ institute?.description | translate }}
+          </see-more-para>
+
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</div>
+
+<div class="header-border" *ngIf="instituteSliderData?.student_number > 0"></div>
+<div class="content-inr-section" *ngIf="instituteSliderData?.student_number > 0">
+  <ion-row>
+    <ion-col size="10" class="no-padding">
+      <h2 class="section-title">{{ "More about this institution" | translate }}</h2>
+    </ion-col>
+    <ion-col size="2" class="pad-ryt-zero ion-text-right" [hidden]="!hasAccessUpdate && isInstitute">
+      <button ion-button class="edit-blue-icon-btn edit-location-icon posi-rel" (click)="openEditMoreAbout()">
+        <img src="assets/svgs/edit-blue-icon.svg" />
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-slides [options]="slideOpts">
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/briefcase.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.employment_rate
+              }}</h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Employment rate of previous students" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/employees.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.employee_number
+              }}</h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Number of employees" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/university.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.faculty_number
+              }}</h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Number of faculties" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/conference.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{
+              instituteSliderData?.lecture_hall_number }}</h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Number of lecture halls" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/school.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.campus_size }}
+            </h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Size of campus" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/classroom.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.class_number }}
+            </h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Number of classrooms" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/professor.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.teacher_number
+              }}</h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Number of professors" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="slide-class-institute display-grid ion-align-items-center custom-margin-slides">
+        <div class="display-flx ion-align-items-center about-us-slider-main-div">
+          <img src="../../../../assets/institution-profile/about/graduated.svg" />
+          <div>
+            <h2 class="ion-no-margin fs-16 font-bold color-black ion-text-start">{{ instituteSliderData?.student_number
+              }}</h2>
+            <h4 class="ion-no-margin fs-12 font-light color-black ion-text-start about-us-slider-desc">{{
+              "Number of students" | translate }}</h4>
+          </div>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
+</div>
+
+<!-- *** Institute data end -->
+<div class="header-border"></div>
+<div class="content-inr-section">
+  <div class="section-header-div">
+    <h2 class="section-title">{{ "Intakes" | translate }}</h2>
+    <button ion-button class="edit-blue-icon-btn" (click)="openEditInTakes()" [hidden]="!hasAccessUpdate && isInstitute">
+      <img src="assets/svgs/edit-blue-icon.svg" />
+    </button>
+  </div>
+  <div class="tags-wrapper">
+    <div class="tags-div" id="tagswrapper" #tagswrapper>
+      <ion-button class="tags tags-selected" *ngFor="let course of [].constructor(10) | slice:0:15; let i = index"
+        (click)="viewTagFull()">
+        <p><span>12-03-2023</span></p><!-- This data will be dynamic -->
+      </ion-button>
+    </div>
+  </div>
+</div>

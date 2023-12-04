@@ -1,0 +1,32 @@
+<ng-container>
+    <div [class.header-border]="seeAll">
+        <div class="display-flx ion-align-items-center ion-justify-content-between content-inr-section pad-botm-zero" *ngIf="seeAll">
+            <h4 class="section-title no-margin">{{"People" | translate}}</h4>
+            <button class="fs-13 font-medium color-blue ion-no-background button-active-effect pad-ryt-zero">
+                {{ 'See all' | translate }}
+            </button>
+        </div>
+        <ion-list lines="none">
+            <ng-container *ngFor="let people of list; let last = last">
+                <ion-item mode="md" detail="false" class="people-list-item">
+                    <div class="display-flx ion-align-items-start wid-100">
+                        <div slot="start" class="div-start">
+                            <img class="ser-image" src="assets/images/avatar-default.svg" />
+                        </div>
+                        <ion-label>
+                            <h2 class="fs-15 font-bold color-black margin-bottom-8">{{ people?.first_name }}</h2>
+                            <p class="fs-14 font-regular color-black margin-bottom-8">{{ people?.last_name }}</p>
+                            <p class="fs-14 font-regular color-darkgrey margin-bottom-8">{{ people?.designation }}</p>
+                            <p class="fs-12 font-regular color-blue button-active-effect margin-bottom-8" (click)="openMutualFriends()">{{ people?.mutual_count }} {{' mutual friends' | translate}}</p>
+                        </ion-label>
+                    </div>
+                    <button slot="end" class="div-end ion-no-background button-active-effect" (click)="followUnfollow()">
+                        <!-- Use the path as 'assets/svgs/global-search/person-added.svg' (if the person is already in your friend list) -->
+                        <img src="assets/imgs/Course/addPerson.svg" />
+                    </button>
+                </ion-item>
+                <hr *ngIf="!last" class="divider">
+            </ng-container>
+        </ion-list>
+    </div>
+</ng-container>

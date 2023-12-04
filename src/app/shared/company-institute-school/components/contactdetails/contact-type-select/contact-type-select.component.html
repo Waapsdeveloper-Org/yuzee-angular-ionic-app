@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar
+    [ngClass]="showTitle ? 'filter-bottom-sheet-toolbar' : 'height-unset'"
+  >
+    <div class="bor-bot" (click)="goBack()"></div>
+    <ion-list-header *ngIf="showTitle" class="ion-no-padding ion-margin-bottom">
+      <ion-label class="text-black ion-no-margin font-medium ion-text-center"
+        >{{ "title" | translate }}
+      </ion-label>
+    </ion-list-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-margin-top">
+    <ion-radio-group mode="md" [(ngModel)]="selectedData">
+      <ion-item
+        *ngFor="let item of data; let i = index"
+        (click)="selectValue(item)"
+        lines="none"
+      >
+        <img class="padding-right-10" [src]="'assets/company-profile/' + item.icon + '.svg'" />
+        <ion-label
+          class="inner-names"
+          [ngClass]="selectedData.contact_type == item.name ? 'color-blue' : ''"
+          >{{ item.name | titlecase }}</ion-label
+        >
+        <ion-radio
+          slot="end"
+          mode="md"
+          [value]="item"
+          [disabled]="isDisabled(i)"
+        ></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="filter-bottom-sheet-footer">
+  <ion-row>
+    <ion-col size="4"></ion-col>
+    <ion-col size="4">
+      <ion-button
+        expand="block"
+        class="btn-colored-clear-disabled filter-bottom-sheet-btn-margin"
+        *ngIf="!selectedData"
+        >{{ "Reset" | translate }}
+      </ion-button>
+      <ion-button
+        expand="block"
+        class="btn-colored-clear color-black filter-bottom-sheet-btn-margin"
+        *ngIf="selectedData"
+        (click)="reset()"
+      >
+        {{ "Reset" | translate }}
+      </ion-button>
+    </ion-col>
+    <ion-col size="4"></ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,34 @@
+ <!--Video Container-->
+ <div class="videoContainer">
+
+  <div class="innerContainer">
+      <ion-item lines="none">
+        <div class="galleryContainer">
+          <ion-label>{{"Attachments"}}</ion-label>
+          <ion-icon (click)="goToEditAttachments()" src="../../../../../assets/edit icon.svg"></ion-icon>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="innerItems">
+          <div class="pdfs">
+            <div class="icon">
+              <ion-icon src="../../../../../assets/internshipProgram/pdf.svg"></ion-icon>
+            </div>
+            <div class="labelItem">
+              <ion-label>{{namePdf}}</ion-label>
+            </div>
+          </div>
+          <div class="pngs">
+            <div class="icon">
+              <ion-icon src="../../../../../assets/internshipProgram/png.svg"></ion-icon>
+            </div>
+            <div class="labelItem">
+              <ion-label>{{namePng}}</ion-label>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+  </div>
+</div>
+<!--Video Container-->

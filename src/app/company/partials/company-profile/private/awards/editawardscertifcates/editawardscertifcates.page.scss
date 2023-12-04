@@ -1,0 +1,61 @@
+@import "../../../company-profile.page.scss";
+@import '../../../../../../../theme/custom-header.css';
+
+.logo-main {
+  height: 108px;
+  padding: 0;
+  width: 100%;
+  margin: 16px 0;
+  top: unset;
+  position: relative;
+  margin-top: 54px;
+}
+
+.logo-outer {
+  width: 108px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo-img-outer {
+  background-color: #e2e2e2;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  box-shadow: 0px 2px 2px 1px rgba(162, 162, 162, 0.25);
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  overflow: hidden;
+
+  .logo-company {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.add-logo-outer {
+  width: 30px;
+  height: 30px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 0px 0px rgb(158 158 158 / 34%);
+
+  ion-icon {
+    width: 90%;
+    height: 50%;
+  }
+}
+.btn-colored-outline {
+  height: 42px !important;
+  margin: 15px 15px 13px 15px !important;
+}

@@ -1,0 +1,25 @@
+ <!--about us-->
+ <div class="aboutUsContainer contactContainer">
+  <div class="aboutUsinnerContainer contactInner">
+    <ion-item lines="none">
+    <div class="aboutUslabelIcon">
+
+      <div class="aboutUs">
+        <ion-label>Education Needed</ion-label>
+      </div>
+      <div (click)="goToEducationEditing()" class="pencil">
+        <ion-icon src='../../../../assets/edit icon.svg'></ion-icon>
+      </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div>
+    <p class="paragraph" *ngFor="let item of items">
+      {{item.para}}
+    </p>
+  </div>
+  </ion-item>
+
+  </div>
+</div>
+<!--about us-->

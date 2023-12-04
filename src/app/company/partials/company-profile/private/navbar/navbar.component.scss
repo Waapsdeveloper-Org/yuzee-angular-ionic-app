@@ -1,0 +1,44 @@
+@import '../../company-profile.page.scss';
+.profile-segment-button-wrapper ion-segment-button{
+    --indicator-color: #2b68a0 !important;
+    --indicator-height: 3px !important;
+}
+ion-segment-button::part(indicator){
+    width: 47px;
+    margin: auto;
+}
+.our-culture-button-segment::part(indicator){
+    width: 80px;
+    margin: auto;
+}
+.scholarships-button-segment::part(indicator), .our-culture-button-segment::part(indicator){
+    width: 85px;
+    margin: auto;
+}
+.courses-button-segment::part(indicator){
+    width: 57px;
+    margin: auto;
+}
+.internship-program-advice-button-segment::part(indicator){
+    width: 125px;
+    margin: auto;
+}
+.career-advice-button-segment::part(indicator), .staff-interview-button-segment::part(indicator){
+    width: 95px;
+    margin: auto;
+}
+.ask-a-question-button-segment::part(indicator) {
+    width: 105px;
+    margin: auto;
+}
+.reviews-button-segment::part(indicator){
+    width: 52px;
+    margin: auto;
+}
+.off-campus-button-segment::part(indicator){
+    width: 130px;
+    margin: auto;
+}
+ion-segment-button::part(indicator-background){
+    border-radius: 20px;
+}

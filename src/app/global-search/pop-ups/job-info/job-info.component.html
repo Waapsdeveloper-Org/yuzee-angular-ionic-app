@@ -1,0 +1,219 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" (click)="back()">
+                <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="applyBtn" fill="clear">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-item lines="none" class="customeitem">
+            <h2 class="jobtitle">{{'Data Analyst' | translate}}</h2>
+            <ion-icon slot="end" class="sharebtn" name="arrow-redo"></ion-icon>
+        </ion-item>
+        <ion-item lines="none">
+            <img class="startimage" src="assets/edit-popups/burgerking.svg" />
+            <ion-label class="nomargin">
+                <p class="uni-title">{{'Burger King Corporation' | translate}}</p>
+                <p class="uni-add">{{'Kuala Lumpur, Malaysia' | translate}}</p>
+
+            </ion-label>
+            <p slot="end" class="uni-hour">2 days ago</p>
+        </ion-item>
+        <ion-button expand="block" class="inviteBtn"> {{'Apply' | translate}}
+        </ion-button>
+    </ion-grid>
+    <ion-grid class="jobdescontainer">
+        <ion-row>
+            <h4 class="jobdesHeading">{{'Job Description' | translate}}</h4>
+            <p class="jobtext">- {{'Develop and implement database systems' | translate}}</p>
+            <p class="jobtext">- {{'Data management and optimization – collection, cleansing' | translate}}</p>
+            <p class="jobtext">- {{'Analytical work (e.g. anomaly investigation, clustering)' | translate}}</p>
+            <p class="jobtext">- {{'Develop algorithms and run machine learning tool.' | translate}}</p>
+            <p class="jobtext">- {{'Candidates must possess at least a Degree in Computer Science/ Information Technology or equivalent.' | translate}}</p>
+            <p class="jobtext">- {{'Engineering Degree holders also welcomed. Skilled in ' | translate}}<span>{{'SQL
+                    programming.' | translate}}</span></p>
+            <p class="jobtext"> - {{'Knowledgeable in database structure and query.' | translate}}</p>
+            <p class="jobtext">- {{'Knowledge on skill will be an added advantage : ' | translate}}<span>'+ HTML,
+                    nodejs, javascript, python, JSON, RESTful APIs,'</span></p>
+            <p class="jobtext"> - {{'Good in Microsoft Office Excel and VBA.' | translate}}</p>
+            <p class="jobtext"> - {{'Good in Microsoft Office Excel and VBA.' | translate}}</p>
+        </ion-row>
+        <ion-item lines="none" class="customdiv">
+            <img slot="start" class="customdivimg" src="assets/imgs/Course/work.png" />
+            <p>Banking</p>
+        </ion-item>
+        <ion-item lines="none" class="customdiv">
+            <img slot="start" class="customdivimg" src="assets/imgs/Course/dollar-symbol.png" />
+            <p>RM 3,500 - RM 6,000 per month</p>
+        </ion-item>
+        <ion-item lines="none" class="customdiv">
+            <img slot="start" class="customdivimg" src="assets/imgs/Course/full time.png" />
+            <p>Permanent</p>
+        </ion-item>
+        <ion-item lines="none" class="customdiv">
+            <img slot="start" class="customdivimg" src="assets/imgs/Course/intake.png" />
+            <p>December 23, 2021</p>
+        </ion-item>
+        <ion-item lines="none" class="customdiv">
+            <img slot="start" class="customdivimg" src="assets/imgs/Course/goal.png" />
+            <p>5 years experience</p>
+        </ion-item>
+        <ion-item lines="none" class="customdiv">
+            <img slot="start" class="customdivimg" src="assets/imgs/Course/Icon material-location-on.png" />
+            <p>Remote</p>
+        </ion-item>
+        <hr class="divider">
+
+        <ion-row class="Viewfull">
+            {{'View full job description' |translate}}
+        </ion-row>
+
+    </ion-grid>
+
+    <div class="jobdescontainer">
+        <h4 class="testheading">Tests required for the job</h4>
+
+        <ion-item lines="none">
+            <img slot="start" src="assets/imgs/Course/Group 84534.png" />
+            <ion-label>
+                <h4 class="testTitle">Emotional Intelligence Test</h4>
+                <p class="testsub">Everyone has different levels of emotional...</p>
+                <img src="assets/imgs/Course/complete.svg" />
+            </ion-label>
+            <ion-button class="slotEndBtn" fill="outline" slot="end">Results</ion-button>
+        </ion-item>
+
+        <ion-item lines="none">
+            <img slot="start" src="assets/imgs/Course/man.png" />
+            <ion-label>
+                <h4 class="testTitle">Self-Esteem Test</h4>
+                <p class="testsub">Are you confident? Bold? Self-reliant? Che...</p>
+                <img src="assets/imgs/Course/incomplete.svg" />
+            </ion-label>
+            <ion-button class="slotEndBtn" fill="outline" slot="end">Results</ion-button>
+        </ion-item>
+
+        <ion-row class="Viewfull">
+            View More Test
+        </ion-row>
+    </div>
+
+    <div class="bg">
+        <ion-item class="no-border heading margin" lines="none">
+            <h4 class="rcn-srch" slot="start">{{ "Media" | translate }}</h4>
+        </ion-item>
+        <div class="scrollmenu margin" id="style-7">
+            <div class="video">
+                <img class="eventbg" src="assets/imgs/Course/Videos1.png" />
+                <div class="eventdata">
+                    <p class="date">5:00</p>
+                    <ion-row class="playbtn">
+                        <img src="assets/imgs/Course/playbtn.png" />
+                    </ion-row>
+                    <h3 class="name">Training for you</h3>
+                </div>
+            </div>
+            <div class="video">
+                <img class="eventbg" src="assets/imgs/Course/Videos2.png" />
+                <div class="eventdata">
+                    <p class="date">5:00</p>
+                    <ion-row class="playbtn">
+                        <img src="assets/imgs/Course/playbtn.png" />
+                    </ion-row>
+                    <p class="name"> Look at how student’s apply to courses</p>
+                </div>
+            </div>
+            <div class="video">
+                <img class="eventbg" src="assets/imgs/Course/Videos3.png" />
+                <div class="eventdata">
+                    <p class="date">5:00</p>
+                    <ion-row class="playbtn">
+                        <img src="assets/imgs/Course/playbtn.png" />
+                    </ion-row>
+                    <p class="name"> Wanna graduate early? This is how you do its</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg">
+        <ion-item class="no-border heading margin" lines="none">
+            <h4 class="rcn-srch text-grey" slot="start">{{ "Similar Jobs" | translate }}</h4>
+            <button slot="end" ion-button item-end button-small class="box-shadow-none bg-none no-border text-blue-li text-capitalize no-margin fs-w4 fs-12">
+                {{ "See All" | translate }}
+            </button>
+        </ion-item>
+        <div class="scrollmenu margin" id="style-7">
+            <div class="jobs">
+                <img class="logo" src="assets/imgs/Course/NoPath - Copy (10).png">
+                <ion-row class="mg12 userDiv">
+                    <h4 class="username">Data Analyst</h4>
+                    <p class="subhead">Burger King Corporation</p>
+                </ion-row>
+                <p class="userfrom">Berlin, Germany</p>
+                <p class="tagDiv logo">
+                    <span class="tags">
+                        Banking
+                    </span>
+                    <span class="tags">
+                        Permanent
+                    </span>
+                    <br>
+                    <span class="tags">
+                        5 years experience
+                    </span>
+                </p>
+            </div>
+            <div class="jobs">
+                <img class="logo" src="assets/imgs/Course/unnamed.png">
+                <ion-row class="mg12 userDiv">
+                    <h4 class="username">Accountant</h4>
+                    <p class="subhead">Tesla Motors</p>
+                </ion-row>
+                <p class="userfrom">Kuala Lumpur, Malaysia</p>
+                <p class="tagDiv logo">
+                    <span class="tags">
+                        Finance
+                    </span>
+                    <span class="tags">
+                        Part-time
+                    </span>
+                    <br>
+                    <span class="tags">
+                        Entry Level
+                    </span>
+                </p>
+            </div>
+
+            <div class="jobs">
+                <img class="logo" src="assets/imgs/Course/NoPath - Copy (25).png">
+                <ion-row class="mg12 userDiv">
+                    <h4 class="username">Data Analyst</h4>
+                    <p class="subhead">Flo2gether.co</p>
+                </ion-row>
+                <p class="userfrom">Kuala Lumpur, Malaysia</p>
+                <p class="tagDiv logo">
+                    <span class="tags">
+                        Data collection
+                    </span>
+                    <span class="tags">
+                        Full-time
+                    </span>
+                    <br>
+                    <span class="tags">
+                        Entry Level
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</ion-content>

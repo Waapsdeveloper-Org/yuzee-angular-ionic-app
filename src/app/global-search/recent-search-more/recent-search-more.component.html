@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="wid-ht-header-btns">
+            <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" (click)="goBack()" />
+        </ion-buttons>
+        <ion-title class="text-black">{{ "Recent search" | translate }}</ion-title>
+        <ion-buttons slot="end" class="wid-ht-header-btns">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+    <ion-list class="pad-btom">
+        <ion-item class="no-border" *ngFor="let elSearchString of recentSearchList" lines="none" (click)="recentSearch(elSearchString)">
+            <ion-icon name="search-outline" class="icon-set" item-start></ion-icon>
+            <h4 class="search-text">{{elSearchString.search_history.searchString}} (
+                <span *ngIf="elSearchString.category" class="fs-12 text-blue-li">{{elSearchString.category}} </span>)
+            </h4>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

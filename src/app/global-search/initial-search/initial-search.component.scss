@@ -1,0 +1,13 @@
+.header-sticky {
+    position: sticky;
+    top: 0;
+    ion-toolbar{
+        height: 0px !important;
+    }
+}
+.header-md::after, .header-ios::after {
+    background-image: none !important;
+}
+.bg {
+    min-height: 100%
+}

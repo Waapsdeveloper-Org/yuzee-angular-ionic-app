@@ -1,0 +1,70 @@
+@import '../../company-profile.page.scss';
+.inactive-tab{
+    --background: transparent;
+    border-radius: 30px;
+    --border-radius: 30px;
+    text-transform: capitalize;
+    --padding-start: 18px;
+    --padding-end: 18px;
+    transition: 0.03s ease-in-out;
+}
+.active-tab{
+    --background: #2b68a0 !important;
+}
+.partner-profile-image{
+    width: 37px !important;
+    height: 37px !important;
+    min-width: 37px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2px;
+}
+.partner-profile-image-div{
+    margin-right: 22px;
+}
+.partner-ranking-txt{
+    margin: 8px 0px 0px 0px !important;
+}
+.partner-address-txt{
+    margin: 10px 0px 0px 0px !important;
+}
+.separator-dot{
+    padding: 0px 5px 0px 5px;
+}
+.ranking-value{
+    padding-left: 2px;
+}
+.partner-wrap-info-div{
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0px 20px 0px;
+}
+.partner-wrap-info-div-no-border{
+    border: none !important;
+}
+.partner-company-slider-card{
+    box-shadow: 0px 0px 3px #0000002e;
+    border-radius: 8px;
+    text-align: left;
+    padding: 10px 10px;
+    margin: 2px 12px 4px 2px;
+    min-width: 125px !important;
+}
+.partner-company-slider-card-wrap-div{
+    overflow: scroll;
+    margin-top: 10px;
+}
+.icon-size-lg{
+    margin-right: 16px;
+}
+
+.company-partner-item-row{
+    padding: 15px 0px 10px 0px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.see-more-btn{
+    width: auto !important;
+}
+.company-rating-div{
+    margin-top: 3px;
+}

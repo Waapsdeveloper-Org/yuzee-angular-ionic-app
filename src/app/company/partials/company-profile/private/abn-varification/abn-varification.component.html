@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar class="header-border">
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg"/>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ "Verify your ABN" | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-inr-section pad-top-zero">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none">
+          <ion-label position="floating" mode="md">{{'Registration Number' | translate}} </ion-label>
+          <ion-input  [value]="inputModel"  (ionInput)="onInput($event)" mode="md"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{ 'Enter registration number' | translate }}
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div>
+    <h3 class="fs-14 font-regular color-black ion-no-margin content-inr-section pad-botm-zero margin-bottom-adjust pad-top-zero">{{ 'Attach evidence for Registration Number (ABN)' | translate }}</h3>
+    <app-add-attachments-section [documentList]="" sectionTitle="" (newItemEvent)="uploadEntityType($event)"></app-add-attachments-section>
+  </div>
+  <div>
+    <h3 class="fs-14 font-regular color-black ion-no-margin content-inr-section pad-botm-zero margin-bottom-adjust">{{ 'Attach evidence for personal identity (ID, Driver licence)' | translate }}</h3>
+    <app-add-attachments-section [documentList]="" sectionTitle="" (newItemEvent)="uploadEntityType2($event)"></app-add-attachments-section>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" (click)="submit()" class="btn-colored-outline fs-16 font-medium">{{ "Submit" | translate }}</ion-button>
+</ion-footer>
+
+
+

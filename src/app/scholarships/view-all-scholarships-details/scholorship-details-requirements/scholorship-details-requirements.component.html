@@ -1,0 +1,27 @@
+<div class="header-border requirements-wrap" >
+  <h2 class="section-title">{{ 'Entrance requirements' | translate }}</h2>
+  <h3 class="requirements-description ion-no-margin">
+    <p *ngIf="!data.entrance_requirement.general_requirements">N/A</p>
+    <see-more-para
+      [trimLength]="200"
+      [description]="data?.entrance_requirement?.general_requirements"
+      [classes]="'ion-no-margin fw-300 color-black color-black'">
+    </see-more-para>
+  </h3>
+  <div>
+    <h3 class="fs-14 color-black font-medium ion-no-margin">{{ 'Gender' | translate }}</h3>
+    <app-generic-all-tags-view *ngIf="data.entrance_requirement.gender" [data]="[data?.entrance_requirement.gender]" [showViewAll]="false" [dataType]="'string'"></app-generic-all-tags-view>
+    <p *ngIf="!data.entrance_requirement.gender">N/A</p>
+  </div>
+
+  <div class="language-wrap">
+    <h3 class="fs-14 color-black font-medium ion-no-margin">{{ 'Required Language(s)' | translate }}</h3>
+    <app-generic-all-tags-view [data]="data?.entrance_requirement.languages" [showViewAll]="false" [dataType]="'string'"></app-generic-all-tags-view>
+    
+  </div>
+
+  <div class="nationality-wrap">
+    <h3 class="fs-14 color-black font-medium ion-no-margin">{{ 'Eligible Nationality(s)' | translate }}</h3>
+    <app-generic-all-tags-view [data]="data?.entrance_requirement.eligible_nationality" [showViewAll]="false" [dataType]="'string'"></app-generic-all-tags-view>
+    
+</div>

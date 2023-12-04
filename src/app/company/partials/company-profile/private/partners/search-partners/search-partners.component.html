@@ -1,0 +1,58 @@
+
+<!--YACC028-->
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar>
+    <div class="display-flx ion-align-items-center">
+      <ion-buttons
+      class="wid-ht-header-btns"
+        slot="start">
+        <ion-button (click)="dismiss()" class="back-btn-ripple">
+          <img src="assets/svgs/blue-back-btn.svg" />
+        </ion-button>
+      </ion-buttons>
+
+      <ion-list class="ion-padding-top ion-margin-end ion-margin-start search-bar-list ion-padding-bottom-none search-bar-list-full-screen"
+      [class.search-bar-list-show-done]="showDoneBtn">
+        <ion-row>
+            <ion-col size="12" class="ion-no-padding">
+              <app-generic-ion-searchbar
+              [class]="'customSearchBox-without-close-btn search-box-custom-icon'"
+              [placeholder]="placeholder"
+              (ionChange)="onSearch($event)"
+              ></app-generic-ion-searchbar>
+            </ion-col>
+        </ion-row>
+      </ion-list>
+
+      <ion-buttons slot="end" class="wid-ht-header-btns done-btn" *ngIf="showDoneBtn">
+        <button class="right-css fs-14 font-medium color-blue button-active-effect ion-no-background" (click)="save()">{{ "Done" | translate }}</button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="partners.length > 0">
+    <div class="item" *ngFor="let item of partners; let i = index; let last = last">
+      <ion-item lines="none" class="item-css item-display" (click)="pushSelectedPartner(item)" detail="false" button mode="md">
+        <img slot="start" class="profile-picture-img" src="assets/imgs/application/svg/default-picture/default-institute.svg" onError="this.src='assets/imgs/application/svg/default-picture/default-institute.svg';" />
+        <div class="flex-center user-info-div display-flx ion-align-items-center ion-justify-content-between wid-100 partners-info-div" [class.item-divider]="!last">
+          <div class="partners-name-loc-div">
+            <ion-label class="country-info fs-14 font-medium color-black webkit-clamp-one">{{ selectedTab == "company" ? item?.entity_name : item?.name }}</ion-label>
+            <ion-label class="country-info fs-12 font-regular color-grey partner-address-txt ion-word-break-all">{{ item?.address }}</ion-label>
+          </div>
+          <ion-checkbox slot="end" [checked]="isItemSelected(item)" [class.ion-checkbox-active-width]="isItemSelected(item)"></ion-checkbox>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div *ngIf="partners.length == 0 && search !== ''" class="no-data-div background-white">
+    <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No data found." | translate }}</h1>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,56 @@
+<div class="bor-bot1 cont-pad-1">
+  <h4 class="main-head-title"> {{ "Search Keyword" | translate }} </h4>
+
+  <ion-row>
+      <ion-col size="12" class="no-padding">
+          <input type="text" class="btn-box-se" [(ngModel)]="searchData.searchString"/>
+      </ion-col>
+  </ion-row>
+
+  <ion-row class="heading-t">
+      <ion-col size="10" class="no-padding text-align">
+          <h4 class="main-head-title"> {{ "Country" | translate }} </h4>
+      </ion-col>
+      <ion-col size="2" class="no-padding align-end">
+          <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openCountryModal()" />        
+      </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12" class="pad-left-zero">
+          <button class="interest" *ngFor="let country of CountryArray">
+              <span>{{country.name}}</span>
+                  &nbsp;&nbsp;
+                  <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeCountryFilter(country)"></ion-icon>
+              </button>
+      </ion-col>
+  </ion-row>
+
+  <ion-row class="heading-t">
+    <ion-col size="10" class="no-padding text-align">
+        <h4 class="main-head-title"> {{ "Levels" | translate }} </h4>
+    </ion-col>
+    <ion-col size="2" class="no-padding align-end">
+        <img class="edit-pr" src="assets/imgs/arrows/forword-arrow.png" (click)="openLevels()" />        
+    </ion-col>
+</ion-row>
+
+<ion-row>
+    <ion-col size="12" class="pad-left-zero">
+        <button class="interest" *ngFor="let level of LevelSendSelected">
+            <span>{{level.name}}</span>
+                &nbsp;&nbsp;
+                <ion-icon class="fs-20 text-blue-li" name="close-outline" (click)="removeLevelsFilter(level)"></ion-icon>
+            </button>
+    </ion-col>
+</ion-row>
+
+
+
+
+<div class="cont-pad-1"> 
+    <button ion-button full class="button-apply" (click)="submitApply()">
+        {{ "Apply Filters" | translate }}
+    </button>
+</div>
+
+</div>

@@ -1,0 +1,44 @@
+
+
+<div *ngIf="recommendation">
+  <app-instiute-rec></app-instiute-rec>
+</div>
+<div *ngIf="!recommendation">
+  <p class="result-txt">{{instituteObj.totalCount}} {{ "Result" | translate }}</p> 
+  <div class="serch-res-padd">
+  <div *ngFor="let Result of instituteList" class="posi-rel pad-li" (click)="goInstitutionProfile(Result)">
+    <ion-row >
+      <ion-col size="2" class="">
+        <div class="posi-rel">
+          <img src="assets/imgs/Search/logo.png" class="profile-icon"/>
+        </div>
+      </ion-col>
+      <ion-col size="10" class="text-align no-padding">
+        <div class="box-inst wid-100 ">
+          <h5 class="inst-title">{{Result.institute_name}}</h5>
+          <p class="mar-auto ins-location text-align">
+            <img src="assets/imgs/locat.png" class="loc-img"/>
+                {{Result.city_name}}, {{Result.country_name}}
+          </p>
+          <bar-rating [(rate)]="Result.stars" [max]="5" class="active-Pointer"></bar-rating>
+          <p class="mar-auto rank-course">
+                World ranking 
+            <span class="res-rank">{{Result.world_ranking}}</span> 
+                &#8226; 
+                Total course 
+            <span class="res-rank">{{Result.total_courses}}</span>
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+ </div>
+<ion-infinite-scroll  (ionInfinite)="doInfiniteInstitute($event)" *ngIf="instituteObj.hasNextPage">
+  <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+  <div class="flex-center hi-100 ion-padding-top text-center" *ngIf="instituteList.length == 0">
+    <div class="wid-100">
+            <p class="text-black fs-w6 fs-18">{{"Nothing yet" | translate}}</p>
+    </div>
+  </div>
+</div>

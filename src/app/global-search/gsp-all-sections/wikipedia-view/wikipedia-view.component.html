@@ -1,0 +1,9 @@
+<p class="result-txt" *ngIf="WikiDataList">{{WikiDataList.length}} {{ "Result" | translate }}</p>
+<ion-row *ngFor="let wiki of WikiDataList" class="bor-wiki">
+    <ion-col size="12" class="pad-lft-ryt">
+        <p class="wiki-title">{{wiki.title}}</p>
+        <p class="wiki-desc" [innerHTML]="wiki.snippet"></p>
+    </ion-col>
+</ion-row>
+
+<app-wikipedia-tags></app-wikipedia-tags>

@@ -1,0 +1,35 @@
+<div>
+    <ion-header class="header-sticky"><ion-toolbar class="header-border"></ion-toolbar></ion-header>
+    <ion-list *ngIf="SearchedList.length != 0" class="pad-btom ser-List">
+        <ion-item class="search-result-item"
+        button
+        mode="md"
+        *ngFor="let searched of SearchedList;let i = index" lines="none" (click)="searchByCategory(SendGlobalData,searched.category)"
+        [routerLink]="['/global-search/mainLanding']">
+            <div slot="start" class="div-start display-flx ion-align-items-center">
+                <img class="ser-image bg-grey-content" [src]="searched.image" />
+            </div>
+            <ion-label class="ion-no-margin">
+                <h3 class="fs-13 font-regular color-black webkit-clamp-one"
+                >{{ searched.searchString | firstLetterCap }}<!-- [innerHTML]="item | bold : searchDataObj" -->
+                    <span class="separator-dot color-grey" *ngIf="searched.category">•</span>
+                    <span class="fs-12 font-light color-grey" *ngIf="searched.category">{{ searched.category.name }}</span>
+                    <span class="separator-dot color-grey">•</span>
+                    <span class="fs-12 font-light color-grey">University of Arizona</span><!-- This data will be dynamic -->
+                </h3>
+            </ion-label>
+        </ion-item>
+        <hr class="separator-line">
+        <ion-button class="btn-colored-clear fs-14 font-regular" [routerLink]="['/global-search/mainLanding']">{{ "See all results for " | translate }} "Ester sm"</ion-button><!-- Search result will be dynamic -->
+
+    </ion-list>
+
+
+
+    <div *ngIf="SearchedList.length == 0" class="no-data-div background-white ion-align-items-center ion-justify-content-center ion-text-center">
+        <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No result found." | translate }}</h1>
+    </div>
+    <!--Skelton loader (needed in future)-->
+    <!-- <app-popups-skelton-loaders loaderType="user-popup"></app-popups-skelton-loaders> -->
+
+</div>

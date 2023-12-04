@@ -1,0 +1,29 @@
+.country-code-list {
+  height: auto;
+  width: 100%;
+  background: #EEEE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.country-code-list .country-code-inner-container {
+  height: auto;
+  width: 90%;
+}
+.country-code-list .country-code-inner-container .item {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.country-code-list .country-code-inner-container .item .item-inner {
+  display: flex;
+  background: white;
+  border-bottom: 1px solid;
+  border-color: #c5c5c55c;
+}
+.country-code-list .country-code-inner-container .item .item-inner .left {
+  padding: 10px;
+}
+.country-code-list .country-code-inner-container .item .item-inner .right {
+  padding: 10px;
+}

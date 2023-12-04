@@ -1,0 +1,21 @@
+<div >
+    <p class="result-txt">{{totalNumbers}} {{ "Result" | translate }}</p>
+
+    <ion-row class="bor-btm" *ngFor="let comp of totalCompanies" (click)="goTocompany(comp)">
+        <ion-col size="3">
+            <div class="flex-center">
+                <img class="uni-img" src="assets/imgs/globalicon/new-icons/burger.jpg"/>
+            </div>
+            <bar-rating [(rate)]="ratingNumber" [max]="5" class="active-Pointer"></bar-rating>
+        </ion-col>
+        <ion-col size="8">
+            <p class="uni-title">{{comp.company_name}}</p>
+            <p class="uni-add">{{comp.address}}</p>
+            <p class="to-conf"><span>{{comp.total_jobs == null ? 0 :comp.total_jobs}}</span> Total Jobs</p>
+        </ion-col>
+        <ion-col size="1" class="txt-rgt">
+            <img class="dot-img" src="assets/New/dot.png" />
+        </ion-col>
+    </ion-row>
+
+  </div>

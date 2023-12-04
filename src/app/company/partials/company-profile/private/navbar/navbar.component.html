@@ -1,0 +1,223 @@
+<!-- **Required** Institute Navbar Starts-->
+<div class="posi-sticky-header section-border navbar-segments-border header-border" *ngIf="isInstitute">
+  <div class="no-scroll text-align clear-padd">
+    <ion-segment
+      [scrollable]="true"
+      class="profile-segment-button-wrapper"
+      mode="md"
+      [(ngModel)]="tabName"
+    >
+    <ion-segment-button
+    class="fs-13 font-light color-black"
+    id="profile"
+    value="profile"
+    (click)="selectedtab('About')"
+    [routerLink]="['/institution-profile/about']"
+    routerLinkActive="tab-active-section"
+  >
+    <ion-label>{{ "About" | translate }}</ion-label>
+
+    <div *ngIf="tabName == 'About'" class="segment-border-active"></div>
+  </ion-segment-button>
+
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="posts"
+        value="posts"
+      >
+        <ion-label>{{ "Posts" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Courses"
+        value="Courses"
+        (click)="selectedtab('Courses')"
+        [routerLink]="['/institution-profile/courses-list']"
+        routerLinkActive="tab-active-section"
+        [class.courses-button-segment]="tabName == 'Courses'"
+      >
+        <ion-label>{{ "Courses" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+      class="fs-13 font-light color-black"
+      id="Off Campuse Classes"
+      value="Off Campuse Classes"
+      (click)="selectedtab('Off Campuse Classes')"
+      [routerLink]="['/institution-profile/off-campus-classes-list']"
+      routerLinkActive="tab-active-section"
+      [class.off-campus-button-segment]="tabName == 'Off Campuse Classes'"
+    >
+      <ion-label>{{ "Off Campuse Classes" | translate }}</ion-label>
+    </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Scholarships"
+        value="Scholarships"
+        (click)="selectedtab('Scholarships')"
+        [routerLink]="['/institution-profile/scholarship-list']"
+        [data]="{profileType: 'INSTITUTE'}"
+        routerLinkActive="tab-active-section"
+        [class.scholarships-button-segment]="tabName == 'Scholarships'"
+      >
+        <ion-label>{{ "Scholarships" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Event"
+        value="Event"
+        class="fs-13 font-light color-black"
+        (click)="selectedtab('Event')"
+        [routerLink]="['/institution-profile/event']"
+        routerLinkActive="tab-active-section"
+      >
+        <ion-label>{{ "Event" | translate }}</ion-label>
+        <div
+          *ngIf="tabName == 'Event'"
+          class="segment-border-active"
+        ></div>
+      </ion-segment-button>
+      <ion-segment-button
+      class="fs-13 font-light color-black"
+      id="gallery"
+      value="gallery"
+      (click)="selectedtab('gallery')"
+      [data]="{profileType: 'COMPANY'}"
+      [routerLink]="['/institution-profile/inst-gallery']"
+      routerLinkActive="tab-active-section"
+      >
+        <ion-label>{{ "Gallery" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Reviews"
+        value="Reviews"
+        (click)="selectedtab('Reviews')"
+        [routerLink]="['/institution-profile/reviews']"
+        routerLinkActive="tab-active-section"
+      >
+        <ion-label>{{ "Reviews" | translate }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</div>
+
+
+<div class="posi-sticky-header section-border navbar-segments-border header-border" *ngIf="!isInstitute">
+  <div class="no-scroll text-align clear-padd">
+    <ion-segment
+      [scrollable]="true"
+      class="profile-segment-button-wrapper"
+      mode="md"
+      [(ngModel)]="tabName"
+    >
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="profile"
+        value="About"
+        (click)="selectedtab('About')"
+        [routerLink]="['/company-profile/aboutTab']"
+        routerLinkActive="tab-active-section"
+      >
+        <ion-label>{{ "About" | translate }}</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="posts"
+        value="posts"
+      >
+        <ion-label>{{ "Posts" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Our Culture"
+        value="Our Culture"
+        [class.our-culture-button-segment]="tabName == 'Our Culture'"
+      >
+        <ion-label>{{ "Our Culture" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Scholarships"
+        value="Scholarships"
+        (click)="selectedtab('Scholarships')"
+        [routerLink]="['/company-profile/scholarship-list']"
+        routerLinkActive="tab-active-section"
+        [class.scholarships-button-segment]="tabName == 'Scholarships'"
+      >
+        <ion-label>{{ "Scholarships" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Internship Program"
+        value="Internship Program"
+        (click)="selectedtab('Internship Program')"
+        [routerLink]="['/company-profile/internship']"
+        routerLinkActive="tab-active-section"
+        [class.internship-program-advice-button-segment]="tabName == 'Internship Program'"
+      >
+        <ion-label>{{ "Internship Program" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Career Advice"
+        value="Career Advice"
+        (click)="selectedtab('Career Advice')"
+        [routerLink]="['/company-profile/career-advice']"
+        routerLinkActive="tab-active-section"
+        [class.career-advice-button-segment]="tabName == 'Career Advice'"
+      >
+        <ion-label>{{ "Career Advice" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="staff-interview"
+        value="Staff Interview"
+        (click)="selectedtab('staff-interview')"
+        routerLinkActive="tab-active-section"
+        [class.staff-interview-button-segment]="tabName == 'Staff Interview'"
+        [routerLink]="['/company-profile/staff-interview']"
+      >
+        <ion-label>{{ "Staff Interview" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Events"
+        value="Events"
+        (click)="selectedtab('Events')"
+        [routerLink]="['/company-profile/event']"
+        routerLinkActive="tab-active-section"
+      >
+        <ion-label>{{ "Events" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+      class="fs-13 font-light color-black"
+      id="gallery"
+      value="gallery"
+      (click)="selectedtab('gallery')"
+      [routerLink]="['/company-profile/comp-gallery']"
+      routerLinkActive="tab-active-section"
+      >
+        <ion-label>{{ "Gallery" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Reviews"
+        value="Reviews"
+        (click)="selectedtab('Reviews')"
+        [routerLink]="['/company-profile/reviews']"
+        [class.reviews-button-segment]="tabName == 'Reviews'"
+      >
+        <ion-label>{{ "Reviews" | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button
+        class="fs-13 font-light color-black"
+        id="Ask a Question"
+        value="Ask a Question"
+        [class.ask-a-question-button-segment]="tabName == 'Ask a Question'"
+      >
+        <ion-label>{{ "Ask a Question" | translate }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</div>

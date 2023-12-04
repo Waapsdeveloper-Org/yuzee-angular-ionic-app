@@ -1,0 +1,226 @@
+.result-txt {
+    background: #eeeeee;
+    color: #222222 !important;
+    font-size: 14px;
+    margin: 0px;
+    padding: 8px;
+    padding-left: 20px;
+    font-weight: 400;
+}
+
+.scrol-name {
+    color: #5e5e5e;
+    font-size: 14px;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info-btn {
+    width: 100% !important;
+    background: none !important;
+    border: 1px solid #2b68a0 !important;
+    color: #2b68a0 !important;
+    padding: 6px;
+    font-size: 14px !important;
+    margin: 24px 0 6px 0px;
+    border-radius: 3px !important;
+}
+
+.gsp-section-top {
+    width: 100%;
+    height: 130px;
+    position: relative;
+}
+
+.secbot {
+    margin: 12px 20px 0 20px;
+    padding: 0 !important;
+    box-shadow: 0px 1px 4px grey;
+    border-radius: 6px;
+    border-bottom: 0 !important;
+}
+
+.month-date {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f14141;
+    text-align: center;
+}
+
+.day {
+    margin-top: 0;
+    font-size: 19px;
+    color: #454545;
+    text-align: center;
+}
+
+.no-cover {
+    margin-top: 10px;
+}
+
+.text-black {
+    text-align: center;
+}
+
+.university-name {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+    width: 215px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.university-desc {
+    margin: 5px 0;
+    font-size: 13px;
+    span {
+        color: #2b68a0;
+    }
+}
+
+.event-type {
+    color: #2b68a0;
+    margin: 0;
+    font-size: 10px;
+}
+
+.event-joined {
+    font-size: 10px;
+    color: gray;
+    margin: 0;
+}
+
+.gsp-event {
+    width: 100%;
+    height: 130px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.posi-bottom-sec {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+}
+
+.evnt-posibot {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+}
+
+.un-nm-1 {
+    font-size: 14px;
+    color: white;
+    margin: 2px 0px;
+    font-weight: 500;
+}
+
+.un-rnk-1 {
+    font-size: 13px;
+    color: white;
+    margin: 2px 0px;
+    font-weight: 400;
+}
+
+.number-2 {
+    font-weight: 400;
+}
+
+.bor-event-sec {
+    border-bottom: 10px solid #eff2f9;
+    margin: 0px 0px !important;
+    padding: 10px 10px 0px 10px !important;
+}
+
+.evn-date {
+    font-size: 18px;
+    color: white;
+    margin: 4px 0px;
+    font-weight: 500;
+}
+
+.image-evnt {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    margin-right: 6px;
+    padding: 2px;
+}
+
+.join-btn {
+    border-radius: 4px !important;
+    height: 25px !important;
+    padding: 0px 22px !important;
+    border: 1px solid #2b68a0;
+    font-size: 13px;
+    text-transform: initial;
+    background: white !important;
+    color: #2b68a0 !important;
+    font-weight: normal;
+    box-shadow: none !important;
+    width: 65px;
+    padding: 0px !important;
+}
+
+.icon-home {
+    width: 16px;
+    margin: 0px 6px 0px 6px;
+}
+
+.icon-dot {
+    width: 18px;
+    margin: 0px;
+}
+
+.text-init {
+    text-transform: initial;
+    color: #a7a9ac !important;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+    font-size: 14px !important;
+}
+
+.secbot {
+    padding: 16px 16px 2px 16px;
+    background: white !important;
+    border-bottom: 10px solid #eeeeee;
+}
+
+button.crt-btn {
+    background: none !important;
+    font-size: 15px !important;
+    color: #2b68a0;
+    font-weight: normal;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0px !important;
+    background: white !important;
+    width: 100%;
+    padding: 10px;
+}
+
+.add-img {
+    width: 18px;
+    margin: 0px 10px 0px 0px;
+}
+
+.gsp-section-bottom {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.btn-btm {
+    background: none;
+    align-items: center;
+    display: flex;
+    height: 40px;
+}

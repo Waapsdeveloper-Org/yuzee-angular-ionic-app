@@ -1,0 +1,6 @@
+<h2 *ngIf="title && title != ''" class="section-title">{{ title | translate }}</h2>
+<div class="display-flx ion-align-items-center" *ngFor="let skill of infoArray let i = index; let first = first; let last = last">
+  <div class="skill-set-name-div wid-100" [class.skills-list-wrap-div-last-item]="last">
+    <h3 class="fs-14 font-medium color-black first-letter-cap ion-word-break-all">{{ skill }}</h3>
+  </div>
+</div>

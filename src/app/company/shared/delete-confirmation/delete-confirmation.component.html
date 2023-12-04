@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="bor-bot" (click)="close(false)"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-margin-top">
+    <ion-row>
+      <ion-col class="ion-no-padding" size="12">
+        <p class="no-margin fs-18 fw-500 ion-text-center">
+          {{ "Delete" | translate }}
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <p class="no-margin fs-16 ion-text-center">
+          {{ "Are you sure you want to delete this ?" | translate }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="filter-bottom-sheet-footer">
+  <ion-row>
+    <ion-col size="6">
+      <ion-button
+        expand="block"
+        class="btn-colored-clear color-black filter-bottom-sheet-btn-margin"
+        (click)="close(false)"
+      >
+        {{ "Cancel" | translate }}
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button
+        expand="block"
+        class="btn-colored-filled filter-bottom-sheet-btn-margin"
+        (click)="close(true)"
+      >
+        {{ "OK" | translate }}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

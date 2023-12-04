@@ -1,0 +1,92 @@
+@import '../../../../../theme/custom-header.css';
+.header-info{
+    background: transparent;
+    position: absolute;
+    ion-toolbar{
+        --background: transparent;
+        padding: 0px 5px !important;
+    }
+}
+.header-rgb-btns{
+    --background: none;
+    --box-shadow: none;
+    --ripple-color: #898989;
+    width: 35px;
+    height: 35px;
+    border-radius: 50% !important;
+    --border-radius: 50% !important;
+    min-width: 35px;
+    img{
+        min-width: 15px;
+        height: 15px;
+    }
+}
+.header-picture-div{
+    .header-picture{
+        width: 100%;
+        height: 215px;
+        object-fit: cover;
+        position: relative;
+    }
+    .header-picture-layerd-div{
+        width: 100%;
+        height: 215px;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top: 0;
+    }
+}
+.header-picture-child-div{
+    height: 215px;
+}
+.posi-sticky-header{
+    margin: 10px 0px 0px 0px;
+}
+.header-picture-content-div{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 75%;
+    h3{
+        line-height: 1.5em;
+        height: 1.5em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 8px !important;
+    }
+}
+.section-title{
+    margin-top: 0px !important;
+}
+.internship-title{
+    margin-bottom: 10px;
+}
+.job-list-wrap-div{
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 0px 12px 0px;
+}
+.job-list-wrap-div-first-item{
+    padding-top: 2px !important;
+}
+.job-list-wrap-div-last-item, .skills-list-wrap-div-last-item{
+    border-bottom: none !important;
+}
+.job-list-title{
+    margin: 8px 20px 6px 0px !important;
+}
+.view-all-btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    --background: none !important;
+    --box-shadow: none !important;
+    text-transform: inherit !important;
+    height: 28px;
+    --background-activated: #2b68a030;
+    margin: 10px 0px 0px 0px !important;
+}
+.attachment-wrap-div{
+    margin-top: 20px;
+}

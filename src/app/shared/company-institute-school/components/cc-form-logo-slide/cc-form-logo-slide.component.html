@@ -1,0 +1,317 @@
+<ion-list class="list-padding-bottom">
+  <div *ngIf="isInstitute">
+    <ion-item lines="none" class="sect-port">
+      <ion-label class="labelCompany font-regular">
+        {{
+        isInstitute
+        ? "Add Institution Logo"
+        : ("Add Company Logo" | translate)
+        }}
+      </ion-label>
+    </ion-item>
+    <div class="logo-main" (click)="setProfilePicture(profilePicture)">
+      <div class="logo-outer" *ngIf="ncompanyLogoPhoto == null">
+        <div class="logo-img-outer">
+          <img src="../../../../assets/create-company/camera.svg" />
+        </div>
+        <div class="add-logo-outer">
+          <ion-icon src="../../../../assets/create-company/icon-material-edit.svg"></ion-icon>
+        </div>
+      </div>
+
+      <div class="logo-outer" (click)="selectPhoto()" *ngIf="ncompanyLogoPhoto != null">
+        <div class="logo-img-outer">
+          <img class="logo-company" [src]="ncompanyLogoPhoto" />
+        </div>
+        <div class="add-logo-outer">
+          <ion-icon src="../../../../assets/create-company/icon-material-edit.svg"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <input accept="image/*" type="file" #profilePicture (change)="uploadProfilePicture($event.target.files, file)" />
+
+    <form [formGroup]="instituteForm">
+
+      <ion-item class="text-feild align-item" lines="none">
+        <ion-label position="floating">{{ "Name of institution" | translate }}</ion-label>
+        <ion-input class="align-item" type="text" [maxLength]="'nameMax'" [minLength]="'textMin'" genericTextField
+          [(ngModel)]="instituteName" (input)="titleCase('instituteName')" formControlName="instituteName"
+          (ionChange)="instituteNameExists(instituteName)" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row class="align-item">
+        <ion-col size="12">
+          <div *ngIf="instituteForm.get('instituteName').dirty">
+            <h4 class="font-regular color-red validation-msg">
+              {{isInstituteNameInUse && instituteName ? instituteForm.get('instituteName')?.errors?.nameExistError :
+              instituteForm.get('instituteName').errors }}
+            </h4>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="text-feild align-item" lines="none" (click)="openDescriptionModal()">
+        <ion-label position="floating">{{ "Description" | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="description" name="instituteDescription" required
+          formControlName="instituteDescription">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="text-field align-item" lines="none">
+        <ion-label position="floating">{{ "Tag line" | translate }}
+        </ion-label>
+        <ion-input class="align-item" type="text" (input)="titleCase('instituteTagLine')" [(ngModel)]="instituteTagLine"
+          formControlName="instituteTagLine" [maxLength]="'nameMax'" [minLength]="'textMin'" genericTextField required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row class="align-item">
+        <ion-col size="12">
+          <div class="mb-12" *ngIf="instituteForm.get('instituteTagLine').dirty">
+            <h4 class="font-regular color-red validation-msg">{{instituteForm.get('instituteTagLine').errors}}
+            </h4>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="text-field align-item" lines="none">
+        <ion-label position="floating">{{
+          "Website URL" | translate
+          }}</ion-label>
+        <ion-input class="align-item" type="text" required formControlName="instituteWebsite"
+          [(ngModel)]="instituteWebsite" name="instituteWebsite" libUrlValidation>
+        </ion-input>
+      </ion-item>
+      <ion-row class="align-item">
+        <ion-col size="12">
+          <div *ngIf="
+              instituteForm.get('instituteWebsite').dirty
+            ">
+            <h4 class="font-regular color-red validation-msg">
+              {{instituteForm.get("instituteWebsite").getError('showErrorMessage')}}
+            </h4>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <p class="align-item text-blackf3 label-fix ion-margin-bottom">
+        {{ "Yuzze Public URL" | translate }}
+      </p>
+
+      <ion-row class="align-item">
+        <ion-col>
+          <ion-input class="col-pad-top col-pad-bottom ion-text-start fs-14" readonly="true"
+            value="yuzee.com/institution/">
+          </ion-input>
+        </ion-col>
+
+        <ion-col>
+          <ion-input class="col-pad-top col-pad-bottom ion-text-start fs-14 border-bottom-gray" type="text"
+            placeholder="{{ 'Yuzee Public URL' | translate }}" formControlName="instituteYuzeeUrl"
+            [(ngModel)]="instituteYuzeeUrl" name="instituteYuzeeUrl" (ionChange)="isYuzzeUrlExis(instituteYuzeeUrl)"
+            required>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="align-item mb-20">
+        <ion-col offset="6" size="6">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <div class="mb-12 ml-12" *ngIf="instituteForm.get('instituteYuzeeUrl').hasError('maxlength')">
+          <h4 class="font-regular color-red validation-msg">
+            {{ "Yuzee Url should not be more than 30 characters" | translate }}
+          </h4>
+        </div>
+
+        <div class="mb-12 ml-12" *ngIf="instituteForm.get('instituteYuzeeUrl').dirty">
+          <h4 class="font-regular color-red validation-msg">
+            {{isYuzzeUrl ? instituteForm.get('instituteYuzeeUrl')?.errors?.yuzeeUrlExistError : "" }}
+          </h4>
+        </div>
+      </ion-row>
+      <div [hidden]="!isInstitute" *ngFor="let item of codeTemplate; let i = index">
+        <app-provider-code #childForm (close)="removeAddCode(i)" (providerType)="selectedProviderType($event, i)"
+          (providerCodeNumber)="selectedProviderCode($event, i)" (presentPopUpEvent)="presentPopUp($event, i)"
+          [showClose]="getShowClose(i)" [item]="item" [formGroup]="instituteForm"
+          (isAddMoreButton)="childFormValid = $event">
+        </app-provider-code>
+      </div>
+
+      <div *ngIf="isInstitute" class="ion-margin-top add-code">
+        <ion-button (click)="addCode()" expand="block" class="btn-colored-clear no-margin custom-btn-style"
+          [hidden]="codeTemplate.length === 3" [disabled]="validateObj.disableAddBtn">
+          <div slot="start">
+            <img src="../../../../../assets/plus.svg">
+          </div>
+          <span class="color-blue letter-space fs-14">
+            {{ "Add More Code" | translate }}
+          </span>
+        </ion-button>
+      </div>
+    </form>
+  </div>
+  <!-- * End Of Institute Form *-->
+
+  <div *ngIf="!isInstitute">
+    <div class="sect-port">
+      <ion-item lines="none ion-no-margin-top">
+        <ion-label class="font-light fs-14">
+          {{ "Add Company Logo" | translate }}
+        </ion-label>
+      </ion-item>
+      <div class="logo-main" (click)="setProfilePicture(profilePicture)">
+        <div class="logo-outer" *ngIf="ncompanyLogoPhoto == null">
+          <div class="logo-img-outer">
+            <img src="../../../../assets/create-company/camera.svg" />
+          </div>
+          <div class="add-logo-outer">
+            <ion-icon src="../../../../assets/create-company/icon-material-edit.svg"></ion-icon>
+          </div>
+        </div>
+
+        <div class="logo-outer" (click)="selectPhoto()" *ngIf="ncompanyLogoPhoto != null">
+          <div class="logo-img-outer">
+            <img class="logo-company" [src]="ncompanyLogoPhoto" />
+          </div>
+          <div class="add-logo-outer">
+            <ion-icon src="../../../../assets/create-company/icon-material-edit.svg"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <input accept="image/*" type="file" #profilePicture (change)="uploadProfilePicture($event.target.files, file)" />
+
+      <!-- Name of company -->
+      <ion-row class="">
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none">
+            <ion-label position="floating">{{
+              "Name of company" | translate
+              }}</ion-label>
+            <ion-input type="text" class="upperCase"  genericTextField #company_name="ngModel" [minLength]="'textMin'"
+              [maxLength]="'nameMax'" [(ngModel)]="companyName" (ionChange)="masterCheck($event, 'company_name')"
+              name="company_name" required>
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{
+            isCompanyNameInUse && companyName
+            ? "Company Name Already Exist"
+            : handleStringError(company_name.errors)
+            }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- Name of tagline -->
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none">
+            <ion-label position="floating">{{
+              "Tag line" | translate
+              }}</ion-label>
+            <ion-input type="text" genericTextField #company_tagline="ngModel" [minLength]="'textMin'"
+              [maxLength]="'nameMax'" [(ngModel)]="companyTagLine" (ionChange)="masterCheck($event, 'company_tagline')"
+              name="company_tag_line" required>
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{ handleStringError(company_tagline.errors) }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- Name of website url -->
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none">
+            <ion-label position="floating">{{
+              "Website URL" | translate
+              }}</ion-label>
+            <ion-input type="text" libUrlValidation #websiteUrl="ngModel" [(ngModel)]="companyURL"
+              (ionChange)="masterCheck($event, 'website')" name="company_url" required>
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{ handleStringError(websiteUrl.getError("showErrorMessage")) }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- Yuzee Url -->
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item lines="none" lines="none" class="text-field">
+            <ion-label position="stacked">{{
+              publicUrl !== "" && publicUrl !== null
+              ? "Yuzee Public URL"
+              : (" " | translate)
+              }}</ion-label>
+            <div class="yuzee-url-flex-grow-two-inputs wid-100">
+              <ion-row class="wid-100">
+                <ion-col>
+                  <ion-input class="col-pad-top col-pad-bottom ion-text-start fs-14" readonly="true"
+                    value="yuzee.com/company/">
+                  </ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-input class="col-pad-top col-pad-bottom ion-text-start fs-14" type="text" minLength="2"
+                    maxLength="31" libUrlValidation #PublicUrl="ngModel" [(ngModel)]="publicUrl" placeholder="{{ 'Yuzee Public URL' | translate }}" required
+                    whiteSpaceRestriction (ionChange)="masterCheck($event, 'yuzee_url')">
+                  </ion-input>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{ isUrlInUse ? ("Yuzee Url already in use" | translate) : "" }}
+            {{ handleStringError(PublicUrl.getError("showErrorMessage")) }}
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="mb-12" *ngFor="let item of codeTemplate; let i = index">
+      <app-provider-code [isCodeEmpty]="isCodeEmpty" [isCodeTypeEmpty]="isCodeTypeEmpty" [showClose]="getShowClose(i)"
+        (close)="removeAddCode(i)" (providerType)="selectedProviderType($event, i)"
+        (providerCodeNumber)="selectedProviderCode($event, i)" (presentPopUpEvent)="presentPopUp($event, i)"
+        (codeUpdate)="codeValueUpdate($event, i)" [item]="item">
+      </app-provider-code>
+    </div>
+
+    <div *ngIf="!isInstitute" class="ion-margin-top add-code">
+      <ion-button (click)="addCode()" expand="block" class="btn-colored-clear no-margin custom-btn-style"
+        [hidden]="codeTemplate.length === 3" [disabled]="validateObj.disableAddBtn">
+        <div slot="start">
+          <img src="../../../../../assets/plus.svg">
+        </div>
+        <span class="color-blue letter-space fs-14">
+          {{ "Add More Code" | translate }}
+        </span>
+      </ion-button>
+    </div>
+  </div>
+</ion-list>
+
+<div *ngIf="!isInstitute" [ngClass]="{ disabled: checked == -1, 'bottom-zero': !keyboardOpened }"
+  class="bottom-button cc-slide-bottom-button">
+  <ion-button class="btn-colored-outline" [class.btn-colored-outline-disabled]="checked == -1" expand="block"
+    (click)="navigateToCreateComapnyPage2()" [disabled]="checked !== 1">{{ "Next" | translate }}</ion-button>
+</div>
+
+<div *ngIf="isInstitute" [ngClass]="{ disabled: !formsValid(), 'bottom-zero': !keyboardOpened }"
+  class="bottom-button cc-slide-bottom-button">
+  <ion-button class="btn-colored-outline" [class.btn-colored-outline-disabled]="!formsValid()" expand="block"
+    (click)="navigateToCreateInstitute()" [disabled]="!formsValid()">{{ "Next" | translate }}
+  </ion-button>
+</div>

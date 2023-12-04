@@ -1,0 +1,183 @@
+@import '../../company-profile.page.scss';
+
+.achievements {
+  display: flex;
+  font-size: 14px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+  .logo {
+    width: 10%;
+  }
+  .label {
+    width: 80%;
+    .labelText {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .year {
+      ion-label {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+    .date {
+      ion-label {
+        font-size: 11px;
+        color: #77787b;
+      }
+    }
+  }
+}
+
+.itemMargin {
+  margin-bottom: 10px;
+}
+.downitemIcon {
+  width: 100%;
+  //background: pink;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.innerText {
+  width: 100%;
+  margin: 0 auto;
+  p {
+    font-size: 14px;
+    font-weight: lighter;
+  }
+}
+.people {
+  display: flex;
+  .more {
+    color: #2b68a0;
+    display: flex;
+    font-size: 13px;
+    margin-left: 5px;
+    font-weight: 500;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .threeNames {
+      display: flex;
+
+      .nameItem {
+        display: flex;
+        font-size: 13px;
+        margin-left: 5px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+.taggedPeople {
+  width: 100%;
+  margin: 0 auto;
+  .taggedHeading {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .left {
+    display: flex;
+    .margined {
+      margin-left: -12px;
+    }
+  }
+}
+
+.paddTopBottom {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.attachments {
+  .attachmentLabel {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  width: 100%;
+  margin: 0 auto;
+  font-weight: 500;
+  .CertificateDoc {
+    padding: 8px 14px 8px 16px;
+    border: 1px solid #e4e4e5;
+    border-radius: 4px;
+    display: flex;
+    .Msicon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 12px;
+      width: 12px;
+    }
+    .labelDoc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 14px;
+      font-size: 12px;
+    }
+    .sizeLabel {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 300;
+
+      .size {
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.bottom-border {
+  border-bottom: 1px solid #c7c8ca;
+  padding-bottom: 20px !important;
+}
+
+.top-10 {
+  top: 10px !important;
+}
+
+.bottom-zero {
+  margin-bottom: 0px !important;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.education-institution-name{
+  display: unset !important;
+  line-height: 20px;
+}
+.user-education-info-div{
+  align-items: flex-start !important;
+}
+.user-education-wrap-div{
+  display: unset !important;
+}
+.see-more-btn{
+  width: auto !important;
+}
+.circle-pro{
+  margin-top: 0px !important;
+}
+.achievements-txt-div-wrap{
+  margin-right: 10px;
+  h2{
+    margin: 0px 0px 2px 0px !important;
+  }
+}
+.lh-20{
+  line-height: 20px !important;
+}

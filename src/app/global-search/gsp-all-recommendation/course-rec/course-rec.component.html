@@ -1,0 +1,352 @@
+<p class="result-txt">{{ courseRecList.length }} Result</p>
+<!-- <div class="recomd-padd">
+    <h4 class="title-explore fs-w6 fs-14">Recommended courses in your location</h4>
+    <ion-row *ngFor="let recommendation of courseRecList">
+        <ion-col size="2" class="text-center">
+            <img class="course-image" src="assets/imgs/home/logo1 (1).png"/>
+        </ion-col>
+        <ion-col size="8" class="text-align">
+            <div>
+            <p class="mar-auto fs-12 fs-w6">{{recommendation.course_name}}</p>
+            <p class="fs-11 mar-loc" >{{recommendation.institute_name}}</p>
+            </div>
+        </ion-col>
+        <ion-col size="2" class="flex-center">
+        </ion-col>
+    </ion-row>
+</div> -->
+<div class="recomd-padd">
+  <ion-row>
+    <ion-col size="2">
+      <img class="img-wid" src="./../../../../assets/New/bord.png" />
+    </ion-col>
+    <ion-col size="7" class="flex-center">
+      <p class="par-cls">
+        {{ "Fill up your qualifications to find your best match of courses." | translate }}
+      </p>
+    </ion-col>
+    <ion-col size="3" class="txt-center">
+      <button class="btn btn-cls">{{ "Qualifications" | translate }}</button>
+    </ion-col>
+  </ion-row>
+</div>
+
+<p class="result-txt"></p>
+
+<div class="recomd-padd">
+  <div class="div-cls">
+    <div>
+      <ion-row class="bor-btm">
+        <ion-col size="3" class="pad-0 back-img">
+          <img class="back-fullImg" src="./../../../../assets/New/keyboardImg.png" />
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-col size="10">
+              <p class="bach-in">Bachelor in Psychology</p>
+            </ion-col>
+            <ion-col size="2" class="text-rgt">
+              <img class="" src="./../../../../assets/New/dot.png" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="7">
+              <p class="uni-p">University of Advancing</p>
+            </ion-col>
+            <ion-col size="5" class="dis-flx alg-itm">
+              <img class="star-img" src="./../../../../assets/New/star.png" />
+              <p class="rat-in">4.6</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="7">
+              <p class="uni-p">Melbourne, Australia</p>
+            </ion-col>
+            <ion-col size="5">
+              <p class="uni-p">Domestic Fee</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="7" class="dis-flx alg-itm">
+              <ion-toggle color="primary"></ion-toggle>
+              <p class="uni-p">Pathway fit check</p>
+            </ion-col>
+            <ion-col size="5" class="alg-itm">
+              <p class="pra-p"><span class="pr-cls">138,700 AUD</span>/year</p>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="bor-btm pad-10">
+      <div class="steps-div">
+        <ul class="loggedin-stpes">
+          <li
+            [ngClass]="{
+              'step-done': steps.spm.completed,
+              active: steps.spm.active
+            }"
+          >
+            <div class="circle">
+              <img src="assets/imgs/courseinfo/course-steps/spm.png" class="step-icon" alt="" />
+            </div>
+            <label>{{ "SPM" | translate }} </label>
+          </li>
+          <li
+            [ngClass]="{
+              'step-done': steps.community.completed,
+              active: steps.community.active
+            }"
+          >
+            <div class="circle">
+              <img
+                src="assets/imgs/courseinfo/course-steps/university.png"
+                class="step-icon"
+                alt=""
+              />
+            </div>
+            <label>{{ "Bachelor of Art History & Visual Culture" | translate }} </label>
+          </li>
+          <li
+            [ngClass]="{
+              'step-done': steps.masters.completed,
+              active: steps.masters.active
+            }"
+          >
+            <div class="circle">
+              <img src="assets/imgs/courseinfo/course-steps/masters.png" class="step-icon" alt="" />
+            </div>
+            <label> {{ "Master's degree" | translate }} </label>
+          </li>
+          <li
+            [ngClass]="{
+              'step-done': steps.psychologist.completed,
+              active: steps.psychologist.active
+            }"
+            class="no-mar"
+          >
+            <div class="circle">
+              <img
+                src="assets/imgs/courseinfo/course-steps/psychologist.png"
+                class="step-icon"
+                alt=""
+              />
+            </div>
+            <label> {{ "Clinical Psychologist" | translate }} </label>
+          </li>
+        </ul>
+      </div>
+      <!-- <p class="step-par">SPM</p>
+      <p class="step-par">Bachelor of Art History & Visual Culture</p>
+      <p class="step-par">Master's degree</p>
+      <p class="step-par">Clinical Psychologist</p> -->
+      <!-- <ion-stepper #stepper (selectIndexChange)="selectChange($event)">
+                <ion-step label="Step1" description="Step1 description">
+                    <h2>Step1 Content</h2>
+                    <p>Step1 Content</p>
+                    <button ion-button small ionicStepperNext>Next</button>
+                </ion-step>
+                <ion-step label="Step2 - Step2 - Step2" description="Step1 description">
+                    <h2>Step2 Content</h2>
+                    <p>Step2 Content</p>
+                    <button ion-button color="light" small ionicStepperPrevious>Previous</button>
+                </ion-step>
+            </ion-stepper> -->
+    </div>
+    <div class="bor-btm pad-10">
+      <p class="step-par"> {{ "This course will not help you reach your ideal career." | translate }} </p>
+      <p class="step-par"> {{ "Try searching for other courses using a different keyword." | translate }} </p>
+      <p class="step-par"> {{ "Tips: " | translate }} 
+        <span class="pr-cls">
+            {{ "Psychology, Clinical psychologist" | translate }} 
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<p class="result-txt"></p>
+
+<div class="recomd-padd">
+  <div class="div-cls">
+    <ion-row>
+      <ion-col size="3" class="pad-0 back-img">
+        <img class="back-fullImg" src="./../../../../assets/New/keyboardImg.png" />
+      </ion-col>
+      <ion-col size="9">
+        <ion-row>
+          <ion-col size="10">
+            <p class="bach-in">Foundation in Arts</p>
+          </ion-col>
+          <ion-col size="2" class="text-rgt">
+            <img class="" src="./../../../../assets/New/dot.png" />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7">
+            <p class="uni-p">University of Amsterdam</p>
+          </ion-col>
+          <ion-col size="5" class="dis-flx alg-itm">
+            <img class="star-img" src="./../../../../assets/New/star.png" />
+            <p class="rat-in">4.6</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7">
+            <p class="uni-p">Amsterdam, Netherlands</p>
+          </ion-col>
+          <ion-col size="5">
+            <p class="uni-p">Domestic Fee</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7" class="dis-flx alg-itm">
+            <ion-toggle color="primary"></ion-toggle>
+            <p class="uni-p">Pathway fit check</p>
+          </ion-col>
+          <ion-col size="5" class="alg-itm">
+            <p class="pra-p"><span class="pr-cls">8,963 AUD</span>/year</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+<p class="result-txt"></p>
+
+<div class="recomd-padd">
+  <ion-row>
+    <ion-col size="2" class="pad-0">
+      <img class="" src="./../../../../assets/New/dirction.png" />
+    </ion-col>
+    <ion-col size="10">
+      <p class="feel-cls">{{ "Feeling confused about your future?" | translate }} </p>
+      <p class="feel-cls">
+        {{ "Get your" | translate }}  <span class="pr-cls">{{ "FREE Education Counselling Session" | translate }} </span> 
+        {{ "with our professional counsellors today!" | translate }} 
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <button class="btn lets-go">{{ "Let's go!" | translate }} </button>
+    </ion-col>
+  </ion-row>
+</div>
+
+<p class="result-txt"></p>
+
+<div class="recomd-padd">
+  <ion-row>
+    <ion-col size="2" class="">
+      <img class="wid-40" src="./../../../../assets/New/mic.png" />
+    </ion-col>
+    <ion-col size="9">
+      <p class="hig-rec pad8">{{ "Highly recommended courses by other users" | translate }} </p>
+    </ion-col>
+    <ion-col size="1">
+      <img class="pad8" src="./../../../../assets/New/dot.png" />
+    </ion-col>
+  </ion-row>
+  <div class="bor-btm"><p class="pr-cls">{{ "Engineering" | translate }} </p></div>
+  <div class="bor-btm"><p class="pr-cls">{{ "Biomedical science" | translate }} </p></div>
+  <div class="bor-btm"><p class="pr-cls">{{ "Design" | translate }} </p></div>
+  <div class="bor-btm"><p class="pr-cls">{{ "Education" | translate }} </p></div>
+  <div class="txt-center">
+    <img class="ref-img" src="./../../../../assets/New/refresh.png" />
+    <p class="pr-cls"> {{ "refresh" | translate }} </p>
+  </div>
+</div>
+
+<p class="result-txt"></p>
+
+<div class="recomd-padd">
+  <div class="div-cls">
+    <ion-row>
+      <ion-col size="3" class="pad-0 back-img">
+        <img class="back-fullImg" src="./../../../../assets/New/keyboardImg.png" />
+      </ion-col>
+      <ion-col size="9">
+        <ion-row>
+          <ion-col size="10">
+            <p class="bach-in">Master in Clinical Psychology</p>
+          </ion-col>
+          <ion-col size="2" class="text-rgt">
+            <img class="" src="./../../../../assets/New/dot.png" />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7">
+            <p class="uni-p">University of Toronto</p>
+          </ion-col>
+          <ion-col size="5" class="dis-flx alg-itm">
+            <img class="star-img" src="./../../../../assets/New/star.png" />
+            <p class="rat-in">3.9</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7">
+            <p class="uni-p">Amsterdam, Netherlands</p>
+          </ion-col>
+          <ion-col size="5">
+            <p class="uni-p">Domestic Fee</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7" class="dis-flx alg-itm">
+            <ion-toggle color="primary"></ion-toggle>
+            <p class="uni-p">Pathway fit check</p>
+          </ion-col>
+          <ion-col size="5" class="alg-itm">
+            <p class="pra-p"><span class="pr-cls">8,963 AUD</span>/year</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+<p class="result-txt"></p>
+
+<div class="recomd-padd">
+  <p class="rec-title"> {{ "Recommended Courses" | translate }} </p>
+  <ion-row class="bor-btm">
+    <ion-col size="3">
+      <img class="uni-img" src="./../../../../assets/New/uni1.png" />
+    </ion-col>
+    <ion-col size="9" class="pad-12">
+      <p class="uni-title">Bachelor of Computer Science (Hons)</p>
+      <p class="uni-add">The University of Melbourne</p>
+      <p class="uni-add"><span class="pr-cls">11 people </span>also viewed this course</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="bor-btm">
+    <ion-col size="3">
+      <img class="uni-img" src="./../../../../assets/New/uni2.png" />
+    </ion-col>
+    <ion-col size="9" class="pad-12">
+      <p class="uni-title">Bachelor of Business Administration</p>
+      <p class="uni-add">The University of Melbourne</p>
+      <p class="uni-add"><span class="pr-cls">11 people </span>also viewed this course</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="bor-btm">
+    <ion-col size="3">
+      <img class="uni-img" src="./../../../../assets/New/uni1.png" />
+    </ion-col>
+    <ion-col size="9" class="pad-12">
+      <p class="uni-title">Bachelor of Computer Science (Hons)</p>
+      <p class="uni-add">The University of Melbourne</p>
+    </ion-col>
+  </ion-row>
+  <div class="txt-center">
+    <p class="pr-cls">{{ "See more" | translate }} </p>
+  </div>
+</div>
+
+<div class="txt-center result-txt">
+  <button class="btn map-btn" (click)="gotomap()">
+    <img class="wid-30" src="./../../../../assets/New/mapImg.png" /> {{ "View map" | translate }} 
+  </button>
+</div>

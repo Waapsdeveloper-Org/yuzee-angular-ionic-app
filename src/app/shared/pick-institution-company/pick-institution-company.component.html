@@ -1,0 +1,51 @@
+<div class="content-inr-section">
+  <ion-item class="name-item" detail="false" lines="none">
+    <img slot="start" class="user-profile-picture" src="assets/images/avatar-default.svg"
+      *ngIf="userInformation.profile_image == null" />
+    <img slot="start" class="user-profile-picture" [src]="userInformation.profile_image.file_url"
+      *ngIf="userInformation.profile_image != null" onError="this.src='assets/images/avatar-default.svg'" />
+    <div class="pad-left-form">
+      <h3 class="fs-13 font-medium color-black ion-no-margin text-overflow-ellipsis user-name">
+        {{ userInformation.firstName && userInformation.firstName !=
+        '' ? userInformation.firstName + ' ' + userInformation.lastName : 'Name undefined' }}
+      </h3>
+      <h3 class="fs-14 font-light color-grey ion-no-margin">{{ "Your profile" | translate }}</h3>
+    </div>
+  </ion-item>
+
+  <div class="SkCss" *ngIf="loader">
+    <ion-card class="institution-company-card" *ngFor="let act of [1,1,1]">
+      <ion-item class="institution-company-item" detail="false" lines="none">
+        <div class="institution-company-pic-div">
+          <ion-skeleton-text animated class="skImg"></ion-skeleton-text>
+        </div>
+        <div class="pad-left-form">
+          <ion-skeleton-text animated class="skTitle"></ion-skeleton-text>
+          <ion-skeleton-text animated class="skSub"></ion-skeleton-text>
+        </div>
+        <div slot="end">
+          <ion-skeleton-text animated class="skBlue"></ion-skeleton-text>
+        </div>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div *ngIf="!loader">
+    <ion-card class="institution-company-card" *ngFor="let act of userAllActivity">
+      <ion-item class="institution-company-item" detail="false" lines="none" (click)="changeActivity(act)">
+        <div class="institution-company-pic-div" [class.background-blue]="act.color == 'blue'" [class.background-green]="act.color == 'green'"
+          [class.background-brown]="act.color == 'brown'" [class.background-yellow]="act.color == 'yellow'">
+          <img onError="src='assets/imgs/application/svg/default-picture/default-institute.svg'" class="institution-company-picture"
+            [src]="act.logo_url != null ? act?.logo_url : 'assets/imgs/application/svg/default-picture/default-institute.svg'" />
+        </div>
+        <div class="pad-left-form">
+          <h3 class="fs-15 font-medium color-black ion-no-margin webkit-clamp-one user-name">{{ act?.entity_name | titlecase }}</h3>
+          <h3 class="fs-14 font-light color-grey ion-no-margin">{{ act?.entity_type | titlecase }}</h3>
+        </div>
+        <div slot="end" *ngIf="act.user_active_entity">
+          <img class="icon-size-xlg" src="assets/svgs/active-check-icon.svg">
+        </div>
+      </ion-item>
+    </ion-card>
+  </div>
+</div>

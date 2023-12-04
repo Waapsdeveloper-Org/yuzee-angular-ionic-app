@@ -1,0 +1,6 @@
+<app-all-reviews-list (reviewNetwork)="reviewNetwork" (reviewStars)="reviewStars" [reviews]="reviews" [reviewAvg]="reviewAvg" [entityType]="'INSTITUTE'" [entityId]="this.sharedService.instituteId"></app-all-reviews-list><ion-fab horizontal="end" vertical="bottom" slot="fixed" class="btn">
+    <ion-fab-button (click)="openWriteReview()" class="fab-btn fab-custom-btn">
+      <img src="assets/svgs/add-btn-white.svg">
+    </ion-fab-button>
+  </ion-fab>
+  

@@ -1,0 +1,50 @@
+
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" class="wid-ht-header-btns">
+          <button ion-button (click)="goBack()" class="bg-none">
+            <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" />
+        </button>
+      </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-card *ngFor="let course of courseList; let i = index"  class="main-card" (click)="openDetails()">
+  <div class="item-card four-items-card display-flx ion-align-items-center"
+  [class.five-items-card]="i == 2"><!--- Class 'five-items-card' will be use for offcampus class course -->
+   
+      <ion-card-content class="card-content-section card-four-item-content-section wid-100 text-dot-css">
+         
+          <h3 class="location-text fs-12 color-darkgrey font-regular color-black ion-no-margin ion-word-break-all text-dot-css margin-bottom-area"
+          >{{ course?.name  }}</h3> <!--| firstLetterCap-->
+          <!-- Use the below course type accordingly -->
+          <!-- Normal course -->
+          <h4 *ngIf="i == 0" class="display-flx ion-align-items-center font-regular color-darkgrey ion-text-uppercase margin-bottom-area">{{ 'SUBJECT' | translate }} <span class="yuzee-bg-blue result-gpa-div"><h3 class="fs-12 font-medium color-blue ion-no-margin">{{ course.course_languages}}</h3></span></h4>
+          <!-- Vocational course -->
+          <!-- Offcampus class course -->
+          <ng-container *ngIf="i == 2">
+              <h3 class="display-flx ion-align-items-center color-black font-light fs-12 start-date-info text-dot-css"
+              >{{ 'Start Date' | translate }}
+                  <img class="dot-separator" src="assets/imgs/student-profile/posts/like-comment-separator.svg">
+                  <span class="font-medium color-red start-date-span ion-text-uppercase">{{ course?.startDate }}</span>
+              </h3>
+              <h4 class="display-flx ion-align-items-center color-black font-light fs-12 text-dot-css days-info"
+              >{{ 'Days' | translate }}
+                  <img class="dot-separator" src="assets/imgs/student-profile/posts/like-comment-separator.svg">
+                  <span class="days-info-span">
+                      <span *ngFor="let day of course.daysArray; let i = index" class="font-medium color-blue">{{ day }}<span class="color-blue" *ngIf="i < course.daysArray.length - 1"> | </span></span>
+                  </span>
+              </h4>
+          </ng-container>
+          <h4 class="fs-12 color-black font-light color-black ion-no-margin ion-word-break-all text-dot-css"
+          >{{ course.description }}</h4>
+          <h3 class="fs-14 font-light color-black ion-no-margin course-fee text-dot-css"
+          >{{ 'Domestic Fee' | translate }}: <span class="color-black font-regular course-price">{{ course.material_fee
+        }} {{ course.city_name }}</span></h3>
+      </ion-card-content>
+  </div>
+
+
+</ion-card>
+

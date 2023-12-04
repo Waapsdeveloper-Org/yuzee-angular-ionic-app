@@ -1,0 +1,19 @@
+<!-- YACC056 -->
+<!-- Slider Screen -->
+<div *ngIf="showSlider">
+  <app-slider-screens createBtn="Create a Scholarship" [sliderArray]="sliderArray"></app-slider-screens>
+</div>
+<div class="content-inr-section" *ngIf="!showSlider">
+  <div class="display-flx ion-align-items-center ion-justify-content-between">
+    <h3 class="section-title" (click)="showSliderTest()">{{ "Scholarships" | translate }}</h3>
+      <button
+        class="view-all-btn color-blue button-active-effect fs-14 font-medium"
+        (click)="viewAllScholarships()"
+        [hidden]="isInstitute && !hasAccessGetScholarship"
+      >
+      {{ 'View all' | translate }}
+    </button>
+  </div>
+  <!-- Scholarships offered -->
+  <app-all-scholarships [limit]="3" [hasAccessScholarshipDelete]="hasAccessScholarshipDelete" [isInstitute]="isInstitute"></app-all-scholarships>
+</div>

@@ -1,0 +1,23 @@
+<div class="content-out-section">
+  <div class="content-inr-section no-bottom-padding">
+    <div class="cont-pad-1 posi-rel bg-white">
+      <ion-row class="heading-t">
+        <ion-col size="12" class="no-padding">
+          <p class="fw-bold fs-18 no-margin">
+            {{ "About Us" | translate }}
+          </p>
+
+          <see-more-para
+          *ngIf="isInstitute"
+          [trimLength]="200"
+          [description]="instituteBasicInfo?.description"
+          [classes]="'ion-no-margin ion-margin-vertical fs-16 fw-300'"
+        >
+          {{ instituteBasicInfo?.description | translate }}
+        </see-more-para>
+
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</div>

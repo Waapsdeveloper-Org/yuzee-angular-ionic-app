@@ -1,0 +1,49 @@
+<ion-content>
+  <div class="posi-rel">
+    <ion-header class="header-info">
+      <ion-toolbar>
+        <ion-buttons slot="start" class="wid-ht-header-btns">
+          <ion-button class="header-rgb-btns" (click)="goBack()">
+            <img src="assets/svgs/Back-svg.svg" />
+          </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end" class="wid-ht-header-btns flex-center">
+          <ion-button class="header-rgb-btns" (click)="moreOptions()">
+            <img src="assets/svgs/more-options.svg" />
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="header-picture-div">
+      <img [src]="
+          data?.coverPicture ? data?.coverPicture : 'assets/svgs/edu-cover.svg'" class="header-picture" />
+      <div class="header-picture-layerd-div"></div>
+    </div>
+    <div class="header-text-div">
+      <h3 class="fs-14 font-regular color-white ion-no-margin ion-text-center header-desc">
+        {{ data?.description }}
+      </h3>
+      <h3 class="fs-14 font-regular color-white ion-no-margin ion-text-center university-name webkit-clamp-two">
+        {{ data?.title }}
+      </h3>
+    </div>
+  </div>
+
+  <!-- About -->
+  <app-scholorship-details-about [title]="'About the Scholarship'"
+    [description]="data?.description"></app-scholorship-details-about>
+
+  <!-- Other details -->
+  <app-scholorship-details-other [data]="data"></app-scholorship-details-other>
+
+  <app-scholorship-details-about-points [item]="data"></app-scholorship-details-about-points>
+  <app-scholorship-details-requirements [data]="data"></app-scholorship-details-requirements>
+  <app-scholorship-details-about-keypoints [title]="'How To Apply'"
+    [list]="data?.how_to_apply"></app-scholorship-details-about-keypoints>
+  <app-scholorship-details-about [title]="'Benefits'"
+    [description]="data?.benefits.description"></app-scholorship-details-about>
+  <app-scholorship-details-about [title]="'Condition'"
+    [description]="data?.condition.description"></app-scholorship-details-about>
+</ion-content>

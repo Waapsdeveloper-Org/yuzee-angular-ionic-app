@@ -1,0 +1,111 @@
+
+<div *ngIf="recommendation">
+    <app-course-rec></app-course-rec>
+</div>
+
+<div *ngIf="!recommendation">
+  <p class="result-txt">{{courseObj.totalCount}} {{ "Result" | translate }}</p> 
+  <div *ngFor="let Result of courseList; let i = index" class="posi-rel" >
+    <ion-list>
+      <ion-item-sliding (ionSwipe)="clickFavourite(Result)">
+            <ion-item class="no-padding no-border bor-bot-section box-shd">
+              <ion-row  class="search-card" >
+                  <ion-col class="col-result-left">
+                      <div class="heart-posi-left" (click)="clickFavourite(Result)">
+                        <img src="assets/imgs/search-result/heart-outline.png" class="heart-posi" *ngIf="!Result.is_favourite" />
+                        <img src="assets/imgs/search-result/heart-filling.png" class="heart-posi" *ngIf="Result.is_favourite" />
+                      </div>
+                      <img src="assets/imgs/search-result/eye.png" class="posi-eye" *ngIf="Result.isViewed"/> 
+                      <img src="{{Result.instituteImageUrl}}" onError="this.src='assets/imgs/search-result/university.png';" class="wid-100 search-image-ht" />
+                      <!-- <img src="{{Result.instituteLogoUrl}}" onError="this.src='assets/imgs/image1.png';" class="profile-icon"/> -->
+                      <div class="duration-posi">
+                          <span class="duraion-yr">
+                            {{Result.course_delivery_modes[0].duration}}
+                            <span *ngIf="Result.duration<=1">year</span>
+                            <span *ngIf="Result.duration>1">years</span>
+                          </span>
+                          <p class="time-full fs-10">{{Result.course_delivery_modes[0].study_mode}}</p>
+                      </div>
+                  </ion-col>
+                  <ion-col class="pos-rel col-result-right black-paddng">
+                        <div class="line-ht wid-100">
+                            <div class="text-align">
+                              <h5 class="black-2626 fs-14 fs-w6 inst-title" (click)="goCoursesDetails(Result)" >{{Result.course_name}}</h5>
+                                <!-- <div class="sound-icon">
+                                  <img src="assets/imgs/search-result/heart-outline.png" class="heart-posi" *ngIf="!Result.heartValue" />
+                                  <img src="assets/imgs/search-result/heart-filling.png" class="heart-posi" *ngIf="Result.heartValue" />
+                                </div> -->
+                            </div>
+                            <div>
+                              <p class="black-1010 fs-14 mar-auto course-name" (click)="goCoursesDetails(Result)">{{Result.institute_name}}</p>
+                              <p class="custom-ht mar-auto active-Pointer text-align mr-5-0">
+                                <img src="assets/imgs/course-info-icon/star.png" class="star-icon"/>
+                                <span class="rating-num">{{Result.stars}}</span>
+                              </p>
+                              <p class="blackf2 custom-ht loca-title" (click)="openMap(Result)">
+                                <img src="assets/imgs/search-result/location-pin.png" class="location-icon"/>
+                                <span class="text-underline">
+                                  {{Result.city_name}},{{Result.country_name}}
+                                </span>
+                              </p>
+                            </div>
+                        </div>
+                        
+                        <ion-row class="posi-bot-box">
+                            <ion-col size="12" class="no-padding">
+                                <div class="line-ht">
+                                    <p class="mar-auto fs-13 custom-ht justify-con-right" text-right>
+                                      <b class="button-Int">
+                                        <span (click)="setActive(Result,'dom')" *ngIf="Result.intvalue">Int</span>
+                                        <span (click)="setActive(Result,'int')" *ngIf="Result.domvalue">Dom</span>
+                                      </b>
+                                        <b class="custom-ht reslt-clr">
+                                            <span class="reslt-val-mar" *ngIf="Result.domvalue">
+                                              {{Result.course_delivery_modes[0].domestic_fee | number: '1.0-0'}} 
+                                            </span>
+                                            <span class="reslt-val-mar"  *ngIf="Result.intvalue">
+                                              {{Result.course_delivery_modes[0].international_fee | number: '1.0-0'}} 
+                                            </span>
+                                            <span class="usd-spac">{{userData.currencyCode}}</span>
+                                            <span class="year-s">/year</span>
+                                          </b>
+                                    </p>
+                                      <p class="funding" text-right >
+                                      <span class="text-underline">Funding Available: 4</span></p>
+                                  </div>
+                            </ion-col>
+                        </ion-row>
+                  </ion-col>
+              </ion-row>
+            </ion-item>
+            <ion-item-options side="end" (click)="clickFavourite(Result)">
+              <button ion-button class="text-red" class="bg-none no-border">
+                  <img src="assets/imgs/search-result/heart-grey.png" class="heart-size" *ngIf="!Result.heartValue" />
+                  <img src="assets/imgs/search-result/heart-filling.png" class="heart-size heartBeat" *ngIf="Result.heartValue" />
+              </button>
+            </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <ion-infinite-scroll  (ionInfinite)="doInfiniteCourse($event)" *ngIf="courseObj.hasNextPage">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <div class="no-cover flex-center ion-padding-top text-center" *ngIf="courseList.length == 0">
+    <div class="wid-100">
+        <p class="text-black fs-w6 fs-18">{{"Nothing yet" | translate}}</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="" *ngIf="courseViewCountryCount.length != 0">
+  <ion-row class="card-metr">
+    <ion-col size="4" class="flex-center">
+        <img src="assets/imgs/Search-student.png"/> 
+    </ion-col>
+    <ion-col size="8" class="text-align">
+      <p class="hurry">
+        Hurry! Over {{courseViewCountryCount.length}} students are looking for courses in the country!
+      </p>
+    </ion-col>
+  </ion-row>
+</div> -->

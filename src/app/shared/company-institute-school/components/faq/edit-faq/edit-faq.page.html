@@ -1,0 +1,92 @@
+<app-header-multi
+  [isTitle]="true"
+  [title]="'FAQ'"
+  [isSaveOrDone]="true"
+  (action)="save()"
+  (back)="dismiss()"
+>
+</app-header-multi>
+
+<ion-content>
+  <div class="sect-port">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Question" | translate }}</ion-label>
+          <ion-input mode="md" type="text" genericTextField #title="ngModel" [minLength]="'textMin'"
+            [maxLength]="'nameMax'" [allowEmoji]="false" [specialCharRestric]="false" [allowLink]="false" [(ngModel)]="faq.title" (input)="onKeyUp(title?.errors)"
+            name="title" required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{ handleStringError(title?.errors) }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item
+          class="text-field"
+          lines="none"
+          (click)="openDescriptionModal()"
+           mode="md"
+        >
+          <ion-label position="floating" mode="md">{{ "Answer" | translate }}</ion-label>
+          <ion-input
+            mode="md"
+            type="text"
+            [readonly]="true"
+            [(ngModel)]="faq.description"
+          >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div" >
+          {{ submitted && (faq.description == '') ? "Please Enter Answer" : '' }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item  class="text-field i" lines="none"
+        (click)="openKeyWordsModal()">
+          <ion-label mode="md" position="stacked" class="pad-bottom-form">
+            <h1 class="fs-20 ion-no-margin font-light">{{ "Add some keyword" | translate }}</h1>
+          </ion-label>
+          <app-generic-ion-searchbar [placeholder]="'Enter Keyword'"
+            [disabled]="true"
+            [class]="'custom-search-box-without-close-btn search-box-custom-icon'">
+          </app-generic-ion-searchbar>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden" *ngIf="faq.keywords?.length == 0">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{ 'Select keywords' | translate }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <div class="tags-wrapper" *ngIf="faq.keywords?.length > 0">
+      <div class="tags-div">
+        <ion-button
+          class="tags tags-selected"
+          *ngFor="let acc of faq.keywords; let i = index"
+          (click)="removeSkill(item, i)"
+        >
+          <p>{{ returnFaqLabel(acc) }}</p>
+          <span>
+            <img src="assets/svgs/cross-blue-icon.svg" />
+          </span>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button class="btn-colored-outline fs-16 font-medium" *ngIf="faq.faq_id" expand="block" (click)="deleteFaq()">{{"Delete" | translate}}</ion-button>
+</ion-footer>

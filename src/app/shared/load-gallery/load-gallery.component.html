@@ -1,0 +1,39 @@
+<!--YACC004-->
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="wid-ht-header-btns">
+            <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" (click)="goBack()" />
+        </ion-buttons>
+        <ion-title>
+            <ion-item lines="none">
+                <ion-label class="font-bold ion-text-center">
+                    Camera
+                </ion-label>
+                <ion-icon slot="end" class="arrow-end" name="chevron-down"></ion-icon>
+            </ion-item>
+
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" class="color-black" name="camera"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-list>
+            <ion-item *ngFor="let album of albums" lines="none" (click)="itemTapped($event, album)">
+                <ion-thumbnail slot="start">
+                    <img [src]="album.images[0].thumbnailURL | cdvphotolibrary">
+                </ion-thumbnail>
+                <ion-label>
+                    <h2 class="ion-no-margin">{{album.name}}</h2>
+                    <h3>{{album.images.length}}</h3>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+
+</ion-content>

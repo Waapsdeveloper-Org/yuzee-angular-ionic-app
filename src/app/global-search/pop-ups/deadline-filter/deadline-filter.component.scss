@@ -1,0 +1,64 @@
+.textlabel {
+    color: #77787B;
+    font-size: 12px;
+    margin: 0%;
+}
+
+.customeLabel {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.customeLabelSelected {
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B68A0;
+}
+
+.resetBtn {
+    font-size: 16px;
+    margin: 0%;
+    color: #2B68A0;
+}
+
+.applyBtn {
+    font-size: 16px;
+    --color: #2B68A0;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.checkbox {
+    --background-checked: #2B68A0;
+    --border-color-checked: #2B68A0;
+}
+
+.selectcol {
+    border-bottom: solid #A7A9AC 1px;
+    --padding-start: 0;
+    --padding-end: 0%;
+    --inner-padding-end: 0%;
+}
+
+.selectLabel {
+    font-size: 14px;
+    color: black;
+    margin: 0%;
+}
+
+.customerange {
+    --ion-color-base: #2B68A0 !important;
+    --knob-border-radius: 0%;
+    --knob-size: 15px;
+}
+
+.labeltext {
+    color: #77787B;
+    font-size: 12px;
+}
+
+.priceitem {
+    border-bottom: solid #A7A9AC 1px;
+    --padding-start: 0;
+    font-size: 14px;
+}

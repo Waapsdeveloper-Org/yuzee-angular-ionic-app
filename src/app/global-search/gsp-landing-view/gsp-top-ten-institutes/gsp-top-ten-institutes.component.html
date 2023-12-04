@@ -1,0 +1,49 @@
+<div class="section-divider-8">
+  <p class="fs-16 disc-text-align search-title">
+    {{"Top 10 courses" | translate}} 
+  </p>
+  <div class="container-course-info"  [ngClass]="{courseInfo: courseInfo}">
+    <ion-row class="bor-btm" *ngFor="let top10Course of [1,1,1,1]">
+        <ion-col size="3">
+            <div class="flex-center">
+                <img class="uni-img" src="assets/New/uni1.png" />
+            </div>
+            <bar-rating [(rate)]="ratingNumber" [max]="5" class="active-Pointer"></bar-rating>
+        </ion-col>
+        <ion-col size="8">
+            <p class="uni-title">Humboldt University of Berlin</p>
+            <p class="uni-add">Berlin, Germany</p>
+            <p class="to-conf"><span>1321</span> Total Courses</p>
+        </ion-col>
+        <ion-col size="1" class="ion-text-right">
+            <img class="dot-img" src="assets/New/dot.png" />
+        </ion-col>
+    </ion-row>
+  </div>
+  <button  ion-button item-end button-small class="bg-none no-border text-blue-col no-margin btn-viewmore bg-white" [ngClass]="(courseInfo)?'slideIn':'slideUp'"  (click)="openSeeAllCourses()">
+      <span *ngIf="!courseInfo" class="text-align">
+        {{"See more" | translate}}
+      </span>
+      <span *ngIf="courseInfo" class="text-align">
+        {{"See less" | translate}}
+      </span>
+  </button>
+</div>
+
+
+  <!-- <ion-row *ngFor="let top10Course of courseList">
+        <ion-col col-2 class="search-content-pad flex-center">
+            <img class="course-image" src="assets/imgs/home/logo-course.png"/>
+        </ion-col>
+        <ion-col col-8 class="text-align borr search-content-pad">
+            <div>
+              <p class="mar-auto c-tit">{{top10Course.instituteName}}</p>
+              <p class="fc-name text-dot-css">{{top10Course.facultyName}}</p>
+            </div>
+        </ion-col>
+        <ion-col col-2 class="flex-center borr">
+            <div class="wid-100" text-center>
+                <img class="right-img-wdth"  src="assets/imgs/arrows/rightgrey.png"/>
+            </div>
+        </ion-col>
+     </ion-row> -->

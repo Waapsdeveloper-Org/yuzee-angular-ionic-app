@@ -1,0 +1,104 @@
+<ion-content>
+  <div class="posi-rel">
+    <ion-header class="header-info">
+      <ion-toolbar>
+        <ion-buttons slot="start" class="wid-ht-header-btns">
+          <ion-button class="header-rgb-btns" (click)="goBack()">
+            <img src="assets/svgs/Back-svg.svg"/>
+          </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end" class="wid-ht-header-btns flex-center">
+          <ion-button class="header-rgb-btns" (click)="moreOptions()">
+            <img src="assets/svgs/more-options.svg"/>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="header-picture-div header-border posi-rel">
+      <div class="header-picture-child-div">
+        <img [src]=" returnImageToShowOnList(internshipProgramDetails)" class="header-picture" />
+        <div class="header-picture-layerd-div"></div>
+      </div>
+     
+      <div class="header-picture-content-div">
+        <h3 class="fs-13 font-medium color-white ion-word-break-all text-overflow-ellipsis first-letter-cap wid-100 ion-no-margin">{{internshipProgramDetails.title}}</h3>        
+      </div>
+    </div>
+  </div>
+
+  <div class="content-inr-section header-border">
+    <div class="display-flx ion-align-items-start ion-justify-content-between course-info-wrap">
+      <div>
+        <h1 class="color-black font-bold ion-no-margin first-letter-cap ion-word-break-all internship-title">{{ staticDetails.courseName }}</h1>
+        <see-more-para
+          [trimLength]="150"
+          [description]="internshipProgramDetails.description"
+          [classes]="'fs-14 color-black font-light ion-no-margin first-letter-cap ion-word-break-all lh-20'"
+        ></see-more-para>
+      </div>
+    </div>
+  </div>
+  
+  <div class="content-inr-section header-border">
+    <h2 class="section-title">{{ 'Job List' | translate }}</h2>
+    <ng-container *ngFor="let job of internshipProgramDetails.job_list; let i = index; let first = first; let last = last">
+      <div class="job-list-wrap-div" [class.job-list-wrap-div-first-item]="first" [class.job-list-wrap-div-last-item]="last">
+        <ion-row class="display-flx ion-align-items-center">
+          <ion-col class="ion-no-padding" size="10"><h3 class="ion-no-margin fs-15 font-medium color-black job-list-title ion-word-break-all">{{ job.title }}</h3></ion-col>
+
+        </ion-row>src/app/shared/profile-shared/header-home/header-home.component.ts
+        <div class="tags-wrapper">
+          <div class="tags-div">
+            <ion-button class="tags tags-selected" *ngFor="let tag of returnJobTags(job); let i = index">
+              <p>{{ tag.name }}</p>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+ 
+  <div class="content-inr-section header-border">
+    <app-skills-courses-structure title="Skill Set" [infoArray]="internshipProgramDetails.internship_skills" [seeAll]="false"></app-skills-courses-structure>
+    <ion-button class="view-all-btn color-blue fs-14 font-regular" (click)="seeAllSkills(internshipProgramDetails.internship_skills)">{{ 'View all' | translate }}</ion-button>
+  </div>
+
+
+  <div class="content-inr-section header-border">
+    <h2 class="section-title">{{ 'Education Needed' | translate }}</h2>
+    <see-more-para
+      [trimLength]="210"
+      [description]="internshipProgramDetails.education_need"
+      [classes]="'fs-14 color-black font-light first-letter-cap ion-word-break-all lh-20'"
+    ></see-more-para>
+  </div>
+
+  
+  
+  <div class="content-inr-section header-border" *ngif="!attachment">
+    <h2 class="section-title">{{ 'Attachments' | translate }}</h2>
+    <div class="attachment-wrap-div">
+      <ng-container *ngFor="let doc of internshipProgramDetails.attachment">
+        <app-documents [file_url]="doc.file_url" [documentName]="doc.original_file_name">
+        </app-documents>
+      
+      </ng-container>
+    </div>
+  </div>
+
+  
+  <div class="content-inr-section header-border">
+    <app-internship-program-members title="Members" [membersArray]="internshipProgramDetails.job_members" [seeAll]="false"></app-internship-program-members>
+    <ion-button class="view-all-btn color-blue fs-14 font-regular" (click)="seeAllMembers(internshipProgramDetails.job_members)">{{ 'View all' | translate }}</ion-button>
+  </div>
+
+ 
+  <div class="content-inr-section">
+    <h2 class="section-title">{{ 'Introductory Videos' | translate }}</h2>
+    <app-internship-program-videos [videosArray]="internshipProgramMembers" [obj]="internshipProgramDetails"></app-internship-program-videos>
+  </div>
+
+
+</ion-content>

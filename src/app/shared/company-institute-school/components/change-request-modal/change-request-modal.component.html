@@ -1,0 +1,33 @@
+<ion-header class="modal-blue-bar-header">
+  <ion-toolbar>
+      <div class="blue-bar" (click)="close()"></div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h1 class="fs-18 text-black ion-no-margin font-medium ion-text-center confirmation-text">
+     <img src="../../../../../assets/svgs/warning.svg"> {{ "Warning" | translate }}
+  </h1>
+  <h3 class="ion-text-center fs-15 fw-500 ion-margin-end ion-margin-start mb-30">
+      {{"You are Applying for the Address change request !" | translate}}
+  </h3>
+
+  <h4 class="fs-15 ion-margin-end ion-margin-start font-regular">
+    {{"Please E-mail to business" | translate}}
+    <a href='mailto:support@yuzee.com'>support@yuzee.com </a>   {{"and please answer the following questions:" | translate}}
+  </h4>
+<div class="ion-margin-end ion-margin-start">
+<span class="fs-15 font-regular"><span class="fw-500">1.</span> {{"Institution Name" | translate}}</span><br />
+<span class="fs-15 font-regular"><span class="fw-500">2.</span> {{"Reason for change" | translate}}</span><br />
+<span class="fs-15 font-regular"><span class="fw-500">3.</span> {{"New Address" | translate}}</span><br />
+<span class="fs-15 font-regular"><span class="fw-500">4.</span> {{"Please send us any evidence that you own the new address" | translate}}</span>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-row class="flex-center">
+    <ion-button expand="block"
+      class="btn-size btn-colored-filled fs-16 font-medium color-white"
+      (click)="close()"
+      mode="md">{{'Confirm' | translate}}
+    </ion-button>
+  </ion-row>
+</ion-footer>

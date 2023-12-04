@@ -1,0 +1,30 @@
+<ion-content class="bg">
+    <div class="scrollmenu" id="style-7" [searchData]="SendGlobalData">
+        <div class="clearbtn" *ngIf="FilterSelected">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Clear all' | translate }}</span></p>
+        </div>
+        <div class="catCategoryselected" (click)="gsHelper.gsMainOpenModel()">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Wikipedia' | translate }}</span>
+                <span>
+                        <img class="dropdown" src="assets/imgs/Course/bluedropdown.svg">
+                    </span>
+            </p>
+        </div>
+    </div>
+    <div class="resultdiv">
+        <h3 class="font-regular ion-padding-start">{{'We found ' | translate}} 304 {{' results' | translate}}</h3>
+    </div>
+    <ion-list>
+        <div *ngFor="let wiki of WikiDataList">
+            <ion-item lines="none">
+                <ion-label class="nomargin">
+                    <h3 class="articleHeading">{{wiki.title}}</h3>
+
+                    <p class="articleSub" [innerHTML]="wiki.snippet"><span class="highlight"> read more</span></p>
+                </ion-label>
+                <img slot="end" class="slotendImage" src="assets/imgs/Course/wiki1.png" />
+            </ion-item>
+            <hr class="divider">
+        </div>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,51 @@
+<!-- <p class="result-txt">{{ SearchJobResultObj.count }} Result</p> -->
+<p class="result-txt">0 {{ "Result" | translate }}</p>
+<div class="global-pad" *ngIf="!showEmpty">
+  <div *ngFor="let Result of [1, 1, 1, 1]" class="posi-rel pad-li">
+    <!-- <div *ngFor="let Result of SearchJobResult" class="posi-rel pad-li"> -->
+    <ion-row class="border-btm" >
+      <ion-col size="2" class="no-padding">
+        <img src="assets/imgs/globalicon/new-icons/burger.jpg" class="job-icon" alt="" />
+      </ion-col>
+      <ion-col size="10" class="text-align no-padding">
+        <div class="box-inst wid-100">
+          <img src="assets/New/dot.png" class="more-icon" alt="" />
+          <h5 class="instituion-titl">Data Analyst <span class="dates">26 Aug 2020</span></h5>
+          <h5 class="job-comp">Burger King Corporation</h5>
+          <p class="job-loc-txt">Kuala Lumpur, Malaysia</p>
+          <!-- <h5 class="instituion-titl" >{{Result.title}}</h5>
+                <h5 class="job-comp">{{Result.company.display_name}}</h5> -->
+          <p class="mar-auto ins-location text-align mod-css">
+            <img src="assets/imgs/globalicon/times.png" class="mod-img" />
+            Part-time
+            <!-- {{Result.category.label}} -->
+          </p>
+          <p class="mar-auto ins-location text-align mod-css">
+            <img src="assets/imgs/globalicon/test.png" class="mod-img" />
+            Career Test, Problem Solving Test
+            <!-- {{Result.location.display_name}} -->
+          </p>
+          <p class="mar-auto ins-apply text-align mod-css">
+            <img src="assets/imgs/globalicon/applied.png" class="mod-img" />
+            15 Applicants
+            <!-- {{Result.contract_time}} -->
+          </p>
+          <!-- <p class="salaryText">
+            {{Result.salary_min}} - {{Result.salary_max}} a month
+          </p> -->
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+<div class="global-pad empty-list" *ngIf="showEmpty">
+  <!-- <p class="result-txt">0 Result</p> -->
+  <div class="empty flex-center">
+    <img src="assets/imgs/globalicon/new-icons/empty_jobs.png" class="empty-job" alt="" />
+  </div>
+  <p class="no-txt"> {{ "No Job Available" | translate }} </p>
+  <p class="no-desc">
+    {{ "Looks like there's no jobs that matches your search. Please try for other keywords or try again later." | translate }} 
+  </p>
+</div>

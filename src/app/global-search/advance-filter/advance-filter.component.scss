@@ -1,0 +1,37 @@
+@import '../../../theme/custom-header.css';
+
+.ht-img-scroll {
+    height: 48px !important;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    object-fit: cover;
+    display: flex;
+}
+
+.button-top {
+    background: none !important;
+    color: #5d5d5d !important;
+    height: 2.4em !important;
+    font-size: 13px !important;
+    padding: 2px 10px !important;
+    border-radius: 3px !important;
+    margin: 0px 3px !important;
+    box-shadow: none !important;
+    text-transform: initial;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    border-style: solid !important;
+    border-color: rgba(165, 165, 165, 0.69) !important;
+    border-width: 1px 1px 1px 1px !important;
+}
+
+.activebg {
+    background: #13b9eb !important;
+    color: white !important;
+    border-color: rgb(19, 185, 235) !important;
+}
+
+.notactivebg {
+    background: white;
+}

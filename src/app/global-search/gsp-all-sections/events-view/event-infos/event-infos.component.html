@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="wid-ht-header-btns">
+            <button ion-button (click)="goBack()" class="bg-none">
+        <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" />
+      </button>
+        </ion-buttons>
+        <ion-title class="text-black">
+            <ion-searchbar #search (ionInput)="getItems($event)" autocorrect="off" class="top-search no-padding" placeholder="Search">
+            </ion-searchbar>
+        </ion-title>
+        <ion-buttons slot="end" class="wid-ht-header-btns"> </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div class="top-img posi-rel">
+        <!-- <img
+      *ngIf="eventDetails.image_url != null"
+      src="{{ eventDetails.image_url.file_url }}"
+      onError="this.src='assets/imgs/profile/empty-cover.png'"
+      class="top-img"
+    /> -->
+        <img src="assets/imgs/profile/empty-cover.png" class="top-img" />
+    </div>
+
+    <div class="bor-bot-divider">
+        <ion-row class="gsp-section-bottom">
+            <ion-col size="2">
+                <p class="month-date">MAY</p>
+                <p class="day">15</p>
+            </ion-col>
+            <ion-col size="8">
+                <p class="university-name">Monash Engineering Fest at Pause Festiva.</p>
+                <p class="university-desc">hosted by <span>Burger King Corporation</span></p>
+                <p *ngIf="!eventJoined" class="event-type">Online Event</p>
+                <p *ngIf="eventJoined" class="event-joined">Fed Square • Arizona, USA • Ruby Avenue</p>
+            </ion-col>
+            <ion-col size="2">
+                <div class="text-align">
+                    <img src="assets/imgs/student-profile/event/edit-pen.png" class="evn-ic" />
+                    <img src="assets/imgs/student-profile/event/dots-medium.png" class="evn-ic" />
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="row cs bor-btm">
+            <ion-col size="6" class="flex-center">
+                <div class="tx">
+                    <img src="assets/images/invites.svg" class="im" /> {{ "Invite" | translate }}
+                </div>
+            </ion-col>
+            <ion-col size="6" class="flex-center">
+                <div class="tx">
+                    <img src="assets/imgs/student-profile/share.PNG" class="im" /> {{ "Share" | translate }}
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div class="sec-bo about-event">
+        <p class="evnt-hding"> {{ "About" | translate }}</p>
+
+        <div class="align-flx-start">
+            <img class="lef-icon-info" src="assets/imgs/globalicon/new-icons/digital.png" />
+            <p class="schl-txt">Microsoft Team</p>
+        </div>
+
+        <div class="align-flx-start">
+            <img class="lef-icon-info" src="assets/imgs/student-profile/event/time.png" />
+            <p class="schl-txt">Mar 17 at 5 PM - 7 PM</p>
+        </div>
+
+        <div class="align-flx-start">
+            <img class="lef-icon-info" src="assets/imgs/student-profile/event/phone.png" />
+            <p class="schl-txt text-blue-col">+0791 - 83969099</p>
+        </div>
+
+        <p class="lorem-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adip dolor sitem...
+            <span>See more</span>
+        </p>
+    </div>
+</ion-content>

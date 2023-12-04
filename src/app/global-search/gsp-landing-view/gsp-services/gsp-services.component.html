@@ -1,0 +1,27 @@
+<div class="section-divider-8">
+  <p class="fs-16 disc-text-align search-title">
+    {{"Services" | translate}}
+  </p>
+  <div class="container-course-info"  [ngClass]="{servicesInfo: servicesInfo}">
+    <ion-row *ngFor="let item of serviceList">
+      <ion-col size="2" class="text-align">
+          <img class="ach-imagess" src="{{item.img}}" />
+      </ion-col>
+      <ion-col size="10" class="text-align bor-bot1 row-padi2">
+          <div>
+              <p class="no-margin a-tit">{{item.name}}</p>
+              <p class="no-margin a-desc">{{item.desc}}</p>
+              <p class="no-margin a-desc1">{{item.about}}</p>
+          </div>
+      </ion-col> 
+    </ion-row>
+  </div>
+  <button ion-button class="bg-none no-border text-blue-col no-margin btn-viewmore bg-white" [ngClass]="(servicesInfo)?'slideIn':'slideUp'"  (click)="openSeeAllServices()">
+      <span *ngIf="!servicesInfo" class="text-align">
+           {{"See more" | translate}}
+      </span>
+      <span *ngIf="servicesInfo" class="text-align">
+           {{"See less" | translate}}
+      </span>
+  </button>
+</div>

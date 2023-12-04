@@ -1,0 +1,27 @@
+<p class="result-txt">
+  <span>1234 {{ "Result" | translate }}</span>
+</p>
+<div>
+  <ion-row *ngFor="let student of [1,1,1,1,1,1,1,1]">
+      <ion-col size="2">
+          <img class="ach-imagess" src="assets/imgs/profile-icons/pers.png" />
+      </ion-col>
+      <ion-col size="7" class="text-align bor-1 row-padi2">
+          <div>
+              <p class="no-margin a-tit">Honda Takumi</p>
+              <p class="no-margin a-desc">French School of Kuala Lumpur</p>
+              <p class="no-margin a-desc1">High school</p>
+              <p class="no-margin a-loca text-align">
+                  <img class="loc-img" src="assets/imgs/locat.png">
+                  Kuala Lumpur, Malasia
+              </p>
+              <p class="no-margin shared-connection">GPA: 3.0</p>
+          </div>
+      </ion-col> 
+      <ion-col size="3" class="flex-center bor-bot1">
+          <button ion-button full clear class="btn-infollow active-people">
+              <span> {{ "Follow" | translate }}</span>
+          </button>
+      </ion-col>
+  </ion-row>
+</div>

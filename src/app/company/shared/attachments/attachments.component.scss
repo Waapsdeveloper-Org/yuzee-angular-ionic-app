@@ -1,0 +1,57 @@
+.videoContainer{
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+     .innerContainer{
+        height: 90%;
+        display: flex;
+        background: white;
+        flex-direction: column;
+        ion-item{
+            height: 40px;
+        }
+
+
+     }
+   }
+
+   .galleryContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+   }
+
+   .innerItems{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    .pngs{
+        display: flex;
+        width: 40%;
+        justify-content: space-around;
+        .icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        .labelItem {
+            margin-left: 10px;
+        }
+        }
+    }
+    .pdfs{
+        display: flex;
+        align-items: center;
+        width: 40%;
+        .icon{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+        }
+        .labelItem{
+            margin-left: 10px;
+        }
+    }
+   }

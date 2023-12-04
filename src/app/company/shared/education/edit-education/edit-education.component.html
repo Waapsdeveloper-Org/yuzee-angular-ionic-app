@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon (click)="goBack()" name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="save()">
+        <ion-label class="saveButton">{{"Save"|translate}}</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{"Education Needed"|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="description">
+    <ion-item lines="none">
+      <ion-textarea
+      [(ngModel)]="details"
+       autoGrow='true'
+       autofocus='true'
+       inputmode='text'
+       ></ion-textarea>
+    </ion-item>
+  </div>
+
+</ion-content>

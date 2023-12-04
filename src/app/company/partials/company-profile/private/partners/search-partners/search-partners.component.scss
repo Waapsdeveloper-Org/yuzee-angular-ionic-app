@@ -1,0 +1,110 @@
+@import "../../../company-profile.page.scss";
+@import '../../../../../../../theme/custom-header.css';
+ion-header{
+  ion-toolbar{
+    border-bottom: 1px solid #eeeeee;
+    padding: 5px 3px 5px 2px !important;
+    div{
+      margin: 0px !important;
+    }
+  }
+}
+.back-btn-ripple {
+  margin-left: 5px !important;
+  img{
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0px;
+  }
+}
+ion-toolbar{
+  height: auto !important;
+}
+.right-css{
+  --ripple-color: transparent;
+  --color: #2b68a0 !important;
+  margin: 0px !important;
+  --padding-end: 5px !important;
+  --padding-start: 0px !important;
+}
+.done-btn{
+  margin: 0px 10px 0px 5px;
+}
+
+.search-bar-list-full-screen{
+  padding: 0px !important;
+  margin: 0px 10px 0px 5px !important;
+  width: 100%;
+}
+ion-content{
+  border: none !important;
+}
+.padding-top-bottom-0{
+  padding: 0px !important;
+}
+ion-item {
+  --inner-padding-end: 0%;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+.item-css{
+  border-bottom: none !important;
+  margin-top: 0px !important;
+}
+.partners-info-div{
+  padding: 10px 0px;
+}
+.country-info{
+  text-transform: capitalize;
+}
+.partner-address-txt{
+  white-space: normal;
+  line-height: 20px;
+}
+.profile-picture-img{
+  height: 37px;
+  width: 37px;
+  min-width: 37px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.item-divider{
+  border-bottom: 1px solid #e0e0e0;
+}
+ion-checkbox {
+  --size: 16px;
+  --checkmark-width: 4px;
+  min-width: 16px !important;
+  width: 16px !important;
+}
+.ion-checkbox-active-width{
+  --border-width: 3px !important;
+}
+.no-data-div {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 3em;
+}
+.no-data-found-img{
+  width: 225px !important;
+}
+.partner-address-txt{
+  margin-top: 4px;
+}
+.webkit-clamp-one{
+  word-break: break-word !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  display: -webkit-box !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+}
+.partners-name-loc-div{
+  margin-right: 10px !important;
+}

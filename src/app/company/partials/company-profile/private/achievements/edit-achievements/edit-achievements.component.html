@@ -1,0 +1,227 @@
+<app-header-multi [isTitle]="true" [title]="'Our Achievements'" [isSaveOrDone]="true" (action)="save()"
+  (back)="dismiss()">
+</app-header-multi>
+
+<ion-content>
+  <div class="sect-port header-border">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none" mode="md">
+          <ion-label position="floating" mode="md">{{ "Achievement Name" | translate }}</ion-label>
+          <ion-input mode="md" type="text" genericTextField maxlength="220" [(ngModel)]="companyAchievement.achievement_name"
+          required (keydown)="keydown()" (ionChange)="validateQuestion()">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{
+            submitted &&
+            (companyAchievement.achievement_name == '' ||
+              companyAchievement.achievement_name == null)
+          ? "Please Enter Achievement Name"
+          : ''
+          }}
+        </div>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding" >
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{
+            titleValidated == '' &&
+            submitted &&
+            companyAchievement.achievement_name !== ''
+          ? "Please Enter Achievement Name"
+          : ''
+          }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="ion-no-padding pad-right-form">
+        <ion-item class="datetime-item-field item-zero-pad-mar-bg margin-bottom-zero margin-top-zero" mode="md">
+            <ion-label mode="md" position="stacked">{{ "Start Date" | translate }}</ion-label>
+            <ion-row class="flex-center date-time-row">
+                <div class="flex-center">
+                    <img class="datetime-icon" src="assets/imgs/student-profile/calender.svg" />
+                </div>
+                <div class="flex-center">
+                    <ion-datetime
+                    class="flex-center"
+                    mode="ios"
+                    placeholder="{{ 'Select Date' | translate }}"
+                    [(ngModel)]="companyAchievement.achievement_start_date"
+                    [max]="nextMonth"
+                    pickerFormat="DD/MMMM/YYYY"
+                    displayFormat="DD/MM/YYYY"
+                    ></ion-datetime>
+                    <ion-icon
+                    slot="end"
+                    class="date-time-arrow color-blue"
+                    name="chevron-down-outline"
+                    ></ion-icon>
+                </div>
+            </ion-row>
+        </ion-item>
+        <ion-col size="12" class="ion-no-padding">
+            <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+              {{
+                submitted &&
+                (companyAchievement.achievement_start_date == '' ||
+                  companyAchievement.achievement_start_date == null)
+              ? "Please Select Achievement Start Date"
+              : ''
+              }}
+            </div>
+        </ion-col>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item class="text-field" lines="none" (click)="openDescriptionModal($event)" mode="md">
+          <ion-label mode="md" position="floating">{{ "Add a description" | translate }}</ion-label>
+            <ion-input mode="md" type="text" [readonly]="true" [(ngModel)]="companyAchievement.achievement_description"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding" >
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+          {{
+            submitted &&
+            (companyAchievement.achievement_description == '' ||
+              companyAchievement.achievement_description == null)
+          ? "Please Enter Description"
+          : ''
+          }}
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="sect-port header-border">
+    <h1 class="section-title">{{ 'Tagged People' | translate }}</h1>
+    <div (click)="openPeopleModal()">
+      <div class="search-tagged-user-div">
+        <app-generic-ion-searchbar [placeholder]="'Search User'"
+        [disabled]="true"
+        class="wid-100"
+        [class]="'custom-search-box-without-close-btn search-box-custom-icon search-box-custom-disabled-behaviour'"></app-generic-ion-searchbar>
+      </div>
+      <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+        <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{ 'Select people' | translate }}
+        </div>
+      </ion-col>
+    </div>
+
+    <ion-row>
+      <ion-col class="ion-no-padding" size="12">
+        <div class="tags-wrapper" *ngIf="companyAchievement && companyAchievement.user_info">
+          <div class="tagsDiv" *ngIf="companyAchievement.user_info.length > 0">
+            <div class="customdiv">
+              <div *ngFor="let item of companyAchievement.user_info" class="user-tag ion-no-background color-blue fs-13 display-flx ion-text-start ion-text-wrap ion-align-items-center" long-press>
+                <span>
+                  <img class="user-icon" [src]="item.imageURL ? item.imageURL : 'assets/company-profile/avatar-default.svg'" />
+                </span>
+                <p class="ion-no-margin text-overflow-ellipsis tagged-user-name first-letter-cap">{{ item?.first_name + item?.last_name }}</p>
+                <span (click)="removeUserFromList(item)">
+                  <img src="assets/svgs/cross-blue-icon.svg" />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div>
+    <ng-container>
+      <app-add-attachments-section [documentList]="documentList" sectionTitle="Certificate" (newItemEvent)="uploadedDocs($event)"></app-add-attachments-section>
+    </ng-container>
+    <ng-container *ngIf="companyAchievement && companyAchievement.storage && companyAchievement.storage.length > 0">
+      <ng-container *ngFor="let certificate of companyAchievement.storage">
+        <div class="sect-port pad-botm-zero pad-top-zero">
+          <div class="text-align posi-rel doc-box wid-100">
+            <img class="doc-no-img" [src]="getImageFromExtension(certificate.file_type)" (click)="openDocument(fileUrl)"/>
+            <span class="document-des" (click)="openDocument(fileUrl)">{{ certificate.original_file_name + "." + certificate.file_type }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <!-- Confirm if needed in future -->
+    <!-- <ion-row class="margin-top-20 margin-bottom-10">
+      <ion-col class="ion-no-padding">
+        <p class="no-margin fs-18 font-bold">{{ Attachments | translate }}</p>
+      </ion-col>
+    </ion-row>
+
+    <div class="item-css">
+      <div class="text-align posi-rel seperate" *ngFor="let certificate of documentList">
+        <img class="doc-img" [src]="getImageFromExtension(certificate.file_type)" />
+        <span class="doc-tx">{{
+          certificate.original_file_name + "." + certificate.file_type
+          }}</span>
+        <img class="cross-img" src="assets/imgs/student-profile/profile/cross.png" (click)="remove(certificate)" />
+      </div>
+      <ng-container *ngIf="
+          companyAchievement &&
+          companyAchievement.storage &&
+          companyAchievement.storage.length > 0
+        ">
+        <div class="text-align posi-rel seperate" *ngFor="let certificate of companyAchievement.storage">
+          <img class="doc-img" [src]="getImageFromExtension(certificate.file_type)" />
+          <span class="doc-tx">{{
+            certificate.original_file_name + "." + certificate.file_type
+            }}</span>
+          <img class="cross-img" src="assets/imgs/student-profile/profile/cross.png"
+            (click)="removeAddedDoc(certificate)" />
+        </div>
+      </ng-container>
+    </div>
+    <ion-row>
+      <ion-col size="4">
+        <label class="custom-file-upload">
+          <input multiple type="file" #file
+            accept="application/msword, application/vnd.ms-powerpoint, application/pdf, image/*"
+            (change)="uploadHandler($event.target.files, file)" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="126" height="68" viewBox="0 0 126 68">
+            <g id="attach_document" data-name="attach document" transform="translate(-16 -830)">
+              <g id="Rectangle_1851" data-name="Rectangle 1851" transform="translate(16 862)" fill="#f1f2f3"
+                stroke="#a7a9ac" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"
+                stroke-dasharray="1.5 1.5">
+                <rect width="36" height="36" rx="7" stroke="none" />
+                <rect x="0.1" y="0.1" width="35.8" height="35.8" rx="6.9" fill="none" />
+              </g>
+              <g id="Group_85126" data-name="Group 85126" transform="translate(25 873)">
+                <path id="Path_42248" data-name="Path 42248"
+                  d="M15,59.671A6.2,6.2,0,0,0,2.826,60.718a3.341,3.341,0,0,0,.562,6.642H6.2V66.246H3.388a2.229,2.229,0,1,1,0-4.458.56.56,0,0,0,.562-.557,5.066,5.066,0,0,1,10.028-.975.56.56,0,0,0,.478.446,2.785,2.785,0,0,1-.382,5.544h-2.25V67.36h2.25A3.9,3.9,0,0,0,15,59.671Z"
+                  transform="translate(0 -55.032)" fill="#2b68a0" />
+                <path id="Path_42249" data-name="Path 42249"
+                  d="M183.264,249.173l-2.229,2.229.786.786,1.282-1.276v5.344h1.114v-5.344l1.276,1.276.786-.786-2.229-2.229A.557.557,0,0,0,183.264,249.173Z"
+                  transform="translate(-174.647 -242.255)" fill="#2b68a0" />
+              </g>
+            </g>
+            <text id="First_Name_" data-name="First Name*" transform="translate(0 13)" fill="#77787b" font-size="12"
+              font-family="Roboto-Light, Roboto" font-weight="300">
+              <tspan x="0" y="0">
+                {{ "Tap to add attachments" | translate }}
+              </tspan>
+            </text>
+            <text id="Choose_file" data-name="Choose file" transform="translate(46 56)" fill="#77787b" font-size="14"
+              font-family="Roboto-LightItalic, Roboto" font-weight="300" font-style="italic">
+              <tspan x="0" y="0">{{ "Choose file" | translate }}</tspan>
+            </text>
+          </svg>
+        </label>
+      </ion-col>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4"></ion-col>
+    </ion-row> -->
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button *ngIf="companyAchievement.company_achievement_id" class="btn-colored-outline fs-16 font-medium" expand="block"
+    (click)="delete()">{{ "Delete" | translate }}</ion-button>
+</ion-footer>

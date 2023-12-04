@@ -1,0 +1,28 @@
+.customeLabel {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.customeLabelSelected {
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B68A0;
+}
+
+.resetBtn {
+    font-size: 16px;
+    margin: 0%;
+    color: #2B68A0;
+}
+
+.applyBtn {
+    font-size: 16px;
+    --color: #2B68A0;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.checkbox {
+    --background-checked: #2B68A0;
+    --border-color-checked: #2B68A0;
+}

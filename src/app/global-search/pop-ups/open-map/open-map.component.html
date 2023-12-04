@@ -1,0 +1,101 @@
+<ion-header class="bg-white">
+    <ion-toolbar class="header-border">
+      <div class="display-flx ion-align-items-center ion-justify-content-between header-toolbar-div">
+      <ion-buttons slot="start" class="wid-ht-header-btns">
+        <ion-button (click)="goBack()" class="back-btn-ripple back-btn">
+          <img src="assets/imgs/arrows/arrow-left.svg" />
+        </ion-button>
+      </ion-buttons>
+      <div class="search-bar-div wid-100">
+        <app-generic-ion-searchbar [class]="'customSearchBox-without-close-btn search-box-custom-icon wid-100 mar-auto'"
+        [placeholder]="'Search'" (ionChange)="onSearchType($event)" (ionClear)="clearSearch($event)" ></app-generic-ion-searchbar>
+        </div>
+      </div>
+
+      <app-global-search-filters selectedFilter="Courses" [filtersArray]="searchCourseFilter"></app-global-search-filters>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <!-- Institution Info -->
+    <div class="institution-info-div ion-text-center">
+        <div class="counter-div display-flx ion-align-items-center ion-justify-content-center"><span class="fs-13 font-medium color-white">1212222212</span></div>
+        <img class="institution-img" src="assets/svgs/global-search/institution.svg">
+        <h3 class="fs-13 font-bold institution-name ion-no-margin ion-word-break-all webkit-clamp-two">University of Advancing Computer Technology</h3>
+    </div>
+    <!-- Uncomment the below map code during implementation -->
+    <!-- <div #map id="map"></div> -->
+
+    <ion-footer class="footer-section">
+        <!-- Courses Cards -->
+        <ion-slides pager="false" [options]="slideOpts">
+            <ion-slide *ngFor="let course of courseList | slice:0:3; let i = index">
+                <ion-card class="main-card wid-100">
+                    <div class="item-card four-items-card display-flx ion-align-items-center"
+                    [class.five-items-card]="i == 2"><!--- Class 'five-items-card' will be use for offcampus class course -->
+                        <div class="text-dot-css display-flx">
+                            <div class="course-item-img posi-rel">
+                                <img class="itm-img" [src]="course.img"/>
+                            </div>
+                            <ion-card-content class="card-content-section card-four-item-content-section ion-text-left wid-100">
+                                <div class="display-flx ion-align-items-center ion-justify-content-between margin-bottom-10">
+                                    <h3 class="collection-item-title fs-15 color-black font-medium ion-word-break-all webkit-clamp-two line-height-20">{{ course.title | firstLetterCap }}</h3>
+                                    <div class="display-flx ion-align-center">
+                                        <ion-button class="more-option-btn" mode="md" (click)="moreOptions()">
+                                            <img src="assets/imgs/application/svg/more-option.svg">
+                                        </ion-button>
+                                    </div>
+                                </div>
+                                <div class="courses-more-details-div">
+                                    <h4 class="location-text fs-14 color-darkgrey font-regular color-black ion-no-margin ion-word-break-all webkit-clamp-one margin-bottom-19">{{ course.location | firstLetterCap }}</h4>
+                                    <!-- Use the below course type accordingly -->
+                                    <!-- Normal course -->
+                                    <h4 *ngIf="i == 0" class="font-regular color-darkgrey ion-text-uppercase margin-bottom-19">
+                                        <span class="fs-14 font-light color-darkgrey normal-course-name-info ion-text-capitalize">Higher Education Department (NWS)</span>
+                                        <span class="yuzee-bg-blue result-gpa-div fs-12 font-medium color-blue">55.0</span><!-- This data will be dynamic -->
+                                    </h4>
+                                    <h4 *ngIf="i == 0" class="fs-14 font-medium color-black ion-text-capitalize margin-bottom-14">{{ 'PT' | translate }} - 4{{ 'Yrs' | translate }}</h4>
+                                    <!-- Vocational course -->
+                                    <div class="display-flx ion-align-items-center margin-bottom-14" *ngIf="i == 1">
+                                    <div class="fs-12 font-medium color-blue ion-no-margin traineeship-span">{{ 'Traineeship' | translate}}</div>
+                                    <span class="color-grey part-time-year-separator fs-19 top-cover font-light"> | </span>
+                                    <span class="fs-14 font-medium color-black">
+                                    {{ 'PT' | translate }} - 4{{ 'Yrs' | translate }}
+                                    </span>
+                                    </div>
+                                    <!-- Offcampus course -->
+                                    <ng-container *ngIf="i == 2">
+                                        <h3 class="display-flx ion-align-items-center color-black font-light fs-12 start-date-info text-dot-css margin-bottom-14"
+                                        >{{ 'Start Date' | translate }}
+                                            <img class="dot-separator" src="assets/imgs/student-profile/posts/like-comment-separator.svg">
+                                            <span class="font-medium color-red start-date-span ion-text-uppercase">{{ course.startDate }}</span>
+
+                                            <span class="color-grey part-time-year-separator fs-19"> | </span>
+                                            <span class="fs-14 font-medium color-black">
+                                            {{ 'PT' | translate }} - 4{{ 'Yrs' | translate }}
+                                            </span>
+
+                                        </h3>
+                                        <h4 class="display-flx ion-align-items-center color-black font-light fs-12 text-dot-css days-info margin-bottom-14"
+                                        >{{ 'Days' | translate }}
+                                            <img class="dot-separator" src="assets/imgs/student-profile/posts/like-comment-separator.svg">
+                                            <span class="days-info-span">
+                                                <span *ngFor="let day of course.daysArray; let i = index" class="font-medium color-blue">{{ day }}<span class="color-blue" *ngIf="i < course.daysArray.length - 1"> | </span></span>
+                                            </span>
+                                        </h4>
+                                    </ng-container>
+                                    <h4 class="fs-14 color-black font-light color-darkgrey ion-no-margin ion-word-break-all webkit-clamp-one margin-bottom-14">{{ course.location }}</h4>
+                                    <h3 class="fs-14 font-light color-black ion-no-margin course-fee webkit-clamp-one">{{ 'Course Fee' | translate }}: <span class="color-black font-medium course-price">{{ course.courseFee }} {{ 'AUD' | translate }}<span class="font-medium">/{{'year' | translate}}</span></span></h3>
+                                </div>
+                            </ion-card-content>
+                        </div>
+                    </div>
+                    <div class="display-flx ion-align-items-center ion-justify-content-center dropdown-div-section">
+                        <ion-button class="fs-12 font-medium color-blue btn-colored-clear see-more-btn" mode="md"
+                        (click)="openCourseInfo()">{{ 'See more' | translate }}</ion-button>
+                    </div>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </ion-footer>
+</ion-content>

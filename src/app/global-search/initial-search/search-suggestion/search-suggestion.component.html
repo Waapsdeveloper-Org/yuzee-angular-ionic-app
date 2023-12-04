@@ -1,0 +1,13 @@
+<div class="section-divider-4">
+    <ion-list class="pad-btom ser-List">
+        <ion-item class="no-border text-grey heading" lines="none">
+            {{ "Suggested for you" | translate }}
+        </ion-item>
+        <ion-item class="no-border ser-item" *ngFor="let search of searchSuggestion" lines="none">
+            <ion-icon name="search-outline" class="icon-set" item-start></ion-icon>
+            <h4 class="search-text">
+                {{search.query | translate}}
+            </h4>
+        </ion-item>
+    </ion-list>
+</div>

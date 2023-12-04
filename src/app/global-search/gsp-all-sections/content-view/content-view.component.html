@@ -1,0 +1,192 @@
+
+  <div>
+      <p class="result-txt">0 {{ "Result" | translate }}</p> 
+          <div>
+                <div class="sec-content" *ngFor="let content of [1,1,1,1,1]">
+                    <ion-row>
+                        <ion-col size="2" class="" class="text-center">
+                            <img class="post-icon" src="assets/imgs/student-profile/favourites/circle.PNG" />
+                        </ion-col>
+                        <ion-col size="9" class="text-align bor-1 row-padi2">
+                            <div>
+                                <p class="no-margin a-tit">Amsterdam University of App
+                                    <span class="text-0000">Shared an</span> image
+                                </p>
+                                <p class="no-margin a-desc1">Yesterday at 1:08 AM</p>
+                            </div>
+                        </ion-col> 
+                        <ion-col size="1" class="flex-center">
+                            <img src="assets/imgs/globalicon/more.png" class="icon-dot">
+                        </ion-col>
+                    </ion-row>
+                    <p class="a-des">
+                      Busy day on campus as students cross the road trying to get to classes in the wee hours of the morning. What a busy day!
+                    </p>
+                    <ion-row>
+                        <ion-col size="6">
+                            <img class="imgss" src="assets/imgs/student-profile/favourites/item-1.png"/>
+                        </ion-col>
+                        <ion-col size="6">
+                            <img class="imgss" src="assets/imgs/student-profile/favourites/item-1.png"/>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="res-sec">
+                        <ion-col class="text-align no-padding" size="7">
+                            <button class="bg-none flex-center wid-100 no-padding like-count">
+                                <span class="heart-likes">
+                                <svg width="16" height="16" viewBox="0 0 17 15">
+                                    <path id="heart"
+                                    d="M11.75,30a3.81,3.81,0,0,0-2.366.811A5.352,5.352,0,0,0,8,32.46a5.352,5.352,0,0,0-1.384-1.65A3.81,3.81,0,0,0,4.25,30,4.321,4.321,0,0,0,0,34.569c0,2.814,2.279,4.739,5.73,7.654.586.495,1.25,1.056,1.941,1.654a.5.5,0,0,0,.658,0c.69-.6,1.355-1.16,1.941-1.655,3.45-2.914,5.73-4.84,5.73-7.654A4.321,4.321,0,0,0,11.75,30Z"
+                                    transform="translate(0.5 -29.5)" fill="none" stroke="#454545" stroke-width="1"></path>
+                                </svg>
+                                </span>
+                                <span class="text-blue-col">93.2k {{ "Likes" | translate }} </span>
+                            </button>
+                            <button class="bg-none flex-center wid-100 no-padding" (click)="showComment('comments')">
+                                <img src="assets/imgs/student-profile/comment.PNG" class="icon-home">
+                                <div class="black-2626 fs-12 text-init">
+                                    32 {{ "Comments" | translate }} 
+                                </div>
+                            </button>
+                        </ion-col>
+                        <!-- <ion-col class="align-end no-padding" size="2">
+                            
+                        </ion-col> -->
+                        <ion-col class="flex-center no-padding" size="5">
+                            <button class="bg-none flex-center no-padding share-btn">
+                                <img src="assets/imgs/student-profile/share.PNG" class="icon-home">
+                                <div class="black-2626 fs-12 text-init" >
+                                    12  {{ "Shares" | translate }} 
+                                </div>
+                            </button>
+                            <div class="text-align">
+                            <img class="com-ar-icon" *ngIf="userData.profile_image != null" [src]="userData.profile_image.file_url"
+                            onError="this.src='assets/images/avatar-default.png'" />
+                            <select class="no-border bg-none">
+                                <option></option>
+                                <option></option>
+                            </select>
+                        </div>
+                        </ion-col>
+                    </ion-row>
+
+                    <div *ngIf="CommentShow == 'comments'">
+                        <h4 class="text-hd cont-pad-1 no-margin text-4444">{{ "Comment" | translate }} </h4>
+                        <ion-row>
+                            <ion-col size="2">
+                                <img class="com-img-per" src="assets/imgs/profile-icons/profile-content.png" />
+                            </ion-col>
+                            <ion-col size="10">
+                                <h6 class="per-name">Sarah ali</h6>
+                                <div class="comment-box">
+                                <span class="timehr">11 h</span>
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum magna...</p>
+                                </div>
+                                <div class="text-align">
+                                    <div class="text-align">
+                                        <img src="assets/imgs/student-profile/heart.PNG" class="comm-icons">
+                                        <p class="black-2626 fs-12 text-blue-col">24 {{ "Likes" | translate }} </p>
+                                    </div> 
+                                    <span class="spn"></span>
+                                    <div class="text-align">
+                                        <img src="assets/imgs/student-profile/comment.PNG" class="comm-icons">
+                                        <p class="black-2626 fs-12 text-init">12 {{ "Replies" | translate }}</p>
+                                    </div>
+                                    <img src="assets/imgs/institution-pro/home/mic.png" class="mic-icons">
+                                </div>
+                                <p class="fs-11 fs-w4 shw-11 text-blue-color">Show 11 {{ "more replies" | translate }} </p>
+                                <ion-row>
+                                    <ion-col size="2">
+                                        <img class="com-img-per" src="assets/imgs/profile-icons/profile-content.png" />
+                                    </ion-col>
+                                    <ion-col size="10">
+                                        <h6 class="per-name">Sarah ali</h6>
+                                        <div class="comment-box">
+                                        <span class="timehr">11 h</span>
+                                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                                        </div>
+                                        <div class="text-align">
+                                            <div class="text-align">
+                                                <img src="assets/imgs/student-profile/heart.PNG" class="comm-icons no-margin">
+                                                <p class="black-2626 fs-12 text-blue-col">24 {{ "Likes" | translate }} </p>
+                                            </div> 
+                                            <span class="spn"></span>
+                                            <div class="text-align">
+                                                <img src="assets/imgs/student-profile/comment.PNG" class="comm-icons">
+                                                <p class="black-2626 fs-12 text-init">12 {{ "Replies" | translate }} </p>
+                                            </div>
+                                            <img src="assets/imgs/institution-pro/home/mic.png" class="mic-icons">
+                                        </div>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+                
+                        <!-- <div class="record-box ion-text-center">
+                            <div class="wid-100">
+                              <img class="rec-bx" src="assets/imgs/institution-pro/home/record-button.png"/>
+                              <p class="rec-tit">Record Box</p>
+                            </div>
+                        </div> -->
+              
+                        <ion-row class="br-top-1">
+                            <ion-col size="2" class="flex-center">
+                                <img class="com-img-per" src="assets/imgs/profile-icons/profile-content.png" />
+                            </ion-col>
+                            <ion-col size="8" class="text-align">
+                                <div class="wid-100 bg-input">
+                                    <input type="text" placeholder="Leave your throught here" class="input-txt" >
+                                    <div class="align-end">
+                                        <button class="button-post">
+                                              <img src="assets/imgs/institution-pro/home/mic.png" class="icons wid-18">
+                                        </button>
+                                        <button class="button-post">
+                                              <img src="assets/imgs/student-profile/gif.PNG" class="icons">
+                                        </button>
+                                        <button class="button-post">
+                                              <img src="assets/imgs/student-profile/camera.PNG" class="icons">
+                                        </button>
+                                    </div>
+                                </div>
+                            </ion-col>
+                            <ion-col size="2" class="flex-center">
+                                  <img class="sent-img" src="assets/imgs/institution-pro/home/post-icon.png"/>
+                              </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+
+
+            <!-- <div class="home-thin-border bor-2-mid pad-8" *ngFor="let article of getGlobalSearchData">
+                <ion-row nowrap>
+                    <ion-col size="9">
+                        <div class="no-padding text-align"> 
+                            <img src="assets/imgs/home/news.png" slot="start" class="lf-icon"/>
+                            <b class="fs-14 li-title">{{article.category}}</b>
+                        </div> 
+                        <p class="que-text">
+                            {{article.heading}}
+                        </p>
+                        <p class="que-text">
+                            {{article.author}}
+                        </p>
+                        <p class="fs-10 mar-auto color22 artcle-dates">2 MEI 2019 | www.bestlin.com</p>
+                    </ion-col>
+                    <ion-col size="3" class="text-align">
+                        <div class="ion-text-right">
+                            <button ion-button class="dot-btn-css trans-rot bg-none">
+                                <img src="assets/imgs/home/contentoption.png" slot="end" class="dot-icon content-img"/>
+                            </button>
+                            <img src="assets/imgs/home/homepage.png" class="int-stu" />
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div> -->
+            <!-- <div class="no-cover flex-center ion-padding-top text-center" *ngIf="getGlobalSearchData.length == 0">
+                <div class="wid-100">
+                    <img src="assets/imgs/not-found.png" class="not-img-wdth"/>
+                    <p class="text-black fs-w6 fs-18">{{"Nothing yet" | translate}}</p>
+                </div>
+            </div> -->
+      </div>
+  </div>

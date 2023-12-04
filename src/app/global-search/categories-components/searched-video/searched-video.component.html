@@ -1,0 +1,101 @@
+<ion-content class="bg">
+    <div class="scrollmenu" id="style-7" [searchData]="SendGlobalData">
+        <div class="clearbtn" *ngIf="FilterSelected">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Clear all' | translate }}</span></p>
+        </div>
+        <div class="catCategoryselected" (click)="gsHelper.gsMainOpenModel()">
+            <p class="catCategoryheading ion-no-margin"><span class="textColor">{{ 'Videos' | translate }}</span>
+                <span>
+                        <img class="dropdown" src="assets/imgs/Course/bluedropdown.svg">
+                    </span>
+            </p>
+        </div>
+    </div>
+    <div class="resultdiv">
+        <h3 class="font-regular ion-padding-start">{{'We found ' | translate}} 304 {{' results' | translate}}</h3>
+    </div>
+    <div class="content">
+        <ion-item lines="none">
+            <img slot="start" class="contentimage" src="assets/imgs/Course/profile.png" />
+            <ion-label class="contentLabel">
+                <p class="contentHeading">{{'Sarah Watson' | translate}} <img slot="start" src="assets/imgs/User/verified.svg" /></p>
+                <p class="contenttime">2h <img slot="start" src="assets/imgs/Course/world.svg" /></p>
+            </ion-label>
+            <img slot="end" class="slotandbtn" src="assets/New/dot.png" />
+        </ion-item>
+        <div class="container">
+            <img src="assets/imgs/Course/Video4.png" alt="Snow" style="width:100%;">
+            <div class="overlay">
+                <div class="top-left">
+                    <p class="videotime">04:21</p>
+                </div>
+                <div class="centered">
+                    <img class="playimage" src="assets/imgs/Course/playbtn.png" />
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+        <ion-row class="tagrow">
+            <ion-col size="3" class="tagsdiv">
+                <img src="assets/imgs/Course/like.svg" />
+                <p class="tags">{{'Like' | translate}}</p>
+            </ion-col>
+            <ion-col size="3" class="tagsdiv">
+                <img src="assets/imgs/Course/comment.svg" />
+                <p class="tags">{{'Comment' | translate}}</p>
+            </ion-col>
+            <ion-col size="2" class="tagsdiv"></ion-col>
+            <ion-col size="3" class="tagsdiv">
+                <img src="assets/imgs/Course/share.svg" />
+                <p class="tags">{{'Share' | translate}}</p>
+            </ion-col>
+            <ion-col size="1" class="tagsdiv">
+                <img class="dropdownimage" src="assets/edit-popups/burgerking.svg" />
+                <img class="dropdownBtn" src="assets/imgs/Course/greydropdown.svg" />
+            </ion-col>
+
+        </ion-row>
+    </div>
+    <div class="content">
+        <ion-item lines="none">
+            <img slot="start" class="contentimage" src="assets/imgs/Course/digigroup.png" />
+            <ion-label class="contentLabel">
+                <p class="contentHeading">{{'Digi Telecommunications' | translate}}</p>
+                <p class="contenttime">2h <img slot="start" src="assets/imgs/Course/world.svg" /></p>
+            </ion-label>
+            <img slot="end" class="slotandbtn" src="assets/New/dot.png" />
+        </ion-item>
+        <div class="container">
+            <img src="assets/imgs/Course/Video5.png" alt="Snow" style="width:100%;">
+            <div class="overlay">
+                <div class="top-left">
+                    <p class="videotime">04:21</p>
+                </div>
+                <div class="centered">
+                    <img class="playimage" src="assets/imgs/Course/playbtn.png" />
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+        <ion-row class="tagrow">
+            <ion-col size="3" class="tagsdiv">
+                <img src="assets/imgs/Course/like.svg" />
+                <p class="tags">{{'Like' | translate}}</p>
+            </ion-col>
+            <ion-col size="3" class="tagsdiv">
+                <img src="assets/imgs/Course/comment.svg" />
+                <p class="tags">{{'Comment' | translate}}</p>
+            </ion-col>
+            <ion-col size="2" class="tagsdiv"></ion-col>
+            <ion-col size="3" class="tagsdiv">
+                <img src="assets/imgs/Course/share.svg" />
+                <p class="tags">{{'Share' | translate}}</p>
+            </ion-col>
+            <ion-col size="1" class="tagsdiv">
+                <img class="dropdownimage" src="assets/edit-popups/burgerking.svg" />
+                <img class="dropdownBtn" src="assets/imgs/Course/greydropdown.svg" />
+            </ion-col>
+
+        </ion-row>
+    </div>
+</ion-content>

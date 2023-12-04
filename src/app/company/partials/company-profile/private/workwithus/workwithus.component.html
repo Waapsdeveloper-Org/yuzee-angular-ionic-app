@@ -1,0 +1,55 @@
+<!--Company Empty-->
+<div *ngIf="!hideWorkWithUs" class="content-out-section">
+  <div class="content-inr-section paddding-bottom-xl">
+    <div class="section-header-div">
+      <h4 class="section-title no-margin">
+        {{ "Why Work With us" | translate }}
+      </h4>
+      <button ion-button class="edit-blue-icon-btn" (click)="openEdit()">
+        <img src="assets/svgs/edit-blue-icon.svg" />
+      </button>
+    </div>
+
+    <ion-row>
+
+      <div class="display-flx ion-align-items-center work-with-us-btn-div">
+        <ion-button class="fs-13 font-regular color-black" (click)="setSelectedTab('Life', 'LIFE')" mode="md"
+        [class.color-white]="selectedTab == 'Life'"
+        [class.background-blue]="selectedTab == 'Life'">
+          {{ "Life" | translate }}
+        </ion-button>
+        <ion-button class="fs-13 font-regular color-black" (click)="setSelectedTab('Innovative Work', 'INNOVATIVE_WORK')" mode="md"
+        [class.color-white]="selectedTab == 'Innovative Work'"
+        [class.background-blue]="selectedTab == 'Innovative Work'">
+          {{ "Innovative Work" | translate }}
+        </ion-button>
+        <ion-button class="fs-13 font-regular color-black" (click)="setSelectedTab('Students', 'STUDENTS')" mode="md"
+        [class.color-white]="selectedTab == 'Students'"
+        [class.background-blue]="selectedTab == 'Students'">
+          {{ "Students" | translate }}
+        </ion-button>
+        <ion-button class="fs-13 font-regular color-black" (click)="setSelectedTab('Internship', 'INTERNSHIP')" mode="md"
+        [class.color-white]="selectedTab == 'Internship'"
+        [class.background-blue]="selectedTab == 'Internship'">
+          {{ "Internship" | translate }}
+        </ion-button>
+      </div>
+    </ion-row>
+
+
+    <div *ngIf="description !== '' || !null" class="fw-300 margin-top-xl">
+      <see-more-para
+        [trimLength]="200"
+        [description]="description"
+        [classes]="'fs-15 fw-300 color-grey lh-20'"
+      ></see-more-para>
+    </div>
+
+    <div
+      *ngIf="description == '' || null"
+      class="fw-300 margin-top-xl ion-text-center"
+    >
+      {{ "Add " + selectedTab + " Details ! " | translate }}
+    </div>
+  </div>
+</div>

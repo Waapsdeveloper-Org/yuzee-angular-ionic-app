@@ -1,0 +1,75 @@
+<ion-card
+  (click)="openInstitutionProfile(item?.institute_id)"
+  class="institution-card"
+>
+  <ion-card-content>
+    <div class="display-flx ion-align-items-start ion-justify-content-between">
+      <div class="display-flx">
+        <div
+          class="institution-img-div display-grid ion-justify-content-center"
+        >
+          <img class="institution-img" [src]="setImage(item)" />
+          <app-rating-stars ratingStars="2"></app-rating-stars>
+        </div>
+        <div class="institution-text-info-div">
+          <!-- This data will be dynamic -->
+          <h1
+            class="fs-17 font-bold color-black ion-no-margin ion-word-break-all"
+          >
+            {{ item?.name }}
+          </h1>
+          <h3
+            class="fs-12 font-regular color-black ion-no-margin ion-word-break-all webkit-clamp-one"
+          >
+            {{ getLocationStr(item) }}
+          </h3>
+          <ul class="ul-padding list-margin-top">
+            <li class="ion-no-margin fs-12 font-regular color-black">
+              <span>{{ "World Ranking" | translate }}</span>
+              <span class="number-hash-margin">#</span>
+              <span class="font-medium">{{ item?.world_ranking }}</span>
+            </li>
+            <li class="ion-no-margin fs-12 font-regular color-black">
+              <span>{{ "Domestic Ranking" | translate }}</span>
+              <span class="number-hash-margin">#</span>
+              <span class="font-medium">{{ item?.domestic_ranking }}</span>
+            </li>
+            <li class="ion-no-margin fs-12 font-regular color-black">
+              <span
+                class="btn-colored-clear fs-14 font-regular"
+                (click)="openDetails(item)"
+                >{{ "Total courses" | translate }}
+              </span>
+              <span class="font-medium number-hash-margin"
+                >:{{ item?.total_courses }}</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="display-flx ion-align-items-center institution-end-div">
+        <ion-button
+          mode="md"
+          class="more-option-btn ion-no-background pad-ryt-zero"
+          (click)="moreOptions()"
+        >
+          <img src="assets/imgs/application/svg/more-option.svg" />
+        </ion-button>
+      </div>
+    </div>
+
+    <h3 class="fs-12 font-light color-grey">{{ item?.description }}</h3>
+
+    <div
+      class="campus-wrapper expand-wrapper"
+      #expandWrapper
+      [class.collapsed]="!doExpand('Campus')"
+    >
+      <app-institution-offerings-details
+        type="campus"
+        [data]="details"
+      ></app-institution-offerings-details>
+    </div>
+  </ion-card-content>
+</ion-card>

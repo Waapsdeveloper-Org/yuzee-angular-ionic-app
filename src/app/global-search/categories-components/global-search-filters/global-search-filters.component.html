@@ -1,0 +1,40 @@
+<div class="display-flx filter-btns-wrap">
+  <ion-button
+    class="btn-colored-clear fs-13 font-medium"
+    mode="md"
+    (click)="clearAll.emit()"
+    >{{ "Clear all" | translate }}</ion-button
+  >
+  <ion-button
+    (click)="gsHelper.gsMainOpenModel()"
+    class="btn-colored-filled fs-13 font-medium"
+    mode="md"
+    >{{ selectedFilter | translate }}
+    <img class="icon-size-xxsm" src="assets/svgs/white-dropdown-icon.svg" />
+  </ion-button>
+  <div class="btn-separator"></div>
+  <ion-button
+    *ngFor="let filter of filtersArray"
+    mode="md"
+    class="btn-colored-clear fs-13 font-regular color-black"
+    (click)="openFilterPage(filter)"
+    [class.active-filter-btn]="filter.active"
+    [class.color-blue]="filter.active"
+    [class.font-medium]="filter.active"
+    >{{ filter.name | translate }}
+    <div class="count-badge" *ngIf="filter.count !== 0" class="count-badge">
+      <span>
+        <span *ngIf="filter.count < 10">{{ filter.count }}</span>
+        <span *ngIf="filter.count >= 10">+9</span>
+      </span>
+    </div>
+    <img
+      class="icon-size-xxsm"
+      [src]="
+        filter.active
+          ? 'assets/imgs/student-profile/downarrow.svg'
+          : 'assets/svgs/black-dropdown-icon.svg'
+      "
+    />
+  </ion-button>
+</div>

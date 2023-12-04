@@ -1,0 +1,22 @@
+<ion-content class="bg" [scrollEvents]="true">
+
+    <ion-header class="header-sticky">
+      <ion-toolbar class="header-border">
+        <app-global-search-filters selectedFilter="People" [filtersArray]="filterArray" (openFilter)="openFilter($event)" (clearAll)="clearAll()" ></app-global-search-filters>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="result-div">
+      <h3 class="fs-14 font-regular color-grey ion-no-margin">{{'We found' | translate}}  {{gsHelper.searchObject.total_count}} {{'results' | translate}}</h3>
+    </div>
+    <app-people-list></app-people-list>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <!-- When no data found -->
+    <div class="no-data-div background-white ion-align-items-center ion-justify-content-center ion-text-center" *ngIf="list.length == 0">
+      <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No result found." | translate }}</h1>
+    </div>
+
+</ion-content>

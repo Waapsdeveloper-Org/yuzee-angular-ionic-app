@@ -1,0 +1,38 @@
+ion-header{
+    .saveButton{
+        color: #2B68A0;
+        /* font-size: 16px; */
+        text-transform: capitalize;
+    }
+    ion-icon{
+        font-size: 2em;
+        color: #2B68A0;
+    }
+    ion-title{
+        text-align: center;
+    }
+}
+
+.locationLabel{
+    color: #77787B;
+    font-size: 14px;
+}
+.mapDiv{
+    height: 90%;
+    #map{
+        height: 100%;
+    }
+}
+
+.search-bar-ui {
+    height: 40px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    padding: 0px 16px;
+    /* border-radius: 4px; */
+    font-size: 14px;
+    color: #ababab;
+    border-bottom: 1px solid;
+    border-color: #ababab47;
+  }

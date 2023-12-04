@@ -1,0 +1,99 @@
+@import '../achievements.component.scss';
+@import '../../../../../../../theme/custom-header.css';
+
+.circle-pro{
+    margin-top: 0px !important;
+    width: 40px;
+    min-width: 40px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px
+}
+
+.user-education-edit-btn{
+    img{
+        min-width: 15px !important;
+        width: 15px;
+    }
+}
+.see-more {
+    --background: none;
+    --box-shadow: none;
+    text-transform: inherit;
+    height: 28px;
+    --background-activated: #2b68a030;
+    --border-radius: 4px;
+  }
+
+
+
+.tagged-with-info-div{
+    margin-top: 6px !important;
+    h3{
+        margin: 0px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        white-space: normal;
+        overflow: hidden;
+    }
+}
+.tagged-with-logo-imgs-wrap{
+    width: 37px !important;
+    height: 37px !important;
+    min-width: 37px !important;
+}
+.accomplishment-details-desc{
+    margin: 6px 0px 0px 0px;
+    line-height: 20px !important;
+}
+.tagged-with-logo-imgs{
+    width: 37px !important;
+    height: 37px !important;
+    min-width: 37px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+}
+.tagged-with-logo-imgs-layer{
+    width: 33px !important;
+    height: 33px !important;
+    min-width: 33px !important;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 2px;
+    margin-left: 2px;
+    border: 0px solid #e0e0e0;
+}
+.imgs-layer-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.tagged-with-logo-other-imgs{
+    margin-left: -14px;
+}
+.tagged-with-info-names{
+    margin-left: 10px !important;
+    h4{
+        line-height: 17px !important;
+    }
+}
+.documents-title-txt{
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+}
+.documents-component-div{
+    margin: 0px 2px;
+}
+.bottom-border {
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #e0e0e0;
+}
+.lh-20{
+    line-height: 20px !important;
+}

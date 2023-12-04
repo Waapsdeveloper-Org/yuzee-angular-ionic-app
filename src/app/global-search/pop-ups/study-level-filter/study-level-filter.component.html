@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" (click)="back()">
+                <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'Study Level' | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="applyBtn" fill="clear">
+                {{'Apply' | translate}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-item lines="none">
+            <ion-button class="resetBtn" slot="end" fill="clear">
+                {{'Reset' | translate}}
+            </ion-button>
+        </ion-item>
+        <ion-list lines="none">
+            <ion-item *ngFor="let level of AllStudyLevels">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="level.isselected"></ion-checkbox>
+                <ion-label [ngClass]="level.isselected?'customeLabelSelected':'customeLabel'">{{level.studylevel}}</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+</ion-content>

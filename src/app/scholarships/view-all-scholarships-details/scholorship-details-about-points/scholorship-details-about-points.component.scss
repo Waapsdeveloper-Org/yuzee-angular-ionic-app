@@ -1,0 +1,41 @@
+.other-details-wrap, .more-about-this-institution-wrap{
+    padding: 16px 15px 16px 15px;
+    .eligible-courses-txt{
+        margin: 8px 0px 0px 0px;
+    }
+    .more-about-txt{
+        margin: 2px 0px 5px 0px;
+    }
+    .child-card{
+        border-radius: 7px;
+        box-shadow: 0px 0px 3px #00000029;
+        margin: 16px 10px 7px 2px;
+        width: 100%;
+        ion-card-content{
+            padding: 8px 10px;
+            height: 57px !important;
+            .child-card-img{
+                margin-right: 10px;
+            }
+            h3,h4{
+                margin: 0px !important;
+            }
+        }
+    }
+    .validity-card{
+        border-radius: 7px;
+        box-shadow: 0px 0px 3px #00000029;
+        margin: 16px 10px 7px 2px;
+        width: 100%;
+        ion-card-content{
+            padding: 19px 10px 19px 14px;
+            height: 77px !important;
+            .validity-card-img{
+                margin-right: 16px;
+            }
+            h3,h4{
+                margin: 0px !important;
+            }
+        }
+    }
+}

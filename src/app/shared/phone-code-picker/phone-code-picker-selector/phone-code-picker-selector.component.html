@@ -1,0 +1,10 @@
+<!-- <ion-item mode="md" class="text-field item-zero-pad-mar-bg" lines="none" (click)="openSelector()">
+  <ion-label mode="md" class="fixed-Label type-label-txt" position="floating">{{ "Code" | translate }}</ion-label>
+  <ion-input type="text" class="contact-type-input" readonly required mode="md" [(ngModel)]="item.dial_code"></ion-input>
+  <ion-icon  slot="end" class="arrow-drop-down" name="chevron-down-outline"></ion-icon>
+</ion-item> -->
+<ion-item class="text-field item-zero-pad-mar-bg" lines="none" (click)="openSelector()">
+  <ion-label mode="md" position="floating">{{ "Code" | translate }}</ion-label>
+  <ion-input mode="md" readonly required type="text" [(ngModel)]="item.dial_code" ></ion-input>
+    <ion-icon  slot="end" class="arrow-drop-down" name="chevron-down-outline"></ion-icon>
+</ion-item>

@@ -1,0 +1,166 @@
+<app-header-multi [isTitle]="true" [title]="'Edit Profile'" [isSaveOrDone]="true" (action)="save()" (back)="dismiss()">
+</app-header-multi>
+
+<ion-content>
+  <ion-list class="list-padding-bottom">
+    <div class="section-side-padding header-border">
+      
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none">
+            <ion-label position="floating" mode="md" *ngIf="isProfileInstitution == undefined">{{ "Name of company" | translate }}</ion-label>
+            <ion-label position="floating" mode="md" *ngIf="isProfileInstitution">{{ "Name of Institution" | translate }}</ion-label>
+            <ion-input
+              type="text"
+              genericTextField
+              #company_name="ngModel"
+              [minLength]="'textMin'"
+              [maxLength]="'nameMax'"
+              [(ngModel)]="companyName"
+              (ionChange)="masterCheck($event, 'company_name')"
+              name="company_name"
+              required
+              mode="md"
+            >
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div" *ngIf="isProfileInstitution == undefined">
+            {{ !editCompany.company_name && submitted ? "Name should be atleast 2 characters" : handleStringError(company_name.errors) }}
+          </div>
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div" *ngIf="isProfileInstitution">
+          {{ 'Enter institution name' | translate }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none">
+            <ion-label position="floating" mode="md">{{ "Tagline" | translate }}</ion-label>
+            <ion-input
+              type="text"
+              genericTextField
+              #company_tagline="ngModel"
+              [minLength]="'textMin'"
+              [maxLength]="'nameMax'"
+              [(ngModel)]="companyTagLine"
+              (ionChange)="masterCheck($event, 'company_tagline')"
+              name="company_tag_line"
+              required
+              mode="md"
+            >
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">{{ handleStringError(company_tagline.errors) }}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="">
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none" (click)="openDescriptionModal($event)">
+            <ion-label position="floating" mode="md">{{ "Description" | translate }}</ion-label>
+            <ion-input mode="md" (ionChange)="masterCheck($event)" type="text" [(ngModel)]="companyDescription">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">{{ 'Enter description' | translate }}</div>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div class="section-side-padding" *ngIf="isProfileInstitution == undefined">
+      <ion-row class="margin-top-14">
+        <ion-col size="12" class="ion-no-padding">
+          <h1 class="section-title">{{ 'More about this company' | translate }}</h1>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field category-label item-zero-pad-mar-bg margin-top-zero" lines="none" (click)="presentSearchableRadio('industry', $event)">
+            <ion-label position="floating" *ngIf="industry !== ''" mode="md">{{ "Industry" | translate }}</ion-label>
+            <ion-label class="fixed-Label" position="fixed" *ngIf="industry === ''" mode="md">{{ "Industry" | translate }}</ion-label>
+            <ion-input mode="md" type="text" readonly required [(ngModel)]="industry"></ion-input>
+            <ion-icon slot="end" [ngClass]="
+                industry !== '' ? 'arrow-drop-down' : 'bottom-sheet-drop-down'
+              " class="color-blue" name="chevron-down-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+              {{ 'Select industry' | translate }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field category-label item-zero-pad-mar-bg margin-top-zero" lines="none" (click)="presentSearchableRadio('type', $event)">
+            <ion-label position="floating" *ngIf="type !== ''" mode="md">{{ "Type" | translate }}</ion-label>
+            <ion-label class="fixed-Label" position="fixed" *ngIf="type === ''" mode="md">{{ "Type" | translate }}</ion-label>
+            <ion-input type="text" readonly required [(ngModel)]="type" mode="md"></ion-input>
+            <ion-icon slot="end" [ngClass]="
+                type !== '' ? 'arrow-drop-down' : 'bottom-sheet-drop-down'
+              " class="color-blue" name="chevron-down-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+              {{ 'Select type' | translate }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item class="text-field" lines="none">
+            <ion-label position="floating" mode="md">{{ "Year Founded" | translate }}</ion-label>
+            <ion-input mode="md" type="text" maxlength="4" inputmode="numeric" (input)="onYearChange($event)"
+              [(ngModel)]="yearFounded"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+              {{ isYearGreater ? "Year founded not greater than current year" : '' | translate }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item mode="md" class="text-field item-zero-pad-mar-bg margin-top-min margin-top-zero specialities-item" lines="none"
+            (click)="presentSearchableRadio('specialities')">
+            <ion-label mode="md" position="stacked" class="current-location-label pad-bottom-form margin-close-search-fields">
+              <h1 class="fs-20 ion-no-margin font-light">{{ "Specialties" | translate }}</h1>
+            </ion-label>
+            <app-generic-ion-searchbar [placeholder]="'Enter Specialties'"
+              class="wid-100"
+              [disabled]="true"
+              [class]="'custom-search-box-without-close-btn search-box-custom-icon search-box-custom-disabled-behaviour'">
+            </app-generic-ion-searchbar>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="pad-ryt-zero pad-left-zero pad-botm-zero ion-visibility-hidden" *ngIf="speciality?.length == 0">
+          <div class="font-regular color-red validation-msg fs-12 form-error-validation-div">
+            {{!shared.createCompany.speciality ? "Please Select At least one speciality" : '' | translate }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <div class="tags-wrapper" *ngIf="speciality?.length > 0">
+        <div class="tags-div">
+          <ion-button class="tags tags-selected" *ngFor="let acc of speciality; let i = index" (click)="removeSkill(item, i)">
+            <p>{{ acc.speciality_name }}</p>
+            <span>
+              <img src="assets/svgs/cross-blue-icon.svg" />
+            </span>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

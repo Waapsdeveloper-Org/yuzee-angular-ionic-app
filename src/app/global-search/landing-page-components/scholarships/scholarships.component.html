@@ -1,0 +1,15 @@
+<div class="content-inr-section"
+[class.header-border]="seeAll">
+    <div class="display-flx ion-align-items-center ion-justify-content-between pad-bottom-form" *ngIf="seeAll">
+        <h4 class="section-title no-margin">{{"Scholarship" | translate}}</h4>
+        <button class="fs-13 font-medium color-blue ion-no-background button-active-effect pad-ryt-zero">
+            {{ 'See all' | translate }}
+        </button>
+    </div>
+
+    <!-- Scholarships Cards -->
+    
+        <app-scholarships-cards  *ngFor="let item of list; let i = index" [item]="item" (moreOptions)="moreOptions()"></app-scholarships-cards>
+
+    
+</div>

@@ -1,0 +1,31 @@
+<ion-content class="mainbg">
+    <ion-header class="header-sticky">
+        <ion-toolbar class="header-border">
+            <div class="display-flx filter-btns-wrap">
+                <ion-button class="btn-colored-clear fs-13 font-medium" mode="md" (click)="clearAll()">{{ 'Clear all' | translate }}</ion-button>
+                <ion-button (click)="gsHelper.gsMainOpenModel()" class="btn-colored-filled fs-13 font-medium" mode="md">{{ 'Jobs' | translate }}
+                  <img class="icon-size-xxsm" src="assets/svgs/white-dropdown-icon.svg">
+                </ion-button>
+                <div class="btn-separator"></div>
+                <ion-button
+                    *ngFor="let filter of searchJobsFilter"
+                    mode="md" class="btn-colored-clear fs-13 font-regular color-black" (click)="openFilterPage(filter)"
+                    [class.active-filter-btn]="filter.active"
+                    [class.color-blue]="filter.active"
+                    [class.font-medium]="filter.active">{{ filter.name | translate }}
+                    <img class="icon-size-xxsm" [src]="filter.active ? 'assets/imgs/student-profile/downarrow.svg' : 'assets/svgs/black-dropdown-icon.svg'">
+                </ion-button>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+    <div class="result-div">
+        <h3 class="fs-14 font-regular color-grey ion-no-margin">{{'We found' | translate}} 3 {{'results' | translate}}</h3>
+    </div>
+    <app-jobs [data]="jobsList" (newItemEvent)="openJobDetails($event)"></app-jobs>
+
+    <!-- When no data found -->
+    <!-- <div class="no-data-div background-white ion-align-items-center ion-justify-content-center ion-text-center">
+      <img class="no-data-found-img" src="../assets/imgs/noSearchdata.svg" /><h1 class="title font-medium">{{ "No result found." | translate }}</h1>
+    </div> -->
+
+</ion-content>

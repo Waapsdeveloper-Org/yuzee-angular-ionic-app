@@ -1,0 +1,57 @@
+<div class="section-divider-8">
+  <p class="fs-16 disc-text-align search-title">
+    {{"Top 10 courses" | translate}} 
+  </p>
+  <div>
+    <ion-row class="card-sec" *ngFor="let course of [1,1,1]"> 
+        <ion-col size="3" class="pad-0">
+            <img class="back-fullImg" src="assets/imgs/globalicon/new-icons/course-image.jpg">
+            <p class="btm-tag">4 Year</p>
+        </ion-col>
+        <ion-col size="9">
+            <div class="right-side-card">
+                <p class="course-nme">Bachelor in Psychology</p>
+                <img class="dot-img" src="assets/New/dot.png">
+                <ion-row>
+                    <ion-col size="7" class="pad-left-zero">
+                        <p class="uni-name">Amsterdam University...</p>
+                    </ion-col>
+                    <ion-col size="5" class="pad-left-zero pad-ryt-zero">
+                        <p class="rat-in"> <img class="star-img" src="assets/New/star.png"> 4.6</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="sec-bottom">
+                    <ion-col size="6" class="pad-left-zero pad-ryt-zero flx-en">
+                        <p class="loca-name">Melbourne, Australia</p>
+                    </ion-col>
+                    <ion-col size="6" class="pad-left-zero pad-ryt-zero">
+                        <p class="fee-nm">Domestic Fee</p>
+                        <p class="pra-p text-align">
+                            <span class="pr-cls">138,700 AUD</span>/year 
+                            <img class="arw" src="assets/imgs/courseinfo/downar.png">
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-col>
+    </ion-row>
+  </div>
+</div>
+
+
+  <!-- <ion-row *ngFor="let top10Course of courseList">
+        <ion-col col-2 class="search-content-pad flex-center">
+            <img class="course-image" src="assets/imgs/home/logo-course.png"/>
+        </ion-col>
+        <ion-col col-8 class="text-align borr search-content-pad">
+            <div>
+              <p class="mar-auto c-tit">{{top10Course.instituteName}}</p>
+              <p class="fc-name text-dot-css">{{top10Course.facultyName}}</p>
+            </div>
+        </ion-col>
+        <ion-col col-2 class="flex-center borr">
+            <div class="wid-100" text-center>
+                <img class="right-img-wdth"  src="assets/imgs/arrows/rightgrey.png"/>
+            </div>
+        </ion-col>
+     </ion-row> -->

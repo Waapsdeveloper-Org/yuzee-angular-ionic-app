@@ -1,0 +1,50 @@
+<p class="result-txt">1234 {{ "Result" | translate }}</p>
+<div class="secbot" *ngFor="let events of [1, 1, 1, 1]" (click)="eventInfo()">
+  <div class="gsp-section-top">
+    <img src="assets/imgs/school/school.jpeg" class="gsp-event" />
+  </div>
+  <div class="gsp-section-bottom">
+    <ion-row>
+      <ion-col size="3">
+        <p class="month-date">MAY</p>
+        <p class="day">15</p>
+      </ion-col>
+      <ion-col size="9">
+        <p class="university-name">Monash Engineering Fest at Pause Festiva.</p>
+        <p class="university-desc">hosted by <span>Burger King Corporation</span></p>
+        <p *ngIf="!eventJoined" class="event-type">Online Event</p>
+        <p *ngIf="eventJoined" class="event-joined">Fed Square • Arizona, USA • Ruby Avenue</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-row class="br-top">
+    <ion-col size="6" class="flex-center no-padding">
+      <button class="btn-btm text-align">
+        <img
+          *ngIf="!eventJoined"
+          src="assets/imgs/globalicon/new-icons/join.png"
+          class="icon-home"
+        />
+        <img
+          *ngIf="eventJoined"
+          src="assets/imgs/globalicon/new-icons/joined.png"
+          class="icon-home"
+        />
+        <div class="black-2626 fs-12 text-init"> {{ "Join" | translate }} </div>
+      </button>
+    </ion-col>
+    <ion-col size="6" class="flex-center no-padding">
+      <button class="btn-btm text-align">
+        <img src="assets/imgs/student-profile/share.PNG" class="icon-home" />
+        <div class="black-2626 fs-12 text-init">{{ "Share" | translate }} </div>
+      </button>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div class="no-cover flex-center" padding-top text-center *ngIf="EventArray.length == 0">
+  <div class="wid-100">
+    <img src="assets/imgs/not-found.png" class="not-img-wdth" />
+    <p class="text-black fs-w6 fs-18">{{ "Nothing yet" | translate }}</p>
+  </div>
+</div>

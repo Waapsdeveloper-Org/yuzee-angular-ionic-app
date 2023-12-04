@@ -1,0 +1,75 @@
+<ion-header class="header-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="wid-ht-header-btns">
+      <ion-button (click)="dismiss()" class="back-btn-ripple">
+        <img src="assets/imgs/arrows/arrow-left.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-black">{{ "Our Partners" | translate }}</ion-title>
+    <ion-buttons slot="end" class="wid-ht-header-btns">
+      <ion-button class="btn-colored-clear right-css font-medium fs-14 color-blue button-active-effect"
+        (click)="save()" >
+        {{"Save" | translate}}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-row class="ion-margin margin-bottom-xl margin-top-zero">
+    <ion-col class="ion-no-padding">
+      <ion-button
+        [ngClass]="selectedTab == 'institution' ? 'active-tab' : ''"
+        class="inactive-tab fs-14 color-white font-regular"
+        [class.color-black]="selectedTab != 'institution'"
+        (click)="show('institution')">
+        {{ "INSTITUTION" | translate }}
+      </ion-button>
+      <ion-button
+        [ngClass]="selectedTab == 'company' ? 'active-tab' : ''"
+        class="inactive-tab fs-14 color-white font-regular"
+        [class.color-black]="selectedTab != 'company'"
+        (click)="show('company')">
+        {{ "COMPANY" | translate }}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+
+  <div class="sect-port">
+    
+
+    <ion-row>
+      <ion-col (click)="openSearch()" size="12" class="pad-botm-zero pad-left-zero pad-ryt-zero">
+        <app-generic-ion-searchbar [placeholder]="'Search'"
+        class="wid-100"
+        [disabled]="true"
+        [class]="'custom-search-box-without-close-btn search-box-custom-icon search-box-custom-disabled-behaviour'" (ionInput)="openSearch()">
+      </app-generic-ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="selectedTab == 'INSTITUION'">
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <app-generic-all-tags-view [data]="partnerInstitutes" [dataType]="'object'" [keyToShow]="'entity_name'" [showCrossIcon]="true" [showViewAll]="true" (change)="updateInstitution($event)"></app-generic-all-tags-view>
+        </ion-col>
+      </ion-row>
+      <app-empty
+        *ngIf="partnerInstitutes.length == 0"
+        [text]="'No Partners available'"
+      ></app-empty>
+    </div>
+
+    <div *ngIf="selectedTab == 'COMPANY'">
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <app-generic-all-tags-view [data]="partnerCompanies" [dataType]="'object'" [keyToShow]="'entity_name'" [showCrossIcon]="true" [showViewAll]="true" (change)="updateCompany($event)"></app-generic-all-tags-view>          
+        </ion-col>
+      </ion-row>
+      <app-empty
+        *ngIf="partnerCompanies.length == 0"
+        [text]="'No Partners available'"
+      ></app-empty>
+    </div>
+  </div>
+</ion-content>

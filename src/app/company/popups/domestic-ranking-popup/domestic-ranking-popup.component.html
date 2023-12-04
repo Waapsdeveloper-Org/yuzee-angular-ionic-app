@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="header-title" slot="start">
+      <img
+        src="assets/imgs/arrows/arrow-left.svg"
+        class="header-icon"
+        (click)="dismiss()"
+      />
+    </ion-buttons>
+    <ion-title class="text-black">{{ "Domestic Ranking" | translate }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list class="sect-port">
+
+    <ion-item lines="none" *ngFor="let item of instituteList; let i = index;" [ngClass]="(i % 2 == 0) ? 'bg-white' : 'bg-gray'">
+      <ion-avatar slot="start" class="mb-32">
+        <img src="../../../../assets/world-ranking-icons/{{item.icon}}.svg">
+      </ion-avatar>
+      <ion-label>
+        <h2 class="fw-500">{{ item.name | translate}}</h2>
+
+        <ion-label class="ion-float-left yuzee-text-77787B">
+          {{ item.city | translate}}, {{ item.country | translate}}
+        </ion-label>
+
+
+        <ion-label class="fs-14 fw-500 ion-float-right yuzee-text-blue">
+          {{ item.totalRatings | translate}}
+        </ion-label>
+        <br />
+        <div class="mt-5">        
+          <bar-rating        
+        class="larger-icon "
+        rate="{{ item.stars }}"
+        [max]="5"
+        [theme]="'stars'"
+        [readOnly]="true"
+    ></bar-rating>
+  </div>
+
+
+      </ion-label>
+
+  
+    </ion-item>
+
+    </ion-list>
+</ion-content>

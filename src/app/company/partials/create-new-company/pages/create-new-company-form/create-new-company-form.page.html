@@ -1,0 +1,27 @@
+<app-header-multi [isTitle]="true" [title]="'Create a Company'" [isSaveOrDone]="false" (back)="backSlide()" ></app-header-multi>
+<ion-content>
+  <ion-slides
+    [options]="{allowTouchMove: true, initialSlide: 0}"
+    [scrollbar]="true"
+    class="full-page-slides"
+  >
+    <ion-slide>
+      <app-cc-form-logo-slide
+        [instituteForm]="instituteForm"
+        [companyForm]="companyForm"
+        (moveSlide)="moveToNext()"
+        (formChange)="formChange($event)"
+        class="w-100-scroll"
+      ></app-cc-form-logo-slide>
+    </ion-slide>
+    <ion-slide>
+      <app-cc-form-desc-slide
+        (moveSlide)="moveToNext()"
+        class="w-100-scroll"
+      ></app-cc-form-desc-slide>
+    </ion-slide>
+    <ion-slide>
+      <app-cc-form-final-slide class="w-100-scroll"></app-cc-form-final-slide>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

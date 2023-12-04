@@ -1,0 +1,142 @@
+.imgss {
+    width: 100%;
+    height: 168px;
+    padding: 0px 10px 0px;
+    // margin-top: 14px;
+    object-fit: cover;
+}
+
+.cont-pad-1 {
+    border-bottom: 1px solid #d4d4d4;
+    margin: 4px 12px 0px;
+    line-height: 28px;
+    padding-bottom: 10px;
+}
+
+.vid-title {
+    text-transform: initial;
+    color: #2B6870 !important;
+    font-weight: normal;
+    font-size: 16px !important;
+    margin: auto;
+}
+
+.css-lik {
+    font-size: 12px;
+    color: #000000;
+    padding: 0px;
+    margin: 0px !important;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+}
+
+.res-sec {
+    border-bottom: 8px solid #eeeeee !important;
+    border-top: 1px solid #eeeeee !important;
+    padding: 0px 14px;
+}
+
+.like-icons {
+    width: 16px;
+    height: 16px;
+    margin: 0px 6px 0px 0px;
+    object-fit: contain;
+}
+
+.text-init {
+    text-transform: initial;
+    color: #5E5E5E !important;
+    font-weight: normal;
+}
+
+.not-img-wdth {
+    width: 60%
+}
+
+.result-txt {
+    background: #eeeeee;
+    color: #222222 !important;
+    font-size: 14px;
+    margin: 0px;
+    padding: 8px;
+    padding-left: 20px;
+    font-weight: 400;
+}
+
+.vid-btn {
+    background: none;
+    align-items: center;
+    display: flex;
+}
+
+p.vid-tit {
+    font-size: 15px;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Roboto-Medium", sans-serif !important;
+    margin: 2px 0px;
+}
+
+p.vid-time {
+    font-size: 12px;
+    color: #000000;
+    font-weight: 300;
+    font-family: "Roboto-Light", sans-serif !important;
+    margin: 2px 0px;
+}
+
+.sec-vid {
+    padding: 10px 0px 0px 0px;
+    border-bottom: 8px solid #eeeeee;
+}
+
+img.dots-icon {
+    margin: 10px 12px;
+}
+
+.res-sec {
+    border-bottom: 1px solid #d8d8d8 !important;
+    border-top: 1px solid #d8d8d8 !important;
+    padding: 8px 0px;
+}
+
+.icon-home {
+    width: 20px;
+    margin: 0px 6px 0px 0px;
+}
+
+.com-ar-icon {
+    width: 26px;
+    height: 26px;
+    margin: 4px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.heart-likes {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    margin-right: 8px;
+    text-align: center;
+    line-height: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.heart-like-active {
+    background: transparent linear-gradient(0deg, #1CCDF9 0%, #15BCED 44%, #0CA7DF 100%) 0% 0% no-repeat;
+    svg {
+        width: 13px;
+        path {
+            fill: #ffffff !important;
+            stroke: rgb(19, 183, 234);
+        }
+    }
+}
+
+.share-btn {
+    width: 50% !important;
+}

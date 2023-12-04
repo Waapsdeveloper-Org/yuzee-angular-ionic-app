@@ -1,0 +1,349 @@
+.jobtitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0%;
+}
+
+.sharebtn {
+    font-size: 20px;
+}
+
+.startimage {
+    margin-right: 10px;
+}
+
+.job {
+    background: white;
+    margin-bottom: 10px;
+    padding: 6px ​0px;
+}
+
+.uni-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    font-family: "Roboto-Medium", sans-serif;
+    color: #000000;
+}
+
+.uni-sub {
+    margin: 0;
+    padding-top: 8px;
+    color: black;
+    font-size: 12px;
+}
+
+.uni-add {
+    margin: 0;
+    // padding-top: 8px;
+    color: #77787B;
+    font-size: 10px;
+}
+
+.uni-hour {
+    color: #77787B;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-bottom: 45px;
+}
+
+.image {
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.slotandbtn {
+    margin-top: 10px;
+    height: 25px;
+    margin-left: 10px;
+    margin-bottom: 45px;
+}
+
+.divider {
+    height: 1px;
+    border-width: 0;
+    color: #C7C8CA;
+    background-color: #C7C8CA;
+    margin: 10px 10px;
+    margin-bottom: 0%;
+}
+
+.tagrow {
+    margin: 0px 16px;
+}
+
+.tagsdiv {
+    margin: 0px 26px;
+}
+
+.tags {
+    font-size: 12px;
+    color: #2B68A0;
+    margin: 0%;
+    text-align: center;
+    padding: 10px 0px;
+    box-shadow: 0 0 2px #707070;
+    border-radius: 7px;
+}
+
+.moretagsCount {
+    padding: 10px 0px;
+    color: #2B68A0;
+    font-size: 12px;
+    margin: 0%;
+    font-size: 12px;
+    padding-left: 18px;
+}
+
+.compImage {
+    height: 40px;
+    width: 40px;
+}
+
+.inviteBtn {
+    color: white;
+    --background: linear-gradient(#0CA7DF, #15BCED, #1CCDF9);
+    margin: 0% 20px;
+}
+
+.customeitem {
+    height: 35px;
+}
+
+.nomargin {
+    margin: 0%;
+}
+
+.jobdescontainer {
+    border-top: solid 9px #EEEEEE;
+    padding: 5%;
+    margin-bottom: 10px;
+}
+
+.jobdessubcontainer {
+    margin-bottom: 10px;
+}
+
+.jobdesHeading {
+    margin: 0%;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.jobtext {
+    margin: 0%;
+    font-size: 14px;
+    margin-bottom: 6px;
+    padding: 0 17px;
+    span {
+        font-weight: bolder;
+    }
+}
+
+.customdiv {
+    font-size: 14px;
+    height: 30px;
+    span {
+        font-weight: bolder;
+    }
+}
+
+.customdivimg {
+    margin-right: 10px;
+    width: 10px;
+}
+
+.eventbg {
+    width: 170px;
+    height: 200px;
+    position: relative;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.eventdata {
+    width: 170px;
+    height: 200px;
+    position: absolute;
+    background: rgba(122, 122, 122, 0.4);
+    left: 0;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.margin {
+    margin-top: 10px;
+}
+
+.bg {
+    background: white;
+}
+
+.date {
+    font-size: 10px;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+    // margin-top: 20px;
+}
+
+.name {
+    font-size: 13px;
+    font-weight: bolder;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 4px;
+    color: white;
+    width: 100%;
+    height: 40px;
+    white-space: normal;
+    padding-right: 10px;
+}
+
+.area {
+    font-size: 10px;
+    text-align: left;
+    padding-left: 10px;
+    margin: 0%;
+}
+
+.imageDiv {
+    margin: 20px 10px;
+}
+
+.image {
+    height: 28px;
+    width: 28px;
+}
+
+.imagemrdLeft {
+    margin-left: -10px;
+}
+
+.more {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background: white;
+    color: #77787B;
+    font-size: 10px;
+    padding: 7px;
+}
+
+.followbtn {
+    --background: white;
+    width: 150px;
+    color: #2B68A0;
+    font-size: 12px;
+    text-transform: capitalize;
+    border-radius: 6px;
+}
+
+.playbtn {
+    text-align: center;
+    justify-content: center;
+    padding-top: 46px;
+}
+
+.Viewfull {
+    color: #2B68A0;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.username {
+    font-weight: bold;
+    color: black;
+    font-size: 13px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.mgL {
+    margin-left: -10px;
+}
+
+.verifiedImg {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+}
+
+.userfrom {
+    font-size: 10px;
+    color: #77787B !important;
+    margin: 0%;
+    margin-top: -5px;
+}
+
+.usermutuals {
+    font-size: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+.followbtn {
+    --background: transparent;
+    width: 150px;
+    color: #2B68A0;
+    font-size: 12px;
+    text-transform: capitalize;
+    border: solid 1px;
+    border-radius: 6px;
+}
+
+.addpersonimg {
+    margin-right: 10px;
+}
+
+.tags {
+    background: #EFF2F9;
+    color: #2B68A0;
+    font-size: 8px;
+    padding: 5px;
+    margin-bottom: 10px;
+    line-height: 3vh;
+    margin-right: 10px;
+}
+
+.subhead {
+    font-size: 12px;
+    margin-top: 0%;
+}
+
+.tagDiv {
+    margin: 0%;
+    white-space: break-spaces;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.testheading {
+    font-size: 15px;
+    font-weight: 600px;
+}
+
+.testTitle {
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+.testsub {
+    color: #77787B;
+    font-size: 12px;
+    padding: 8px 0;
+}
+
+.slotEndBtn {
+    margin-left: 10px;
+    font-size: 13px;
+    text-transform: capitalize;
+    color: #2B68A0;
+    --border-color: #2B68A0;
+}

@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" (click)="back()">
+                <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title *ngIf="categoryname == 'course'">{{'Study Type' | translate}}</ion-title>
+        <ion-title *ngIf="categoryname == 'institute' || categoryname == 'companies'">{{'Type' | translate}}</ion-title>
+        <ion-title *ngIf="categoryname == 'events'">{{'Event Type' | translate}}</ion-title>
+        <ion-title *ngIf="categoryname == 'jobs'">{{'Job Type' | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="applyBtn" fill="clear">
+                {{'Apply' | translate}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-item lines="none">
+            <ion-button class="resetBtn" slot="end" fill="clear">
+                {{'Reset' | translate}}
+            </ion-button>
+        </ion-item>
+        <ion-list lines="none" *ngIf="categoryname == 'course'">
+            <ion-item *ngFor="let sl of AllStudyLevel">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="sl.isselected"></ion-checkbox>
+                <ion-label [ngClass]="sl.isselected?'customeLabelSelected':'customeLabel'">{{sl.studylevel}}</ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-list lines="none" *ngIf="categoryname == 'institute'">
+            <ion-item *ngFor="let it of IntituteType">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="it.isselected"></ion-checkbox>
+                <ion-label [ngClass]="it.isselected?'customeLabelSelected':'customeLabel'">{{it.type}}</ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-list lines="none" *ngIf="categoryname == 'events'">
+            <ion-item *ngFor="let et of EventType">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="et.isselected"></ion-checkbox>
+                <ion-label [ngClass]="et.isselected?'customeLabelSelected':'customeLabel'">{{et.type}}</ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-list lines="none" *ngIf="categoryname == 'jobs'">
+            <ion-item *ngFor="let jb of JobType">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="jb.isselected"></ion-checkbox>
+                <ion-label [ngClass]="jb.isselected?'customeLabelSelected':'customeLabel'">{{jb.type}}</ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-list lines="none" *ngIf="categoryname == 'companies'">
+            <ion-item *ngFor="let ct of CompanyType">
+                <ion-checkbox class="checkbox" slot="start" mode="md" [checked]="ct.isselected"></ion-checkbox>
+                <ion-label [ngClass]="ct.isselected?'customeLabelSelected':'customeLabel'">{{ct.type}}</ion-label>
+            </ion-item>
+        </ion-list>
+
+    </ion-grid>
+</ion-content>

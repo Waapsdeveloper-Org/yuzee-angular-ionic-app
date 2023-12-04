@@ -1,0 +1,30 @@
+<!--ABOUT TAB -->
+<!-- <router-outlet> -->
+<div>
+  <app-about [isInstitute]="isInstitute"></app-about>
+  <app-user-find-me profileType="institution" [isInstitute]="isInstitute"></app-user-find-me>
+  <app-company-profile-verification [isInstitute]="isInstitute"></app-company-profile-verification>
+  <app-add-to-profile-item [isInstitute]="isInstitute" [lockItem]="'Website'" [profileType]="isInstitute ? 'INSTITUTE' : 'COMPANY'" [contacts]="ccHelperService.contacts" ></app-add-to-profile-item>
+  <app-aboutus [isInstitute]="isInstitute"></app-aboutus>
+  <app-introductory-video [isInstitute]="isInstitute"></app-introductory-video>
+  <app-location [isInstitute]="isInstitute"></app-location>
+  <app-side-info-cards cardName="Courses and scholarships" [cardArray]="infoCardArray"></app-side-info-cards>
+  <app-workwithus></app-workwithus>
+  <app-contactdetails [isInstitute]="isInstitute"></app-contactdetails>
+  <app-achievements></app-achievements>
+  <app-awards></app-awards>
+  <app-partners></app-partners>
+  <app-faq [profileType]="'COMPANY'" [entityId]="getEntityId()" ></app-faq>
+  <!-- <app-faq [isInstitute]="isInstitute"></app-faq> -->
+  <!-- Needed in future -->
+  <!-- <app-highlights></app-highlights>
+    <app-network></app-network>
+    <app-jobs-available></app-jobs-available> -->
+</div>
+<!-- </router-outlet> -->
+<ion-fab horizontal="end" vertical="bottom" class="btn">
+  <ion-fab-button (click)="openAddtoProfile()" class="fab-btn fab-custom-btn">
+    <img [profileType]="'COMPANY'" [entityId]="" src="assets/svgs/add-btn-white.svg">
+  </ion-fab-button>
+</ion-fab>
+<!--ABOUT TAB -->

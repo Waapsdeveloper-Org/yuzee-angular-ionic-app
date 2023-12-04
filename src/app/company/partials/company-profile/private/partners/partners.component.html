@@ -1,0 +1,133 @@
+<!--Our Partners-->
+<ng-container *ngIf="!isLoading">
+  <div *ngIf="!isCompanyEmpty || !isPartnerEmpty" class="content-out-section">
+    <div class="content-inr-section paddding-top-18">
+
+      <div class="section-header-div">
+        <h4 class="section-title no-margin">{{ "Our Partners" | translate }}</h4>
+        <button
+          ion-button
+          class="edit-blue-icon-btn"
+          (click)="editOurPartners()"
+        >
+          <img src="assets/svgs/edit-blue-icon.svg" />
+        </button>
+      </div>
+
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-button
+            fill="clear"
+            [ngClass]="selectedTab == 'institution' ? 'active-tab' : ''"
+            [class.color-black]="selectedTab != 'institution'"
+            class="inactive-tab fs-14 color-white font-regular"
+            (click)="setSelectedTab('institution')"
+          >
+            {{ "INSTITUTION" | translate }}
+          </ion-button>
+          <ion-button
+            fill="clear"
+            [ngClass]="selectedTab == 'company' ? 'active-tab' : ''"
+            [class.color-black]="selectedTab != 'company'"
+            class="inactive-tab fs-14 color-white font-regular"
+            (click)="setSelectedTab('company')"
+          >
+            {{ "COMPANY" | translate }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <div *ngIf="selectedTab == 'INSTITUTION'" class="institution-partner-item-div-wrap">
+        <ion-row
+          class="ion-align-items-start"
+          *ngFor="let item of partnerCompanies | slice:0:3; let i = index; let last = last"
+          [hidden]="i > 3"
+        ><!-- partnerInstitutes -->
+        <ion-item lines="none" mode="md" class="wid-100">
+          <div class="partner-profile-image-div">
+            <img class="partner-profile-image" [src]="item.icon ? item.icon : 'assets/imgs/application/svg/default-picture/default-institute.svg'"
+            onError="this.src='assets/imgs/application/svg/default-picture/default-institute.svg'"/>
+            <app-rating-stars [ratingvalue]="3"></app-rating-stars>
+          </div>
+          <div class="wid-100 partner-wrap-info-div"
+          [class.partner-wrap-info-div-no-border]="last">
+            <p class="ion-no-margin fs-14 font-medium color-black webkit-clamp-one ion-word-break-all">{{ item?.entity_name }}</p>
+              <p class="fs-12 font-regular color-black partner-ranking-txt">
+                <span>{{ 'WR' | translate }} <span class="ranking-value">#{{ item?.world_ranking ? item?.world_ranking : 0 }}</span></span>
+                <span class="separator-dot"> • </span>
+                <span>{{ 'DR' | translate }} <span class="ranking-value">#{{ item?.domestic_ranking ? item.domestic_ranking : 0 }}</span></span>
+              </p>
+              <p class="fs-12 font-regular color-grey partner-address-txt ion-word-break-all first-letter-cap">{{ item?.address }}</p>
+          </div>
+        </ion-item>
+
+        </ion-row>
+      </div>
+      <div *ngIf="selectedTab == 'company'" class="company-partner-item-div-wrap">
+        <ion-row
+          class="ion-align-items-start company-partner-item-row"
+          *ngFor="let item of partnerCompanies | slice:0:2; let i = index; let last = last"
+          [hidden]="i > 2">
+            <div class="wid-100">
+              <div class="display-flx wid-100">
+                <div class="partner-profile-image-div">
+                  <img class="partner-profile-image" [src]="item.icon ? item.icon : 'assets/svgs/default-company-icon.svg'"
+                  onError="this.src='assets/svgs/default-company-icon.svg'"/>
+                </div>
+                <div class="wid-100 partner-company-info-wrap">
+                  <div>
+                    <!-- This data will be dynamic -->
+                    <h3 class="fs-13 color-black font-medium ion-no-margin ion-word-break-all webkit-clamp-one">{{item?.entity_name}}</h3>
+                    <h4 class="fs-9 font-regular color-grey ion-no-margin ion-word-break-all webkit-clamp-one">{{ item?.address }}</h4>
+                    <div class="company-rating-div">
+                      <app-rating-stars [ratingvalue]="3"></app-rating-stars>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="partner-company-slider-card-wrap-div display-flx">
+                <ion-card class="partner-company-slider-card display-flx ion-align-items-center" *ngFor="let val of partnerCompanySlider">
+                  <img class="icon-size-lg" [src]="val.icon">
+                  <div>
+                    <h5 class="fs-12 font-medium ion-no-margin color-black webkit-clamp-one ion-word-break-all">{{ val.title }}</h5>
+                    <h5 class="fs-12 font-light ion-no-margin color-black webkit-clamp-one ion-word-break-all">{{ val.desc }}</h5>
+                  </div>
+                </ion-card>
+              </div>
+            </div>
+        </ion-row>
+      </div>
+
+      <ion-button class="see-more-btn font-regular fs-14 color-blue"
+        (click)="seeMore()">
+        <span>{{ "View all" | translate }}</span>
+      </ion-button>
+    </div>
+  </div>
+</ng-container>
+
+<div *ngIf="isLoading && !isInstitute" class="content-out-section">
+  <div class="content-inr-section paddding-top-18 paddding-bottom-xl">
+    <ion-row class="ion-margin-bottom">
+      <ion-col class="ion-no-padding" size="2">
+        <ion-skeleton-text animated class="logo-skeleton"></ion-skeleton-text>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+        <ion-skeleton-text style="width: 50%" animated></ion-skeleton-text>
+        <ion-skeleton-text style="width: 25%" animated></ion-skeleton-text>
+        <ion-skeleton-text style="width: 70%" animated></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding" size="2">
+        <ion-skeleton-text animated class="logo-skeleton"></ion-skeleton-text>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+        <ion-skeleton-text style="width: 50%" animated></ion-skeleton-text>
+        <ion-skeleton-text style="width: 25%" animated></ion-skeleton-text>
+        <ion-skeleton-text style="width: 70%" animated></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+
+  <div *ngIf="bannerInfo">
+    <ion-row class="contentGrid">
+      <ion-col class="about-section-wrapper">
+        <div class="about-section-wrap-div">
+          <img class="lef-icon-ban" src="assets/svgs/about-location-icon.svg" />
+          <h3 class="views-info color-black fs-15 font-light">
+            <span *ngIf="!isInstitute">
+              {{ location }}
+            </span>
+
+            <span *ngIf="isInstitute" class="ion-text-capitalize">
+              {{ bannerInfo?.city_name }}, {{ bannerInfo?.state_name }}, {{ bannerInfo?.country_name }}
+            </span>
+          </h3>
+        </div>
+
+        <div class="about-section-wrap-div">
+          <img *ngIf="isInstitute" class="lef-icon-ban" src="assets/svgs/about-school-icon.svg" />
+          <img *ngIf="!isInstitute" class="lef-icon-ban" src="assets/svgs/three-blocks-icon.svg" />
+          <h3 class="views-info color-black fs-15 font-light">
+            <span *ngIf="!isInstitute">
+              {{
+              bannerInfo?.number_of_locations +
+              " " +
+              ("Other Branches" | translate)
+              }}
+            </span>
+
+            <span *ngIf="isInstitute" class="ion-text-lowercase"> {{
+              bannerInfo?.business_account_type
+              ? bannerInfo?.business_account_type
+              : "Loading..."
+              }}
+            </span>
+          </h3>
+        </div>
+
+        <div class="about-section-wrap-div">
+          <img *ngIf="isInstitute"  class="lef-icon-ban" src="assets/svgs/about-internet-icon.svg" />
+          <img *ngIf="!isInstitute" class="lef-icon-ban" src="assets/svgs/briefcase-icon.svg" />
+          <h3 class="views-info color-black fs-15 font-light">
+            <span *ngIf="!isInstitute">
+              {{
+              bannerInfo?.number_of_jobs +
+              " " +
+              ("Jobs / Internships" | translate)
+              }}
+            </span>
+
+            <span *ngIf="isInstitute">
+              <!-- {{ bannerInfo?.institute_category_type_name | titlecase}} -->
+              {{ bannerInfo?.institute_affiliaction_type | titlecase}}
+            </span>
+            <span *ngFor="let item of bannerInfo?.institute_type">
+              {{item.replace("_"," ") | titlecase }}
+            </span>
+          </h3>
+        </div>
+
+        <div class="about-section-wrap-div">
+          <img class="lef-icon-ban" src="assets/svgs/about-degree-icon.svg" />
+          <h3 class="views-info color-black fs-15 font-light">
+            <!-- Will use in future -->
+            <!-- <span> {{ bannerInfo?.number_of_scholarship + " " + ("Scholarships" | translate) }}</span> -->
+            <span> {{ "Scholarships" | translate }}</span>
+          </h3>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+<div class="main-skeleton-container" *ngIf="!bannerInfo">
+  <div class="ion-padding bg-white">
+    <ion-skeleton-text class="width60" animated></ion-skeleton-text>
+    <ion-skeleton-text class="width60" animated></ion-skeleton-text>
+    <ion-skeleton-text class="width60" animated></ion-skeleton-text>
+  </div>
+</div>

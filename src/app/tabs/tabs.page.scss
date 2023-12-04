@@ -1,0 +1,78 @@
+ion-tab-bar{
+    border: 0;
+    margin-top: -1px;
+    box-shadow: 0px -0.5px 2px #e0e0e0ad;
+}
+ion-tab-button#tab-button-home .custom-home {
+    content: url("../../assets/svgs/tab-icons/main-tab-control-icon.svg") !important;
+}
+
+ion-tab-button#tab-button-home[aria-selected=true] .custom-home {
+    content: url("../../assets/svgs/tab-icons/main-tab-control-icon-active.svg") !important;
+}
+
+ion-tab-button#tab-button-search .custom-search {
+    content: url("../../assets/svgs/tab-icons/main-tab-chat-icon.svg") !important;
+}
+
+ion-tab-button#tab-button-search[aria-selected=true] .custom-search {
+    content: url("../../assets/svgs/tab-icons/main-tab-chat-icon-active.svg") !important;
+}
+
+ion-tab-button#tab-button-job-applicants .custom-job-applicants {
+    content: url("../../assets/imgs/tabicon/deactivate/brief-deac.png") !important;
+}
+
+ion-tab-button#tab-button-job-applicants[aria-selected=true] .custom-job-applicants {
+    content: url("../../assets/imgs/tabicon/activate/brief.png") !important;
+}
+
+ion-tab-button#tab-button-school .custom-school {
+    content: url("../../assets/imgs/tabicon/deactivate/school-deac.png") !important;
+}
+
+ion-tab-button#tab-button-school[aria-selected=true] .custom-school {
+    content: url("../../assets/imgs/tabicon/activate/school.png") !important;
+}
+
+ion-tab-button#tab-button-notification .custom-notification {
+    content: url("../../assets/svgs/tab-icons/main-tab-notification-icon.svg") !important;
+}
+
+ion-tab-button#tab-button-notification[aria-selected=true] .custom-notification {
+    content: url("../../assets/svgs/tab-icons/main-tab-notification-icon-active.svg") !important;
+}
+
+ion-tab-button#tab-button-menu .custom-menu {
+    content: url("../../assets/svgs/tab-icons/main-tab-profile-icon.svg") !important;
+}
+
+ion-tab-button#tab-button-menu[aria-selected=true] .custom-menu {
+    content: url("../../assets/svgs/tab-icons/main-tab-profile-icon-active.svg") !important;
+}
+ion-tab-button#tab-button-job .custom-job {
+    content: url("../../assets/svgs/tab-icons/main-tab-suitcase-icon.svg") !important;
+}
+
+ion-tab-button#tab-button-job[aria-selected=true] .custom-job {
+    content: url("../../assets/svgs/tab-icons/main-tab-suitcase-icon-active.svg") !important;
+}
+
+ion-tab-button#tab-button-application-procedure .custom-application-procedure {
+    content: url("../../assets/imgs/tabicon/deactivate/app.png") !important;
+}
+
+ion-tab-button#tab-button-application-procedure[aria-selected=true] .custom-application-procedure {
+    content: url("../../assets/imgs/tabicon/activate/application.png") !important;
+}
+
+ion-tab-button#tab-button-all-apply-process .custom-all-apply-process {
+    content: url("../../assets/svgs/tab-icons/main-tab-app-icon.svg") !important;
+}
+
+ion-tab-button#tab-button-all-apply-process[aria-selected=true] .custom-all-apply-process {
+    content: url("../../assets/svgs/tab-icons/main-tab-app-icon-active.svg") !important;
+}
+ion-tab-button {
+    --ripple-color: #2b68a0 !important;
+}

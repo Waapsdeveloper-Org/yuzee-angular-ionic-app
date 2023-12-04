@@ -1,0 +1,30 @@
+<div class="section-divider-8">
+  <p class="fs-16 disc-text-align search-title">
+     {{ "People you may know" | translate }}
+  </p>
+  <div class="container-course-info"  [ngClass]="{courseInfo: courseInfo}">
+    <ion-row *ngFor="let item of [1,1,1,1]" class="crd-people">
+      <ion-col size="2" class="text-align">
+          <img class="ach-imagess" src="assets/imgs/student-profile/portfolio/people.PNG" />
+      </ion-col>
+      <ion-col size="8" class="text-align bor-bot1 row-padi2">
+          <div>
+              <p class="no-margin a-tit">Rick Novak</p>
+              <p class="no-margin a-desc">French School of Kuala Lumpur</p>
+              <p class="no-margin a-desc1">8 {{ "mutual friends" | translate }} </p>
+          </div>
+      </ion-col> 
+      <ion-col size="2" class="flex-center bor-bot1">
+            <img class="add-people" src="assets/imgs/student-profile/portfolio/add-people.PNG" />
+      </ion-col>
+    </ion-row>
+  </div>
+  <button ion-button class="bg-none no-border text-blue-col no-margin btn-viewmore bg-white" [ngClass]="(courseInfo)?'slideIn':'slideUp'"  (click)="openSeeAllCourses()">
+      <span *ngIf="!courseInfo" class="text-align">
+           {{ "See more" | translate }}
+      </span>
+      <span *ngIf="courseInfo" class="text-align">
+           {{ "See less" | translate }}
+      </span>
+  </button>
+</div>

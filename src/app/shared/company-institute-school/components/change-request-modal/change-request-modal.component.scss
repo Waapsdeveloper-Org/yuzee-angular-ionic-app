@@ -1,0 +1,38 @@
+@import "../../../../../theme/custom-header.css";
+ion-header {
+    ion-toolbar {
+        height: 27px !important;
+    }
+}
+
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0 !important;
+}
+
+.checkbox-checked {
+    --background-checked: #2568a0;
+    --border-color-checked: #2568a0;
+    --border-width: 1px;
+}
+
+ion-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    --border-radius: 14% !important;
+    --background-checked: #2568a0;
+    --border-color-checked: #2568a0;
+    --checkmark-width: 2px;
+    margin: 0px 10px 0px 2px;
+}
+
+.btn-size
+{width: 120px; height: 36px;}
+
+.mb-30
+{
+    margin-bottom: 30px;
+}
+
+.bold-number {
+    font-weight: bold;
+  }

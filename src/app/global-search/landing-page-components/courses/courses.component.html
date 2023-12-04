@@ -1,0 +1,15 @@
+<div class="content-inr-section"
+[class.header-border]="seeAll">
+    <div class="display-flx ion-align-items-center ion-justify-content-between pad-bottom-form" *ngIf="seeAll">
+        <h4 class="section-title no-margin">{{"Courses" | translate}}</h4>
+        <button class="fs-13 font-medium color-blue ion-no-background button-active-effect pad-ryt-zero">
+            {{ 'See all' | translate }}
+        </button>
+    </div>
+
+    <app-courses-cards [courseList]="courseList"
+    [moreOption]="true"
+    (newEventDetails)="openCourseDetails($event)"
+    (newEventOptions)="moreOptions($event)"
+    (newEventCourseInfo)="openCourseInfo($event)"></app-courses-cards>
+</div>

@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar #toolbar class="background-white">
+    <div class="display-flx ion-align-items-center header-div">
+      <ion-buttons slot="start" class="wid-ht-header-btns">
+        <ion-button (click)="goBack()" class="back-btn-ripple back-btn">
+          <img src="assets/imgs/arrows/arrow-left.svg" class="header-icon" />
+        </ion-button>
+      </ion-buttons>
+      <ion-searchbar
+        #search
+        autocorrect="off"
+        class="customSearchBox-without-close-btn search-box-custom-icon"
+        placeholder="{{ 'Sear123ch' | translate }}"
+        [debounce]="2000"
+        (ionInput)="searchInput($event)"
+      >
+        <img src="assets/svgs/location-search-icon.svg" />
+      </ion-searchbar>
+      <ion-buttons slot="end" class="wid-ht-header-btns flex-center">
+        <ion-button
+          class="back-btn-ripple more-option-btn"
+          (click)="open3dotpopup()"
+        >
+          <img src="assets/imgs/instituion-profile/menuicon.svg" />
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+  <div class="display-flx filter-btns-wrap header-border">
+    <ion-button
+      class="btn-colored-clear fs-13 font-medium"
+      mode="md"
+      (click)="clearAll()"
+      [hidden]="isHiddenClearAll()"
+      >{{ "Clear all" | translate }}</ion-button
+    >
+    <ion-button
+      class="btn-colored-filled fs-13 font-medium"
+      mode="md"
+      (click)="filterBtns('status')"
+      >{{ this.scHelper?.params?.status | translate }}
+      <img src="assets/svgs/white-dropdown-icon.svg" />
+    </ion-button>
+    <div class="btn-separator"></div>
+    <ion-button
+      mode="md"
+      class="btn-colored-clear fs-13 font-regular color-black"
+      (click)="filterBtns('nationalities')"
+      [class.active-filter-btn]="isFilterActive('nationalities')"
+      [class.color-blue]="isFilterActive('nationalities')"
+      [class.font-medium]="isFilterActive('nationalities')"
+      >{{ "Eligible Nationalities" | translate }}
+      <img
+        [src]="
+          eligibleNationalityFilter
+            ? 'assets/imgs/student-profile/downarrow.svg'
+            : 'assets/svgs/black-dropdown-icon.svg'
+        "
+      />
+    </ion-button>
+    <ion-button
+      mode="md"
+      class="btn-colored-clear fs-13 font-regular color-black"
+      (click)="filterBtns('deadline')"
+      [class.active-filter-btn]="isFilterActive('deadline')"
+      [class.color-blue]="isFilterActive('deadline')"
+      [class.font-medium]="isFilterActive('deadline')"
+      >{{ "Deadline" | translate }}
+      <img
+        [src]="
+          dealineFilter
+            ? 'assets/imgs/student-profile/downarrow.svg'
+            : 'assets/svgs/black-dropdown-icon.svg'
+        "
+      />
+    </ion-button>
+    <ion-button
+      mode="md"
+      class="btn-colored-clear fs-13 font-regular color-black"
+      (click)="filterBtns('levels')"
+      [class.active-filter-btn]="isFilterActive('levels')"
+      [class.color-blue]="isFilterActive('levels')"
+      [class.font-medium]="isFilterActive('levels')"
+      >{{ "Study Level" | translate }}
+      <div *ngIf="languageFilter" class="language-badge">
+        <span class="fs-10 font-regular color-white">5</span>
+      </div>
+      <img
+        [src]="
+          languageFilter
+            ? 'assets/imgs/student-profile/downarrow.svg'
+            : 'assets/svgs/black-dropdown-icon.svg'
+        "
+      />
+    </ion-button>
+    <ion-button
+      mode="md"
+      class="btn-colored-clear fs-13 font-regular color-black"
+      (click)="filterBtns('validity')"
+      [class.active-filter-btn]="isFilterActive('validity')"
+      [class.color-blue]="isFilterActive('validity')"
+      [class.font-medium]="isFilterActive('validity')"
+      >{{ "Validity" | translate }}
+      <img
+        [src]="
+          validityFilter
+            ? 'assets/imgs/student-profile/downarrow.svg'
+            : 'assets/svgs/black-dropdown-icon.svg'
+        "
+      />
+    </ion-button>
+    <ion-button
+      mode="md"
+      class="btn-colored-clear fs-13 font-regular color-black"
+      (click)="filterBtns('Sortby')"
+      [class.active-filter-btn]="isFilterActive('Sortby')"
+      [class.color-blue]="isFilterActive('Sortby')"
+      [class.font-medium]="isFilterActive('Sortby')"
+      >{{ "Sort by" | translate }}
+      <img
+        [src]="
+          Sortby
+            ? 'assets/imgs/student-profile/downarrow.svg'
+            : 'assets/svgs/black-dropdown-icon.svg'
+        "
+      />
+    </ion-button>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="content-inr-section">
+    <h2 class="section-title">
+      {{ scHelper?.apiCount }} {{ "Scholarships" | translate }}
+    </h2>
+    <!-- Scholarships offered -->
+    <app-all-scholarships></app-all-scholarships>
+  </div>
+</ion-content>

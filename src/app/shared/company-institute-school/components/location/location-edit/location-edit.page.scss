@@ -1,0 +1,16 @@
+@import "../../../../../company/partials/company-profile/company-profile.page.scss";
+
+ion-header {
+  .saveButton {
+    color: #2b68a0;
+    text-transform: capitalize;
+  }
+  ion-icon {
+    font-size: 2em;
+    color: #2b68a0;
+  }
+  ion-title {
+    text-align: center;
+  }
+}
+

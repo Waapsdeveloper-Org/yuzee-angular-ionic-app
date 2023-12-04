@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="bor-bot" (click)="closeModal()"></div>
+  <ion-list class="ion-margin-top">
+    <ion-radio-group mode="md" [(ngModel)]="selectedData">
+      <ion-item
+        *ngFor="let item of data; let i = index"
+        (click)="selectValue(item)"
+        lines="none"
+      >
+        <ion-label
+
+          class="inner-names"
+          [ngClass]="selectedData == item ? 'color-blue' : ''"
+          >{{ item }}
+        </ion-label>
+
+        <ion-radio
+
+          slot="end"
+          mode="md"
+          [value]="item"
+          [ngClass]="isDisabled(i) ? 'radio-checked' : ''"
+          [disabled]="isDisabled(i)"
+        >
+        </ion-radio>
+      
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

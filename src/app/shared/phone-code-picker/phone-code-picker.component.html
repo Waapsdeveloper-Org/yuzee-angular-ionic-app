@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar class="filter-bottom-sheet-toolbar">
+      <div class="bor-bot" (click)="goBack()"></div>
+      <ion-list-header class="ion-no-padding ion-margin-bottom">
+          <ion-label *ngIf="showNationalities != 'yes' && !showPhoneCode || showPhoneCode == ''" class="text-black ion-no-margin font-regular ion-text-center">{{ "Country Code" | translate }}</ion-label>
+          <ion-label *ngIf="showNationalities != 'yes' && showPhoneCode == 'no'" class="text-black ion-no-margin font-regular ion-text-center">{{ "Pick Nationality" | translate }}</ion-label>
+          <ion-label *ngIf="showNationalities == 'yes'" class="text-black ion-no-margin font-regular ion-text-center">{{ "Eligible Nationalities" | translate }}</ion-label>
+      </ion-list-header>
+
+      <ion-list class="ion-padding-top ion-margin-end ion-margin-start search-bar-list">
+        <ion-row>
+            <ion-col size="12" class="padding-top-bottom-0">
+                <ion-searchbar
+                [(ngModel)]="searchTerm"
+                (ionChange)="onsearch()"
+                readonly
+                placeholder="{{ 'Search country name' | translate}}"
+                class="customSearchBox-without-close-btn search-box-custom-icon">
+                <img src="assets/svgs/location-search-icon.svg">
+            </ion-searchbar>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ 
+  <ion-list>
+    <ion-radio-group mode="md" [(ngModel)]="phoneCode" *ngIf="showNationalities != 'yes'">
+      <ion-item *ngFor="let country of countryCodes" (click)="selectedCode(country)">
+        <ion-label class="country-info">
+          <h3>
+            <span class="fs-20 c-flag">{{ country.flag }}</span>
+            <span *ngIf="!showPhoneCode || showPhoneCode == ''" class="fs-13 font-medium c-code">({{ country.dial_code  }})</span>
+            <span class="fs-13 font-regular c-name">{{ country.name }}</span>
+           
+          </h3>
+        </ion-label>
+        <ion-radio slot="end" [value]="country.name"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ng-container *ngIf="showNationalities == 'yes'">
+      <ng-container *ngFor="let country of countryCodes; let i = index; let last = last">
+        <ion-item lines="none" mode="md" button class="item-display" (click)="selectedNationalities(country)">
+          <ion-label class="country-info fs-14 font-regular color-black" [class.color-blue]="country.isActive">{{ country.name }}</ion-label>
+          <ion-checkbox slot="end" [value]="country.name" [checked]="country.isActive" [class.ion-checkbox-active-width]="country.isActive"></ion-checkbox>
+        </ion-item>
+        <hr *ngIf="!last" class="item-divider">
+      </ng-container>
+    </ng-container>
+  </ion-list>
+
+  <ion-row *ngIf="countryCodes.length == 0">
+    <ion-col size="12">
+      <div class="img">
+        <img src="assets/imgs/noSearchdata.svg" />
+      </div>
+     
+
+      <p class="ion-text-center fs-13 font-medium c-code" >
+        {{ "No Search Results Found !" }}
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <!-- needed in future -->
+  <!-- <div *ngIf="!showPhoneCode || showPhoneCode"class="nodataDiv">
+    <img src="assets/imgs/noSearchdata.svg" />
+
+    <h4 class="title">{{"Just like unicorns, your search wasn't found." | translate}}</h4>
+    <p class="ser-val">Try shortening or rephrasing your search.</p>
+  </div>
+ -->
+</ion-content>
+<ion-footer *ngIf="showNationalities == 'yes'">
+  <ion-row class="flex-center">
+    <ion-button expand="block" class="btn-colored-clear reset-btn fs-16 font-regular color-black" (click)="goBack()" mode="md">{{ 'Reset' | translate }}</ion-button>
+    <ion-button expand="block" class="btn-colored-filled apply-btn fs-14 font-medium color-white" (click)="apply()" mode="md">{{ 'Apply' | translate }}</ion-button>
+  </ion-row>
+</ion-footer>

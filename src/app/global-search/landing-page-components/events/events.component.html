@@ -1,0 +1,43 @@
+<div class="content-inr-section"
+[class.header-border]="seeAll">
+    <div class="display-flx ion-align-items-center ion-justify-content-between pad-bottom-form" *ngIf="seeAll">
+        <h4 class="section-title no-margin">{{"Events" | translate}}</h4>
+        <button class="fs-13 font-medium color-blue ion-no-background button-active-effect pad-ryt-zero">
+            {{ 'See all' | translate }}
+        </button>
+    </div>
+
+    <ion-card class="row event-card display-flx" *ngFor="let event of eventsArray; let last = last; let i = index">
+        <div>
+            <img src="assets/svgs/empty-cover-img.svg" class="event-img hi-100" />
+        </div>
+        <ion-card-content class="display-flx ion-align-items-center event-card-content text-dot-css wid-100">
+            <div class="text-dot-css wid-100">
+                <!-- Here date data will be dynamic -->
+                <div class="display-flx ion-align-items-center ion-justify-content-between wid-100 margin-bottom-6">
+                    <h3 class="color-black font-regular fs-13 event-card-content-info-txt webkit-clamp-two ion-word-break-all">{{event?.event_category}}</h3><!-- Use class 'color-red' if the event is expired -->
+                    <ion-button mode="md" class="more-option-btn ion-no-background pad-ryt-zero" (click)="moreOptions()">
+                        <img src="assets/imgs/application/svg/more-option.svg">
+                    </ion-button>
+                </div>
+                <div class="more-info-div-section">
+                    <!-- Below data will be dynamic -->
+                    <h2 class="slide-title fs-15 font-medium color-black event-card-content-info-txt webkit-clamp-two ion-word-break-all
+                    margin-bottom-12 line-height-20">{{ event?.name }}</h2>
+                    <h4 class="clr-grey fs-13 font-light event-card-content-info-txt text-dot-css ion-word-break-all
+                    margin-bottom-12">{{event?.event_description}}</h4>
+                    <h3 class="color-grey fs-13 font-regular ion-no-margin text-dot-css ion-word-break-all
+                    margin-bottom-12">{{ "Hosted by" | translate }}
+                        <span class="color-blue first-letter-cap">{{event?.email}}</span><!-- This data will be dynamic -->
+                    </h3>
+                    <button class="ion-no-padding color-blue fs-14 font-medium event-card-content-info-txt ion-no-background button-active-effect ion-word-break-all">
+                        <span *ngIf="event.status == 'join'">{{ 'Join Event' | translate }}</span>
+                        <span class="joined-event-span color-darkgrey" *ngIf="event.status == 'joined'">
+                            <img src="assets/svgs/global-search/event-joined-check.svg">
+                            {{ 'Joined' | translate }}</span>
+                    </button>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</div>

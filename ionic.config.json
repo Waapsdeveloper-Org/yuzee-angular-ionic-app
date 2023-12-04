@@ -1,0 +1,7 @@
+{
+  "name": "yuzee",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

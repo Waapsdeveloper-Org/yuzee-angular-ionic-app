@@ -1,0 +1,15 @@
+@import '../../../../company/partials/company-profile/company-profile.page.scss';
+
+.img-width-height {
+    width: 19px;
+    height: 19px;
+}
+
+.responsive-truncate { 
+    width: calc(100% - 44px);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  

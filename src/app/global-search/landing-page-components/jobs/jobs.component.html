@@ -1,0 +1,36 @@
+<div class="content-inr-section"
+[class.header-border]="seeAll">
+    <div class="pad-bottom-form display-flx ion-align-items-center ion-justify-content-between" *ngIf="seeAll">
+        <h4 class="section-title no-margin">{{"Jobs" | translate}}</h4>
+        <button class="fs-13 font-medium color-blue ion-no-background button-active-effect pad-ryt-zero">
+            {{ 'See all' | translate }}
+        </button>
+    </div>
+
+    <ion-card class="job-card" *ngFor="let job of [1,1,1]">
+        <ion-card-content class="ion-no-padding">
+            <div class="display-flx ion-align-items-start wid-100">
+                <img (click)="openModal(job)" class="jobs-img" src="assets/svgs/global-search/job.svg">
+                <div class="wid-100 pad-left-form">
+                    <div class="display-flx ion-align-items-center ion-justify-content-between wid-100 margin-bottom-6">
+                        <h3 class="fs-15 font-bold color-black ion-no-margin webkit-clamp-two ion-word-break-all" (click)="openModal(job)">Data Analyst</h3>
+                        <ion-button mode="md" class="more-option-btn ion-no-background pad-ryt-zero" (click)="moreOptions()">
+                            <img src="assets/imgs/application/svg/more-option.svg">
+                        </ion-button>
+                    </div>
+                    <div class="more-info-div-section">
+                        <h3 class="fs-12 font-light color-darkgreycompany-name webkit-clamp-two ion-word-break-all margin-bottom-8" (click)="openModal(job)">Burger King Corporation</h3>
+                        <h3 class="fs-12 font-light color-black webkit-clamp-two ion-word-break-all" (click)="openModal(job)">Kuala Lumpur, Malaysia</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="tags-wrapper">
+                <div class="tags-div">
+                    <ion-button class="tags tags-selected" *ngFor="let job of [].constructor(5)">
+                        <p>Part-time</p><!-- This data will be dynamic -->
+                    </ion-button>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</div>

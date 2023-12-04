@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon (click)="dismiss()" name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" class="wid-ht-header-btns">
+      <ion-button class="rightcss" (click)="edit()">
+        {{ "Edit" | translate }}
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{ "Contact Details" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="sect-port">
+    <div *ngFor="let item of contactDetails; let last = last">
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <p class="ion-no-margin fs-14 fw-lighter margin-bottom-8">
+            {{ item?.contact_type }}
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row [ngClass]="!last ? 'margin-bottom-28' : 'ion-margin-bottom'">
+        <ion-col class="ion-no-padding" size="1">
+          <img
+            class="img-width-height"
+            [src]="'assets/company-profile/' + getIcon(item) + '.svg'"
+          />
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <p class="no-margin yuzee-text-blue">{{ item?.value }}</p>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
